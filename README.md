@@ -13,14 +13,14 @@ El objetivo principal de este espacio es organizar de forma estructurada los con
 
 El repositorio está organizado por carpetas correspondientes a cada asignatura. A continuación se detalla el contenido actual:
 
-| Asignatura | Descripción / Contenido principal | Estado |
-| :--- | :--- | :---: |
-| Ciencia de Datos | Apuntes, preparación de Certámenes 1 y 2, y resúmenes conceptuales. | En curso |
-| Gestión de proyectos | Fundamentos de gestión de proyectos de software, planificación, metodologías y clases en formato PDF y Markdown. | En curso |
-| Inteligencia de negocio | Clases teóricas de BI, bodegas de datos (Data Warehouses) y desarrollo del Proyecto 4. | En curso |
-| Redes | Redes de computadores estructuradas por capítulos (1 al 8) y resúmenes completos para los certámenes. | En curso |
-| Taller de administración de sistemas | Configuración de entornos, virtualización, contenedores (Docker/LXC) y administración en Linux. | En curso |
-| Visualización | Técnicas de visualización de datos, laboratorios prácticos y presentaciones asociadas. | En curso |
+| Asignatura                           | Descripción / Contenido principal                                                                                |
+| :----------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
+| Ciencia de Datos                     | Apuntes, preparación de Certámenes 1 y 2, y resúmenes conceptuales.                                              |
+| Gestión de proyectos                 | Fundamentos de gestión de proyectos de software, planificación, metodologías y clases en formato PDF y Markdown. |
+| Inteligencia de negocio              | Clases teóricas de BI, bodegas de datos (Data Warehouses) y desarrollo del Proyecto 4.                           |
+| Redes                                | Redes de computadores estructuradas por capítulos (1 al 8) y resúmenes completos para los certámenes.            |
+| Taller de administración de sistemas | Configuración de entornos, virtualización, contenedores (Docker/LXC) y administración en Linux.                  |
+| Visualización                        | Técnicas de visualización de datos, laboratorios prácticos y presentaciones asociadas.                           |
 
 ---
 
