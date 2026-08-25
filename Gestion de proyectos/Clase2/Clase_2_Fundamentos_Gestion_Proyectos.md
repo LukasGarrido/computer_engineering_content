@@ -1,8 +1,7 @@
 # Clase 02 — Fundamentos de la Gestión de Proyectos
 
 **Universidad Técnica Federico Santa María**
-Departamento de Electrónica e Informática — Ingeniería Informática (P701 / P702)
-**Profesora:** Dra. Gerlys Villalobos Fontalvo
+**Profesora:** 
 **Fecha:** 11 – 13 de agosto de 2026
 **Duración total:** 120 minutos (incluye 15 minutos de descanso)
 **Objetivo de la clase:** Comprender los conceptos esenciales sobre proyectos y su relación con las organizaciones.
