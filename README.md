@@ -19,6 +19,7 @@ El repositorio está organizado por carpetas correspondientes a cada asignatura.
 | Gestión de proyectos                 | Fundamentos de gestión de proyectos de software, planificación, metodologías y clases en formato PDF y Markdown. |
 | Inteligencia de negocio              | Clases teóricas de BI, bodegas de datos (Data Warehouses) y desarrollo del Proyecto 4.                           |
 | Redes                                | Redes de computadores estructuradas por capítulos (1 al 8) y resúmenes completos para los certámenes.            |
+| Responsabilidad social y Ética Laboral | Apuntes y análisis sobre ética profesional y responsabilidad social.                                             |
 | Taller de administración de sistemas | Configuración de entornos, virtualización, contenedores (Docker/LXC) y administración en Linux.                  |
 | Visualización                        | Técnicas de visualización de datos, laboratorios prácticos y presentaciones asociadas.                           |
 
