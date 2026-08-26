@@ -11,10 +11,26 @@
             "id": "9b57c0b9870b7af9",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Visualizacion/Laboratorios/Lab powerbi/Laboratorio Power BI - Entregable.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nueva pestaña"
+              "title": "Laboratorio Power BI - Entregable"
+            }
+          },
+          {
+            "id": "1b987f4e245dcd97",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Visualizacion/Laboratorios/Lab powerbi/Lab_S3___PowerBi-2.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "Lab_S3___PowerBi-2"
             }
           }
         ]
@@ -79,7 +95,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.8333435058594
+    "width": 276.8333435058594,
+    "collapsed": true
   },
   "right": {
     "id": "9e7bf7891c800dbb",
@@ -186,6 +203,11 @@
   },
   "active": "9b57c0b9870b7af9",
   "lastOpenFiles": [
+    "Visualizacion/Laboratorios/Lab powerbi/Guia_PowerBI_Pizza_Place_Sales.md",
+    "Visualizacion/Laboratorios/Lab powerbi/Laboratorio Power BI - Entregable.md",
+    "Visualizacion/Laboratorios/Lab powerbi/Lab_S3___PowerBi-2.pdf",
+    "Pasted image 20260825113306.png",
+    "Visualizacion/Laboratorios/Lab powerbi/Conceptos_PowerBI_Explicados.md",
     "Gestion de proyectos/Clase2/Clase_2_Fundamentos_Gestion_Proyectos.md",
     "Gestion de proyectos/Clase3/Clase_3_Gestion_de_Proyectos.md",
     "Gestion de proyectos/Clase4/Clase 4.pdf",
@@ -198,9 +220,6 @@
     "Gestion de proyectos/Clase3/Clase 3.pdf",
     "Gestion de proyectos/Clase3/Sin confirmar 918062.crdownload",
     "Gestion de proyectos/Clase3",
-    "Gestion de proyectos/Clase2",
-    "Visualizacion/Laboratorios/Lab powerbi/Guia_PowerBI_Pizza_Place_Sales.md",
-    "Visualizacion/Laboratorios/Lab powerbi/Conceptos_PowerBI_Explicados.md",
     "Responsabilidad social y Etica Laboral/Analisis_Etica_y_RSE.md",
     "Taller de administracion de sistemas/OVA1 · Máquinas virtuales y contenedores.md",
     "Taller de administracion de sistemas/OVA2 - Datos, acceso y servicios fundamentales de red.md",
