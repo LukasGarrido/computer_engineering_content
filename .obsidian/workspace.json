@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "16fc0e2dd26a218f",
+        "id": "abea6384394f49eb",
         "type": "tabs",
         "children": [
           {
-            "id": "d9d8f1f95b6fd663",
+            "id": "1328bf1013da2bbf",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -83,7 +83,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.8333435058594
+    "width": 276.8333435058594,
+    "collapsed": true
   },
   "right": {
     "id": "9e7bf7891c800dbb",
@@ -188,12 +189,16 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "d9d8f1f95b6fd663",
+  "active": "1328bf1013da2bbf",
   "lastOpenFiles": [
+    "Visualizacion/Laboratorios/Lab powerbi/Laboratorio_Power_BI_Entregable_Completo.md",
+    "Visualizacion/Laboratorios/Lab powerbi/Laboratorio Power BI - Entregable.md",
+    "Gestion de proyectos/Clase2/Clase_2_Fundamentos_Gestion_Proyectos.md",
+    "Gestion de proyectos/Clase4/Clase 04 — Metodologías y Estándares.md",
+    "Gestion de proyectos/Clase3/Clase_3_Gestion_de_Proyectos.md",
     "Visualizacion/Laboratorios/Lab powerbi/Conceptos_PowerBI_Explicados.md",
     "Visualizacion/Laboratorios/Lab powerbi/Guia_PowerBI_Pizza_Place_Sales.md",
     "Visualizacion/Laboratorios/Lab powerbi/Lab_S3___PowerBi-2.pdf",
-    "Visualizacion/Laboratorios/Lab powerbi/Laboratorio Power BI - Entregable.md",
     "Inteligencia de negocio/Clases/Clase 1.pdf",
     "Inteligencia de negocio/Clases/BI_apuntes.md",
     "Inteligencia de negocio/PROYECTO 4/INSTRUCCIONES PROYECTO SALUDVITAL.pdf",
@@ -206,9 +211,6 @@
     "Inteligencia de negocio/Clases/Clase 2.pdf",
     "Inteligencia de negocio/Laboratorios/Ejercicio Lab1.pdf",
     "Inteligencia de negocio/Clases/Lab Clase 2.pdf",
-    "Gestion de proyectos/Clase4/Clase 04 — Metodologías y Estándares.md",
-    "Gestion de proyectos/Clase3/Clase_3_Gestion_de_Proyectos.md",
-    "Gestion de proyectos/Clase2/Clase_2_Fundamentos_Gestion_Proyectos.md",
     "Pasted image 20260825113306.png",
     "Responsabilidad social y Etica Laboral/Analisis_Etica_y_RSE.md",
     "Taller de administracion de sistemas/OVA1 · Máquinas virtuales y contenedores.md",
