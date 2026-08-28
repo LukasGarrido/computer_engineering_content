@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "21eba2812db7a2a8",
+        "id": "ed4dfceacd5af919",
         "type": "tabs",
         "children": [
           {
-            "id": "0c0d065f8e3d07e2",
+            "id": "7c39b586a7324597",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Gestion de proyectos/Certamen1/Resumen_Gestion_de_Proyectos_Clases_2-5.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Resumen_Gestion_de_Proyectos_Clases_2-5"
+              "title": "Nueva pestaña"
             }
           }
         ]
@@ -188,27 +184,28 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "0c0d065f8e3d07e2",
+  "active": "597ae5d26f66b97e",
   "lastOpenFiles": [
+    "Visualizacion/Indicaciones Proyecto-20260828/P___Template___Reporte_final.pdf",
+    "Visualizacion/Indicaciones Proyecto-20260828/P___Indicaciones_para_selección_de_proyecto-2.pdf",
+    "Visualizacion/Indicaciones Proyecto-20260828/[Ejemplo] Automatic_Classification_of_Soot_Propensity_in_Flames_Using_Image_Processing_and_Machine_Learning.pdf",
+    "Visualizacion/Indicaciones Proyecto-20260828",
+    "Visualizacion/Indicaciones Proyecto-20260828.zip",
+    "Visualizacion/Sin confirmar 934423.crdownload",
+    "Gestion de proyectos/Clase5/Clase 5.pdf",
+    "Gestion de proyectos/Clase5/Clase_5_Scrum.md",
+    "Gestion de proyectos/Clase2/Clase 2.pdf",
     "Gestion de proyectos/Clase2/Clase_2_Fundamentos_Gestion_Proyectos.md",
     "Gestion de proyectos/Certamen1/Resumen_Gestion_de_Proyectos_Clases_2-5.md",
     "Gestion de proyectos/Certamen1/Sin confirmar 918237.crdownload",
     "Gestion de proyectos/Certamen1",
-    "Gestion de proyectos/Clase2/Clase 2.pdf",
-    "Gestion de proyectos/Clase5/Clase_5_Scrum.md",
-    "Gestion de proyectos/Clase5/Clase 5.pdf",
     "Gestion de proyectos/Clase5/Sin confirmar 330360.crdownload",
-    "Gestion de proyectos/Clase 5/Sin confirmar 721655.crdownload",
-    "Gestion de proyectos/Clase5",
-    "Gestion de proyectos/Nueva carpeta",
     "Visualizacion/Laboratorios/Lab powerbi/Laboratorio Power BI - Entregable.md",
     "Visualizacion/Laboratorios/Lab powerbi/Laboratorio_Power_BI_Entregable_Completo.md",
     "Gestion de proyectos/Clase4/Clase 04 — Metodologías y Estándares.md",
     "Gestion de proyectos/Clase3/Clase_3_Gestion_de_Proyectos.md",
     "Visualizacion/Laboratorios/Lab powerbi/Conceptos_PowerBI_Explicados.md",
     "Visualizacion/Laboratorios/Lab powerbi/Guia_PowerBI_Pizza_Place_Sales.md",
-    "Visualizacion/Laboratorios/Lab powerbi/Lab_S3___PowerBi-2.pdf",
-    "Inteligencia de negocio/Clases/Clase 1.pdf",
     "Inteligencia de negocio/Clases/BI_apuntes.md",
     "Inteligencia de negocio/PROYECTO 4/PROYECTO SALUDVITAL - Análisis del negocio.md",
     "Inteligencia de negocio/Clases/Clase 1.md",
