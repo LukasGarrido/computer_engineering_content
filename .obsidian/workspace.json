@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "ed4dfceacd5af919",
+        "id": "9a78ced3bd32c34f",
         "type": "tabs",
         "children": [
           {
-            "id": "7c39b586a7324597",
+            "id": "7ec8bc9e1179052c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Gestion de proyectos/Certamen1/Resumen_Gestion_de_Proyectos_Clases_2-5.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nueva pestaña"
+              "title": "Resumen_Gestion_de_Proyectos_Clases_2-5"
             }
           }
         ]
@@ -184,22 +188,21 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "597ae5d26f66b97e",
+  "active": "7ec8bc9e1179052c",
   "lastOpenFiles": [
-    "Visualizacion/Indicaciones Proyecto-20260828/P___Template___Reporte_final.pdf",
+    "Visualizacion/Presentaciones-Documentos/Principal_components_analysis_PCA.pdf",
+    "Gestion de proyectos/Certamen1/Resumen_Gestion_de_Proyectos_Clases_2-5.md",
+    "Gestion de proyectos/Clase2/Clase_2_Fundamentos_Gestion_Proyectos.md",
+    "Visualizacion/Laboratorios/Técnicas de visualización en alta dimensionalidad-20260828/C4_PCA_tSNE.ipynb",
+    "Visualizacion/Laboratorios/Técnicas de visualización en alta dimensionalidad-20260828/C4 - Visualización_2D_3D_conceptos_básicos.ipynb",
+    "Visualizacion/Laboratorios/Técnicas de visualización en alta dimensionalidad-20260828",
+    "Visualizacion/Laboratorios/Técnicas de visualización en alta dimensionalidad-20260828.zip",
+    "Visualizacion/Laboratorios/Sin confirmar 854180.crdownload",
     "Visualizacion/Indicaciones Proyecto-20260828/P___Indicaciones_para_selección_de_proyecto-2.pdf",
+    "Visualizacion/Indicaciones Proyecto-20260828/P___Template___Reporte_final.pdf",
     "Visualizacion/Indicaciones Proyecto-20260828/[Ejemplo] Automatic_Classification_of_Soot_Propensity_in_Flames_Using_Image_Processing_and_Machine_Learning.pdf",
     "Visualizacion/Indicaciones Proyecto-20260828",
-    "Visualizacion/Indicaciones Proyecto-20260828.zip",
-    "Visualizacion/Sin confirmar 934423.crdownload",
-    "Gestion de proyectos/Clase5/Clase 5.pdf",
     "Gestion de proyectos/Clase5/Clase_5_Scrum.md",
-    "Gestion de proyectos/Clase2/Clase 2.pdf",
-    "Gestion de proyectos/Clase2/Clase_2_Fundamentos_Gestion_Proyectos.md",
-    "Gestion de proyectos/Certamen1/Resumen_Gestion_de_Proyectos_Clases_2-5.md",
-    "Gestion de proyectos/Certamen1/Sin confirmar 918237.crdownload",
-    "Gestion de proyectos/Certamen1",
-    "Gestion de proyectos/Clase5/Sin confirmar 330360.crdownload",
     "Visualizacion/Laboratorios/Lab powerbi/Laboratorio Power BI - Entregable.md",
     "Visualizacion/Laboratorios/Lab powerbi/Laboratorio_Power_BI_Entregable_Completo.md",
     "Gestion de proyectos/Clase4/Clase 04 — Metodologías y Estándares.md",
