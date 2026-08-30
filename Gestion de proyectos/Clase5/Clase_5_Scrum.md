@@ -1,6 +1,5 @@
 # Clase 5: Metodologías Ágiles / Scrum
 
-**Profesora:** Dra. Gerlys Villalobos Fontalvo
 **Fecha:** 25 y 27 de agosto de 2026
 **Lugar:** Laboratorios de Redes y 114 (P701 / P702)
 **Universidad Técnica Federico Santa María — Departamento de Electrónica e Informática**
