@@ -182,6 +182,82 @@ Compromiso · Coraje · Enfoque · Apertura · Respeto
 Tableros Kanban (Por hacer / En progreso / En revisión / Hecho) hacen visible el trabajo, facilitan la inspección y la autoorganización. Herramientas: Trello, Jira, monday.com, Azure DevOps.
 
 ---
+# Diferencias entre Enfoque, Metodología y Estándar
+
+**Universidad Técnica Federico Santa María — Ingeniería Informática**
+*Gestión de Proyectos*
+
+---
+
+## Resumen Ejecutivo
+
+En la gestión de proyectos, **Enfoque**, **Metodología** y **Estándar** se estructuran en una jerarquía integradora que responde a tres preguntas clave:
+
+* **Enfoque:** ¿Desde dónde gestionamos? (La Filosofía / Mentalidad)
+* **Metodología / Marco:** ¿Cómo organizamos el trabajo? (La Estructura Práctica)
+* **Estándar:** ¿Qué debemos considerar? (Las Buenas Prácticas Universales)
+
+---
+
+## 1. Enfoque (El *DESDE DÓNDE*)
+
+El **enfoque** representa la filosofía, mentalidad o paradigma general con el que se aborda la incertidumbre y el cambio dentro del proyecto.
+
+* **Definición:** Determina la estrategia global de planificación frente a la capacidad de adaptación.
+* **Pregunta clave:** ¿Desde qué postura gestionaremos la incertidumbre?
+* **Tipos principales:**
+  * **Predictivo:** Planificar detalladamente antes de ejecutar (requisitos estables).
+  * **Adaptativo / Ágil:** Aprender y ajustar durante el desarrollo en ciclos cortos (alta incertidumbre).
+  * **Híbrido:** Combinación de componentes predictivos y adaptativos.
+
+---
+
+## 2. Metodología o Marco (El *CÓMO*)
+
+La **metodología** o marco de trabajo es un sistema práctico y estructurado, diseñado para organizarse día a día dentro de un contexto específico.
+
+* **Definición:** Conjunto integrado de procesos, prácticas, técnicas y roles.
+* **Fórmula:** `Procesos + Prácticas + Técnicas + Roles = Metodología`
+* **Pregunta clave:** ¿Cómo organizaremos el trabajo, roles, reuniones y entregables diariamente?
+* **Ejemplos clave:**
+  * **Scrum:** Marco ágil iterativo (Sprints, Product Owner, Scrum Master, Developers).
+  * **Kanban:** Marco ágil basado en flujo (Tableros visuales, límites de WIP).
+  * **Cascada (Waterfall):** Metodología predictiva secuencial por fases.
+
+---
+
+## 3. Estándar (El *QUÉ*)
+
+Un **estándar** es una guía de referencia internacional que establece principios, áreas de conocimiento y un vocabulario común. Es independiente del contexto o tipo de industria.
+
+* **Definición:** Conjunto universal de buenas prácticas y lineamientos de calidad.
+* **Pregunta clave:** ¿Qué principios y buenas prácticas reconocidas debemos considerar?
+* **Ejemplos clave:**
+  * **PMBOK® Guide** (Project Management Institute - PMI)
+  * **ISO 21500 / ISO 21502** (Organización Internacional de Normalización)
+  * **IPMA ICB®** (International Project Management Association)
+
+---
+
+## Tabla Comparativa
+
+| Dimensión | Enfoque | Metodología / Marco | Estándar |
+| :--- | :--- | :--- | :--- |
+| **Rol Conceptual** | Filosofía / Mentalidad | Sistema práctico y estructurado | Guía de referencia universal |
+| **Pregunta Clave** | ¿Desde dónde abordamos? | ¿Cómo organizamos el trabajo? | ¿Qué debemos considerar? |
+| **Nivel de Detalle** | Filosofía general | Prescriptivo (roles, eventos, artefactos) | Descriptivo (principios, áreas de conocimiento) |
+| **Contexto** | Según el nivel de incertidumbre | Se adapta al equipo y proyecto | Independiente de la industria |
+| **Ejemplos** | Predictivo, Ágil, Híbrido | Scrum, Kanban, Cascada | PMBOK®, ISO 21500, IPMA ICB® |
+
+---
+
+## Jerarquía Integradora
+
+$$\text{ENFOQUE (Mentalidad)} \longrightarrow \text{METODOLOGÍA (Estructura de Trabajo)} \longrightarrow \text{ESTÁNDAR (Buenas Prácticas)}$$
+
+1. **Enfoque:** Define la dirección desde donde partimos (ej. Ágil).
+2. **Metodología:** Define la forma en que el equipo trabaja día a día (ej. Scrum).
+3. **Estándar:** Garantiza el lenguaje común y la calidad técnica (ej. PMBOK®).
 
 ## Hilo conductor entre las 4 clases
 
