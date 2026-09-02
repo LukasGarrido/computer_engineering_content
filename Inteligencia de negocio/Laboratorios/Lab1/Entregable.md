@@ -25,6 +25,8 @@ Algunos autores (ej. Kimball) recomiendan nombrar la fact table según el **proc
 
 ### 4. Modelo dimensional (estrella)
 
+<img width="797" height="443" alt="image" src="https://github.com/user-attachments/assets/7fe55509-6266-4aaf-98d7-efc771621469" />
+
 
 ### 5.Preguntas de negocio
 
