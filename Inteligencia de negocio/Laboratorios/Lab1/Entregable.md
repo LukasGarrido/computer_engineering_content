@@ -22,7 +22,6 @@ Algunos autores (ej. Kimball) recomiendan nombrar la fact table según el **proc
 | **Dim_Parcela**   | id_parcela   | superficie_parcela, ubicación_parcela, nombre_campo, ubicación_campo, superficie_campo | Parcela cosechada, con atributos del campo denormalizados (evita snowflake) |
 | **Dim_Variedad**  | id_variedad  | nombre_variedad, nombre_cultivo, tipo_cultivo                                          | Variedad cosechada, con atributos de Cultivo denormalizados                 |
 | **Dim_Temporada** | id_temporada | nombre_temporada, fecha_inicio, fecha_fin                                              | Temporada agrícola en la que ocurre la cosecha                              |
-**id_tiempo, fecha, día, nombre_día, semana, mes, nombre_mes, trimestre, semestre, año — cumple el mínimo pedido.**
 
 ### 4. Modelo dimensional (estrella)
 
