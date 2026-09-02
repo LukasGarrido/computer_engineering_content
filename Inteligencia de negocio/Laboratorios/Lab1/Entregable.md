@@ -44,8 +44,45 @@ Algunos autores (ej. Kimball) recomiendan nombrar la fact table según el **proc
 ## EJERCICIO 2 — EMPRESA DE TELECOMUNICACIONES "CONECTA"
 
 ### 1.Análisis del negocio 
-*Descripción del problema - Proceso de negocio seleccionado - Objetivo del análisis*
 
+**Descripción del problema:** Conecta no tiene visibilidad clara sobre cómo consumen sus servicios los clientes (Internet, TV, telefonía), lo que dificulta detectar patrones de uso, anticipar saturación de red y evaluar el desempeño comercial de cada plan.
+
+**Proceso de negocio seleccionado:** **Consumo de servicios**. Es el proceso que genera el mayor volumen de eventos medibles y repetibles (cada cliente consume servicio todos los días), y es la base para luego analizar ingresos, calidad y soporte.
+
+**Objetivo del análisis:** Se desea implementar una solución de BI para analizar el comportamiento de los clientes, calidad del servicio y soporte técnico. Medir y comparar el consumo de servicios por cliente, plan y ubicación a lo largo del tiempo, para apoyar decisiones comerciales y de capacidad de red.
+### 2.Tabla hechos
+
+
+### 3.Indicacion de dimensiones 
+
+
+### 4. Modelo dimensional (estrella)
+
+
+### 5.Preguntas de negocio
+
+- ¿Cuál es el consumo total de datos por cliente en un mes?
+- ¿Qué plan genera mayor consumo promedio diario?
+- ¿Cómo varía el consumo total por región/ciudad?
+- ¿Qué segmento de clientes consume más servicio?
+- ¿Cuál es la tendencia de consumo mensual durante el año?
+- ¿Qué contratos muestran consumo decreciente en los últimos 3 meses?
+- ¿Cuál es el consumo promedio por trimestre según plan?
+- ¿Qué clientes superan el consumo esperado para su plan contratado?
+- ¿Cuál es el día de la semana con mayor consumo total?
+- ¿Cómo se compara el consumo entre clientes nuevos (<6 meses) y antiguos?
+
+---
+
+## EJERCICIO 3 — EMPRESA DE ENTRETENIMIENTO "EVENTIA"
+
+### 1.Análisis del negocio 
+
+**Problema:** Eventia no puede medir fácilmente el desempeño comercial de sus eventos: qué tan bien se venden las entradas, qué canales funcionan mejor, ni cómo varía la ocupación de los recintos.
+
+**Proceso de negocio seleccionado:** **Venta de entradas**. Es el proceso transaccional central que genera ingresos y refleja el comportamiento comercial de los eventos.
+
+**Objetivo del análisis:** Medir el volumen e ingresos de venta de entradas por evento, cliente, tipo de entrada y canal, a lo largo del tiempo, para optimizar la comercialización.
 
 ### 2.Tabla hechos
 
@@ -57,3 +94,14 @@ Algunos autores (ej. Kimball) recomiendan nombrar la fact table según el **proc
 
 
 ### 5.Preguntas de negocio
+
+- ¿Cuál es el evento con mayor cantidad de entradas vendidas en el mes?
+- ¿Qué canal de venta genera mayores ingresos?
+- ¿Cuál es la ocupación (%) de cada recinto por evento?
+- ¿Qué tipo de entrada (VIP, general) es más vendido?
+- ¿Cómo varían las ventas según el tramo etario del cliente?
+- ¿Cuál es el ingreso total por trimestre para eventos deportivos vs. conciertos?
+- ¿Qué eventos presentan mayor descuento promedio aplicado?
+- ¿Cuál es el ticket promedio de compra por cliente?
+- ¿Qué ciudad concentra mayor volumen de ventas de entradas?
+- ¿Cómo evoluciona la venta de entradas en las semanas previas a un evento?
