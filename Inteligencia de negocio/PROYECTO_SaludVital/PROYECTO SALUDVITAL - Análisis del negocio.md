@@ -1,10 +1,11 @@
-*Entrega 1*
+*Entrega 1 - 2*
 - Inteligencia de negocio 
 - Octavio Valencia - Lukas Garrido
 - Paralelo 701
 
 ---
-# Historia
+# 1.Análisis del negocio
+## Historia
 
 SaludVital es un centro medico privado que provee servicios de atención **ambulatoria** a pacientes de la Región del Bio Bio. Inicio como un pequeño centro de atención medica, el cual actualmente lleva 8 años operando. En sus inicios contaba solamente con cierto servicios, como: Medicina general, Pediatría, Ginecología, Traumatología.
 
@@ -18,7 +19,7 @@ A pesar de este crecimiento, la arquitectura de los sistemas de información act
 Actualmente, SaludVital cuenta con un sistema que no satisface el análisis multidimensional de los datos. Esta limitación genera diversos problemas, como: información distribuida, Pacientes duplicados, Especialidades inconsistentes, etc. 
 
 ---
-# Actores
+## Actores
 
 Internos:
 
@@ -35,7 +36,7 @@ Externos:
 2. Aplicación móvil – canal alternativo de reserva y gestión de horas.
 3. Call center / Central telefónica – canal telefónico de reserva.
 ---
-# Procesos
+## Procesos
 
 - Reserva de hora médica (presencial, telefónica, web, app).
 - Registro y actualización de datos del paciente.
@@ -48,7 +49,7 @@ Externos:
 - Gestión de especialidades y profesionales.
 
 ---
-# Problemas
+## Problemas
 
 1. Información distribuida: La información de pacientes, médicos y atenciones se encuentra en diferentes fuentes.
 2. Pacientes duplicados: Existen pacientes registrados más de una vez debido a diferencias en sus datos. Ejemplo: 
@@ -75,7 +76,7 @@ Externos:
 	- Inasistencias
 	- Ingresos
 ---
-# Objetivos
+## Objetivos
 
 **Objetivo General:** El objetivo del proyecto es diseñar e implementar una solución de inteligencia de negocios. La cual debe permitir analizar las atenciones medicas de SaludVital, optimizando la toma de decisiones.
 
@@ -95,3 +96,36 @@ Externos:
 13. Diseñar un dashboard: Desarrollar un panel de control interactivo y visual para monitorear los indicadores principales de forma intuitiva.
 14. Analizar los resultados: Interpretar los hallazgos y patrones descubiertos en los dashboards para entender el desempeño real del centro médico.
 15. Proponer recomendaciones: Formular acciones estratégicas y de mejora continua basadas en la evidencia obtenida del análisis de datos.
+
+---
+
+# 2.Reglas de negocio
+
+## Catalogo de reglas
+
+*Un catalogo de reglas de negocio es una lista ordenada y documentada que recopila las condiciones, restricciones, políticas y normas bajo las cuales opera una organización*
+
+*Al analizar `SALUDVITAL_2BaseDatos.xlsx`, se detectó que la tabla `03_ESPECIALIDADES`esta errónea (es una copia exacta de `02_MEDICOS` ), por lo que RN01 para deducir las 10 especialidades a partir de las prestaciones, garantizando la integridad del modelo dimensional.*
+
+### 1. Reglas sobre Limpieza y Estructura de Datos (ETL)
+
+| **ID**   | **Regla**                                                                                                                                                                                                                                                                                               | **Impacto**                          |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| **RN01** | **Reconstrucción de Especialidades:** Dado que la tabla `03_ESPECIALIDADES` contiene datos erróneos (duplica `02_MEDICOS` ), los registros de `03_ESPECIALIDADES` deben ser deducidos y construidos durante el ETL extrayendo los códigos únicos (`EspecialidadID`) desde la tabla "`04_PRESTACIONES`". | Proceso ETL / Dimensión Especialidad |
+| **RN02** | **Normalización de Nombres:** Cualquier variación tipográfica o error de escritura en especialidades detectada en fuentes anexas (ej. _Trauma, TRAUMATOLOGIA_) debe estandarizarse a su nombre **maestro** deducido (ej. "Traumatología").                                                              | Proceso ETL / Limpieza de Datos      |
+| **RN03** | **Unificación de Pacientes:** Los registros duplicados de pacientes con diferencias de capitalización, puntuación o abreviaturas (ej. _Juan Pérez vs JUAN PEREZ_) deben consolidarse bajo un único `PacienteID`.                                                                                        | Proceso ETL / Dimensión Paciente     |
+
+### 2. Reglas Operativas y de Atención
+
+| **ID**   | **Regla**                                                                                                                                                              | **Impacto**                                           |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| **RN04** | **Atenciones Efectivas:** Una reserva solo se considera como "atención efectiva" (y genera prestaciones realizadas) si su `EstadoReserva` es estrictamente "Atendida". | KPI (Atenciones realizadas, Tasa de atención)         |
+| **RN05** | **Inasistencias y Cancelaciones:** Las reservas en estado "Cancelada", "Pendiente" o "No asistió" no generan ingresos ni prestaciones.                                 | KPI (Ingresos, Tasa de inasistencia)                  |
+| **RN06** | **Horas Perdidas:** Exclusivamente el estado "No asistió" se contabilizará negativamente para evaluar el desempeño de la utilización de horas del profesional médico.  | KPI (Utilización de horas / Dashboard Gestión Médica) |
+
+### 3. Reglas Financieras y de Modelo Dimensional
+
+| **ID**   | **Regla**                                                                                                                                                                                                                                  | **Impacto**                          |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------ |
+| **RN07** | **Cálculo de Ingresos:** Los ingresos se calculan sumando el valor monetario (`Valor` en la tabla PRESTACIONES) únicamente de las atenciones con estado "Atendida".                                                                        | Medidas DAX / KPI Ingresos           |
+| **RN08** | **Granularidad del Hecho Principal:** El nivel más detallado de la tabla de hechos corresponde a la **prestación individual realizada** dentro de una atención, vinculando al paciente, el médico, la especialidad, la reserva y la fecha. | Modelo Dimensional (Tabla de Hechos) |
