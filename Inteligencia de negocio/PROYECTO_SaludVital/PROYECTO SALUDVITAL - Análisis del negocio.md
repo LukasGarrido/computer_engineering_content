@@ -4,8 +4,23 @@
 - Paralelo 701
 
 ---
-# 1.Análisis del negocio
-## Historia
+## Índice
+
+- [1. Análisis del negocio](#1-anlisis-del-negocio)
+  - [1.1. Historia](#11-historia)
+- [2. Situación actual](#2-situacin-actual)
+  - [2.1. Actores](#21-actores)
+  - [2.2. Procesos](#22-procesos)
+  - [2.3. Problemas](#23-problemas)
+  - [2.4. Objetivos](#24-objetivos)
+- [3. Reglas de negocio](#3-reglas-de-negocio)
+  - [3.1. Catalogo de reglas](#31-catalogo-de-reglas)
+    - [3.1.1. Reglas sobre Limpieza y Estructura de Datos (ETL)](#311-reglas-sobre-limpieza-y-estructura-de-datos-etl)
+    - [3.1.2. Reglas Operativas y de Atención](#312-reglas-operativas-y-de-atencin)
+    - [3.1.3. Reglas Financieras y de Modelo Dimensional](#313-reglas-financieras-y-de-modelo-dimensional)
+
+# 1. Análisis del negocio
+## 1.1. Historia
 
 SaludVital es un centro medico privado que provee servicios de atención **ambulatoria** a pacientes de la Región del Bio Bio. Inicio como un pequeño centro de atención medica, el cual actualmente lleva 8 años operando. En sus inicios contaba solamente con cierto servicios, como: Medicina general, Pediatría, Ginecología, Traumatología.
 
@@ -14,12 +29,12 @@ Debido a la alta demanda, cuenta con **10 especialidades medicas** y mas de 20 p
 A pesar de este crecimiento, la arquitectura de los sistemas de información actuales no fue diseñada para un análisis multidimensional de los datos, lo que limita la explotación estratégica de su volumen de información. 
 
 --- 
-# Situación actual
+# 2. Situación actual
 
 Actualmente, SaludVital cuenta con un sistema que no satisface el análisis multidimensional de los datos. Esta limitación genera diversos problemas, como: información distribuida, Pacientes duplicados, Especialidades inconsistentes, etc. 
 
 ---
-## Actores
+## 2.1. Actores
 
 Internos:
 
@@ -36,7 +51,7 @@ Externos:
 2. Aplicación móvil – canal alternativo de reserva y gestión de horas.
 3. Call center / Central telefónica – canal telefónico de reserva.
 ---
-## Procesos
+## 2.2. Procesos
 
 - Reserva de hora médica (presencial, telefónica, web, app).
 - Registro y actualización de datos del paciente.
@@ -49,7 +64,7 @@ Externos:
 - Gestión de especialidades y profesionales.
 
 ---
-## Problemas
+## 2.3. Problemas
 
 1. Información distribuida: La información de pacientes, médicos y atenciones se encuentra en diferentes fuentes.
 2. Pacientes duplicados: Existen pacientes registrados más de una vez debido a diferencias en sus datos. Ejemplo: 
@@ -76,7 +91,7 @@ Externos:
 	- Inasistencias
 	- Ingresos
 ---
-## Objetivos
+## 2.4. Objetivos
 
 **Objetivo General:** El objetivo del proyecto es diseñar e implementar una solución de inteligencia de negocios. La cual debe permitir analizar las atenciones medicas de SaludVital, optimizando la toma de decisiones.
 
@@ -99,15 +114,15 @@ Externos:
 
 ---
 
-# 2.Reglas de negocio
+# 3. Reglas de negocio
 
-## Catalogo de reglas
+## 3.1. Catalogo de reglas
 
 *Un catalogo de reglas de negocio es una lista ordenada y documentada que recopila las condiciones, restricciones, políticas y normas bajo las cuales opera una organización*
 
 *Al analizar `SALUDVITAL_2BaseDatos.xlsx`, se detectó que la tabla `03_ESPECIALIDADES`esta errónea (es una copia exacta de `02_MEDICOS` ), por lo que RN01 para deducir las 10 especialidades a partir de las prestaciones, garantizando la integridad del modelo dimensional.*
 
-### 1. Reglas sobre Limpieza y Estructura de Datos (ETL)
+### 3.1.1. Reglas sobre Limpieza y Estructura de Datos (ETL)
 
 | **ID**   | **Regla**                                                                                                                                                                                                                                                                                               | **Impacto**                          |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
@@ -115,7 +130,7 @@ Externos:
 | **RN02** | **Normalización de Nombres:** Cualquier variación tipográfica o error de escritura en especialidades detectada en fuentes anexas (ej. _Trauma, TRAUMATOLOGIA_) debe estandarizarse a su nombre **maestro** deducido (ej. "Traumatología").                                                              | Proceso ETL / Limpieza de Datos      |
 | **RN03** | **Unificación de Pacientes:** Los registros duplicados de pacientes con diferencias de capitalización, puntuación o abreviaturas (ej. _Juan Pérez vs JUAN PEREZ_) deben consolidarse bajo un único `PacienteID`.                                                                                        | Proceso ETL / Dimensión Paciente     |
 
-### 2. Reglas Operativas y de Atención
+### 3.1.2. Reglas Operativas y de Atención
 
 | **ID**   | **Regla**                                                                                                                                                              | **Impacto**                                           |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
@@ -123,7 +138,7 @@ Externos:
 | **RN05** | **Inasistencias y Cancelaciones:** Las reservas en estado "Cancelada", "Pendiente" o "No asistió" no generan ingresos ni prestaciones.                                 | KPI (Ingresos, Tasa de inasistencia)                  |
 | **RN06** | **Horas Perdidas:** Exclusivamente el estado "No asistió" se contabilizará negativamente para evaluar el desempeño de la utilización de horas del profesional médico.  | KPI (Utilización de horas / Dashboard Gestión Médica) |
 
-### 3. Reglas Financieras y de Modelo Dimensional
+### 3.1.3. Reglas Financieras y de Modelo Dimensional
 
 | **ID**   | **Regla**                                                                                                                                                                                                                                  | **Impacto**                          |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------ |

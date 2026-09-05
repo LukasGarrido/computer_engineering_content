@@ -83,8 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.8333435058594,
-    "collapsed": true
+    "width": 276.8333435058594
   },
   "right": {
     "id": "9e7bf7891c800dbb",
@@ -191,9 +190,11 @@
   },
   "active": "11a9e1bcfb63fc2c",
   "lastOpenFiles": [
+    "Inteligencia de negocio/PROYECTO_SaludVital/PROYECTO20-C320del20-20indice.md",
+    "Inteligencia de negocio/PROYECTO_SaludVital/PROYECTO SALUDVITAL - Análisis del negocio.md",
+    "Inteligencia de negocio/PROYECTO_SaludVital/Sin confirmar 796590.crdownload",
     "Inteligencia de negocio/PROYECTO_SaludVital/~$SALUDVITAL_2BaseDatos.xlsx",
     "Inteligencia de negocio/PROYECTO_SaludVital/INSTRUCCIONES PROYECTO SALUDVITAL.pdf",
-    "Inteligencia de negocio/PROYECTO_SaludVital/PROYECTO SALUDVITAL - Análisis del negocio.md",
     "Inteligencia de negocio/PROYECTO_SaludVital/PROYECTO SALUDVITAL - Análisis del negocio.pdf",
     "Visualizacion/Laboratorios/Lab_S6___Técnicas_de_visualización_y_agrupación_de_datos (1).pdf",
     "Taller de administracion de sistemas/Proyecto/Entregable.md",
@@ -208,9 +209,7 @@
     "Gestion de proyectos/Clase3/Clase_3_Gestion_de_Proyectos.md",
     "Visualizacion/Presentaciones-Documentos/Principal_components_analysis_PCA.pdf",
     "Visualizacion/Presentaciones-Documentos/Introducción_a_Power_BI.pdf",
-    "Visualizacion/Presentaciones-Documentos/Introducción_a_procesamiento_de_imágenes.pdf",
     "Responsabilidad social y Etica Laboral/Analisis_Etica_y_RSE.md",
-    "Visualizacion/Laboratorios/Técnicas de visualización en alta dimensionalidad-20260828/C4_PCA_tSNE.ipynb",
     "Visualizacion/Laboratorios/Lab powerbi/Laboratorio Power BI - Entregable.md",
     "Visualizacion/Laboratorios/Lab powerbi/Laboratorio_Power_BI_Entregable_Completo.md",
     "Visualizacion/Laboratorios/Lab powerbi/Conceptos_PowerBI_Explicados.md",
