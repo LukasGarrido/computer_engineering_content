@@ -2,7 +2,7 @@
 - Inteligencia de negocio 
 - Octavio Valencia - Lukas Garrido
 - Paralelo 701
-GitHub : https://github.com/LukasGarrido/computer_engineering_content/blob/master/Inteligencia%20de%20negocio/PROYECTO_SaludVital/PROYECTO%20SALUDVITAL%20-%20An%C3%A1lisis%20del%20negocio.md
+- GitHub : https://github.com/LukasGarrido/computer_engineering_content/blob/master/Inteligencia%20de%20negocio/PROYECTO_SaludVital/PROYECTO%20SALUDVITAL%20-%20An%C3%A1lisis%20del%20negocio.md
 ---
 ## Índice
 
