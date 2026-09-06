@@ -11,10 +11,14 @@
             "id": "c7bb78bd09d896d1",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Responsabilidad social y Etica Laboral/Analisis_Etica_y_RSE.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nueva pestaña"
+              "title": "Analisis_Etica_y_RSE"
             }
           }
         ]
@@ -184,8 +188,11 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "c7bb78bd09d896d1",
+  "active": "597ae5d26f66b97e",
   "lastOpenFiles": [
+    "Responsabilidad social y Etica Laboral/C1/Sesion I RSE.pdf",
+    "Responsabilidad social y Etica Laboral/Analisis_Etica_y_RSE.md",
+    "Responsabilidad social y Etica Laboral/C1/Sesion II RSE.pdf",
     "Inteligencia de negocio/PROYECTO_SaludVital/PROYECTO SALUDVITAL - Análisis del negocio.md",
     "Inteligencia de negocio/PROYECTO_SaludVital/PROYECTO20-C320del20-20indice.md",
     "Inteligencia de negocio/PROYECTO_SaludVital/Sin confirmar 796590.crdownload",
@@ -203,8 +210,6 @@
     "Gestion de proyectos/Certamen1/Resumen_Gestion_de_Proyectos_Clases_2-5.md",
     "Gestion de proyectos/Clase5/Clase_5_Scrum.md",
     "Gestion de proyectos/Clase3/Clase_3_Gestion_de_Proyectos.md",
-    "Visualizacion/Presentaciones-Documentos/Principal_components_analysis_PCA.pdf",
-    "Visualizacion/Presentaciones-Documentos/Introducción_a_Power_BI.pdf",
     "Responsabilidad social y Etica Laboral/Analisis_Etica_y_RSE.md",
     "Visualizacion/Laboratorios/Lab powerbi/Laboratorio Power BI - Entregable.md",
     "Visualizacion/Laboratorios/Lab powerbi/Laboratorio_Power_BI_Entregable_Completo.md",
