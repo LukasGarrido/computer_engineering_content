@@ -4,17 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "b925fd084715e76b",
+        "id": "5f779b36e86c68f6",
         "type": "tabs",
         "children": [
           {
-            "id": "0097706688dab547",
+            "id": "3f4d9d621e24327d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "Nueva pestaña"
+              "type": "pdf",
+              "state": {
+                "file": "Inteligencia de negocio/Laboratorios/Lab1/Ejercicio Lab1.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "Ejercicio Lab1"
             }
           }
         ]
@@ -186,21 +188,27 @@
   },
   "active": "597ae5d26f66b97e",
   "lastOpenFiles": [
+    "Inteligencia de negocio/Clases/Explicacion_Lab_Clase2_Inteligencia_de_Negocios.md",
+    "Inteligencia de negocio/Clases/Explicacion_OLTP_a_OLAP.md",
+    "Inteligencia de negocio/Clases/Explicacion_Clase2_Inteligencia_de_Negocios.md",
+    "Inteligencia de negocio/Clases/OLTP a OLAP.pdf",
+    "Inteligencia de negocio/Clases/Sin confirmar 224878.crdownload",
+    "Inteligencia de negocio/Clases/Lab Clase 2.pdf",
+    "Inteligencia de negocio/Clases/OLTP a OLAP parte 2.pdf",
+    "Inteligencia de negocio/Clases/Explicacion_Business_Intelligence.md",
+    "Inteligencia de negocio/Clases/Sin confirmar 303922.crdownload",
+    "Inteligencia de negocio/Clases/Sin confirmar 760511.crdownload",
+    "Inteligencia de negocio/Clases/Sin confirmar 576193.crdownload",
+    "Inteligencia de negocio/Clases/OLTP_a_OLAP_apunte_completo.md",
+    "Inteligencia de negocio/Clases/Sin confirmar 894870.crdownload",
+    "Inteligencia de negocio/Clases/Clase 2.pdf",
+    "Inteligencia de negocio/Clases/Clase 1.pdf",
+    "Inteligencia de negocio/Clases/BI_apuntes.md",
     "Inteligencia de negocio/PROYECTO_SaludVital/PROYECTO SALUDVITAL - Análisis del negocio.md",
-    "Inteligencia de negocio/PROYECTO_SaludVital/INSTRUCCIONES PROYECTO SALUDVITAL.pdf",
     "Responsabilidad social y Etica Laboral/Analisis_Etica_y_RSE.md",
-    "Responsabilidad social y Etica Laboral/C1/Sesion I RSE.pdf",
-    "Responsabilidad social y Etica Laboral/C1/Sesion II RSE.pdf",
     "Inteligencia de negocio/PROYECTO_SaludVital/PROYECTO20-C320del20-20indice.md",
-    "Inteligencia de negocio/PROYECTO_SaludVital/Sin confirmar 796590.crdownload",
-    "Inteligencia de negocio/PROYECTO_SaludVital/~$SALUDVITAL_2BaseDatos.xlsx",
-    "Inteligencia de negocio/PROYECTO_SaludVital/PROYECTO SALUDVITAL - Análisis del negocio.pdf",
-    "Visualizacion/Laboratorios/Lab_S6___Técnicas_de_visualización_y_agrupación_de_datos (1).pdf",
     "Taller de administracion de sistemas/Proyecto/Entregable.md",
-    "Taller de administracion de sistemas/Proyecto",
     "Inteligencia de negocio/Laboratorios/Lab1/Entregable.md",
-    "Inteligencia de negocio/Laboratorios/Lab1/Ejercicio Lab1.pdf",
-    "Inteligencia de negocio/Laboratorios/Lab1",
     "Gestion de proyectos/Clase4/Clase 04 — Metodologías y Estándares.md",
     "Gestion de proyectos/Clase2/Clase_2_Fundamentos_Gestion_Proyectos.md",
     "Gestion de proyectos/Certamen1/Resumen_Gestion_de_Proyectos_Clases_2-5.md",
@@ -210,7 +218,6 @@
     "Visualizacion/Laboratorios/Lab powerbi/Laboratorio_Power_BI_Entregable_Completo.md",
     "Visualizacion/Laboratorios/Lab powerbi/Conceptos_PowerBI_Explicados.md",
     "Visualizacion/Laboratorios/Lab powerbi/Guia_PowerBI_Pizza_Place_Sales.md",
-    "Inteligencia de negocio/Clases/BI_apuntes.md",
     "Inteligencia de negocio/Clases/Clase 1.md",
     "Pasted image 20260825113306.png",
     "Taller de administracion de sistemas/OVA1 · Máquinas virtuales y contenedores.md",
