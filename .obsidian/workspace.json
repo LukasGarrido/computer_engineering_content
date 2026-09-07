@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "4c7017ea96da227b",
+        "id": "b925fd084715e76b",
         "type": "tabs",
         "children": [
           {
-            "id": "c7bb78bd09d896d1",
+            "id": "0097706688dab547",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Responsabilidad social y Etica Laboral/Analisis_Etica_y_RSE.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Analisis_Etica_y_RSE"
+              "title": "Nueva pestaña"
             }
           }
         ]
@@ -190,14 +186,14 @@
   },
   "active": "597ae5d26f66b97e",
   "lastOpenFiles": [
-    "Responsabilidad social y Etica Laboral/C1/Sesion I RSE.pdf",
-    "Responsabilidad social y Etica Laboral/Analisis_Etica_y_RSE.md",
-    "Responsabilidad social y Etica Laboral/C1/Sesion II RSE.pdf",
     "Inteligencia de negocio/PROYECTO_SaludVital/PROYECTO SALUDVITAL - Análisis del negocio.md",
+    "Inteligencia de negocio/PROYECTO_SaludVital/INSTRUCCIONES PROYECTO SALUDVITAL.pdf",
+    "Responsabilidad social y Etica Laboral/Analisis_Etica_y_RSE.md",
+    "Responsabilidad social y Etica Laboral/C1/Sesion I RSE.pdf",
+    "Responsabilidad social y Etica Laboral/C1/Sesion II RSE.pdf",
     "Inteligencia de negocio/PROYECTO_SaludVital/PROYECTO20-C320del20-20indice.md",
     "Inteligencia de negocio/PROYECTO_SaludVital/Sin confirmar 796590.crdownload",
     "Inteligencia de negocio/PROYECTO_SaludVital/~$SALUDVITAL_2BaseDatos.xlsx",
-    "Inteligencia de negocio/PROYECTO_SaludVital/INSTRUCCIONES PROYECTO SALUDVITAL.pdf",
     "Inteligencia de negocio/PROYECTO_SaludVital/PROYECTO SALUDVITAL - Análisis del negocio.pdf",
     "Visualizacion/Laboratorios/Lab_S6___Técnicas_de_visualización_y_agrupación_de_datos (1).pdf",
     "Taller de administracion de sistemas/Proyecto/Entregable.md",
@@ -210,7 +206,6 @@
     "Gestion de proyectos/Certamen1/Resumen_Gestion_de_Proyectos_Clases_2-5.md",
     "Gestion de proyectos/Clase5/Clase_5_Scrum.md",
     "Gestion de proyectos/Clase3/Clase_3_Gestion_de_Proyectos.md",
-    "Responsabilidad social y Etica Laboral/Analisis_Etica_y_RSE.md",
     "Visualizacion/Laboratorios/Lab powerbi/Laboratorio Power BI - Entregable.md",
     "Visualizacion/Laboratorios/Lab powerbi/Laboratorio_Power_BI_Entregable_Completo.md",
     "Visualizacion/Laboratorios/Lab powerbi/Conceptos_PowerBI_Explicados.md",
