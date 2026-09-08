@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SaludVital - Análisis del negocio</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+<style>
+  :root {
+    --text: #1a1a1a;
+    --muted: #5f5f5f;
+    --border: #ddd;
+    --bg: #ffffff;
+    --bg-alt: #f7f7f7;
+    --accent: #2b4c7e;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 32px 96px;
+  }
+  header.title-block {
+    border-bottom: 2px solid var(--text);
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+  header.title-block h1 {
+    font-size: 2.2em;
+    margin: 0 0 8px 0;
+  }
+  header.title-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95em;
+  }
+  header.title-block li { margin: 2px 0; }
+  header.title-block a { color: var(--accent); text-decoration: none; word-break: break-all; }
+  header.title-block a:hover { text-decoration: underline; }
+
+  nav#indice {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    padding: 20px 28px;
+    margin-bottom: 48px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.92em;
+  }
+  nav#indice h2 {
+    font-family: Georgia, serif;
+    margin-top: 0;
+    font-size: 1.1em;
+  }
+  nav#indice ul { padding-left: 20px; margin: 4px 0; }
+  nav#indice li { margin: 2px 0; }
+  nav#indice a { color: var(--accent); text-decoration: none; }
+  nav#indice a:hover { text-decoration: underline; }
+
+  h1 {
+    font-size: 1.7em;
+    margin-top: 56px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  h2 {
+    font-size: 1.3em;
+    margin-top: 36px;
+    margin-bottom: 10px;
+    color: var(--accent);
+  }
+  h3 {
+    font-size: 1.05em;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+  p { margin: 10px 0; }
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 40px 0;
+  }
+  ul, ol { margin: 10px 0; padding-left: 28px; }
+  li { margin: 4px 0; }
+  code {
+    font-family: "Courier New", monospace;
+    background: var(--bg-alt);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 0.92em;
+  }
+  strong { color: var(--text); }
+  em { color: var(--muted); }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 18px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.88em;
+  }
+  caption { caption-side: top; text-align: left; font-weight: bold; margin-bottom: 6px; }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: var(--bg-alt);
+    font-weight: bold;
+  }
+  tr:nth-child(even) td { background: #fbfbfb; }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 18px 0;
+  }
+  .table-wrap table { margin: 0; }
+
+  .diagram {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+  }
+
+  .back-to-top {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 0.85em;
+    font-family: Arial, sans-serif;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .back-to-top:hover { text-decoration: underline; }
+
+  @media print {
+    body { font-size: 12pt; }
+    nav#indice { break-after: page; }
+    h1 { break-before: page; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="title-block">
+  <h1>SaludVital</h1>
+  <ul>
+    <li>Inteligencia de negocio</li>
+    <li>Octavio Valencia - Lukas Garrido</li>
+    <li>Paralelo 701</li>
+    <li><em>Entrega 1 - 2 - 3 - 4 - 5</em></li>
+    <li>GitHub: <a href="https://github.com/LukasGarrido/computer_engineering_content/blob/master/Inteligencia%20de%20negocio/PROYECTO_SaludVital/PROYECTO%20SALUDVITAL%20-%20An%C3%A1lisis%20del%20negocio.md" target="_blank" rel="noopener">Repositorio del proyecto</a></li>
+  </ul>
+</header>
+
+<nav id="indice">
+  <h2>Índice</h2>
+  <ul>
+    <li><a href="#s1">1. Análisis del negocio</a>
+      <ul><li><a href="#s1-1">1.1. Historia</a></li></ul>
+    </li>
+    <li><a href="#s2">2. Situación actual</a>
+      <ul>
+        <li><a href="#s2-1">2.1. Actores</a></li>
+        <li><a href="#s2-2">2.2. Procesos</a></li>
+        <li><a href="#s2-3">2.3. Problemas</a></li>
+        <li><a href="#s2-4">2.4. Objetivos</a></li>
+      </ul>
+    </li>
+    <li><a href="#s3">3. Reglas de negocio</a>
+      <ul>
+        <li><a href="#s3-1">3.1. Catalogo de reglas</a>
+          <ul>
+            <li><a href="#s3-1-1">3.1.1. Reglas sobre Limpieza y Estructura de Datos (ETL)</a></li>
+            <li><a href="#s3-1-2">3.1.2. Reglas Operativas y de Atención</a></li>
+            <li><a href="#s3-1-3">3.1.3. Reglas Financieras y de Modelo Dimensional</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#s4">4. Requerimientos BI</a>
+      <ul><li><a href="#s4-1">4.1. Matriz de requerimientos</a></li></ul>
+    </li>
+    <li><a href="#s5">5. Perfilamiento de datos</a>
+      <ul>
+        <li><a href="#s5-1">5.1. Alcance y fuente</a></li>
+        <li><a href="#s5-2">5.2. Perfilamiento por tabla</a></li>
+        <li><a href="#s5-3">5.3. Resumen de hallazgos de calidad</a></li>
+        <li><a href="#s5-4">5.4. Integridad referencial</a></li>
+      </ul>
+    </li>
+    <li><a href="#s6">6. Modelo dimensional</a>
+      <ul>
+        <li><a href="#s6-1">6.1. Proceso de negocio y granularidad</a></li>
+        <li><a href="#s6-2">6.2. Tablas de hechos</a></li>
+        <li><a href="#s6-3">6.3. Dimensiones</a></li>
+        <li><a href="#s6-4">6.4. Esquema y relaciones</a></li>
+        <li><a href="#s6-5">6.5. Medidas</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<h1 id="s1">1. Análisis del negocio</h1>
+<h2 id="s1-1">1.1. Historia</h2>
+<p>SaludVital es un centro medico privado que provee servicios de atención <strong>ambulatoria</strong> a pacientes de la Región del Bio Bio. Inicio como un pequeño centro de atención medica, el cual actualmente lleva 8 años operando. En sus inicios contaba solamente con cierto servicios, como: Medicina general, Pediatría, Ginecología, Traumatología.</p>
+<p>Debido a la alta demanda, cuenta con <strong>10 especialidades medicas</strong> y mas de 20 profesionales. Actualmente, el centro SaludVital atiende aproximadamente 2000 consultas mensuales. La reserva de horas se realiza de manera presencial en recepción, por teléfono, vía sitio web o a través de su aplicación móvil.</p>
+<p>A pesar de este crecimiento, la arquitectura de los sistemas de información actuales no fue diseñada para un análisis multidimensional de los datos, lo que limita la explotación estratégica de su volumen de información.</p>
+<a class="back-to-top" href="#indice">↑ Volver al índice</a>
+<hr>
+
+<h1 id="s2">2. Situación actual</h1>
+<p>Actualmente, SaludVital cuenta con un sistema que no satisface el análisis multidimensional de los datos. Esta limitación genera diversos problemas, como: información distribuida, Pacientes duplicados, Especialidades inconsistentes, etc.</p>
+<hr>
+
+<h2 id="s2-1">2.1. Actores</h2>
+<p><strong>Internos:</strong></p>
+<ol>
+  <li>Paciente – solicita y recibe atención médica, reserva/cancela horas.</li>
+  <li>Médico / Profesional de salud – otorga la atención y registra el detalle de la consulta.</li>
+  <li>Personal de recepción – gestiona reservas presenciales/telefónicas y confirma asistencia.</li>
+  <li>Dirección / Administración – toma decisiones estratégicas y evalúa desempeño.</li>
+  <li>Área de Sistemas / TI – administra los sistemas de información del centro.</li>
+  <li>Área de Facturación/Finanzas – gestiona cobros e ingresos por atenciones.</li>
+</ol>
+<p><strong>Externos:</strong></p>
+<ol>
+  <li>Sitio web de reservas – canal digital para agendar horas.</li>
+  <li>Aplicación móvil – canal alternativo de reserva y gestión de horas.</li>
+  <li>Call center / Central telefónica – canal telefónico de reserva.</li>
+</ol>
+<hr>
+
+<h2 id="s2-2">2.2. Procesos</h2>
+<ul>
+  <li>Reserva de hora médica (presencial, telefónica, web, app).</li>
+  <li>Registro y actualización de datos del paciente.</li>
+  <li>Confirmación de hora.</li>
+  <li>Atención médica (consulta, diagnóstico, indicaciones).</li>
+  <li>Cancelación / reprogramación de hora.</li>
+  <li>Registro de asistencia (Atendida, Cancelada, No asistió, Pendiente).</li>
+  <li>Facturación de la atención.</li>
+  <li>Generación de reportes mensuales (manual).</li>
+  <li>Gestión de especialidades y profesionales.</li>
+</ul>
+<hr>
+
+<h2 id="s2-3">2.3. Problemas</h2>
+<ol>
+  <li>Información distribuida: La información de pacientes, médicos y atenciones se encuentra en diferentes fuentes.</li>
+  <li>Pacientes duplicados: Existen pacientes registrados más de una vez debido a diferencias en sus datos. Ejemplo:
+    <ul>
+      <li>Juan Pérez</li>
+      <li>Juan A. Pérez</li>
+      <li>JUAN PEREZ</li>
+      <li>Juan Pérez</li>
+    </ul>
+  </li>
+  <li>Especialidades inconsistentes: Algunas especialidades aparecen con diferentes nombres:
+    <ul>
+      <li>Traumatología</li>
+      <li>Traumatologia</li>
+      <li>TRAUMATOLOGIA</li>
+      <li>Trauma</li>
+    </ul>
+  </li>
+  <li>Horas no concretadas: No todas las reservas terminan en una atención efectiva. Existen estados como:
+    <ul>
+      <li>Atendida</li>
+      <li>Cancelada</li>
+      <li>No asistió</li>
+      <li>Pendiente.</li>
+    </ul>
+  </li>
+  <li>Reportes manuales: La dirección actualmente recibe informes mensuales preparados manualmente.</li>
+  <li>Dificultad para evaluar desempeño: No existe una visión consolidada de:
+    <ul>
+      <li>Demanda por especialidad</li>
+      <li>Utilización de horas</li>
+      <li>Atenciones por médico</li>
+      <li>Cancelaciones</li>
+      <li>Inasistencias</li>
+      <li>Ingresos</li>
+    </ul>
+  </li>
+</ol>
+<hr>
+
+<h2 id="s2-4">2.4. Objetivos</h2>
+<p><strong>Objetivo General:</strong> El objetivo del proyecto es diseñar e implementar una solución de inteligencia de negocios. La cual debe permitir analizar las atenciones medicas de SaludVital, optimizando la toma de decisiones.</p>
+<p><strong>Objetivos específicos:</strong></p>
+<ol>
+  <li>Analizar el negocio: Estudiar la trayectoria y modelo de atención de SaludVital.</li>
+  <li>Identificar actores y procesos: Mapear quiénes interactúan con el centro, y las operaciones.</li>
+  <li>Identificar entidades: Reconocer los objetivos.</li>
+  <li>Definir reglas de negocio: Establecer los limites y políticas que rigen el flujo de datos.</li>
+  <li>Analizar la calidad de los datos: Diagnosticar la información actual para identificar problemas de consistencia, registros duplicados, campos nulos y datos dispersos.</li>
+  <li>Identificar indicadores relevantes: Seleccionar las métricas clave de desempeño.</li>
+  <li>Definir requerimientos BI: Identificar y levantar las necesidades de información que tienen los directivos para tomar decisiones basadas en los datos.</li>
+  <li>Determinar la granularidad del hecho:</li>
+  <li>Diseñar un modelo dimensional: Estructurar la base de datos analítica mediante esquemas.</li>
+  <li>Implementar procesos ETL: Diseñar los flujos de Extracción, Transformación y Limpieza de datos desde los sistemas origen hacia el destino.</li>
+  <li>Construir un Data Mart: Crear base de datos optimizada para el área de salud.</li>
+  <li>Crear medidas DAX: Programar los cálculos y fórmulas dinámicas necesarios a la hora de analizar métricas agregadas en la herramienta de reporte.</li>
+  <li>Diseñar un dashboard: Desarrollar un panel de control interactivo y visual para monitorear los indicadores principales de forma intuitiva.</li>
+  <li>Analizar los resultados: Interpretar los hallazgos y patrones descubiertos en los dashboards para entender el desempeño real del centro médico.</li>
+  <li>Proponer recomendaciones: Formular acciones estratégicas y de mejora continua basadas en la evidencia obtenida del análisis de datos.</li>
+</ol>
+<a class="back-to-top" href="#indice">↑ Volver al índice</a>
+<hr>
+
+<h1 id="s3">3. Reglas de negocio</h1>
+<h2 id="s3-1">3.1. Catalogo de reglas</h2>
+<p><em>Un catalogo de reglas de negocio es una lista ordenada y documentada que recopila las condiciones, restricciones, políticas y normas bajo las cuales opera una organización</em></p>
+<p><em>Al analizar <code>SALUDVITAL_2BaseDatos.xlsx</code>, se detectó que la tabla <code>03_ESPECIALIDADES</code> esta errónea (es una copia exacta de <code>02_MEDICOS</code>), por lo que RN01 para deducir las 10 especialidades a partir de las prestaciones, garantizando la integridad del modelo dimensional.</em></p>
+
+<h3 id="s3-1-1">3.1.1. Reglas sobre Limpieza y Estructura de Datos (ETL)</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>ID</th><th>Regla</th><th>Impacto</th></tr></thead>
+<tbody>
+<tr><td><strong>RN01</strong></td><td><strong>Reconstrucción de Especialidades:</strong> Dado que la tabla <code>03_ESPECIALIDADES</code> contiene datos erróneos (duplica <code>02_MEDICOS</code>), los registros de <code>03_ESPECIALIDADES</code> deben ser deducidos y construidos durante el ETL extrayendo los códigos únicos (<code>EspecialidadID</code>) desde la tabla <code>04_PRESTACIONES</code>.</td><td>Proceso ETL / Dimensión Especialidad</td></tr>
+<tr><td><strong>RN02</strong></td><td><strong>Normalización de Nombres:</strong> Cualquier variación tipográfica o error de escritura en especialidades detectada en fuentes anexas (ej. <em>Trauma, TRAUMATOLOGIA</em>) debe estandarizarse a su nombre <strong>maestro</strong> deducido (ej. "Traumatología").</td><td>Proceso ETL / Limpieza de Datos</td></tr>
+<tr><td><strong>RN03</strong></td><td><strong>Unificación de Pacientes:</strong> Los registros duplicados de pacientes con diferencias de capitalización, puntuación o abreviaturas (ej. <em>Juan Pérez vs JUAN PEREZ</em>) deben consolidarse bajo un único <code>PacienteID</code>.</td><td>Proceso ETL / Dimensión Paciente</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="s3-1-2">3.1.2. Reglas Operativas y de Atención</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>ID</th><th>Regla</th><th>Impacto</th></tr></thead>
+<tbody>
+<tr><td><strong>RN04</strong></td><td><strong>Atenciones Efectivas:</strong> Una reserva solo se considera como "atención efectiva" (y genera prestaciones realizadas) si su <code>EstadoReserva</code> es estrictamente "Atendida".</td><td>KPI (Atenciones realizadas, Tasa de atención)</td></tr>
+<tr><td><strong>RN05</strong></td><td><strong>Inasistencias y Cancelaciones:</strong> Las reservas en estado "Cancelada", "Pendiente" o "No asistió" no generan ingresos ni prestaciones.</td><td>KPI (Ingresos, Tasa de inasistencia)</td></tr>
+<tr><td><strong>RN06</strong></td><td><strong>Horas Perdidas:</strong> Exclusivamente el estado "No asistió" se contabilizará negativamente para evaluar el desempeño de la utilización de horas del profesional médico.</td><td>KPI (Utilización de horas / Dashboard Gestión Médica)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="s3-1-3">3.1.3. Reglas Financieras y de Modelo Dimensional</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>ID</th><th>Regla</th><th>Impacto</th></tr></thead>
+<tbody>
+<tr><td><strong>RN07</strong></td><td><strong>Cálculo de Ingresos:</strong> Los ingresos se calculan sumando el valor monetario (<code>Valor</code> en la tabla PRESTACIONES) únicamente de las atenciones con estado "Atendida".</td><td>Medidas DAX / KPI Ingresos</td></tr>
+<tr><td><strong>RN08</strong></td><td><strong>Granularidad del Hecho Principal:</strong> El nivel más detallado de la tabla de hechos corresponde a la <strong>prestación individual realizada</strong> dentro de una atención, vinculando al paciente, el médico, la especialidad, la reserva y la fecha.</td><td>Modelo Dimensional (Tabla de Hechos)</td></tr>
+</tbody>
+</table>
+</div>
+<a class="back-to-top" href="#indice">↑ Volver al índice</a>
+<hr>
+
+<h1 id="s4">4. Requerimientos BI</h1>
+<h2 id="s4-1">4.1. Matriz de requerimientos</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>ID</th><th>Pregunta</th><th>Indicador</th><th>Dimensión</th><th>Prioridad</th></tr></thead>
+<tbody>
+<tr><td colspan="5"><strong>Demanda</strong></td></tr>
+<tr><td><strong>RQ01</strong></td><td>¿Cuántas reservas se realizan mensualmente?</td><td>Total de Reservas</td><td>Tiempo</td><td>Alta</td></tr>
+<tr><td><strong>RQ02</strong></td><td>¿Cuál es la especialidad más solicitada?</td><td>Total de Reservas</td><td>Especialidad</td><td>Alta</td></tr>
+<tr><td><strong>RQ03</strong></td><td>¿Qué días de la semana presentan mayor demanda?</td><td>Total de Reservas</td><td>Tiempo (Día de semana)</td><td>Media</td></tr>
+<tr><td><strong>RQ04</strong></td><td>¿Cómo evoluciona la demanda de horas durante el año?</td><td>Total de Reservas</td><td>Tiempo (Mes)</td><td>Alta</td></tr>
+<tr><td colspan="5"><strong>Atención</strong></td></tr>
+<tr><td><strong>RQ05</strong></td><td>¿Qué porcentaje de reservas termina en una atención efectiva?</td><td>Tasa de Atención</td><td>Tiempo, Especialidad</td><td>Alta</td></tr>
+<tr><td><strong>RQ06</strong></td><td>¿Cuál es la tasa de inasistencia por especialidad?</td><td>Tasa de Inasistencia</td><td>Especialidad</td><td>Alta</td></tr>
+<tr><td><strong>RQ07</strong></td><td>¿Cuál es la tasa de cancelación de horas?</td><td>Tasa de Cancelación</td><td>Tiempo</td><td>Media</td></tr>
+<tr><td><strong>RQ08</strong></td><td>¿Cuántas horas se pierden mensualmente por inasistencia?</td><td>Horas Perdidas</td><td>Tiempo, Médico</td><td>Alta</td></tr>
+<tr><td colspan="5"><strong>Médicos / Gestión médica</strong></td></tr>
+<tr><td><strong>RQ09</strong></td><td>¿Qué médicos atienden más pacientes?</td><td>Atenciones Realizadas</td><td>Médico</td><td>Alta</td></tr>
+<tr><td><strong>RQ10</strong></td><td>¿Cuál es el ranking de profesionales por atenciones realizadas?</td><td>Atenciones Realizadas</td><td>Médico</td><td>Media</td></tr>
+<tr><td><strong>RQ11</strong></td><td>¿Cuál es el nivel de utilización de horas por médico?</td><td>Utilización de Horas</td><td>Médico, Tiempo</td><td>Alta</td></tr>
+<tr><td><strong>RQ12</strong></td><td>¿Qué especialidad concentra más profesionales y mayor carga de atención?</td><td>Atenciones Realizadas</td><td>Especialidad, Médico</td><td>Media</td></tr>
+<tr><td colspan="5"><strong>Pacientes</strong></td></tr>
+<tr><td><strong>RQ13</strong></td><td>¿Qué comunas concentran más pacientes atendidos?</td><td>Atenciones Realizadas</td><td>Paciente (Comuna)</td><td>Media</td></tr>
+<tr><td><strong>RQ14</strong></td><td>¿Qué pacientes utilizan con mayor frecuencia los servicios?</td><td>Frecuencia de Atención</td><td>Paciente</td><td>Media</td></tr>
+<tr><td><strong>RQ15</strong></td><td>¿Cómo se distribuye la cartera de pacientes por previsión (Fonasa/Isapre)?</td><td>Total de Pacientes</td><td>Paciente (Previsión)</td><td>Baja</td></tr>
+<tr><td><strong>RQ16</strong></td><td>¿Cómo evoluciona la base de pacientes atendidos en el tiempo?</td><td>Pacientes Atendidos</td><td>Tiempo</td><td>Media</td></tr>
+<tr><td colspan="5"><strong>Ingresos</strong></td></tr>
+<tr><td><strong>RQ17</strong></td><td>¿Cuáles son los ingresos totales por período?</td><td>Ingresos</td><td>Tiempo</td><td>Alta</td></tr>
+<tr><td><strong>RQ18</strong></td><td>¿Qué especialidades generan mayores ingresos?</td><td>Ingresos</td><td>Especialidad</td><td>Alta</td></tr>
+<tr><td><strong>RQ19</strong></td><td>¿Cuál es el ingreso promedio por atención?</td><td>Ingreso Promedio por Atención</td><td>Especialidad, Médico</td><td>Media</td></tr>
+<tr><td><strong>RQ20</strong></td><td>¿Qué prestaciones son las más solicitadas y más rentables?</td><td>Ingresos, Total de Prestaciones</td><td>Prestación</td><td>Media</td></tr>
+<tr><td colspan="5"><strong>Especialidades</strong></td></tr>
+<tr><td><strong>RQ21</strong></td><td>¿Cuántas especialidades activas tiene el centro y cuál es su carga de atención?</td><td>Total de Atenciones</td><td>Especialidad</td><td>Media</td></tr>
+<tr><td><strong>RQ22</strong></td><td>¿Qué especialidad presenta mayor crecimiento de demanda interanual?</td><td>Total de Reservas</td><td>Especialidad, Tiempo</td><td>Baja</td></tr>
+<tr><td><strong>RQ23</strong></td><td>¿Cómo se compara la tasa de atención entre especialidades?</td><td>Tasa de Atención</td><td>Especialidad</td><td>Media</td></tr>
+<tr><td><strong>RQ24</strong></td><td>¿Qué especialidades requieren más profesionales para cubrir su demanda?</td><td>Utilización de Horas</td><td>Especialidad, Médico</td><td>Baja</td></tr>
+</tbody>
+</table>
+</div>
+<a class="back-to-top" href="#indice">↑ Volver al índice</a>
+<hr>
+
+<h1 id="s5">5. Perfilamiento de datos</h1>
+<h2 id="s5-1">5.1. Alcance y fuente</h2>
+<p>El perfilamiento se realizó sobre el archivo <code>SALUDVITAL_2BaseDatos.xlsx</code>, que contiene 7 tablas:</p>
+<ul>
+  <li><code>01_PACIENTES</code></li>
+  <li><code>02_MEDICOS</code></li>
+  <li><code>03_ESPECIALIDADES</code></li>
+  <li><code>04_PRESTACIONES</code></li>
+  <li><code>05_RESERVAS</code></li>
+  <li><code>06_ATENCIONES</code></li>
+  <li><code>07_DETALLE_ATENCION</code>.</li>
+</ul>
+<p>Se analizaron nulos, duplicados, consistencia de categorías e integridad referencial entre tablas.</p>
+
+<h2 id="s5-2">5.2. Perfilamiento por tabla</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Tabla</th><th>Filas</th><th>Columnas</th><th>Hallazgos</th></tr></thead>
+<tbody>
+<tr><td><code>01_PACIENTES</code></td><td>33</td><td>7</td><td>30/33 completos (90,9%); <strong>P031–P033</strong> vacíos salvo el ID. Columna <code>Unnamed: 1</code> (columna B) 100% nula, descartar en ETL. Sin duplicados exactos de nombre completo, pero varios nombres/apellidos se repiten entre personas distintas ("Pérez" x5, "Soto"/"Rojas"/"González"/"Silva" x4) → deduplicar siempre por nombre completo, no por partes. Distribución pareja: FONASA/Isapre 15-15, F/M 15-15, edad 28-57 años (prom. 41,6).</td></tr>
+<tr><td><code>02_MEDICOS</code></td><td>10</td><td>3</td><td>Sin nulos ni <code>MedicoID</code> duplicados. 10 médicos, uno por especialidad (<code>E01</code>–<code>E10</code>), consistente con el negocio.</td></tr>
+<tr><td><code>03_ESPECIALIDADES</code></td><td>10</td><td>3</td><td>La tabla es una copia exacta (byte a byte) de <code>02_MEDICOS</code>, mismas columnas (<code>MedicoID</code>, <code>Medico</code>, <code>EspecialidadID</code>) y mismos valores. No contiene un catálogo real de especialidades. Esta es la base de <strong>RN01</strong>: la dimensión de especialidad debe reconstruirse desde <code>04_PRESTACIONES</code>.</td></tr>
+<tr><td><code>04_PRESTACIONES</code></td><td>15</td><td>4</td><td>Sin nulos ni duplicados. Contiene <strong>10 <code>EspecialidadID</code> únicos</strong> (<code>E01</code>–<code>E10</code>), lo que valida que sí es posible deducir el catálogo completo de las 10 especialidades desde esta tabla, tal como indicamos en RN01. Nombres de especialidad ya vienen estandarizados en esta fuente (no se observan variantes tipo "Trauma"/"TRAUMATOLOGIA" en <code>04_PRESTACIONES</code>, esas variantes descritas en el análisis del negocio, corresponden a fuentes anexas/históricas fuera de este extracto y siguen cubiertas por RN02).</td></tr>
+<tr><td><code>05_RESERVAS</code></td><td>30</td><td>6</td><td>Sin nulos ni <code>ReservaID</code> duplicados. <code>EstadoReserva</code> solo presenta 3 valores en este extracto: <strong>Atendida (22), No asistió (4), Cancelada (4)</strong>, el estado "Pendiente" mencionado en el proceso de negocio no aparece en la muestra actual, por lo que el modelo y el ETL deben contemplarlo igualmente como estado válido futuro. No se detectaron reservas duplicadas (mismo paciente, médico, fecha y hora).</td></tr>
+<tr><td><code>06_ATENCIONES</code></td><td>22</td><td>5</td><td>Sin nulos ni duplicados. Cada <code>ReservaID</code> referenciado aparece una sola vez (relación 1 a 1 con Reserva). Las 22 atenciones corresponden exactamente a las 22 reservas en estado "Atendida" — consistente con RN04.</td></tr>
+<tr><td><code>07_DETALLE_ATENCION</code></td><td>22</td><td>5</td><td>Sin nulos ni duplicados. Cada atención tiene exactamente un detalle asociado (<code>Cantidad = 1</code> en todos los casos) y el <code>ValorUnitario</code> coincide en el 100% de los casos con el <code>Valor</code> maestro de <code>04_PRESTACIONES</code> (no se detectaron precios inconsistentes).</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="s5-3">5.3. Resumen de hallazgos de calidad</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Problema detectado</th><th>Tabla / Campo</th><th>Evidencia</th><th>Regla de negocio asociada</th><th>Acción de limpieza (ETL)</th></tr></thead>
+<tbody>
+<tr><td>Tabla de especialidades corrupta (copia de Médicos)</td><td><code>03_ESPECIALIDADES</code></td><td>Igual fila a fila a <code>02_MEDICOS</code></td><td>RN01</td><td>Descartar <code>03_ESPECIALIDADES</code>; construir <code>DIM_ESPECIALIDAD</code> desde <code>EspecialidadID</code> único de <code>04_PRESTACIONES</code></td></tr>
+<tr><td>Columna vacía sin uso</td><td><code>01_PACIENTES.Unnamed: 1</code></td><td>33/33 nulos</td><td>—</td><td>Excluir la columna en la extracción</td></tr>
+<tr><td>Registros de paciente incompletos/huérfanos</td><td><code>01_PACIENTES</code> (P031, P032, P033)</td><td>Todos los campos nulos salvo el ID</td><td>—</td><td>Poner en cuarentena / excluir de <code>DIM_PACIENTE</code> hasta validar con el sistema origen; registrar como incidencia de calidad</td></tr>
+<tr><td>Estado "Pendiente" no representado en la muestra</td><td><code>05_RESERVAS.EstadoReserva</code></td><td>Solo 3 de los 4 estados del proceso aparecen en los datos</td><td>RN05, RN06</td><td>Modelar igualmente los 4 estados posibles en <code>DIM_ESTADO_RESERVA</code>, para no perder cobertura cuando aparezcan en producción</td></tr>
+<tr><td>Riesgo de pacientes/especialidades duplicados por variantes de escritura (descrito en el negocio, no reproducido en este extracto)</td><td>Fuentes anexas de Pacientes / Especialidades</td><td>Ejemplos narrados en el análisis del negocio</td><td>RN02, RN03</td><td>Mantener normalización (mayúsculas/tildes/espacios) y matching difuso como control preventivo del ETL, aun si el extracto actual no lo evidencia</td></tr>
+</tbody>
+</table>
+</div>
+<p>No se detectaron: valores nulos en las tablas transaccionales (<code>RESERVAS</code>, <code>ATENCIONES</code>, <code>DETALLE_ATENCION</code>), llaves primarias duplicadas, ni precios inconsistentes entre <code>DETALLE_ATENCION</code> y <code>PRESTACIONES</code>.</p>
+
+<h2 id="s5-4">5.4. Integridad referencial</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Relación verificada</th><th>Resultado</th></tr></thead>
+<tbody>
+<tr><td><code>RESERVAS.PacienteID</code> → <code>PACIENTES.PacienteID</code></td><td>Sin huérfanos</td></tr>
+<tr><td><code>RESERVAS.MedicoID</code> → <code>MEDICOS.MedicoID</code></td><td>Sin huérfanos</td></tr>
+<tr><td><code>ATENCIONES.ReservaID</code> → <code>RESERVAS.ReservaID</code></td><td>Sin huérfanos, relación 1 a 1</td></tr>
+<tr><td>Reservas "Atendida" ↔ existencia de Atención</td><td>Coincidencia exacta (22 = 22), consistente con RN04</td></tr>
+<tr><td><code>DETALLE_ATENCION.AtencionID</code> → <code>ATENCIONES.AtencionID</code></td><td>Sin huérfanos, toda atención tiene detalle</td></tr>
+<tr><td><code>DETALLE_ATENCION.PrestacionID</code> → <code>PRESTACIONES.PrestacionID</code></td><td>Sin huérfanos</td></tr>
+<tr><td><code>MEDICOS.EspecialidadID</code> / <code>PRESTACIONES.EspecialidadID</code></td><td>Consistentes entre sí (E01–E10 en ambas)</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Conclusión del perfilamiento:</strong> las tablas transaccionales (Reservas, Atenciones, Detalle) están limpias, los problemas de calidad detectados en la fuente disponible (excel) se concentran en las tablas maestras (<code>03_ESPECIALIDADES</code> corrupta, columna residual y registros incompletos en <code>PACIENTES</code>). Los problemas narrados en el análisis del negocio (pacientes duplicados, especialidades con variantes de escritura) deben tratarse como riesgos del proceso operativo real vigentes para el diseño de RN02/RN03 aunque no se manifiesten en este extracto acotado.</p>
+<a class="back-to-top" href="#indice">↑ Volver al índice</a>
+<hr>
+
+<h1 id="s6">6. Modelo dimensional</h1>
+<h2 id="s6-1">6.1. Proceso de negocio y granularidad</h2>
+<p><strong>Proceso de negocio analizado:</strong> el ciclo de atención médica ambulatoria, desde la reserva de hora hasta la prestación efectivamente realizada y facturada.</p>
+<p><strong>Hecho principal:</strong> la prestación realizada dentro de una atención médica (RN08).</p>
+<p><strong>Granularidad del hecho principal:</strong> una fila representa <strong>una prestación individual realizada dentro de una atención</strong>, asociada a un paciente, un médico, una especialidad, una reserva y una fecha.</p>
+<p>Para responder también a las preguntas de demanda y efectividad (RQ01–RQ08), que necesitan contar <strong>todas</strong> las reservas, incluidas las que no generan prestación (Cancelada, No asistió, Pendiente), se define una <strong>constelación de hechos</strong> con dos tablas de hechos que comparten dimensiones conformadas (Paciente, Médico, Especialidad, Tiempo):</p>
+<ol>
+  <li><code>FACT_RESERVAS</code> — grano: una fila por reserva (soporta demanda, tasa de atención/inasistencia/cancelación, utilización de horas).</li>
+  <li><code>FACT_PRESTACIONES</code> — grano: una fila por prestación realizada (soporta ingresos y granularidad clínica de detalle), y solo contiene reservas en estado "Atendida" (RN04, RN07).</li>
+</ol>
+
+<h2 id="s6-2">6.2. Tablas de hechos</h2>
+<p><strong><code>FACT_RESERVAS</code></strong></p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Campo</th><th>Tipo</th><th>Descripción</th></tr></thead>
+<tbody>
+<tr><td>ReservaID (PK degenerada)</td><td>Texto</td><td>Identificador de la reserva</td></tr>
+<tr><td>PacienteKey (FK)</td><td>Entero</td><td>→ <code>DIM_PACIENTE</code></td></tr>
+<tr><td>MedicoKey (FK)</td><td>Entero</td><td>→ <code>DIM_MEDICO</code></td></tr>
+<tr><td>EstadoKey (FK)</td><td>Entero</td><td>→ <code>DIM_ESTADO_RESERVA</code></td></tr>
+<tr><td>FechaKey (FK)</td><td>Entero</td><td>→ <code>DIM_TIEMPO</code> (fecha de la reserva)</td></tr>
+<tr><td>HoraReserva</td><td>Hora</td><td>Hora agendada</td></tr>
+<tr><td>EsAtendida</td><td>Booleano/0-1</td><td>Bandera derivada (1 si EstadoReserva = "Atendida")</td></tr>
+<tr><td>EsInasistencia</td><td>Booleano/0-1</td><td>Bandera derivada (1 si EstadoReserva = "No asistió")</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong><code>FACT_PRESTACIONES</code></strong></p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Campo</th><th>Tipo</th><th>Descripción</th></tr></thead>
+<tbody>
+<tr><td>DetalleID (PK degenerada)</td><td>Texto</td><td>Identificador del detalle de atención</td></tr>
+<tr><td>AtencionID / ReservaID (degenerada)</td><td>Texto</td><td>Trazabilidad a la atención/reserva origen</td></tr>
+<tr><td>PacienteKey (FK)</td><td>Entero</td><td>→ <code>DIM_PACIENTE</code></td></tr>
+<tr><td>MedicoKey (FK)</td><td>Entero</td><td>→ <code>DIM_MEDICO</code></td></tr>
+<tr><td>EspecialidadKey (FK)</td><td>Entero</td><td>→ <code>DIM_ESPECIALIDAD</code></td></tr>
+<tr><td>PrestacionKey (FK)</td><td>Entero</td><td>→ <code>DIM_PRESTACION</code></td></tr>
+<tr><td>FechaKey (FK)</td><td>Entero</td><td>→ <code>DIM_TIEMPO</code> (fecha de la atención)</td></tr>
+<tr><td>Cantidad</td><td>Entero</td><td>Unidades de la prestación</td></tr>
+<tr><td>ValorUnitario</td><td>Numérico</td><td>Valor cobrado por unidad</td></tr>
+<tr><td>IngresoLinea</td><td>Numérico</td><td>Cantidad × ValorUnitario</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="s6-3">6.3. Dimensiones</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Dimensión</th><th>Llave</th><th>Atributos principales</th><th>Origen</th></tr></thead>
+<tbody>
+<tr><td><code>DIM_PACIENTE</code></td><td>PacienteKey</td><td>PacienteID, Nombre, Comuna, FechaNacimiento, Edad, Previsión, Sexo</td><td><code>01_PACIENTES</code> (excluyendo columna vacía y registros incompletos)</td></tr>
+<tr><td><code>DIM_MEDICO</code></td><td>MedicoKey</td><td>MedicoID, Nombre, EspecialidadID (atributo de referencia)</td><td><code>02_MEDICOS</code></td></tr>
+<tr><td><code>DIM_ESPECIALIDAD</code></td><td>EspecialidadKey</td><td>EspecialidadID, NombreEspecialidad (estandarizado)</td><td>Deducida de <code>04_PRESTACIONES</code> (RN01) + normalización (RN02)</td></tr>
+<tr><td><code>DIM_PRESTACION</code></td><td>PrestacionKey</td><td>PrestacionID, NombrePrestación, EspecialidadID, ValorListado</td><td><code>04_PRESTACIONES</code></td></tr>
+<tr><td><code>DIM_ESTADO_RESERVA</code></td><td>EstadoKey</td><td>Atendida / Cancelada / No asistió / Pendiente</td><td><code>05_RESERVAS</code> (catálogo fijo de 4 estados)</td></tr>
+<tr><td><code>DIM_TIEMPO</code></td><td>FechaKey</td><td>Fecha, Día, Mes, Nombre Mes, Trimestre, Año, Día de semana, Es fin de semana</td><td>Calendario generado</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="s6-4">6.4. Esquema y relaciones</h2>
+<div class="diagram">
+  <pre class="mermaid">
+erDiagram
+    DIM_PACIENTE ||--o{ FACT_RESERVAS : "realiza"
+    DIM_MEDICO ||--o{ FACT_RESERVAS : "atiende"
+    DIM_ESTADO_RESERVA ||--o{ FACT_RESERVAS : "clasifica"
+    DIM_TIEMPO ||--o{ FACT_RESERVAS : "fecha"
+
+    DIM_PACIENTE ||--o{ FACT_PRESTACIONES : "recibe"
+    DIM_MEDICO ||--o{ FACT_PRESTACIONES : "otorga"
+    DIM_ESPECIALIDAD ||--o{ FACT_PRESTACIONES : "clasifica"
+    DIM_PRESTACION ||--o{ FACT_PRESTACIONES : "detalla"
+    DIM_TIEMPO ||--o{ FACT_PRESTACIONES : "fecha"
+    DIM_ESPECIALIDAD ||--o{ DIM_MEDICO : "especializa"
+    DIM_ESPECIALIDAD ||--o{ DIM_PRESTACION : "agrupa"
+  </pre>
+</div>
+
+<h2 id="s6-5">6.5. Medidas</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>KPI</th><th>Fórmula (lógica DAX)</th><th>Tabla de hechos</th></tr></thead>
+<tbody>
+<tr><td>KPI1 — Total de reservas</td><td><code>COUNTROWS(FACT_RESERVAS)</code></td><td>FACT_RESERVAS</td></tr>
+<tr><td>KPI2 — Atenciones realizadas</td><td><code>CALCULATE(COUNTROWS(FACT_RESERVAS), EstadoReserva = "Atendida")</code></td><td>FACT_RESERVAS</td></tr>
+<tr><td>KPI3 — Tasa de atención</td><td>Atenciones realizadas / Total de reservas</td><td>FACT_RESERVAS</td></tr>
+<tr><td>KPI4 — Tasa de inasistencia</td><td><code>CALCULATE(COUNTROWS(FACT_RESERVAS), EstadoReserva="No asistió") / Total de reservas</code></td><td>FACT_RESERVAS</td></tr>
+<tr><td>KPI5 — Ingresos</td><td><code>SUM(FACT_PRESTACIONES[IngresoLinea])</code> (solo reservas Atendida, por RN07)</td><td>FACT_PRESTACIONES</td></tr>
+<tr><td>KPI6 — Ingreso promedio por atención</td><td>Ingresos / Atenciones realizadas</td><td>FACT_PRESTACIONES / FACT_RESERVAS</td></tr>
+<tr><td>KPI7 — Utilización de horas</td><td>1 - (Horas "No asistió" / Total de horas agendadas) (RN06: solo "No asistió" penaliza)</td><td>FACT_RESERVAS</td></tr>
+<tr><td>Tasa de cancelación (complementario)</td><td><code>CALCULATE(COUNTROWS(FACT_RESERVAS), EstadoReserva="Cancelada") / Total de reservas</code></td><td>FACT_RESERVAS</td></tr>
+</tbody>
+</table>
+</div>
+<a class="back-to-top" href="#indice">↑ Volver al índice</a>
+
+</div>
+
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: "neutral" });
+</script>
+</body>
+</html>
