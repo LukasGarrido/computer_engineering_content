@@ -9,7 +9,7 @@ Está estructurado como una base de conocimiento para ser explorado tanto en **G
 
 ---
 
-## 🏛️ Estructura Modular por Asignatura
+## Estructura Modular por Asignatura
 
 Cada asignatura sigue una convención estandarizada:
 
@@ -26,7 +26,7 @@ Asignatura/
 
 ---
 
-## 📚 Asignaturas Disponibles
+## Asignaturas Disponibles
 
 | Asignatura | Índice (MOC) | Contenido Principal |
 | :--- | :--- | :--- |
