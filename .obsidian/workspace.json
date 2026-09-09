@@ -4,21 +4,49 @@
     "type": "split",
     "children": [
       {
-        "id": "4115e071aef404a1",
+        "id": "6daf5aa0b5eb90fc",
         "type": "tabs",
         "children": [
           {
-            "id": "e881dffc18991cb3",
+            "id": "1bb2dc2eec187c51",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Inteligencia de negocio/Clases/Explicacion_Business_Intelligence.md",
+                "file": "Inteligencia de negocio/Clases/Explicacion_Clase2_Inteligencia_de_Negocios.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Explicacion_Business_Intelligence"
+              "title": "Explicacion_Clase2_Inteligencia_de_Negocios"
+            }
+          },
+          {
+            "id": "73e168f13eb2eaf8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Inteligencia de negocio/Clases/Explicacion_Lab_Clase2_Inteligencia_de_Negocios.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Explicacion_Lab_Clase2_Inteligencia_de_Negocios"
+            }
+          },
+          {
+            "id": "d393829beeff3012",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Inteligencia de negocio/Clases/Explicacion_OLTP_a_OLAP.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Explicacion_OLTP_a_OLAP"
             }
           }
         ]
@@ -83,7 +111,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 214.17360305786133,
+    "width": 318.0624885559082,
     "collapsed": true
   },
   "right": {
@@ -189,8 +217,14 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "e881dffc18991cb3",
+  "active": "1bb2dc2eec187c51",
   "lastOpenFiles": [
+    "Inteligencia de negocio/Clases/Resumen_Inteligencia_de_Negocios.md",
+    "Inteligencia de negocio/Clases/Sin confirmar 858734.crdownload",
+    "Inteligencia de negocio/Clases/Explicacion_Lab_Clase2_Inteligencia_de_Negocios.md",
+    "Inteligencia de negocio/Clases/Explicacion_Clase2_Inteligencia_de_Negocios.md",
+    "Inteligencia de negocio/Clases/Explicacion_OLTP_a_OLAP.md",
+    "Inteligencia de negocio/Clases/Explicacion_Business_Intelligence.md",
     "Inteligencia de negocio/PROYECTO_SaludVital/SaludVital - Analisis del negocio.html",
     "Inteligencia de negocio/PROYECTO_SaludVital/Sin confirmar 494340.crdownload",
     "Inteligencia de negocio/PROYECTO_SaludVital/PROYECTO SALUDVITAL - Análisis del negocio.md",
@@ -198,17 +232,11 @@
     "Inteligencia de negocio/PROYECTO_SaludVital/PROYECTO_SALUDVITAL_-_Analisis_completo.md",
     "Inteligencia de negocio/PROYECTO_SaludVital/~$SALUDVITAL_2BaseDatos.xlsx",
     "Inteligencia de negocio/PROYECTO_SaludVital/Sin confirmar 920439.crdownload",
-    "Inteligencia de negocio/Clases/Explicacion_OLTP_a_OLAP.md",
-    "Inteligencia de negocio/Clases/Explicacion_Lab_Clase2_Inteligencia_de_Negocios.md",
-    "Inteligencia de negocio/Clases/Explicacion_Business_Intelligence.md",
-    "Inteligencia de negocio/Clases/Explicacion_Clase2_Inteligencia_de_Negocios.md",
     "Inteligencia de negocio/Clases/BI_apuntes.md",
     "Inteligencia de negocio/Laboratorios/Lab1/Ejercicio Lab1.pdf",
     "Inteligencia de negocio/Clases/OLTP a OLAP.pdf",
     "Inteligencia de negocio/Clases/Sin confirmar 224878.crdownload",
     "Inteligencia de negocio/Clases/Lab Clase 2.pdf",
-    "Inteligencia de negocio/Clases/OLTP a OLAP parte 2.pdf",
-    "Inteligencia de negocio/Clases/Sin confirmar 303922.crdownload",
     "Inteligencia de negocio/Clases/OLTP_a_OLAP_apunte_completo.md",
     "Responsabilidad social y Etica Laboral/Analisis_Etica_y_RSE.md",
     "Inteligencia de negocio/PROYECTO_SaludVital/PROYECTO20-C320del20-20indice.md",
