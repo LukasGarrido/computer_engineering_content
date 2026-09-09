@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "6fc2946dccffd444",
+        "id": "931172c7230f72cb",
         "type": "tabs",
         "children": [
           {
-            "id": "12de40da20f3c475",
+            "id": "51ec911253ef3656",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Inteligencia de negocio/01_Teoria/00_Resumen_Inteligencia_de_Negocios.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nueva pestaña"
+              "title": "00_Resumen_Inteligencia_de_Negocios"
             }
           }
         ]
@@ -184,8 +188,13 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "597ae5d26f66b97e",
+  "active": "51ec911253ef3656",
   "lastOpenFiles": [
+    "Inteligencia de negocio/02_Laboratorios/Lab_02/Explicacion_Lab_Clase2.md",
+    "Inteligencia de negocio/01_Teoria/01_Explicacion_Business_Intelligence.md",
+    "Inteligencia de negocio/01_Teoria/02_Explicacion_Clase2_BI.md",
+    "Inteligencia de negocio/01_Teoria/03_Explicacion_OLTP_a_OLAP.md",
+    "Inteligencia de negocio/01_Teoria/00_Resumen_Inteligencia_de_Negocios.md",
     "Gestion de proyectos/_material_docente/Diapositivas_Clase_02.pdf",
     "Inteligencia de negocio/03_Proyectos/Proyecto_SaludVital/Analisis_del_Negocio.md",
     "Inteligencia de negocio/03_Proyectos/Proyecto_SaludVital/Instrucciones_Proyecto_SaludVital.pdf",
@@ -195,18 +204,12 @@
     "Inteligencia de negocio/03_Proyectos/Proyecto_SaludVital/SaludVital_Analisis_del_Negocio.html",
     "Inteligencia de negocio/02_Laboratorios/Lab_01/Entregable.md",
     "Inteligencia de negocio/02_Laboratorios/Lab_01/Ejercicio_Lab1.pdf",
-    "Inteligencia de negocio/02_Laboratorios/Lab_02/Explicacion_Lab_Clase2.md",
-    "Inteligencia de negocio/01_Teoria/03_Explicacion_OLTP_a_OLAP.md",
     "Inteligencia de negocio/Clases/Resumen_Inteligencia_de_Negocios.md",
-    "Inteligencia de negocio/01_Teoria/02_Explicacion_Clase2_BI.md",
-    "Inteligencia de negocio/01_Teoria/01_Explicacion_Business_Intelligence.md",
-    "Inteligencia de negocio/01_Teoria/00_Resumen_Inteligencia_de_Negocios.md",
     "Inteligencia de negocio/03_Proyectos/Proyecto_SaludVital",
     "Inteligencia de negocio/03_Proyectos",
     "Inteligencia de negocio/02_Laboratorios/Lab_02",
     "Inteligencia de negocio/02_Laboratorios/Lab_01",
     "Inteligencia de negocio/02_Laboratorios",
-    "Inteligencia de negocio/01_Teoria",
     "Gestion de proyectos/00_Indice.md",
     "Gestion de proyectos/01_Teoria/Clase_05_Scrum.md",
     "Gestion de proyectos/01_Teoria/Clase_04_Metodologias_y_Estandares.md",
