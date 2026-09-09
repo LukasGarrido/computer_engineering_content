@@ -1,5 +1,6 @@
 {
   "promptDelete": false,
+  "attachmentFolderPath": "_adjuntos",
   "pdfExportSettings": {
     "pageSize": "Letter",
     "landscape": false,

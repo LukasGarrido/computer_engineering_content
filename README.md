@@ -2,24 +2,40 @@
 
 Este repositorio contiene apuntes, laboratorios, proyectos y resúmenes de asignaturas de la carrera de **Ingeniería Informática** en la **Universidad Técnica Federico Santa María (USM)**.
 
+Está estructurado como una base de conocimiento para ser explorado tanto en **GitHub** como en **Obsidian** (compatible con wikilinks y Map of Contents).
 
 > [!NOTE]
 > Todos los materiales docentes, enunciados y diapositivas incluidos en este repositorio pertenecen y han sido provistos por la **Universidad Técnica Federico Santa María (USM)**.
 
 ---
 
-## Estructura de Asignaturas
+## 🏛️ Estructura Modular por Asignatura
 
-El repositorio está organizado por carpetas correspondientes a cada asignatura. A continuación se detalla el contenido actual:
+Cada asignatura sigue una convención estandarizada:
 
-| Asignatura                           | Descripción / Contenido principal                                                                                |
-| :----------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
-| Ciencia de Datos                     | Apuntes, preparación de Certámenes 1 y 2, y resúmenes conceptuales.                                              |
-| Gestión de proyectos                 | Fundamentos de gestión de proyectos de software, planificación, metodologías y clases en formato PDF y Markdown. |
-| Inteligencia de negocio              | Clases teóricas de BI, bodegas de datos (Data Warehouses) y desarrollo del Proyecto 4.                           |
-| Redes                                | Redes de computadores estructuradas por capítulos (1 al 8) y resúmenes completos para los certámenes.            |
-| Responsabilidad social y Ética Laboral | Apuntes y análisis sobre ética profesional y responsabilidad social.                                             |
-| Taller de administración de sistemas | Configuración de entornos, virtualización, contenedores (Docker/LXC) y administración en Linux.                  |
-| Visualización                        | Técnicas de visualización de datos, laboratorios prácticos y presentaciones asociadas.                           |
+```text
+Asignatura/
+├── 00_Indice.md              # Map of Content (MOC) interactivo para Obsidian
+├── 01_Teoria/                # Apuntes de clase y resúmenes conceptuales (.md)
+├── 02_Laboratorios/          # Guías resueltas, entregables y código (.ipynb, .md)
+├── 03_Proyectos/             # Documentos de análisis, código y entregas finales
+├── 04_Certamenes/            # Baterías de preguntas, quizes y resúmenes de certamen
+├── _material_docente/        # Diapositivas oficiales provistas por los profesores (.pdf)
+└── _adjuntos/                # Imágenes y recursos multimedia vinculados
+```
+
+---
+
+## 📚 Asignaturas Disponibles
+
+| Asignatura | Índice (MOC) | Contenido Principal |
+| :--- | :--- | :--- |
+| **Ciencia de Datos** | [Índice](file:///./Ciencia%20de%20Datos/00_Indice.md) | Fundamentos de DS, regresión lineal/logística, SVM, KNN, ensembles (Bagging/Boosting), grafos y deployment. |
+| **Gestión de Proyectos** | [Índice](file:///./Gestion%20de%20proyectos/00_Indice.md) | Fundamentos de gestión de software, planificación, metodologías tradicionales y ágiles (Scrum). |
+| **Inteligencia de Negocio** | [Índice](file:///./Inteligencia%20de%20negocio/00_Indice.md) | Fundamentos de BI, modelado dimensional OLTP a OLAP, laboratorios y Proyecto SaludVital. |
+| **Redes de Computadores** | [Índice](file:///./Redes%20de%20computadores/00_Indice.md) | Capas de red (Aplicación, Transporte, Red, Enlace, Seguridad), preguntas de certámenes 1 y 2. |
+| **Responsabilidad Social y Ética Laboral** | [Índice](file:///./Responsabilidad%20social%20y%20Etica%20Laboral/00_Indice.md) | Análisis ético en ingeniería y responsabilidad social empresarial. |
+| **Taller de Administración de Sistemas** | [Índice](file:///./Taller%20de%20administracion%20de%20sistemas/00_Indice.md) | Máquinas virtuales, contenedores (Docker), gestión de usuarios y servicios esenciales de red en Linux. |
+| **Visualización** | [Índice](file:///./Visualizacion/00_Indice.md) | Laboratorios prácticos (Power BI, GeoPandas/Mapas, Alta dimensionalidad PCA/t-SNE) y material docente. |
 
 ---
