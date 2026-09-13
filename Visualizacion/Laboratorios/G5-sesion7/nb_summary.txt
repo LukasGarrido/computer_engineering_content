@@ -1,0 +1,70 @@
+﻿
+=== CELL 0 [markdown] ===
+=== CELL 1 [code] ===
+=== CELL 2 [markdown] ===
+=== CELL 3 [code] ===
+=== CELL 4 [code] ===
+OUTPUT: Subset: (10000, 784)
+=== CELL 5 [markdown] ===
+=== CELL 6 [markdown] ===
+=== CELL 7 [code] ===
+OUTPUT:                 inertia      time  n_iter
+=== CELL 8 [markdown] ===
+=== CELL 9 [markdown] ===
+=== CELL 10 [code] ===
+OUTPUT (text): <Figure size 800x600 with 2 Axes>
+=== CELL 11 [code] ===
+OUTPUT (text): <Figure size 1400x600 with 2 Axes>
+=== CELL 12 [markdown] ===
+=== CELL 13 [code] ===
+OUTPUT (text): <Figure size 700x500 with 1 Axes>
+=== CELL 14 [markdown] ===
+=== CELL 15 [markdown] ===
+=== CELL 16 [markdown] ===
+=== CELL 17 [code] ===
+OUTPUT: Clusters encontrados: 2
+=== CELL 18 [markdown] ===
+=== CELL 19 [code] ===
+OUTPUT:     eps  n_clusters  noise_pct
+OUTPUT (text): <Figure size 700x500 with 2 Axes>
+=== CELL 20 [markdown] ===
+=== CELL 21 [code] ===
+OUTPUT:    min_samples  n_clusters  noise_pct
+OUTPUT (text): <Figure size 700x500 with 2 Axes>
+=== CELL 22 [markdown] ===
+=== CELL 23 [markdown] ===
+=== CELL 24 [code] ===
+OUTPUT:       metric    eps  n_clusters  noise_pct
+=== CELL 25 [markdown] ===
+=== CELL 26 [markdown] ===
+=== CELL 27 [code] ===
+OUTPUT (text): <Figure size 700x500 with 1 Axes>
+=== CELL 28 [markdown] ===
+=== CELL 29 [code] ===
+OUTPUT (text): <Figure size 800x600 with 1 Axes>
+=== CELL 30 [markdown] ===
+=== CELL 31 [markdown] ===
+=== CELL 32 [markdown] ===
+=== CELL 33 [code] ===
+OUTPUT: Tama├▒o de clusters GMM: {np.int64(0): np.int64(1587), np.int64(1): np.int64(1216), np.int64(2): 
+np.int64(415), np.int64(3): np.int64(1209), np.int64(4): np.int64(1085), np.int64(5): np.int64(789), np.int64(6): 
+np.int64(947), np.int64(7): np.int64(838), np.int64(8): np.int64(1460), np.int64(9): np.int64(454)}
+=== CELL 34 [code] ===
+OUTPUT (text): <Figure size 800x600 with 1 Axes>
+=== CELL 35 [markdown] ===
+=== CELL 36 [code] ===
+OUTPUT (text): <Figure size 1200x1000 with 4 Axes>
+=== CELL 37 [markdown] ===
+=== CELL 38 [markdown] ===
+=== CELL 39 [code] ===
+OUTPUT (text): <Figure size 700x500 with 1 Axes>
+=== CELL 40 [markdown] ===
+=== CELL 41 [markdown] ===
+=== CELL 42 [code] ===
+OUTPUT: Observaci├│n con asignaci├│n dominante:
+=== CELL 43 [code] ===
+OUTPUT (text): <Figure size 600x300 with 2 Axes>
+=== CELL 44 [markdown] ===
+Total cells: 45
+
+

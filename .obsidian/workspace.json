@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "6fc2946dccffd444",
+        "id": "9741a1abd2b59f8b",
         "type": "tabs",
         "children": [
           {
-            "id": "12de40da20f3c475",
+            "id": "929fcf4585895276",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -184,8 +184,11 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "597ae5d26f66b97e",
+  "active": "929fcf4585895276",
   "lastOpenFiles": [
+    "Inteligencia de negocio/01_Teoria/00_Resumen_Inteligencia_de_Negocios.md",
+    "Responsabilidad social y Etica Laboral/01_Teoria/Analisis_Etica_y_RSE.md",
+    "Inteligencia de negocio/00_Indice.md",
     "Gestion de proyectos/_material_docente/Diapositivas_Clase_02.pdf",
     "Inteligencia de negocio/03_Proyectos/Proyecto_SaludVital/Analisis_del_Negocio.md",
     "Inteligencia de negocio/03_Proyectos/Proyecto_SaludVital/Instrucciones_Proyecto_SaludVital.pdf",
@@ -200,13 +203,11 @@
     "Inteligencia de negocio/Clases/Resumen_Inteligencia_de_Negocios.md",
     "Inteligencia de negocio/01_Teoria/02_Explicacion_Clase2_BI.md",
     "Inteligencia de negocio/01_Teoria/01_Explicacion_Business_Intelligence.md",
-    "Inteligencia de negocio/01_Teoria/00_Resumen_Inteligencia_de_Negocios.md",
     "Inteligencia de negocio/03_Proyectos/Proyecto_SaludVital",
     "Inteligencia de negocio/03_Proyectos",
     "Inteligencia de negocio/02_Laboratorios/Lab_02",
     "Inteligencia de negocio/02_Laboratorios/Lab_01",
     "Inteligencia de negocio/02_Laboratorios",
-    "Inteligencia de negocio/01_Teoria",
     "Gestion de proyectos/00_Indice.md",
     "Gestion de proyectos/01_Teoria/Clase_05_Scrum.md",
     "Gestion de proyectos/01_Teoria/Clase_04_Metodologias_y_Estandares.md",
@@ -221,7 +222,6 @@
     "Redes de computadores/01_Teoria/Cap_05_Capa_Red_Control_Plane.md",
     "Redes de computadores/01_Teoria/Cap_03_Capa_Transporte.md",
     "Redes de computadores/04_Certamenes/Quizes/Quiz_Capa_Aplicacion.md",
-    "Redes de computadores/01_Teoria/Cap_01_Introduccion.md",
     "Pasted image 20260825113306.png"
   ]
 }
