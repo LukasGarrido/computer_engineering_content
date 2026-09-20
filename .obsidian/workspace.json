@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "a51da473cb798e21",
+        "id": "1869300160db458f",
         "type": "tabs",
         "children": [
           {
-            "id": "7222c11ab46ccd71",
+            "id": "f7c5e1843f02a000",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -184,8 +184,17 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "7222c11ab46ccd71",
+  "active": "597ae5d26f66b97e",
   "lastOpenFiles": [
+    "Visualizacion/01_Teoria/03_Análisis de Componentes Principales (PCA).md",
+    "Visualizacion/01_Teoria/02_Errores Comunes y Distracciones en Visualizaciones de Datos.md",
+    "Visualizacion/_material_docente/Principal_components_analysis_PCA.pdf",
+    "Visualizacion/_material_docente/Errores Comunes y Distracciones en Visualizaciones de Datos.pdf",
+    "Visualizacion/01_Teoria/01_Introducción al procesamiento del lenguaje natural.md",
+    "Visualizacion/_material_docente/EIN092B__Presentación___Exploración_y_análisis_de_textos.pdf",
+    "Visualizacion/_material_docente/Introducción_a_Power_BI.pdf",
+    "Visualizacion/_material_docente/Introducción_a_procesamiento_de_imágenes.pdf",
+    "Visualizacion/01_Teoria/00_Introducción al Procesamiento de Imágenes.md",
     "Visualizacion/00_Indice.md",
     "Visualizacion/02_Laboratorios/Laboratorio Mapas-20260818/W2_library_maps.ipynb",
     "Visualizacion/02_Laboratorios/Laboratorio Mapas-20260818/Lab_S2____Mapas.pdf",
@@ -193,19 +202,10 @@
     "Visualizacion/02_Laboratorios/Laboratorio Mapas-20260818",
     "Visualizacion/02_Laboratorios/Tecnicas de visualizacion y reduccion de dimensionalidad/USArrests.csv",
     "Visualizacion/02_Laboratorios/Tecnicas de visualizacion y reduccion de dimensionalidad/requirements.txt",
-    "Visualizacion/02_Laboratorios/Tecnicas de visualizacion y reduccion de dimensionalidad/Lab_S6___Técnicas_de_visualización_y_agrupación_de_datos (1).pdf",
-    "Visualizacion/02_Laboratorios/Tecnicas de visualizacion y reduccion de dimensionalidad/Lab_S6.ipynb",
-    "Visualizacion/02_Laboratorios/Tecnicas de visualizacion y reduccion de dimensionalidad",
-    "Visualizacion/02_Laboratorios/Técnicas de visualización en alta dimensionalidad-20260828/C4_PCA_tSNE.ipynb",
-    "Visualizacion/02_Laboratorios/Técnicas de visualización en alta dimensionalidad-20260828/C4 - Visualización_2D_3D_conceptos_básicos.ipynb",
     "Visualizacion/02_Laboratorios/Lab powerbi/Laboratorio Power BI - Entregable.md",
     "Visualizacion/02_Laboratorios/Lab powerbi/Guia_PowerBI_Pizza_Place_Sales.md",
     "Visualizacion/02_Laboratorios/Lab powerbi/Conceptos_PowerBI_Explicados.md",
     "Visualizacion/02_Laboratorios/G5-sesion7/ANALISIS_CLUSTERING.md",
-    "Visualizacion/01_Teoria/04_Análisis de Componentes Principales (PCA).md",
-    "Visualizacion/01_Teoria/03_Errores Comunes y Distracciones en Visualizaciones de Datos.md",
-    "Visualizacion/01_Teoria/01_Introducción al procesamiento del lenguaje natural.md",
-    "Visualizacion/01_Teoria/00_Introducción al Procesamiento de Imágenes.md",
     "README.md",
     "Visualizacion/Sin título.canvas",
     "Inteligencia de negocio/01_Teoria/00_Resumen_Inteligencia_de_Negocios.md",
