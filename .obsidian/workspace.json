@@ -4,31 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "1869300160db458f",
+        "id": "8977aef2c1a582a1",
         "type": "tabs",
         "children": [
           {
-            "id": "e1d13a2cbb07746c",
+            "id": "43f82b24fd09a3fc",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Visualizacion/_material_docente/Introducción_a_procesamiento_de_imágenes.pdf"
+                "file": "Taller de administracion de sistemas/01_Teoria/taller_administracion_sistemas_contenidos.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "Introducción_a_procesamiento_de_imágenes"
-            }
-          },
-          {
-            "id": "a1416e9863ed74c0",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Visualizacion/_material_docente/Principal_components_analysis_PCA.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "Principal_components_analysis_PCA"
+              "icon": "lucide-file",
+              "title": "taller_administracion_sistemas_contenidos"
             }
           }
         ]
@@ -198,22 +188,23 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "e1d13a2cbb07746c",
+  "active": "43f82b24fd09a3fc",
   "lastOpenFiles": [
-    "Visualizacion/_material_docente/Principal_components_analysis_PCA.pdf",
-    "Visualizacion/_material_docente/Errores Comunes y Distracciones en Visualizaciones de Datos.pdf",
-    "Visualizacion/_material_docente/Introducción_a_procesamiento_de_imágenes.pdf",
-    "Visualizacion/00_Indice.md",
+    "Taller de administracion de sistemas/01_Teoria/OVA_02_Datos_Acceso_y_Servicios_Red.md",
     "Visualizacion/04_Cuestionarios/Cuestionario_Visualizacion_EIN092B.md",
+    "Visualizacion/01_Teoria/03_Análisis de Componentes Principales (PCA).md",
+    "Visualizacion/01_Teoria/02_Errores Comunes y Distracciones en Visualizaciones de Datos.md",
+    "Visualizacion/01_Teoria/01_Introducción al procesamiento del lenguaje natural.md",
+    "Visualizacion/01_Teoria/00_Introducción al Procesamiento de Imágenes.md",
+    "Visualizacion/_material_docente/Principal_components_analysis_PCA.pdf",
+    "Visualizacion/_material_docente/Introducción_a_procesamiento_de_imágenes.pdf",
+    "Visualizacion/_material_docente/Errores Comunes y Distracciones en Visualizaciones de Datos.pdf",
+    "Visualizacion/00_Indice.md",
     "Visualizacion/04_Cuestionarios/Sin confirmar 455462.crdownload",
     "Visualizacion/04_Cuestionarios",
     "Visualizacion/Nueva carpeta",
     "Visualizacion/_material_docente/EIN092B__Presentación___Exploración_y_análisis_de_textos.pdf",
-    "Visualizacion/01_Teoria/03_Análisis de Componentes Principales (PCA).md",
-    "Visualizacion/01_Teoria/02_Errores Comunes y Distracciones en Visualizaciones de Datos.md",
-    "Visualizacion/01_Teoria/01_Introducción al procesamiento del lenguaje natural.md",
     "Visualizacion/_material_docente/Introducción_a_Power_BI.pdf",
-    "Visualizacion/01_Teoria/00_Introducción al Procesamiento de Imágenes.md",
     "Visualizacion/02_Laboratorios/Laboratorio Mapas-20260818/W2_library_maps.ipynb",
     "Visualizacion/02_Laboratorios/Laboratorio Mapas-20260818/Lab_S2____Mapas.pdf",
     "Visualizacion/02_Laboratorios/Laboratorio Mapas-20260818/analisis_libreria_mapas.md",
