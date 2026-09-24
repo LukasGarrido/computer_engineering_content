@@ -4,8 +4,14 @@ Este índice centraliza los apuntes, laboratorios prácticos y presentaciones de
 
 ---
 
-## Laboratorios Prácticos
+## Directorios Principales
+- [01_Teoria](./01_Teoria) – Contenidos teóricos.
+- [02_Laboratorios](./02_Laboratorios) – Laboratorios prácticos.
+- [03_Proyecto](./03_Proyecto) – Proyecto semestral.
+- [04_Cuestionarios](./04_Cuestionarios) – Cuestionarios y ejercicios.
+- [_material_docente](./_material_docente) – Materiales de apoyo.
 
+## Laboratorios Prácticos
 ### Lab — Power BI
 - [[Conceptos_PowerBI_Explicados|Conceptos Fundamentales de Power BI]]
 - [[Guia_PowerBI_Pizza_Place_Sales|Guía de Laboratorio — Dataset Pizza Place Sales]]
@@ -30,7 +36,6 @@ Este índice centraliza los apuntes, laboratorios prácticos y presentaciones de
 ---
 
 ## Proyecto Semestral
-
 - `Indicaciones Proyecto-20260828/P___Indicaciones_para_selección_de_proyecto-2.pdf`
 - `Indicaciones Proyecto-20260828/P___Template___Reporte_final.pdf`
 - `Indicaciones Proyecto-20260828/[Ejemplo] Automatic_Classification_of_Soot_Propensity_in_Flames_Using_Image_Processing_and_Machine_Learning.pdf`
@@ -38,10 +43,16 @@ Este índice centraliza los apuntes, laboratorios prácticos y presentaciones de
 ---
 
 ## Presentaciones y Documentos Docentes
-
 - `Presentaciones-Documentos/Introducción.pdf`
 - `Presentaciones-Documentos/Introducción_a_Power_BI.pdf`
 - `Presentaciones-Documentos/Introducción_a_procesamiento_de_imágenes.pdf`
 - `Presentaciones-Documentos/EIN092B__Presentación___Exploración_y_análisis_de_textos.pdf`
 - `Presentaciones-Documentos/Principal_components_analysis_PCA.pdf`
 - `Presentaciones-Documentos/Errores Comunes y Distracciones en Visualizaciones de Datos.pdf`
+
+## Contenidos Teóricos (01_Teoria)
+- `01_Teoria/00_Introducción al Procesamiento de Imágenes.md`
+- `01_Teoria/01_Introducción al procesamiento del lenguaje natural.md`
+- `01_Teoria/02_Errores Comunes y Distracciones en Visualizaciones de Datos.md`
+- `01_Teoria/03_Análisis de Componentes Principales (PCA).md`
+
