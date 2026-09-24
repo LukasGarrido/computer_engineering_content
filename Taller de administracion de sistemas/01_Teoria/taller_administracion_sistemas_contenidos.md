@@ -509,22 +509,6 @@ docker compose up -d
 docker compose logs -f
 ```
 
----
-
-## Relación con la evaluación del ramo
-
-Según el syllabus, el ramo se evalúa con:
-
-| Instrumento | Peso |
-|---|---|
-| Certámenes (2) | 65% |
-| Proyecto (1) | 30% |
-| Asistencia | 5% |
-
-El **proyecto** es el espacio natural para integrar varias unidades a la vez: por ejemplo, levantar un servidor (unidad 1), acceder por SSH (unidad 2), configurar firewall (unidad 3), correr un servicio web (unidad 4) sobre un sistema de archivos bien particionado (unidad 5), aplicando hardening básico (unidad 6), y desplegando la aplicación en un contenedor Docker (unidad 7) — es decir, un mini-ejercicio de administración de sistemas de punta a punta.
-
----
-
 ## Bibliografía del ramo
 
 - **Texto guía**: Nemeth, E., Snyder, G., et al. *UNIX and Linux System Administration Handbook* (5th Edition), 2017.
