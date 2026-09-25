@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Taller de administracion de sistemas/01_Teoria/taller_administracion_sistemas_contenidos.md",
-                "mode": "preview",
+                "file": "Taller de administracion de sistemas/02_Configuracion_vm/bitacora_ssh_ubuntu_server.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "taller_administracion_sistemas_contenidos"
+              "title": "bitacora_ssh_ubuntu_server"
             }
           }
         ]
@@ -190,6 +190,11 @@
   },
   "active": "43f82b24fd09a3fc",
   "lastOpenFiles": [
+    "Taller de administracion de sistemas/00_Indice.md",
+    "Taller de administracion de sistemas/01_Teoria/taller_administracion_sistemas_contenidos.md",
+    "Taller de administracion de sistemas/02_Configuracion_vm/bitacora_ssh_ubuntu_server.md",
+    "Taller de administracion de sistemas/02_Configuracion_vm/Sin confirmar 842740.crdownload",
+    "Taller de administracion de sistemas/02_Configuracion_vm",
     "Taller de administracion de sistemas/01_Teoria/OVA_02_Datos_Acceso_y_Servicios_Red.md",
     "Visualizacion/04_Cuestionarios/Cuestionario_Visualizacion_EIN092B.md",
     "Visualizacion/01_Teoria/03_Análisis de Componentes Principales (PCA).md",
@@ -205,8 +210,6 @@
     "Visualizacion/Nueva carpeta",
     "Visualizacion/_material_docente/EIN092B__Presentación___Exploración_y_análisis_de_textos.pdf",
     "Visualizacion/_material_docente/Introducción_a_Power_BI.pdf",
-    "Visualizacion/02_Laboratorios/Laboratorio Mapas-20260818/W2_library_maps.ipynb",
-    "Visualizacion/02_Laboratorios/Laboratorio Mapas-20260818/Lab_S2____Mapas.pdf",
     "Visualizacion/02_Laboratorios/Laboratorio Mapas-20260818/analisis_libreria_mapas.md",
     "Visualizacion/02_Laboratorios/Lab powerbi/Laboratorio Power BI - Entregable.md",
     "Visualizacion/02_Laboratorios/Lab powerbi/Guia_PowerBI_Pizza_Place_Sales.md",
@@ -224,9 +227,6 @@
     "Inteligencia de negocio/02_Laboratorios/Lab_02/Explicacion_Lab_Clase2.md",
     "Inteligencia de negocio/01_Teoria/03_Explicacion_OLTP_a_OLAP.md",
     "Inteligencia de negocio/Clases/Resumen_Inteligencia_de_Negocios.md",
-    "Inteligencia de negocio/01_Teoria/02_Explicacion_Clase2_BI.md",
-    "Inteligencia de negocio/01_Teoria/01_Explicacion_Business_Intelligence.md",
-    "Gestion de proyectos/00_Indice.md",
     "Pasted image 20260825113306.png"
   ]
 }
