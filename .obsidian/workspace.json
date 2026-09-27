@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "4672c9aa32f63725",
+        "id": "532f612c81197a29",
         "type": "tabs",
         "children": [
           {
-            "id": "e19c8d8360850f78",
+            "id": "187fa8aefc87c905",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Visualizacion/02_Laboratorios/G5-sesion8/Lab_S8____Exploraciýn_y_anýlisis_de_textos.pdf"
+                "file": "Taller de administracion de sistemas/00_Indice.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "Lab_S8____Exploraciýn_y_anýlisis_de_textos"
+              "icon": "lucide-file",
+              "title": "00_Indice"
             }
           }
         ]
@@ -186,14 +188,17 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "597ae5d26f66b97e",
+  "active": "187fa8aefc87c905",
   "lastOpenFiles": [
+    "Taller de administracion de sistemas/02_Configuracion_vm/bitacora_laboratorio_ubuntu_server.md",
+    "Taller de administracion de sistemas/00_Indice.md",
+    "Taller de administracion de sistemas/02_Configuracion_vm/Sin confirmar 345829.crdownload",
+    "Taller de administracion de sistemas/02_Configuracion_vm/bitacora_ssh_ubuntu_server.md",
+    "Taller de administracion de sistemas/02_Configuracion_vm/02_configuracion_ip_estatica_netplan.md",
     "Visualizacion/02_Laboratorios/G5-sesion8",
     "Visualizacion/04_Cuestionarios/Cuestionario_Visualizacion_EIN092B.md",
-    "Taller de administracion de sistemas/02_Configuracion_vm/bitacora_ssh_ubuntu_server.md",
     "Visualizacion/02_Laboratorios/G5-sesion8/Lab_S8____Exploraciýn_y_anýlisis_de_textos.pdf",
     "Visualizacion/02_Laboratorios/Sin confirmar 181100.crdownload",
-    "Taller de administracion de sistemas/00_Indice.md",
     "Taller de administracion de sistemas/01_Teoria/taller_administracion_sistemas_contenidos.md",
     "Taller de administracion de sistemas/02_Configuracion_vm/Sin confirmar 842740.crdownload",
     "Taller de administracion de sistemas/02_Configuracion_vm",
@@ -207,8 +212,6 @@
     "Visualizacion/_material_docente/Errores Comunes y Distracciones en Visualizaciones de Datos.pdf",
     "Visualizacion/00_Indice.md",
     "Visualizacion/04_Cuestionarios/Sin confirmar 455462.crdownload",
-    "Visualizacion/04_Cuestionarios",
-    "Visualizacion/Nueva carpeta",
     "Visualizacion/02_Laboratorios/Laboratorio Mapas-20260818/analisis_libreria_mapas.md",
     "Visualizacion/02_Laboratorios/Lab powerbi/Laboratorio Power BI - Entregable.md",
     "Visualizacion/02_Laboratorios/Lab powerbi/Guia_PowerBI_Pizza_Place_Sales.md",
@@ -224,7 +227,6 @@
     "Redes de computadores/00_Indice.md",
     "Inteligencia de negocio/02_Laboratorios/Lab_01/Entregable.md",
     "Inteligencia de negocio/02_Laboratorios/Lab_02/Explicacion_Lab_Clase2.md",
-    "Inteligencia de negocio/01_Teoria/03_Explicacion_OLTP_a_OLAP.md",
     "Pasted image 20260825113306.png"
   ]
 }
