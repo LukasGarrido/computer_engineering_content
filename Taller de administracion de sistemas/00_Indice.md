@@ -26,15 +26,25 @@ Este índice centraliza los Objetos Virtuales de Aprendizaje (OVA), guías de co
 
 ## 02. Configuraciones y Laboratorios Prácticos
 
-### Bitácora de Configuración de Servidores (VM)
-- [[bitacora_laboratorio_ubuntu_server|Bitácora de Laboratorio — Configuración de Ubuntu Server 24.04]]
-  - *Procedimiento paso a paso en VirtualBox:*
-    - Acceso SSH y gestión de usuarios (`lukas`).
-    - Configuración de interfaz de red Bridged e IP estática mediante Netplan.
-    - Diagnóstico y resolución de conflictos de IPs y rutas por defecto (`ip route`).
-    - Reglas de filtrado de tráfico en UFW.
-    - Despliegue y verificación del servidor web Nginx.
-    - Cheatsheet de comandos esenciales de administración de sistemas.
+### Laboratorios de Operaciones en Servidor (VM)
+- [[lab-almacenamiento-permisos|Lab 1/4 — Almacenamiento, Sistemas de Archivos y Permisos]]
+  - *Operación 1 de 4 · 105 min · Módulo RDA2*
+    - Creación de volumen persistente con identificación por **UUID** (`/etc/fstab`).
+    - Formateo ext4, montaje en `/srv/proyecto` y política grupal automática.
+    - Permisos POSIX avanzados: **setgid**, sticky bit y ACLs (`setfacl`/`getfacl`).
+    - Justificación de mínimo privilegio para colaboración entre operadores.
+- [[lab-diagnostico-red-firewall|Lab 2/4 — Diagnóstico de Red y Firewall Inicial]]
+  - *Operación 2 de 4 · 105 min · Módulo RDA1/RDA3*
+    - Distinción práctica entre proceso, socket, puerto, servicio y firewall como capas independientes.
+    - Habilitación selectiva del puerto 8080 solo desde la red de laboratorio.
+    - Configuración de política UFW por defecto (deny incoming) preservando acceso SSH.
+    - Diagnóstico con `ss -tulpn`, `systemctl`, `journalctl` y `nc`.
+- [[lab-dns-bind9|Lab 4/4 — DNS Autoritativo Local con BIND 9]]
+  - *Operación 4 de 4 · 105 min · Módulo RDA1/RDA2/RDA3*
+    - Publicación de zona directa e inversa para `pruebatas.test`.
+    - Configuración de BIND 9: `named.conf.local`, archivos de zona, registros SOA/NS/A/PTR.
+    - Restricción de consultas a la red de laboratorio (`allow-query`).
+    - Validación del servicio con `dig` (directa e inversa) y análisis de logs.
 
 ---
 
