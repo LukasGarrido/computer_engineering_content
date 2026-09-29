@@ -1,254 +1,518 @@
-# Visualización de Datos — Errores Comunes y Distracciones
+# Visualización de Datos — Errores Comunes y Distracciones (versión ampliada)
 
-**Curso:** EIN092B - Visualización **Referencia bibliográfica principal:** Stephen Few, _Show Me the Numbers_, 2nd Ed., 2012.
+**Curso:** EIN092B – Visualización
+**Referencias principales:** Stephen Few, *Show Me the Numbers* (2ª ed., 2012) · Edward Tufte, *The Visual Display of Quantitative Information* (1983) · Cleveland & McGill, "Graphical Perception" (1984) · Alberto Cairo, *How Charts Lie* (2019) · Claus Wilke, *Fundamentals of Data Visualization* (2019)
 
-Este documento aborda tres grandes bloques: (1) ejercicios de percepción visual que muestran cómo el cerebro puede "engañarse" al interpretar imágenes, (2) una taxonomía de tipos de gráficos según la tarea analítica que resuelven (clasificación de Stephen Few), y (3) una extensa galería de ejemplos reales de visualizaciones con errores o elementos distractores, que sirven como ejercicio de análisis crítico.
-
----
-
-## 1. Ejercicios de percepción visual
-
-Antes de hablar de gráficos, la presentación muestra varias **ilusiones ópticas clásicas**. El objetivo es demostrar que la percepción humana del color, el brillo y los patrones **no es un proceso neutro**: el cerebro interpreta la información visual en función del contexto que la rodea, lo cual tiene implicancias directas para el diseño de visualizaciones (un mal uso del color o del contexto visual puede llevar a conclusiones erróneas).
-
-### 1.1 El tablero de ajedrez de Adelson (contraste simultáneo)
-
-Se presenta la clásica ilusión del tablero de ajedrez con un cilindro que proyecta una sombra. La pregunta es: **¿los cuadros A y B son del mismo color?**
-
-- **A simple vista**, el cuadro A (fuera de la sombra) parece mucho más oscuro que el cuadro B (dentro de la sombra).
-- **En realidad, ambos cuadros tienen exactamente el mismo valor de gris.**
-- Esto se comprueba en la segunda diapositiva, donde se coloca una franja continua de color que conecta ambos cuadros: al eliminar el contexto (la sombra y el patrón de tablero circundante), se observa que el color es idéntico.
-
-Este fenómeno se conoce como **contraste simultáneo**: el cerebro interpreta el brillo de una región no de forma absoluta, sino **relativa a su entorno inmediato**. Como el cuadro B está "dentro de una sombra" (según la interpretación que hace el cerebro de la escena 3D), el sistema visual compensa y lo percibe más claro de lo que realmente es.
-
-**Implicancia para visualización de datos:** el color de un elemento en un gráfico (una barra, una región de un mapa) puede percibirse de forma distinta según los colores que lo rodeen, lo cual puede distorsionar comparaciones si no se diseña con cuidado.
-
-### 1.2 Patrón de textura (ilusión tipo Ouchi/laberinto)
-
-Se muestra una imagen compuesta por un patrón denso de líneas curvas tipo "laberinto" o "huella dactilar", y se pregunta: **¿existe alguna diferencia en el patrón?**
-
-- A primera vista, el patrón parece uniforme en toda la imagen.
-- En la siguiente diapositiva se destaca (con líneas azules) una **región sutil donde el patrón cambia de orientación**, algo que resulta muy difícil de detectar sin ayuda visual.
-
-Esto ilustra que el sistema visual humano es **muy sensible a algunos tipos de cambios (como color o brillo) pero relativamente insensible a otros** (como cambios sutiles en la orientación o densidad de una textura), lo que es relevant al elegir qué codificación visual usar para representar una variable (por ejemplo, usar color en lugar de textura para diferencias que deben notarse rápidamente).
-
-### 1.3 Ilusión de color de línea (efecto Bezold / asimilación cromática)
-
-Se muestra una imagen dividida en dos mitades de fondo (amarillo y gris), cada una atravesada por una línea en forma de "X". Se pregunta: **¿es el mismo color de línea?**
-
-- La línea sobre el fondo amarillo parece **más clara/grisácea**, mientras que la misma línea sobre el fondo gris parece **más amarillenta/verdosa**.
-- En la diapositiva siguiente se extrae una muestra de la línea de ambos lados y se coloca junto a la imagen, mostrando que **ambas líneas tienen exactamente el mismo color**.
-
-Este efecto se conoce como **asimilación cromática (efecto Bezold)**: el color de fondo "contamina" perceptualmente el color de un elemento que se superpone a él, en dirección opuesta al contraste simultáneo (aquí el color se "mezcla" con el fondo en lugar de destacarse por contraste).
-
-**Conclusión de esta sección:** estas tres ilusiones (contraste simultáneo, insensibilidad a ciertos patrones y asimilación cromática) demuestran que **el color y el contexto visual no son "neutros"** al comunicar datos, y que un diseñador de visualizaciones debe ser consciente de estos efectos perceptuales para evitar generar interpretaciones erróneas, incluso sin intención.
+> **Cómo usar este documento.** La versión original describía casos. Esta versión mantiene esos casos, pero añade lo que faltaba: **la teoría que explica por qué un gráfico falla**, **cómo corregirlo**, **reglas prácticas**, **código de ejemplo**, **una lista de verificación** y **ejercicios con respuestas**. Está organizado para que puedas pasar de "reconocer el error" a "evitarlo en tus propios gráficos".
 
 ---
 
-## 2. Taxonomía de gráficos según la tarea analítica (Stephen Few)
+## 0. Ideas base (léelas primero)
 
-Basándose en el libro _Show Me the Numbers_ de Stephen Few, el documento organiza los tipos de gráficos según **el tipo de pregunta o relación analítica** que buscan responder, no solo según su forma visual. Esta es una idea central en visualización de datos: **el tipo de gráfico debe elegirse en función de la tarea**, no al revés.
+Casi todos los errores de las secciones siguientes se explican con cinco ideas.
 
-### 2.1 Clasificación (Ranking)
+### 0.1 Un gráfico es un argumento, no un adorno
+Todo gráfico responde una pregunta ("¿quién vende más?", "¿cómo evolucionó X?", "¿se relacionan A y B?"). Si no puedes decir la pregunta en una frase, el gráfico probablemente sobra o está mal elegido.
 
-Cuando el objetivo es **ordenar categorías** según una magnitud (por ejemplo, ventas por país), se recomienda el uso de **gráficos de barras**, ya sea verticales u horizontales. El ejemplo muestra unidades vendidas por país (Rusia, República Checa, Eslovaquia, Emiratos Árabes Unidos, Arabia Saudita, Egipto), ordenadas de mayor a menor, tanto en formato de barras verticales como horizontales.
+### 0.2 No todas las codificaciones visuales se leen igual de bien
+Cleveland y McGill (1984) ordenaron las tareas perceptuales según la **precisión** con que las personas estimamos valores:
 
-### 2.2 Comparación nominal
+| Precisión | Codificación | Ejemplo |
+|---|---|---|
+| 1 (mejor) | Posición sobre una escala común | Puntos en un scatter, barras con la misma base |
+| 2 | Posición en escalas no alineadas | Paneles separados con ejes distintos |
+| 3 | Longitud | Barras |
+| 4 | Ángulo / pendiente | Porciones de pie, inclinación de una línea |
+| 5 | Área | Burbujas, treemaps |
+| 6 (peor) | Volumen, color (saturación/tono) | Barras 3D, mapas de calor |
 
-Cuando las categorías **no tienen un orden inherente** (por ejemplo, regiones geográficas: Norte, Sur, Este, Oeste), también se recomienda el uso de **barras**, pero a diferencia del ranking, aquí el orden de las categorías es arbitrario (se puede alfabetizar, ordenar por magnitud, o mantener un orden lógico como geográfico).
+**Consecuencia:** si quieres que se comparen valores con precisión, usa posición o longitud (puntos y barras). Los pies (ángulo) y las burbujas (área) sirven para aproximaciones, no para comparaciones finas. Los errores 3D, de pie y de radio/área de más abajo son casos directos de esta jerarquía.
 
-### 2.3 Correlación
+### 0.3 Relación datos-tinta y "Lie Factor" (Tufte)
+- **Data-ink ratio:** la mayor parte de la "tinta" del gráfico debería representar datos. Rejillas pesadas, sombras, fondos, íconos y texturas son *chartjunk* si no aportan información.
+- **Lie Factor:** `tamaño del efecto mostrado en el gráfico ÷ tamaño del efecto en los datos`. Lo ideal es cercano a 1. Un eje truncado o un radio mal escalado lo disparan (ver ejemplos más abajo).
 
-Para mostrar la **relación entre dos variables numéricas** (por ejemplo, altura vs. salario de empleados), se recomienda:
+### 0.4 Atributos preatentivos: lo que el cerebro ve antes de pensar
+Color, tamaño, posición, orientación y forma se detectan en menos de ~250 ms. Úsalos **para destacar lo importante** (una barra en color fuerte, el resto en gris). Si todo está destacado, nada lo está.
 
-- **Diagramas de dispersión (scatter plots)**, con puntos individuales y opcionalmente una **línea de tendencia** que resuma la relación.
-- Alternativamente, se puede usar un gráfico de **barras enfrentadas** (back-to-back bars) que compara ambas variables lado a lado para cada individuo, aunque es menos efectivo que el scatter plot para detectar correlación.
-
-### 2.4 Desviación
-
-Cuando se quiere mostrar **cuánto se desvía un valor respecto de un punto de referencia** (por ejemplo, ventas reales vs. plan, o variación porcentual mes a mes), se pueden usar:
-
-- **Barras** que se extienden hacia arriba o hacia abajo desde una línea base de cero (ej. "Actual to Plan Variance", con barras rojas para valores por encima del plan y grises para valores por debajo).
-- **Líneas**, útiles para mostrar variación porcentual en el tiempo respecto a un valor de referencia (ej. cambio porcentual mes a mes respecto al mes anterior).
-- **Puntos y líneas**, para comparar cada mes contra un valor fijo de referencia (ej. ventas mensuales comparadas con enero).
-
-### 2.5 Distribución
-
-Para mostrar cómo se **distribuyen los valores** de una variable, existen varias sub-categorías:
-
-**a) Distribución única o de frecuencia:**
-
-- **Histograma:** usa barras para mostrar la frecuencia de ocurrencia agrupada en intervalos (bins).
-- **Polígono de frecuencia:** usa una línea que conecta los puntos medios de cada intervalo, en lugar de barras. Es útil para comparar múltiples distribuciones superpuestas, ya que las líneas se superponen mejor visualmente que las barras.
-
-**b) Distribución múltiple (rango de valores a través de categorías o tiempo):**
-
-- **Rango con barras:** cada barra representa el rango entre un valor mínimo y máximo (ej. rango salarial por año).
-- **Rango con barras y puntos:** se añade un punto (por ejemplo, la mediana) dentro de cada barra de rango.
-- **Rango con barras y líneas:** se añade una línea que conecta las medianas a través de las categorías, permitiendo ver la tendencia de la mediana además del rango.
-
-**c) Box plot (gráfico de cajas):** Es una forma más completa y estandarizada de representar una distribución, mostrando:
-
-- El **valor mínimo y máximo** (extremos de los "bigotes").
-- El **rango intercuartílico (percentil 25 a percentil 75)**, representado por la caja, que contiene el 50% central de los valores ("midspread").
-- La **mediana** (percentil 50), marcada dentro de la caja.
-
-Este tipo de gráfico permite ver de un vistazo tanto la tendencia central como la dispersión y posibles asimetrías de los datos.
-
-### 2.6 Geoespacial
-
-Cuando los datos tienen una componente geográfica, existen distintas formas de representarlos:
-
-- **Mapa de símbolos proporcionales:** usa puntos de distinto tamaño ubicados en su posición geográfica, donde el tamaño del símbolo representa la magnitud de una variable (ej. ventas por ciudad).
-- **Mapa relleno (choropleth):** colorea regiones completas (países, estados) según el valor de una variable, usando una escala de color o intensidad.
-- **Mapa de flujo:** usa líneas (a menudo con grosor variable) para representar movimiento o flujo entre ubicaciones geográficas (ej. trayectorias de tormentas).
-
-### 2.7 Visualización "Parte a todo" (Part-to-whole)
-
-Este tipo de gráfico se usa para **comparar la composición de un todo**, es decir, cómo las partes contribuyen al total, ya sea en un momento dado o a través de distintas categorías/tiempo. Ejemplos mencionados: **donut chart, marimekko chart, pie chart y stacked bar graph (barras apiladas)**.
-
-Se muestran ejemplos con datos de ventas por región (Norte, Sur, Este, Oeste):
-
-- **Barras simples**, mostrando el porcentaje que cada región aporta al total de ventas — útil para comparar magnitudes individuales pero no comunica directamente la idea de "parte de un todo".
-- **Barras apiladas (stacked bars)**, que sí comunican directamente cómo las partes se combinan para formar el 100% del total, y permiten además comparar esa composición a través del tiempo (por trimestre, Q1-Q4).
-- También se contrastan barras apiladas versus **barras agrupadas (clustered bars)**: las apiladas muestran la composición del total, mientras que las agrupadas facilitan comparar cada categoría individualmente entre trimestres, pero pierden la noción de "total".
-
-### 2.8 Series de tiempo
-
-Para mostrar la **evolución de una variable a través del tiempo**, se presentan tres alternativas equivalentes con los mismos datos de ventas mensuales:
-
-- **Líneas:** conecta los valores mes a mes, siendo la forma más común y efectiva de mostrar tendencia temporal.
-- **Líneas y puntos:** añade marcadores en cada punto de dato sobre la línea, útil cuando se quiere resaltar valores individuales además de la tendencia general.
-- **Barras:** cada mes se representa como una barra independiente; es una alternativa válida, aunque generalmente las líneas comunican mejor la idea de tendencia continua que las barras.
+### 0.5 Principios de Gestalt útiles
+- **Proximidad:** lo cercano se percibe como grupo (junta lo que quieres comparar).
+- **Similitud:** mismo color/forma = misma categoría (por eso un color debe significar una sola cosa).
+- **Continuidad:** una línea sugiere secuencia. Conectar categorías nominales con líneas crea una "tendencia" que no existe.
 
 ---
 
-## 3. Ejercicio: errores y distracciones en visualizaciones reales
+## 1. Percepción visual: por qué el color y el contexto no son neutros
 
-La última y más extensa sección del documento presenta una **galería de más de 25 visualizaciones reales** (extraídas de medios de noticias, encuestas, estudios y redes sociales) con la consigna: _"¿Existe algún error o distracción en las siguientes visualizaciones?"_. A continuación se describe cada ejemplo y el problema de diseño que ilustra.
+Tres ilusiones clásicas muestran que el cerebro no mide valores absolutos, sino que **interpreta en relación con el contexto**.
 
-### 3.1 Gráficos de dona "GENDER" (86% Male / 14% Female)
+### 1.1 Tablero de Adelson (contraste simultáneo)
+Los cuadros A y B tienen **exactamente el mismo gris**, pero B, dentro de la sombra, parece más claro. El cerebro "corrige" por la sombra que infiere en la escena.
 
-Dos gráficos de dona de distinto tamaño representan 86% y 14%. **Problema:** aunque cada gráfico dona muestra correctamente su propio porcentaje mediante el arco relleno, el **tamaño físico de los dos círculos es idéntico**, cuando en realidad, al representar magnitudes tan distintas, podría (o no) esperarse una diferenciación visual adicional; además, comparar dos "donas" separadas dificulta la comparación directa entre ambos valores, en contraste con lo sencillo que sería un solo gráfico de barras o una sola dona con dos segmentos.
+**En visualización:** una barra o región de un mapa puede parecer más clara u oscura según los colores vecinos.
 
-### 3.2 "How couples met 1995-2017" (gráfico de líneas)
+**Qué hacer:**
+- Sobre un mismo gráfico, usa **fondo uniforme y neutro** (blanco o gris muy claro).
+- Evita rodear marcas de color con otras marcas de color muy distintas en luminosidad.
+- Si el valor exacto importa, **añade la etiqueta numérica** en vez de depender solo del color.
 
-Gráfico de líneas comparando cómo se conocieron las parejas en 1995 vs. 2017, para distintas categorías (trabajo, bar/restaurante, en línea, colegio, familia, amigos). **Problema:** las categorías del eje X no tienen un orden lógico claro (no están ordenadas ni alfabéticamente ni por magnitud), y al usar líneas para conectar categorías que son **nominales** (sin relación de orden o continuidad entre sí, como "Bar/restaurante" y "Online"), se sugiere visualmente una tendencia o progresión que no existe realmente entre esas categorías. Este es un caso clásico de mal uso de gráfico de líneas para datos categóricos nominales, que deberían representarse con barras.
+### 1.2 Patrón de textura (insensibilidad a la orientación)
+Un cambio sutil de orientación en un patrón denso pasa inadvertido, mientras que un cambio de color o brillo se nota de inmediato.
 
-### 3.3 Gráfico circular "shortage of vehicles for conveying inmates" (Nigeria)
+**En visualización:** no uses textura, rayado o cambios sutiles de orientación para distinguir categorías que deben detectarse rápido. Usa **posición, longitud o color**.
 
-Un pie chart dividido en cuatro secciones aparentemente iguales, etiquetadas 2016, 2017, 2018 y 2019, acompañando un texto sobre escasez de vehículos. **Problema:** el gráfico circular no representa ninguna magnitud real asociada a cada año (no hay valores numéricos visibles ni relación clara entre el tamaño de cada "porción" y algún dato); las cuatro porciones parecen artificialmente iguales (25% cada una), lo cual sugiere que el gráfico fue usado solo como elemento decorativo sin comunicar información cuantitativa real. Es un ejemplo de **chartjunk**: un gráfico que ocupa espacio pero no aporta valor informativo genuino.
+### 1.3 Efecto Bezold (asimilación cromática)
+La misma línea se ve grisácea sobre amarillo y amarillenta sobre gris: el fondo "contamina" al elemento que lo cruza.
 
-### 3.4 "Clinical phase trends, 2007-22" (barras agrupadas por año)
+**En visualización:** líneas delgadas y texto pequeño son los más vulnerables. Prefiere **líneas más gruesas**, y **alto contraste** entre elemento y fondo.
 
-Gráfico de barras agrupadas mostrando el número de fármacos en cada fase clínica (I, II, III), con una barra por cada año entre 2007 y 2022 (16 colores distintos). **Problema:** usar **16 colores diferentes** para distinguir los años hace prácticamente imposible identificar qué color corresponde a qué año sin consultar constantemente la leyenda; además, dentro de cada fase, las barras ya están ordenadas cronológicamente, por lo que el color es redundante con la posición y solo añade complejidad visual innecesaria (demasiadas categorías para una codificación por color, que idealmente debería limitarse a unas 6-8 categorías distinguibles).
+### 1.4 Reglas prácticas de color que se derivan de estas ilusiones
 
-### 3.5 "Case numbers rising" / "Daily deaths remain stable" (BBC, COVID-19)
+| Tipo de dato | Paleta recomendada | Ejemplo |
+|---|---|---|
+| Ordenado, de menos a más | **Secuencial**: un solo tono de claro a oscuro | Esperanza de vida, casos por 100 000 hab. |
+| Con punto medio significativo | **Divergente**: dos tonos que se juntan en un neutro | Variación respecto al plan (rojo/gris/azul) |
+| Categorías sin orden | **Cualitativa**: colores distinguibles, **máx. 6–8** | Regiones, tipos de producto |
 
-Dos gráficos de área/línea del Reino Unido, uno de casos diarios y otro de muertes diarias, colocados uno al lado del otro. **Problema:** aunque cada gráfico individualmente está bien construido, **usan escalas verticales completamente distintas** (0-100,000 para casos vs. 0-1,750 para muertes) sin un eje compartido o normalización, lo que puede llevar a una comparación visual engañosa entre "forma" de ambas curvas si el lector no presta atención cuidadosa a los ejes; el titular "Daily deaths remain stable" puede sugerir una desconexión entre el aumento de casos y las muertes, cuando en realidad podría deberse simplemente a un desfase temporal natural entre contagio y fallecimiento, no mencionado explícitamente.
-
-### 3.6 "Do you support or oppose building a wall" (Quinnipiac Poll)
-
-Gráfico circular con tres porciones: 45% Support, 51% Oppose, 4% Don't know/NA. **Problema:** aunque en este caso particular los porcentajes sí suman 100% (45+51+4=100), el ángulo visual de cada segmento no siempre corresponde exactamente a la proporción esperada, un error común en pie charts hechos "a mano" o con herramientas de diseño gráfico en lugar de software de visualización de datos, donde los ángulos pueden dibujarse de forma aproximada y no proporcional exacta a los datos reales.
-
-### 3.7 "Life expectancy at birth" (mapa de EE.UU. por estado)
-
-Mapa coroplético de EE.UU. con 4 categorías de color representando rangos de esperanza de vida. **Problema:** el rango de colores (verde oscuro, verde claro, azul oscuro, morado claro) no sigue una escala secuencial intuitiva (por ejemplo, de claro a oscuro para indicar de menor a mayor), sino que combina dos gamas de color distintas (verdes y azules/morados) para representar una variable que es en realidad continua y ordinal, lo cual puede dificultar la interpretación rápida de qué colores representan valores más altos o más bajos.
-
-### 3.8 Mapa MSNBC "38,227,970 CONFIRMED CASES"
-
-Mapa de EE.UU. coloreado por rangos de casos COVID-19 (1,000+, 100,000+, 500,000+, 1,000,000+ casos). **Problema:** los rangos de la leyenda **no son mutuamente excluyentes ni proporcionales al tamaño de cada estado**: un estado pequeño con 100,000 casos y uno grande con 100,000 casos se pintan igual, sin normalizar por población; además, los rangos usan intervalos muy desiguales (1,000 a 100,000, luego 100,000 a 500,000, etc.), lo que distorsiona la interpretación visual de la gravedad relativa entre estados.
-
-### 3.9 Mapa de temperatura NDFD (2.5 km, julio 2022)
-
-Mapa meteorológico con **cientos de números superpuestos** sobre un mapa de calor de temperatura. **Problema:** el exceso de etiquetas numéricas satura visualmente el mapa, dificultando distinguir el patrón general de temperatura que ya está codificado por color; es un ejemplo de **sobrecarga de información (chartjunk / exceso de precisión)**, donde añadir demasiado detalle numérico compite con, en lugar de complementar, la codificación visual principal (el color).
-
-### 3.10 "Major and Violent Crime Has Increased" (NYC, barras 2017-2021)
-
-Gráfico de barras del alcalde de NYC mostrando delitos graves por año, donde el eje Y comienza en 94,000 en lugar de 0. **Problema clásico y muy citado:** al **truncar el eje Y** (no partir desde cero), una diferencia relativamente pequeña en términos porcentuales (7.5% más delitos que en 2020, según el propio gráfico) se representa visualmente como un salto dramático y desproporcionado en la altura de la última barra, exagerando la magnitud real del cambio. Este es uno de los errores más comunes y potencialmente más engañosos en visualización de datos con barras.
-
-### 3.11 "Forecast Wind Gusts" (pronóstico del tiempo, barras)
-
-Gráfico de barras de un pronóstico meteorológico mostrando ráfagas de viento por hora (27, 26, 26, 25, 25, 26, 27 mph). **Problema:** de forma similar al ejemplo anterior, el eje Y parece no partir de cero (las barras para valores muy similares, como 25 y 27, muestran diferencias de altura desproporcionadamente grandes en relación con la diferencia real de solo 2 mph), lo cual exagera visualmente variaciones que en términos absolutos son mínimas.
-
-### 3.12 "BERNIE SANDERS... $34.5M" (gráfico de barras, candidatos demócratas)
-
-Gráfico de barras trimestrales de fondos recaudados por distintos candidatos, con el monto total superpuesto como etiqueta. **Problema:** las **alturas de las barras no corresponden de forma consistente con los valores etiquetados**: por ejemplo, Warren aparece con $24.6M pero sus barras visibles parecen más bajas que las de Buttigieg con $24.8M, sugiriendo que la escala del eje Y no es consistente entre candidatos, o que faltan datos/barras para completar la comparación (a Warren le falta al menos una barra visible respecto a los otros tres candidatos), generando una comparación visual poco fiable.
-
-### 3.13 "VOTERS TRUST TRUMP OVER CLINTON" (gráfico circular 50%/35%)
-
-Gráfico circular dividido en dos mitades exactas (aparentemente 50/50 visualmente) pero etiquetado como 50% Trump y 35% Clinton. **Problema evidente:** **50% + 35% = 85%**, no 100%; sin embargo, el círculo está dividido visualmente en dos mitades iguales, lo que sugiere gráficamente una proporción de 50/50, contradiciendo los números reales indicados. Esto **exagera visualmente la ventaja de un candidato sobre otro**, ya que el 35% debería ocupar una porción visualmente mucho menor que la mitad del círculo. Es un caso flagrante de manipulación (intencional o no) mediante gráfico circular.
-
-### 3.14 "BIGGEST FUTURE CHANGES IN THE WORKPLACE" (gráfico tipo pie con 73%, 69%, 46%)
-
-Gráfico en forma de pie/dona dividido en tres segmentos etiquetados 73%, 69% y 46%. **Problema:** al sumar los tres porcentajes (73+69+46 = 188%), es evidente que **no representan partes de un mismo todo**, sino resultados de **preguntas independientes de una encuesta** donde los encuestados podían elegir múltiples opciones. Usar un gráfico circular (que visualmente implica "partes de un 100%") para datos que en realidad son porcentajes independientes de respuestas múltiples es un uso incorrecto del tipo de gráfico, que debería haberse representado con barras independientes.
-
-### 3.15 "L'Outaouais championne de l'anglais au travail" (pie chart con 69%, 38%, 35%, 32%, 31%)
-
-Similar al caso anterior: un gráfico circular con cinco regiones y sus respectivos porcentajes de trabajadores que usan principalmente inglés. **Problema:** la suma de los porcentajes (69+38+35+32+31 = 205%) confirma que estos valores corresponden a **proporciones independientes por región** (cada región analizada por separado), no a partes de un total combinado, por lo que un gráfico circular es completamente inapropiado — de nuevo, se necesitarían barras independientes por región.
-
-### 3.16 "PERCENTAGE OF CORN PLANTED IN OHIO" (cuatro gráficos circulares por semana)
-
-Cuatro pie charts que muestran el avance de siembra de maíz (4%, 9%, 22%, 33%) comparado con un promedio de 5 años (47%, 62%, 78%, 90%). **Problema:** cada gráfico circular representa un **porcentaje de avance como si fuera un "todo" de 100%**, pero en realidad se trata de una progresión temporal (una sola variable que avanza semana a semana) mejor representada con un gráfico de líneas o de barras que muestre la evolución en el tiempo y la comparación directa año actual vs. promedio histórico en un solo gráfico, en lugar de fragmentar la información en cuatro gráficos circulares separados y de difícil comparación visual conjunta.
-
-### 3.17 "CASOS DE CORONAVIRUS COVID-19 EN ESPAÑA" (mapa con círculos proporcionales)
-
-Mapa de España con círculos de distinto tamaño por comunidad autónoma, representando número de casos. **Problema:** es común en este tipo de mapas que el tamaño del círculo se calcule proporcional al **radio** en lugar de al **área** del círculo; como el área de un círculo crece con el cuadrado del radio, esto **exagera visualmente las diferencias** entre regiones con muchos y pocos casos (Madrid con 1024 casos parece desproporcionadamente más grande en relación a otras regiones de lo que correspondería si el área fuese realmente proporcional al valor).
-
-### 3.18 "How long can Coronavirus last on different surfaces" (Economic Times, dos gráficos de barras)
-
-Dos gráficos de barras horizontales con distintas escalas de eje X (0-25 para el primero, 0-20 para el segundo), agrupando superficies distintas. **Problema:** al usar **dos escalas diferentes** para dos conjuntos de barras que en el diseño aparecen visualmente similares (incluso podrían percibirse como parte de un mismo conjunto comparativo), existe riesgo de que el lector compare visualmente longitudes de barras entre ambos grupos sin notar que las escalas del eje X son distintas, lo cual llevaría a conclusiones erróneas sobre la duración relativa del virus en distintas superficies.
-
-### 3.19 "CUMULATIVE CASES PER 100,000: ALL STATES" (gráfico de líneas, EE.UU.)
-
-Gráfico de líneas con aproximadamente 45-50 líneas de distinto color, una por cada estado de EE.UU. **Problema:** el número de series (colores) es demasiado alto para que una leyenda de color pueda ser útil; es prácticamente imposible distinguir qué línea corresponde a qué estado sin pasar el cursor sobre cada una (en una versión interactiva) o sin usar técnicas alternativas como **etiquetado directo de las líneas más relevantes**, resaltado selectivo (highlighting) de una o pocas series de interés, o **pequeños múltiplos** (small multiples) en lugar de superponer todas las series en un solo gráfico.
-
-### 3.20 Leyenda "Category" con colores mal asignados (Null, Green, Orange, Red, Yellow)
-
-Una leyenda donde el ítem "Null" está coloreado en naranja, mientras que el ítem "Orange" está coloreado en un tono verde-azulado (teal), y el ítem "Green" está coloreado en rojo. **Problema evidente:** existe una **discordancia entre el nombre de la categoría y el color asignado a ella** — el color "Orange" no es naranja, y el color "Green" no es verde — lo cual genera confusión inmediata y contradice las expectativas naturales del lector sobre qué color debería representar cada etiqueta con nombre de color.
-
-### 3.21 "Top 10 Fruits as Percentage of Total Fruit Ads" (pie chart)
-
-Gráfico circular con 10 categorías de frutas (manzanas, aguacates, arándanos, uvas, mangos, etc.), cada una con un color asignado arbitrariamente. **Problema:** similar al ejemplo anterior, los colores no corresponden de forma intuitiva a las frutas que representan (por ejemplo, "Oranges" — naranjas — no está representado con color naranja, sino con verde lima), lo que desaprovecha una oportunidad natural de hacer la visualización más intuitiva mediante una codificación de color coherente con el significado de las categorías.
-
-### 3.22 "Which game(s) have you played the most?" (encuesta Zelda, pie chart con ~30 categorías)
-
-Un gráfico circular con aproximadamente 30 porciones diminutas, la mayoría correspondientes a variantes de escritura de la misma respuesta ("BOTW", "Botw", "botw", "Breath of the Wild", "Breath of The Wild", "Zelda: BOTW", etc.). **Problema doble:** (1) hay un claro problema de **limpieza de datos** previo a la visualización, ya que respuestas de texto libre equivalentes no fueron normalizadas/agrupadas antes de graficar, generando decenas de categorías redundantes; y (2) un pie chart con tantas categorías (muchas de ellas minúsculas) es completamente inadecuado, ya que resulta imposible distinguir o comparar visualmente porciones tan pequeñas — un gráfico de barras ordenado, junto con la limpieza previa de los datos, sería muchísimo más efectivo.
-
-### 3.23 Gráfico de barras 3D de frutas por mes (Jan-Apr, Lemons/Oranges/Bananas/Apples)
-
-Gráfico de barras en **perspectiva 3D**, con cuatro grupos de frutas por cada mes. **Problema clásico:** los gráficos de barras en 3D introducen **distorsión de perspectiva**: las barras en el fondo pueden parecer más pequeñas de lo que realmente son debido al efecto de profundidad, y resulta difícil leer con precisión el valor exacto de cada barra contra el eje Y, ya que la posición de la base de cada barra varía según su profundidad aparente en la escena 3D. El 3D en gráficos de barras casi nunca aporta información adicional real y sí introduce ambigüedad en la lectura de los valores.
-
-### 3.24 "A CpG Island Hypermethylation Profile of Human Cancer" (gráfico de barras 3D, muy denso)
-
-Un gráfico de barras 3D extremadamente denso, con decenas de tipos de cáncer en un eje y decenas de genes en otro eje, generando un "bosque" de barras de distintas alturas y colores. **Problema:** además de la distorsión de perspectiva propia de los gráficos 3D (mencionada en el ejemplo anterior), aquí se suma una **sobrecarga extrema de información**: con tantas barras superpuestas, muchas quedan **ocultas detrás de otras** (oclusión), haciendo imposible leer con precisión la mayoría de los valores individuales del gráfico.
-
-### 3.25 "DEATH PENALTY EXECUTIONS SINCE 1976" (mapa con emoticonos/caritas)
-
-Mapa de EE.UU. donde cada estado contiene un ícono de cara (sonriente, neutral, triste) cuyo tamaño, expresión y color codifican simultáneamente múltiples variables (proporción racial, edad promedio, número de ejecuciones, método utilizado). **Problema:** este es un ejemplo extremo de **sobrecarga de codificación visual**: se intentan comunicar hasta 4-5 variables distintas simultáneamente a través de un solo ícono (tamaño del óvalo, expresión facial, color de la cara, símbolo interno), lo que hace prácticamente imposible extraer información precisa y comparable de un vistazo. Es un ejemplo de **chartjunk** elaborado, donde el diseño prioriza la originalidad estética sobre la claridad y precisión analítica.
-
-### 3.26 "Gun deaths in Florida" (Reuters, eje Y invertido)
-
-Gráfico de área/línea sobre muertes por armas de fuego en Florida, donde el **eje Y está invertido** (0 arriba, 1000 abajo), de modo que la línea "sube" visualmente cuando el número de muertes en realidad **disminuye**. **Problema muy sutil y peligroso:** invertir el eje Y sin una razón clara y sin una advertencia explícita al lector puede provocar una interpretación exactamente opuesta a la realidad: en este gráfico, una caída real en los homicidios con armas (873 a 721) se percibe visualmente como una "elevación" o mejora dramática de la línea, cuando la lectura correcta requiere que el lector primero entienda que el eje está invertido — algo que muchos lectores no notarán a primera vista.
-
-### 3.27 "Covid19 fatality rates per age group" (Suecia, doble eje Y)
-
-Gráfico de barras con **dos ejes Y distintos**: uno para el grupo etario 0-69 años (escala 0% a 1.25%) en color negro, y otro para el grupo 70+ años (escala 0% a 40%) en color celeste. **Problema:** usar dos escalas completamente distintas en el mismo gráfico para comparar grupos etarios **distorsiona la comparación visual real** entre ambos grupos: la barra negra del grupo 60-69 parece casi tan alta como las barras celestes de 70+, cuando en términos de magnitud real la tasa de fatalidad del grupo de mayores es muchísimo más alta (hasta 30 veces mayor). Este es un ejemplo clásico de cómo el **doble eje Y** puede ser usado (intencionalmente o no) para minimizar visualmente diferencias que en realidad son muy grandes.
-
-### 3.28 "Consumption of espresso-based drinks" (infografía con tazas)
-
-Infografía donde el nivel de llenado de cada ícono de taza representa el porcentaje de consumo de cada tipo de bebida (Cappuccino 33%, Latte 33%, Cold Brew 28%, etc.). **Problema:** codificar un porcentaje mediante el **nivel de llenado de un ícono con forma irregular** (una taza) es una forma de codificación visual poco precisa: a diferencia de una barra simple (que tiene una relación lineal directa entre longitud y valor), el volumen o área "llenada" dentro de la forma de una taza no necesariamente corresponde de forma lineal y exacta al porcentaje indicado, dificultando la comparación precisa entre bebidas (por ejemplo, comparar visualmente 18% de Macchiato vs. 18% de Americano, cuyas tazas tienen formas distintas).
+Además:
+- **Accesibilidad:** ~8 % de los hombres tiene daltonismo (sobre todo rojo-verde). No dependas solo de rojo vs. verde; combina con etiquetas, formas o luminosidad distinta. Herramientas: *ColorBrewer*, *Viridis*, *Coblis* (simulador).
+- **Color con sentido semántico:** si una categoría se llama "naranja" o "verde", que lo sea (ver 3.C).
+- **Un color = un significado** en todo el documento (si "2023" es azul en un gráfico, que no sea rojo en el siguiente).
+- **Contraste de texto:** ratio mínimo 4,5:1 (recomendación WCAG).
 
 ---
 
-## Resumen general del documento
+## 2. Taxonomía: elegir el gráfico según la tarea analítica (Stephen Few)
 
-Este material recorre tres niveles complementarios del análisis crítico de visualizaciones de datos:
+**Idea central:** primero se define la **pregunta**, luego el gráfico. Nunca al revés.
 
-1. **Percepción visual:** mediante ilusiones ópticas clásicas (contraste simultáneo, insensibilidad a ciertos patrones, asimilación cromática), se demuestra que el color y el contexto visual afectan la interpretación de una imagen de forma no siempre consciente ni controlable por el espectador, lo cual obliga a un diseñador de datos a ser especialmente cuidadoso con el uso del color y el contexto.
-    
-2. **Taxonomía de gráficos según tarea analítica (Stephen Few):** se presenta un marco de referencia para elegir el tipo de gráfico correcto según la pregunta que se busca responder — clasificación/ranking, comparación nominal, correlación, desviación, distribución (única, múltiple, box plot), geoespacial, parte a todo, y series de tiempo — enfatizando que la elección del gráfico debe basarse en la naturaleza de los datos y la pregunta analítica, no en preferencias estéticas.
-    
-3. **Galería de errores comunes en visualizaciones reales:** una revisión extensa de casos reales (medios de noticias, encuestas, estudios científicos, redes sociales) que ilustra los errores más frecuentes en la práctica, entre ellos: **ejes truncados o invertidos**, **uso de gráficos circulares para datos que no suman 100% o que no son partes de un todo**, **exceso de categorías o colores que saturan la leyenda**, **codificación de color incoherente con el significado de las categorías**, **gráficos 3D que distorsionan la percepción de magnitud**, **doble eje Y que distorsiona comparaciones entre series**, **datos sin limpiar que generan categorías redundantes**, **símbolos con tamaño no proporcional al área real**, y **sobrecarga de codificación visual (chartjunk)**.
-    
+### 2.1 Tabla de decisión rápida
 
-En conjunto, el documento busca desarrollar una mirada crítica para **identificar y evitar** estos errores comunes, tanto al momento de crear visualizaciones propias como al momento de interpretar visualizaciones ajenas encontradas en medios, informes o redes sociales.
+| Tarea / pregunta | Gráfico recomendado | Evitar | Consejo clave |
+|---|---|---|---|
+| **Ranking** ("¿quién es mayor?") | Barras ordenadas de mayor a menor (horizontales si los nombres son largos) | Pie, radar | Ordena por valor, no alfabéticamente |
+| **Comparación nominal** (categorías sin orden) | Barras (o puntos) | Líneas | El orden es libre: elige uno lógico y explícito |
+| **Correlación** (dos variables numéricas) | Dispersión (scatter) + línea de tendencia opcional | Barras enfrentadas como recurso principal | Con muchos puntos: transparencia o *hexbin* |
+| **Desviación** (vs. plan o referencia) | Barras desde una línea base cero; líneas; puntos+línea | Barras sin línea de referencia visible | Marca la referencia (0 % o el plan) claramente |
+| **Distribución** (¿cómo se reparten los valores?) | Histograma, polígono de frecuencia, box plot, violín | Barras de promedios sin dispersión | Muestra dispersión, no solo el promedio |
+| **Geoespacial** | Símbolos proporcionales, coroplético, flujo | Coroplético con valores absolutos | Normaliza (por población, por área) |
+| **Parte a todo** | Barras apiladas 100 %, treemap, pie/dona (solo pocas partes) | Pie con más de 5 partes o que no suman 100 % | Si necesitas comparar partes con precisión, usa barras |
+| **Serie de tiempo** | Líneas (con o sin puntos); barras para pocos períodos | Categorías nominales unidas por líneas | Eje temporal con intervalos regulares |
+
+### 2.2 Detalles que enriquecen cada tarea
+
+**Ranking y comparación nominal**
+- Las barras funcionan porque comparamos **longitudes con una base común**. Por eso **las barras deben partir de cero** (ver 3.A).
+- Si hay muchas categorías (>15) o etiquetas largas, usa barras horizontales o un **gráfico de puntos (dot plot)**.
+- Un gráfico de **"lollipop"** (palito con punto) es una alternativa más limpia cuando hay muchas barras.
+
+**Correlación**
+- Correlación no implica causalidad. Ejemplo clásico: ventas de helados y ahogamientos suben juntas en verano; la causa común es el calor.
+- Con muchos puntos superpuestos usa transparencia; con una tercera variable, color o tamaño (con moderación).
+
+**Desviación**
+- Ejemplo: ventas reales vs. plan. Barras hacia arriba (sobre el plan) en un color y hacia abajo (bajo el plan) en otro; la línea cero es la referencia.
+- Alternativa útil: **bullet graph** (Few) para comparar valor real, meta y rangos de desempeño en poco espacio.
+
+**Distribución**
+- **Histograma:** el ancho del intervalo (*bin*) cambia la forma; prueba varios anchos.
+- **Polígono de frecuencia:** mejor que barras para superponer 2 o 3 distribuciones.
+- **Box plot:** mediana, cuartiles Q1–Q3 (50 % central), bigotes y valores atípicos. Ejemplo: salarios de dos áreas con la misma mediana pero una con mucha más dispersión: el promedio las muestra "iguales", el box plot no.
+
+**Geoespacial**
+- **Coroplético:** ideal para tasas o densidades (casos por 100 000 hab.), **no** para conteos absolutos (los estados grandes o poblados siempre "ganan").
+- **Símbolos proporcionales:** el **área** (no el radio) debe ser proporcional al valor.
+
+**Parte a todo**
+- Barras simples → buenas para comparar magnitudes; barras apiladas → muestran la composición; agrupadas → comparan cada categoría entre períodos pero pierden el total.
+- En barras apiladas solo el primer segmento (el de la base) se compara con precisión; los demás "flotan". Si el foco es comparar una categoría intermedia, usa barras agrupadas o *small multiples*.
+
+**Series de tiempo**
+- Líneas transmiten continuidad y tendencia. Barras: válidas para pocos períodos discretos.
+- Para muchas series, usa **small multiples** (un mini-gráfico por serie con el mismo eje).
+
+### 2.3 Otros gráficos útiles que conviene conocer
+
+| Gráfico | Para qué sirve |
+|---|---|
+| **Small multiples** (múltiplos pequeños) | Comparar muchas series sin saturar; mismos ejes en todos los paneles |
+| **Slopegraph** | Comparar dos momentos (antes/después, 1995 vs. 2017) por categoría |
+| **Sparkline** | Tendencia mínima dentro de una tabla o texto |
+| **Heatmap** | Patrones en matrices (día × hora), con paleta secuencial |
+| **Waterfall (cascada)** | Cómo se compone un cambio total (ingresos → costos → utilidad) |
+| **Dot plot / lollipop** | Rankings con muchas categorías o valores lejos de cero |
+
+---
+
+## 3. Catálogo de errores en visualizaciones reales
+
+En lugar de recorrer los 28 casos en orden, esta versión los **agrupa por tipo de error**, que es lo que realmente conviene aprender. Cada grupo tiene: *qué pasa*, *por qué engaña*, *cómo corregirlo* y *casos del material original*.
+
+### Grupo A. Ejes y escalas
+
+#### A1. Eje Y truncado en barras
+**Casos:** 3.10 (delitos en NYC, eje desde 94 000), 3.11 (ráfagas de viento).
+
+**Por qué engaña:** en las barras, el ojo compara **longitudes**. Si se recorta la base, la proporción visual deja de coincidir con la proporción real.
+
+**Ejemplo numérico (Lie Factor):**
+- Datos: 100 y 107 → diferencia real de **7 %**.
+- Con eje desde 95, las barras miden 5 y 12 → la segunda parece **140 % más grande**.
+- Lie Factor = 140 / 7 = **20**. El gráfico exagera el cambio 20 veces.
+
+**Cómo corregir:**
+- Barras: **siempre desde cero**.
+- Si lo que importa es un cambio pequeño, muestra la **variación** (por ejemplo, +7,5 %) o usa un **gráfico de líneas / puntos**, donde un eje no cero es aceptable (con eje claramente rotulado).
+
+> **Matiz:** truncar el eje es aceptable en **líneas y puntos** (donde se compara posición, no longitud), no en barras.
+
+#### A2. Eje Y invertido
+**Caso:** 3.26 (*Gun deaths in Florida*, Reuters). Es un ejemplo famoso: el diseño con el eje invertido evoca sangre goteando, y la curva "sube" justo cuando las muertes bajan.
+
+**Por qué engaña:** la convención universal es que *arriba = más*. Invertirla contradice la intuición; muchos lectores no leen los números del eje.
+
+**Cómo corregir:** mantener la convención. Si hay una razón fuerte (ej.: rankings donde el 1 va arriba, profundidad en el mar), **avisarlo explícitamente** en el título o en el eje.
+
+#### A3. Doble eje Y
+**Caso:** 3.27 (letalidad COVID en Suecia por edad: 0–1,25 % vs. 0–40 %).
+
+**Por qué engaña:** con dos escalas, una barra que mide "lo mismo" en pantalla puede representar cifras 32 veces distintas (40 / 1,25). Además, quien dibuja puede elegir escalas para que las líneas "se crucen" y sugieran una relación inexistente.
+
+**Cómo corregir:**
+- Un único eje común (aunque las barras chicas se vean pequeñas: **esa es la realidad de los datos**).
+- Si las magnitudes son muy distintas, usa **dos paneles apilados** que compartan el eje X.
+- Si lo importante es la forma, **indexa las series a 100** en un mismo punto de partida.
+- Usa escala logarítmica solo si el público la entiende y se rotula.
+
+#### A4. Escalas distintas en gráficos vecinos
+**Casos:** 3.5 (BBC: casos 0–100 000 vs. muertes 0–1 750) y 3.18 (superficies del coronavirus, ejes 0–25 vs. 0–20).
+
+**Por qué engaña:** dos gráficos lado a lado invitan a comparar sus formas o longitudes; si los ejes difieren, la comparación es falsa. En 3.5 hay además un problema de **contexto**: las muertes se retrasan semanas respecto de los casos, por lo que "muertes estables" no significa "casos sin efecto".
+
+**Cómo corregir:**
+- Si se van a comparar, **mismos ejes** (small multiples).
+- Si no pueden coincidir (unidades distintas), **separarlos claramente** y señalarlo en el título/subtítulo.
+- Añadir la explicación del rezago cuando sea relevante.
+
+---
+
+### Grupo B. Elección incorrecta del tipo de gráfico
+
+#### B1. Pie/dona con datos que **no suman 100 %**
+**Casos:** 3.13 (50 % + 35 % = 85 %, pero dibujado 50/50), 3.14 (73 + 69 + 46 = **188 %**), 3.15 (69 + 38 + 35 + 32 + 31 = **205 %**).
+
+**Por qué engaña:** un pie **promete** que las partes forman un todo. Si son respuestas múltiples o porcentajes independientes, esa promesa es falsa; y si además se dibuja con ángulos que no corresponden a los números (3.13), el engaño es doble.
+
+**Prueba rápida antes de usar un pie:** ¿las partes son **exclusivas** y **suman 100 %**? Si la respuesta es no → **barras**.
+
+**Cómo corregir:** barras horizontales ordenadas, cada una con su porcentaje. Cambiar el título a algo como "% de encuestados que eligió cada cambio (respuesta múltiple)".
+
+#### B2. Pie con demasiadas categorías
+**Casos:** 3.22 (≈30 porciones), 3.21 (10 frutas).
+
+**Por qué falla:** el ángulo es una codificación poco precisa (nivel 4 de la jerarquía) y con porciones diminutas es ilegible.
+
+**Regla práctica:** pie/dona solo con **2 a 5 partes** y una comparación aproximada (*"más de la mitad"*). Para lo demás, barras ordenadas.
+
+#### B3. Pie usado para un proceso o una progresión
+**Casos:** 3.16 (siembra de maíz, 4 pies por semana), 3.3 (pie con 4 años iguales, sin datos).
+
+**Por qué falla:**
+- 3.16: el avance semanal es **una variable en el tiempo**, no partes de un todo, y cuatro pies separados impiden comparar.
+- 3.3: es **decoración pura**, ocupa espacio sin transmitir datos.
+
+**Cómo corregir:**
+- 3.16 → **un solo gráfico de líneas** (semana en X, % sembrado en Y) con dos líneas: "año actual" y "promedio de 5 años".
+- 3.3 → eliminar el gráfico o reemplazarlo por un dato real (número de vehículos faltantes por año en barras).
+
+#### B4. Líneas entre categorías nominales
+**Caso:** 3.2 (*How couples met*: trabajo, bar, online, colegio…, unidas con líneas).
+
+**Por qué engaña:** una línea sugiere continuidad y orden ("de trabajo a bar hay una pendiente"), pero esas categorías no tienen ninguno. Además el orden del eje es arbitrario, así que la "forma" de la línea cambia si se reordena.
+
+**Cómo corregir:** barras agrupadas (1995 vs. 2017) **ordenadas por valor**, o un **slopegraph** si lo que interesa es el cambio entre las dos fechas.
+
+#### B5. Donas duplicadas para un valor complementario
+**Caso:** 3.1 (dona 86 % hombres y dona 14 % mujeres).
+
+**Por qué es ineficiente:** con dos categorías, el segundo valor es el complemento del primero: dos gráficos repiten la misma información y obligan a comparar entre dos figuras separadas.
+
+**Cómo corregir:** una sola **barra apilada al 100 %**, o simplemente el texto "86 % hombres · 14 % mujeres". Para dos valores, un número grande suele bastar.
+
+#### B6. Pie con pocas categorías, pero diferencia pequeña
+**Caso:** 3.6 (Quinnipiac: 45 % a favor, 51 % en contra, 4 % NS/NR).
+
+**Observación:** aquí los datos sí suman 100 %, y el pie es un uso *aceptable*. El límite es perceptual: distinguir 45 % de 51 % con ángulos es difícil. Si la diferencia es el titular, **barras** la muestran con claridad. Además, verifica que los ángulos estén dibujados con software de datos y no "a mano".
+
+---
+
+### Grupo C. Uso del color
+
+#### C1. Demasiados colores
+**Casos:** 3.4 (16 colores, uno por año), 3.19 (~50 líneas, una por estado).
+
+**Por qué falla:** más de 6–8 colores no se distinguen ni se recuerdan; el lector va y viene entre leyenda y gráfico ("visual lookup").
+
+**Cómo corregir:**
+- **Resaltado selectivo:** una o pocas series en color, el resto en gris.
+- **Etiquetado directo** al final de cada línea (sin leyenda).
+- **Small multiples:** un panel por estado/año.
+- Si el color es redundante con la posición (3.4: los años ya están ordenados), usa **un solo color** o una **rampa secuencial** de un mismo tono.
+
+#### C2. Color que contradice el nombre
+**Casos:** 3.20 (leyenda "Orange" en teal, "Green" en rojo), 3.21 (naranjas en verde lima).
+
+**Cómo corregir:** si la categoría tiene un color natural (naranja, banana, verde), úsalo. Cuando no lo tenga, evita colores con nombre en las etiquetas.
+
+#### C3. Paleta inadecuada para el tipo de dato
+**Caso:** 3.7 (esperanza de vida con verdes y azul-morado mezclados).
+
+**Por qué falla:** el dato es ordenado (bajo → alto), pero la paleta no tiene un orden natural de luminosidad.
+
+**Cómo corregir:** **una sola gama secuencial** (por ejemplo, azul claro → azul oscuro). El más oscuro = valor más alto. Usar ColorBrewer o Viridis.
+
+#### C4. Intervalos desiguales o valores absolutos en mapas
+**Caso:** 3.8 (MSNBC: casos COVID en categorías 1 000+, 100 000+, 500 000+, 1 000 000+).
+
+**Por qué engaña:**
+1. Los conteos absolutos reflejan **el tamaño de la población** más que el riesgo (California siempre parecerá peor que Vermont).
+2. Los intervalos son muy desiguales y las etiquetas "X+" se superponen (un estado con 600 000 encaja en 100 000+ y 500 000+).
+
+**Cómo corregir:** mapear **casos por 100 000 hab.** con intervalos definidos con lógica (cuantiles o cortes redondos, no traslapados: 0–99, 100–199, 200–299…).
+
+---
+
+### Grupo D. Decoración, 3D y sobrecarga (*chartjunk*)
+
+#### D1. Barras en 3D
+**Casos:** 3.23 (frutas por mes), 3.24 (perfil de hipermetilación en cáncer).
+
+**Por qué falla:**
+- **Perspectiva:** las barras del fondo se ven más pequeñas y la base de cada una no está alineada con el eje.
+- **Oclusión:** las barras delanteras esconden las de atrás (más grave en 3.24, con decenas de filas y columnas).
+- Agrega **una dimensión visual sin agregar información**.
+
+**Cómo corregir:** barras 2D agrupadas; si hay dos dimensiones categóricas (tipo de cáncer × gen), un **heatmap** con paleta secuencial es el reemplazo natural.
+
+#### D2. Sobrecarga de codificaciones en un mismo símbolo
+**Caso:** 3.25 (caritas con tamaño, forma, expresión y color para 4–5 variables).
+
+**Por qué falla:** cada atributo visual se lee con distinta precisión y el lector no puede "decodificar" cuatro variables simultáneas. La originalidad estética gana; la comprensión pierde.
+
+**Cómo corregir:** **una variable principal por gráfico**; el resto en paneles adicionales (small multiples) o en tooltips (versión interactiva). Regla útil: **máx. 2–3 codificaciones simultáneas** por gráfico.
+
+#### D3. Exceso de números sobre un mapa de calor
+**Caso:** 3.9 (mapa NDFD con cientos de valores encima del color).
+
+**Por qué falla:** el color ya comunica el patrón; los números lo tapan.
+
+**Cómo corregir:** mostrar números solo en puntos clave (máximos, mínimos, ciudades relevantes) o dejar el valor exacto para la interacción.
+
+#### D4. Pictogramas de llenado
+**Caso:** 3.28 (tazas de café rellenas según %).
+
+**Por qué falla:** el nivel de llenado de una forma irregular no es proporcional al valor (una taza más ancha arriba se "llena" más rápido de lo que sube el %). Nuestro ojo no calcula bien áreas y volúmenes.
+
+**Cómo corregir:** una **barra simple** con la etiqueta; el ícono puede acompañar como adorno pequeño, sin transportar el dato.
+
+---
+
+### Grupo E. Tamaño de símbolos y proporcionalidad
+
+#### E1. Círculos dimensionados por radio en vez de por área
+**Caso:** 3.17 (mapa de casos en España).
+
+**Ejemplo numérico:**
+- Región A: 100 casos; región B: 400 casos (4 veces más).
+- Si el **radio** es proporcional al valor: radio 1 vs. 4 → **área 1 vs. 16** (el círculo B parece 16 veces mayor).
+- Correcto: el **área** proporcional al valor → radio ∝ √valor (radio 1 vs. 2).
+
+**Cómo corregir:** `r = k · √valor` (ver el código de la sección 4). Incluir una **leyenda con círculos de referencia** (por ejemplo, 100, 500, 1 000).
+
+---
+
+### Grupo F. Calidad de los datos antes de graficar
+
+#### F1. Datos sin limpiar
+**Caso:** 3.22 (Zelda: "BOTW", "Botw", "botw", "Breath of the Wild"… como categorías separadas).
+
+**Por qué falla:** respuestas de texto libre equivalentes se cuentan por separado, fragmentando la información.
+
+**Cómo corregir (proceso previo):**
+1. Convertir a minúsculas y quitar espacios/puntuación.
+2. Crear una tabla de equivalencias (*BOTW* = *Breath of the Wild*).
+3. Agrupar y recontar.
+4. Categoría "Otros" para valores <2–3 %.
+5. Graficar con **barras ordenadas**.
+
+#### F2. Barras que no coinciden con sus etiquetas
+**Caso:** 3.12 (recaudación por candidato; totales y alturas no calzan).
+
+**Aprendizaje general:** antes de publicar, verificar que **la altura de cada barra coincida con el número que dice representar**, que todos los grupos tengan la misma cantidad de períodos y que el eje sea común. Si faltan datos, indicar explícitamente "sin datos".
+
+> **Nota sobre el análisis original:** en los casos 3.1, 3.6 y 3.12 la descripción original era ambigua o especulativa. Aquí se reformuló lo que sí se puede afirmar con seguridad (redundancia, límite perceptual del pie, verificación de consistencia). Revisa siempre el gráfico original antes de concluir que "hay un error".
+
+---
+
+## 4. Recetas prácticas (Python / matplotlib)
+
+### 4.1 Barras siempre desde cero, ordenadas y con etiquetas directas
+```python
+import matplotlib.pyplot as plt
+
+paises = ["Rusia", "Rep. Checa", "Eslovaquia", "EAU", "Arabia S.", "Egipto"]
+ventas = [420, 310, 290, 250, 180, 120]
+
+# Ordenar de mayor a menor
+datos = sorted(zip(ventas, paises), reverse=True)
+v, p = zip(*datos)
+
+fig, ax = plt.subplots(figsize=(7, 4))
+ax.barh(p, v, color="#4C72B0")
+ax.invert_yaxis()                  # el mayor arriba
+ax.set_xlim(left=0)                # NUNCA truncar la base
+for y, val in enumerate(v):
+    ax.text(val + 5, y, val, va="center")   # etiqueta directa
+ax.set_title("Unidades vendidas por país")
+for lado in ["top", "right"]:
+    ax.spines[lado].set_visible(False)   # menos "tinta" innecesaria
+plt.show()
+```
+
+### 4.2 Resaltar una serie y atenuar el resto (en vez de 50 colores)
+```python
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+for estado, serie in datos_por_estado.items():
+    ax.plot(serie.index, serie.values, color="lightgray", lw=1)
+# Destacar solo el/los de interés
+for estado in ["Texas", "Nueva York"]:
+    s = datos_por_estado[estado]
+    ax.plot(s.index, s.values, lw=2.5, label=estado)
+    ax.text(s.index[-1], s.values[-1], f" {estado}", va="center")
+ax.set_title("Casos acumulados por 100 000 hab.")
+```
+
+### 4.3 Small multiples con ejes comunes
+```python
+import matplotlib.pyplot as plt
+
+fig, axs = plt.subplots(2, 3, figsize=(10, 5), sharex=True, sharey=True)
+for ax, (nombre, serie) in zip(axs.flat, series.items()):
+    ax.plot(serie.index, serie.values)
+    ax.set_title(nombre, fontsize=10)
+```
+
+### 4.4 Círculos proporcionales por área (no por radio)
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+casos = np.array([100, 400, 1024])
+tamano = 40 * casos            # 's' en scatter = ÁREA en puntos²
+plt.scatter(x, y, s=tamano, alpha=0.5)   # ✔ área proporcional al valor
+# ✘ Incorrecto: s = (k * casos)**2  → hace el radio proporcional al valor
+```
+
+### 4.5 Normalizar antes de mapear
+```python
+df["casos_100k"] = df["casos"] / df["poblacion"] * 100_000
+# Usar 'casos_100k' (no 'casos') para colorear el mapa coroplético
+```
+
+---
+
+## 5. Lista de verificación antes de publicar un gráfico
+
+**Propósito**
+- [ ] ¿Puedo decir en una frase la pregunta que responde?
+- [ ] ¿El título comunica el mensaje ("Las ventas cayeron 12 % en Q3"), no solo el tema ("Ventas")?
+
+**Tipo de gráfico**
+- [ ] ¿El tipo de gráfico corresponde a la tarea (ranking, tiempo, distribución…)?
+- [ ] Si es pie/dona: ¿las partes son exclusivas y suman 100 %? ¿hay ≤ 5 partes?
+- [ ] ¿No hay líneas uniendo categorías sin orden?
+- [ ] ¿Evité el 3D?
+
+**Ejes y escalas**
+- [ ] ¿Las barras parten de **cero**?
+- [ ] ¿Sin eje invertido ni doble eje (o están claramente justificados y rotulados)?
+- [ ] ¿Los gráficos que se comparan tienen la misma escala?
+- [ ] ¿Ejes con unidades y rótulos claros?
+
+**Color y diseño**
+- [ ] ¿≤ 6–8 colores? ¿Un color = un significado?
+- [ ] ¿Paleta adecuada (secuencial / divergente / cualitativa)?
+- [ ] ¿Se lee bien para personas daltónicas y en escala de grises?
+- [ ] ¿Quité rejillas, bordes, sombras y fondos innecesarios?
+- [ ] ¿Destaco lo importante y atenúo el resto?
+
+**Datos**
+- [ ] ¿Datos limpios y categorías consolidadas?
+- [ ] ¿Normalicé (por población, por área, por habitante) cuando comparo regiones?
+- [ ] ¿Las etiquetas coinciden con lo que se ve?
+- [ ] ¿Cité la fuente y el período?
+
+**Prueba final:** muéstraselo a alguien que no conozca el tema durante 10 segundos. Si no puede decir cuál es el mensaje, rediseña.
+
+---
+
+## 6. Ejercicios con respuestas
+
+**Ejercicio 1.** Un gráfico de barras muestra ventas de 2022 = 520 y 2023 = 540, con el eje Y comenzando en 500. La segunda barra parece 2 veces más alta que la primera. **¿Cuál es el Lie Factor aproximado?**
+*Respuesta:* cambio real = 20/520 ≈ 3,8 %. Alturas mostradas: 20 y 40 → +100 %. Lie Factor ≈ 100 / 3,8 ≈ **26**.
+
+**Ejercicio 2.** Una encuesta pregunta "¿qué herramientas usa?" con respuesta múltiple: Excel 80 %, Python 45 %, Tableau 30 %. Un compañero propone un pie. **¿Qué respondes?**
+*Respuesta:* los porcentajes suman 155 %; no son partes de un todo. Usa **barras horizontales ordenadas** y aclara "respuesta múltiple".
+
+**Ejercicio 3.** Un mapa de burbujas muestra Madrid (1 024 casos) y Murcia (256 casos). **¿Cómo debe ser la relación de radios?**
+*Respuesta:* valores en razón 4:1 → radios en razón √4 : 1 = **2:1**. Si Madrid tiene radio 4 veces mayor, su área es 16 veces mayor: error.
+
+**Ejercicio 4.** Tienes 12 líneas (un país por línea) en un solo gráfico y nadie distingue nada. **Da tres soluciones.**
+*Respuesta:* (1) resaltar 1–3 países y el resto en gris; (2) etiquetar directamente las líneas; (3) small multiples con ejes comunes.
+
+**Ejercicio 5.** Detecta **tres** errores posibles: "Gráfico 3D de barras, eje Y desde 90 a 110, colores rojo/verde, dos ejes Y."
+*Respuesta:* 3D (distorsión/oclusión), eje truncado (Lie Factor alto), rojo/verde (daltonismo) y doble eje (comparación engañosa).
+
+**Ejercicio 6 (aplicado).** Elige un gráfico de un diario o red social esta semana y complétalo: (a) pregunta que responde, (b) tipo de gráfico y si es adecuado, (c) errores según la lista de la sección 5, (d) versión corregida (boceto).
+
+---
+
+## 7. Glosario mínimo
+
+| Término | Definición |
+|---|---|
+| **Chartjunk** | Elementos decorativos que no aportan información (Tufte). |
+| **Data-ink ratio** | Proporción de la "tinta" del gráfico dedicada a mostrar datos. |
+| **Lie Factor** | Efecto mostrado ÷ efecto real. Lo ideal es cercano a 1. |
+| **Preatentivo** | Atributo visual que se detecta sin esfuerzo consciente (color, tamaño, posición). |
+| **Small multiples** | Serie de gráficos pequeños con la misma escala y estructura, uno por categoría. |
+| **Coroplético** | Mapa donde las regiones se colorean según un valor. |
+| **Overplotting** | Puntos superpuestos que ocultan la densidad real. |
+| **Binning** | Agrupar valores continuos en intervalos (histograma). |
+
+---
+
+## 8. Resumen final
+
+1. **La percepción no es neutral:** contraste simultáneo, textura y asimilación cromática muestran que el contexto altera lo que vemos. Diseña con fondos neutros, contraste alto y etiquetas.
+2. **El gráfico se elige por la tarea** (ranking, correlación, distribución, tiempo…), y **por la precisión perceptual**: posición y longitud > ángulo > área > volumen.
+3. **Los errores se agrupan en seis familias:** ejes y escalas, tipo de gráfico incorrecto, color, decoración/3D, tamaño de símbolos y calidad de datos.
+4. **Reglas de oro:**
+   - Barras desde cero.
+   - Nunca 3D.
+   - Pie solo si son ≤5 partes que suman 100 %.
+   - Color con sentido y con moderación.
+   - Área (no radio) para círculos.
+   - Normaliza antes de comparar regiones.
+   - Un gráfico = un mensaje.
+5. **Ética:** un gráfico engañoso no siempre es intencional, pero el efecto sobre el lector es el mismo. Verifica siempre antes de publicar.
+
+### Lecturas recomendadas
+- Stephen Few, *Show Me the Numbers* (2012).
+- Alberto Cairo, *How Charts Lie* (2019).
+- Edward Tufte, *The Visual Display of Quantitative Information* (1983).
+- Claus Wilke, *Fundamentals of Data Visualization* (2019, gratuito en línea).
+- Cole Nussbaumer Knaflic, *Storytelling with Data* (2015).
+- Recursos: ColorBrewer (colorbrewer2.org), *Data Viz Project*, *From Data to Viz*.
