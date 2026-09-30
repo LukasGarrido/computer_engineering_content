@@ -1,3 +1,5 @@
+CREATE DATABASE VentasDW;
+
 USE VentasDW;
 
 GO 
@@ -53,13 +55,13 @@ CREATE TABLE Fact_Ventas(
 	Cantidad INT NOT NULL,
 	PrecioUnit DECIMAL(10,2) NOT NULL,
 	Descuento DECIMAL(5,2) NOT NULL DEFAULT 0,
-	-- Claves Foráneas (Conexión con las Dimensiones)
+	-- Claves Forï¿½neas (Conexiï¿½n con las Dimensiones)
 	ProductoSK INT NOT NULL FOREIGN KEY REFERENCES Dim_Producto(ProductoSK),
 	VendedorSK INT NOT NULL FOREIGN KEY REFERENCES Dim_Vendedor(VendedorSK),
 	ClienteSK INT NOT NULL FOREIGN KEY REFERENCES Dim_Cliente(ClienteSK),
 	TiempoSK INT NOT NULL FOREIGN KEY REFERENCES Dim_Tiempo(TiempoSK),
 
-	-- Métricas Calculadas (Acelera las consultas analíticas en Power BI / SQL)
+	-- Mï¿½tricas Calculadas (Acelera las consultas analï¿½ticas en Power BI / SQL)
 
 	MontoBruto AS (Cantidad * PrecioUnit) PERSISTED,
     MontoDescuento AS (Cantidad * PrecioUnit * (Descuento / 100.0)) PERSISTED,

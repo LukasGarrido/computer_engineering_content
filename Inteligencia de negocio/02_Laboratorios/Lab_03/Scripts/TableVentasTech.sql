@@ -1,14 +1,20 @@
+CREATE DATABASE VentasTech;
+
 USE VentasTech;
+
 GO
+
 CREATE TABLE Categorias (
  CategoriaID INT IDENTITY(1,1) PRIMARY KEY,
  Nombre VARCHAR(50) NOT NULL,
  Descripcion VARCHAR(200) NULL);
+
 CREATE TABLE SubCategorias (
  SubCategoriaID INT IDENTITY(1,1) PRIMARY KEY,
  CategoriaID INT NOT NULL,
  Nombre VARCHAR(50) NOT NULL,
  CONSTRAINT FK_SubCat_Cat FOREIGN KEY (CategoriaID) REFERENCES Categorias(CategoriaID));
+
 CREATE TABLE Productos (
  ProductoID INT IDENTITY(1,1) PRIMARY KEY,
  Codigo VARCHAR(20) NOT NULL UNIQUE,
@@ -18,15 +24,12 @@ CREATE TABLE Productos (
  Activo BIT NOT NULL DEFAULT 1,
  CONSTRAINT FK_Prod_SubCat FOREIGN KEY (SubCategoriaID) REFERENCES SubCategorias(SubCategoriaID));
 
-
-
-
-
 CREATE TABLE Ciudades (
  CiudadID INT IDENTITY(1,1) PRIMARY KEY,
  Nombre VARCHAR(50) NOT NULL,
  Pais VARCHAR(50) NOT NULL,
  Region VARCHAR(50) NULL);
+
 CREATE TABLE Clientes (
  ClienteID INT IDENTITY(1,1) PRIMARY KEY,
  Documento VARCHAR(20) NOT NULL UNIQUE,
@@ -35,7 +38,6 @@ CREATE TABLE Clientes (
  CiudadID INT NOT NULL,
  FechaAlta DATE NOT NULL,
  CONSTRAINT FK_Cliente_Ciudad FOREIGN KEY (CiudadID) REFERENCES Ciudades(CiudadID));
-
 
 
 CREATE TABLE Vendedores (
@@ -52,9 +54,6 @@ CREATE TABLE Ventas (
  Estado VARCHAR(20) NOT NULL DEFAULT 'Completada',
  CONSTRAINT FK_Venta_Cliente FOREIGN KEY (ClienteID) REFERENCES Clientes(ClienteID),
  CONSTRAINT FK_Venta_Vendedor FOREIGN KEY (VendedorID) REFERENCES Vendedores(VendedorID));
-
-
-
 
 CREATE TABLE DetalleVentas (
  DetalleID INT IDENTITY(1,1) PRIMARY KEY,
