@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "7fdcdf2e734d12e6",
+        "id": "773c8be9597c41ac",
         "type": "tabs",
         "children": [
           {
-            "id": "228f62813989cf93",
+            "id": "cae20defbcb67dd8",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Visualizacion/02_Laboratorios/G5-sesion2/Lab_S2____Mapas.pdf"
+                "file": "Visualizacion/02_Laboratorios/G5-sesion3/Conceptos_PowerBI_Explicados.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "Lab_S2____Mapas"
+              "icon": "lucide-file",
+              "title": "Conceptos_PowerBI_Explicados"
             }
           }
         ]
@@ -81,7 +83,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 318.0624885559082
+    "width": 242.31723022460938,
+    "collapsed": true
   },
   "right": {
     "id": "9e7bf7891c800dbb",
@@ -186,12 +189,16 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "228f62813989cf93",
+  "active": "cae20defbcb67dd8",
   "lastOpenFiles": [
+    "Visualizacion/02_Laboratorios/G5-sesion4/Analisis_Lab_C4_Visualizacion_PCA_tSNE.md",
+    "Visualizacion/02_Laboratorios/G5-sesion4/Sin confirmar 248190.crdownload",
+    "Visualizacion/02_Laboratorios/G5-sesion3/Laboratorio Power BI - Entregable.md",
+    "Visualizacion/02_Laboratorios/G5-sesion3/Conceptos_PowerBI_Explicados.md",
     "Visualizacion/02_Laboratorios/G5-sesion2/Guia_Laboratorio_Mapas_EIN092B.md",
-    "Visualizacion/02_Laboratorios/G5-sesion2/Sin confirmar 56976.crdownload",
-    "Visualizacion/02_Laboratorios/G5-sesion2/analisis_libreria_mapas.md",
     "Visualizacion/02_Laboratorios/G5-sesion2/Lab_S2____Mapas.pdf",
+    "Visualizacion/02_Laboratorios/G5-sesion2/analisis_libreria_mapas.md",
+    "Visualizacion/02_Laboratorios/G5-sesion2/Sin confirmar 56976.crdownload",
     "Visualizacion/04_Cuestionarios/Cuestionario_Visualizacion_EIN092B.md",
     "Visualizacion/02_Laboratorios/G5-sesion6/USArrests.csv",
     "Visualizacion/02_Laboratorios/G5-sesion6/requirements.txt",
@@ -200,10 +207,7 @@
     "Visualizacion/02_Laboratorios/G5-sesion6",
     "Visualizacion/02_Laboratorios/G5-sesion4/C4_PCA_tSNE.ipynb",
     "Visualizacion/02_Laboratorios/G5-sesion4/C4 - Visualización_2D_3D_conceptos_básicos.ipynb",
-    "Visualizacion/02_Laboratorios/G5-sesion4",
-    "Visualizacion/02_Laboratorios/G5-sesion3/Laboratorio Power BI - Entregable.md",
     "Visualizacion/02_Laboratorios/G5-sesion3/Guia_PowerBI_Pizza_Place_Sales.md",
-    "Visualizacion/02_Laboratorios/G5-sesion3/Conceptos_PowerBI_Explicados.md",
     "Visualizacion/01_Teoria/03_Análisis de Componentes Principales (PCA).md",
     "Visualizacion/01_Teoria/02_Errores Comunes y Distracciones en Visualizaciones de Datos.md",
     "Visualizacion/01_Teoria/01_Introducción al procesamiento del lenguaje natural.md",
@@ -223,7 +227,6 @@
     "Taller de administracion de sistemas/02_Configuracion_vm/02_configuracion_ip_estatica_netplan.md",
     "Visualizacion/00_Indice.md",
     "Visualizacion/02_Laboratorios/Laboratorio Mapas-20260818/analisis_libreria_mapas.md",
-    "Visualizacion/02_Laboratorios/Lab powerbi/Laboratorio Power BI - Entregable.md",
     "Visualizacion/Sin título.canvas",
     "Pasted image 20260825113306.png"
   ]

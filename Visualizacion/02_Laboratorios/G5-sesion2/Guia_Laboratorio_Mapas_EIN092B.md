@@ -37,14 +37,14 @@ flowchart LR
 
 **Flujo lógico de todo el lab:** cargar datos → elegir un CRS adecuado → calcular área → calcular densidad → clasificar → visualizar (estático e interactivo) → exportar.
 
-| Actividad | Concepto central | Librería clave |
-|---|---|---|
-| 4.1 Comparación de proyecciones | CRS y distorsión del área | `GeoPandas` (`to_crs`, `.area`) |
-| 4.2 Clasificación múltiple | Mapa coroplético bivariado | `mapclassify`, `matplotlib` |
-| 4.3 Mapa interactivo | Popups y tooltips | `folium` |
-| 4.4 Outliers espaciales | Regla del IQR / BoxPlot | `mapclassify` |
-| 4.5 Exportación | Formato GeoJSON, persistencia | `to_file`, `read_file` |
-| 4.6–4.8 | Teoría: CRS, clasificación, impacto en políticas públicas | — |
+| Actividad                       | Concepto central                                          | Librería clave                  |
+| ------------------------------- | --------------------------------------------------------- | ------------------------------- |
+| 4.1 Comparación de proyecciones | CRS y distorsión del área                                 | `GeoPandas` (`to_crs`, `.area`) |
+| 4.2 Clasificación múltiple      | Mapa coroplético bivariado                                | `mapclassify`, `matplotlib`     |
+| 4.3 Mapa interactivo            | Popups y tooltips                                         | `folium`                        |
+| 4.4 Outliers espaciales         | Regla del IQR / BoxPlot                                   | `mapclassify`                   |
+| 4.5 Exportación                 | Formato GeoJSON, persistencia                             | `to_file`, `read_file`          |
+| 4.6–4.8                         | Teoría: CRS, clasificación, impacto en políticas públicas | —                               |
 
 ---
 
@@ -52,12 +52,12 @@ flowchart LR
 
 ### 2.1 Modelo vectorial vs. raster
 
-| | **Vectorial** | **Raster** |
-|---|---|---|
-| Representa | Entidades discretas (puntos, líneas, polígonos) | Grilla de celdas (píxeles) |
-| Atributos | Una fila de tabla por entidad | Un valor por celda |
-| Ejemplos | Comunas, calles, estaciones | Imágenes satelitales, elevación |
-| En este lab | **Sí** (polígonos de distritos) | No |
+|             | **Vectorial**                                   | **Raster**                      |
+| ----------- | ----------------------------------------------- | ------------------------------- |
+| Representa  | Entidades discretas (puntos, líneas, polígonos) | Grilla de celdas (píxeles)      |
+| Atributos   | Una fila de tabla por entidad                   | Un valor por celda              |
+| Ejemplos    | Comunas, calles, estaciones                     | Imágenes satelitales, elevación |
+| En este lab | **Sí** (polígonos de distritos)                 | No                              |
 
 ### 2.2 Tipos de geometría
 
