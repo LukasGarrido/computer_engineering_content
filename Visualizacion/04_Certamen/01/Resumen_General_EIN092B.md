@@ -1,7 +1,6 @@
 # Resumen General — EIN092B: Visualización
 
 **Curso:** EIN092B - Visualización
-**Autor de los documentos originales:** Jorge Portilla — Depto. de Electrónica e Informática, UTFSM, Concepción, Chile
 **Documentos cubiertos:**
 1. Introducción al Procesamiento de Imágenes
 2. Errores Comunes y Distracciones en Visualizaciones de Datos
