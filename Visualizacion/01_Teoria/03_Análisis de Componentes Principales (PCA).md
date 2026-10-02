@@ -393,8 +393,6 @@ El documento cierra remitiendo a la página oficial de Laurens van der Maaten (h
 
 ## 8. UMAP (Uniform Manifold Approximation and Projection)
 
-> **Nota:** esta sección se agregó como contenido complementario y no forma parte del documento original. Se incluye aquí porque UMAP es, junto con PCA y t-SNE, una de las tres técnicas de reducción de dimensionalidad más usadas en visualización de datos de alta dimensión, y suele presentarse como la evolución práctica de t-SNE.
-
 ### 8.1 Origen y propósito
 
 UMAP fue propuesto por **Leland McInnes, John Healy y James Melville en 2018** ("UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction"). Al igual que t-SNE, es una técnica **no lineal** pensada tanto para la **visualización** de datos de alta dimensión como, a diferencia de t-SNE, para la **reducción de dimensionalidad de propósito general** (puede usarse como paso previo a otros algoritmos de aprendizaje automático).
