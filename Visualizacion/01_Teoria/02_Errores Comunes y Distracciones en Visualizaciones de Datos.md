@@ -7,7 +7,7 @@
 
 ---
 
-## 0. Ideas base (léelas primero)
+## 0. Ideas base 
 
 Casi todos los errores de las secciones siguientes se explican con cinco ideas.
 
@@ -472,7 +472,38 @@ df["casos_100k"] = df["casos"] / df["poblacion"] * 100_000
 | **Binning** | Agrupar valores continuos en intervalos (histograma). |
 
 ---
+## Análisis de gráficos
 
+1. **Dona 86% Hombres / 14% Mujeres:** son dos gráficos para un dato que es un solo número (si no es 86%, es 14%). Redundante.
+2. **"How couples met" (líneas):** conecta categorías sin orden (trabajo, bar, online...) con líneas, sugiriendo una progresión que no existe.
+3. **Pie "shortage of vehicles" (2016-2019):** usa un pie para mostrar evolución en el tiempo — debería ser una línea o barras por año.
+4. **Clinical phase trends (16 años, 16 colores):** imposible distinguir cada año por color; además el orden cronológico ya está en el eje X, el color es redundante.
+5. **BBC casos vs muertes:** dos gráficos lado a lado con escalas distintas (0-100.000 vs 0-1.750) invitan a comparar formas que no son comparables.
+6. **Quinnipiac (45%/51%/4%):** este caso es distinto — aquí sí suman 100% y es aceptable, pero distinguir 45% de 51% por ángulo es difícil; barras lo mostrarían mejor.
+7. **Mapa de esperanza de vida (EE.UU.):** mezcla verdes y azules para un dato ordenado (bajo→alto), sin una progresión de luminosidad clara.
+8. **Mapa MSNBC (casos COVID):** usa categorías de valores absolutos (1.000+, 100.000+, 500.000+, 1.000.000+) con intervalos desiguales y sin normalizar por población — California siempre "gana".
+9. **Mapa meteorológico con cientos de números sobre el color:** los números tapan el patrón que el color ya comunica.
+10. **Barras de criminalidad NYC (eje Y de 94.000 a 104.000):** la barra de 2021 parece gigante vs las demás, cuando el cambio real es ~7%. _Cómo detectarlo:_ mira si el eje empieza en 0; si no, calcula cuánto exagera.
+11. **Ráfagas de viento (eje de 25 a 27):** mismo problema, diferencias de 1-2 unidades se ven como barras muy distintas.
+12. **Barras de candidatos demócratas con fotos:** las alturas de las barras no calzan de forma consistente con los montos en dólares mostrados arriba.
+13. **Trump vs Clinton (50%/35%):** el pie está dibujado como si fuera 50/50, pero los números no suman 100% (faltan indecisos) y el dibujo no corresponde a los porcentajes.
+14. **Encuesta HR (73%, 69%, 46%):** pie con respuestas múltiples que suman 188% — imposible como "partes de un todo".
+15. **Outaouais (38%, 35%, 32%, 31%, 69%):** mismo problema, suma muy por encima de 100%.
+16. **"Percentage of corn planted" (4 pies semanales):** usa pies para mostrar una progresión temporal — debería ser una sola línea.
+17. **Mapa de España (círculos COVID):** hay que verificar si el tamaño de los círculos está escalado por radio o por área respecto al número de casos; si es por radio, una región con 4x más casos se ve 16x más grande.
+18. **Coronavirus en superficies:** mezcla horas y días en el mismo panel visual sin alinear unidades.
+19. **Cumulative cases per 100.000 (50 líneas de estados):** mismo problema, saturación de colores.
+20. **Leyenda "Category" (Orange en verde, Green en rojo):** el color contradice el nombre de la categoría — confunde directamente.
+21. **Top 10 Fruits (pie):** colores no corresponden a las frutas (naranjas en verde, por ejemplo) y hay demasiadas rebanadas pequeñas.
+22. **Encuesta de Zelda (3.994 respuestas, decenas de categorías):** "BOTW", "Botw", "botw", "Breath of the Wild" se cuentan como categorías separadas por no limpiar el texto antes de graficar.
+23. **Gráfico 3D de frutas por mes:** la perspectiva distorsiona la altura real de las barras.
+24. **CpG Island Hypermethylation (3D, muchas filas/columnas):** oclusión severa, barras del fondo tapadas.
+25. **Mapa "Death Penalty" con caritas:** combina color, tamaño, forma y expresión facial para codificar 4-5 variables en un solo símbolo — imposible de decodificar todo a la vez.
+26. **"Gun deaths in Florida" (Reuters):** el eje Y está invertido — sube cuando las muertes bajan, lo que visualmente sugiere lo contrario de lo que pasó. _Detectarlo:_ revisa si "arriba" realmente significa "más".
+27. **Covid19 Suecia por edad:** dos ejes Y distintos (0-1,25% y 0-40%) superpuestos — las barras "se ven iguales" pero representan magnitudes 32 veces distintas. _Detectarlo:_ ¿hay dos escalas numeradas a los lados? Sospecha.
+28. **Café en tazas con nivel de llenado:** el "llenado" de una forma no es proporcional al %, porque el ancho de la taza varía — engaña al ojo.
+
+---
 ## 8. Resumen final
 
 1. **La percepción no es neutral:** contraste simultáneo, textura y asimilación cromática muestran que el contexto altera lo que vemos. Diseña con fondos neutros, contraste alto y etiquetas.

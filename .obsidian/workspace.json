@@ -22,13 +22,25 @@
             }
           },
           {
-            "id": "a19653dd18455f8a",
+            "id": "3b8248286dc4dcf0",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Visualizacion/_material_docente/Errores Comunes y Distracciones en Visualizaciones de Datos.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "Errores Comunes y Distracciones en Visualizaciones de Datos"
+            }
+          },
+          {
+            "id": "54ad56ba4a52c359",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "Visualizacion/01_Teoria/02_Errores Comunes y Distracciones en Visualizaciones de Datos.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -36,7 +48,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -203,8 +215,9 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "a19653dd18455f8a",
+  "active": "54ad56ba4a52c359",
   "lastOpenFiles": [
+    "Visualizacion/_material_docente/Errores Comunes y Distracciones en Visualizaciones de Datos.pdf",
     "Visualizacion/01_Teoria/03_Análisis de Componentes Principales (PCA).md",
     "Visualizacion/01_Teoria/02_Errores Comunes y Distracciones en Visualizaciones de Datos.md",
     "Visualizacion/01_Teoria/01_Introducción al procesamiento del lenguaje natural.md",
@@ -218,7 +231,6 @@
     "_adjuntos",
     "Visualizacion/01_Teoria/public",
     "Visualizacion/_material_docente/Introducción_a_Power_BI.pdf",
-    "Visualizacion/_material_docente/Errores Comunes y Distracciones en Visualizaciones de Datos.pdf",
     "Visualizacion/_material_docente/EIN092B__Presentación___Exploración_y_análisis_de_textos.pdf",
     "Visualizacion/02_Laboratorios/G5-sesion3/Conceptos_PowerBI_Explicados.md",
     "Visualizacion/02_Laboratorios/G5-sesion4/Analisis_Lab_C4_Visualizacion_PCA_tSNE.md",
