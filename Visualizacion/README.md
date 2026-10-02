@@ -16,14 +16,14 @@ Este índice centraliza los apuntes, laboratorios prácticos y presentaciones de
 ## Laboratorios Prácticos (02_Laboratorios)
 
 ### Sesión 2 — Mapas Geoespaciales (`G5-sesion2`)
-- [[analisis_libreria_mapas|Análisis y Uso de Librería GeoPandas / Folium / Mapas]]
+- [Análisis y Uso de Librería GeoPandas / Folium / Mapas](./02_Laboratorios/G5-sesion2/analisis_libreria_mapas.md)
 - `02_Laboratorios/G5-sesion2/W2_library_maps.ipynb`
 - `02_Laboratorios/G5-sesion2/Lab_S2____Mapas.pdf`
 
 ### Sesión 3 — Power BI (`G5-sesion3`)
-- [[Conceptos_PowerBI_Explicados|Conceptos Fundamentales de Power BI]]
-- [[Guia_PowerBI_Pizza_Place_Sales|Guía de Laboratorio — Dataset Pizza Place Sales]]
-- [[Laboratorio Power BI - Entregable|Laboratorio Power BI — Entregable]]
+- [Conceptos Fundamentales de Power BI](./02_Laboratorios/G5-sesion3/Conceptos_PowerBI_Explicados.md)
+- [Guía de Laboratorio — Dataset Pizza Place Sales](./02_Laboratorios/G5-sesion3/Guia_PowerBI_Pizza_Place_Sales.md)
+- [Laboratorio Power BI — Entregable](./02_Laboratorios/G5-sesion3/Laboratorio%20Power%20BI%20-%20Entregable.md)
 - `02_Laboratorios/G5-sesion3/Lab_S3___PowerBi-2.pdf`
 
 ### Sesión 4 — Visualización en Alta Dimensionalidad (`G5-sesion4`)
@@ -37,7 +37,7 @@ Este índice centraliza los apuntes, laboratorios prácticos y presentaciones de
 - `02_Laboratorios/G5-sesion6/requirements.txt`
 
 ### Sesión 7 — Técnicas de Visualización y Agrupación de Datos / Clustering (`G5-sesion7`)
-- [[ANALISIS_CLUSTERING|Análisis de Clustering y Reducción de Dimensionalidad]]
+- [Análisis de Clustering y Reducción de Dimensionalidad](./02_Laboratorios/G5-sesion7/ANALISIS_CLUSTERING.md)
 - `02_Laboratorios/G5-sesion7/lab7_clustering.ipynb`
 - `02_Laboratorios/G5-sesion7/Lab_S7___Týcnicas_de_visualizaciýn_y_agrupaciýn_de_datos.pdf`
 - `02_Laboratorios/G5-sesion7/requirements.txt`
@@ -72,3 +72,13 @@ Este índice centraliza los apuntes, laboratorios prácticos y presentaciones de
 - `01_Teoria/03_Análisis de Componentes Principales (PCA).md`
 
 
+
+
+## Secciones del Directorio
+
+- [01_Teoria](./01_Teoria)
+- [02_Laboratorios](./02_Laboratorios)
+- [03_Proyecto](./03_Proyecto)
+- [04_Cuestionarios](./04_Cuestionarios)
+- [05_Certamen](./05_Certamen)
+- [_material_docente](./_material_docente)

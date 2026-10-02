@@ -6,4 +6,9 @@ Este índice centraliza los apuntes, análisis de casos y marcos éticos para la
 
 ## 01. Teoría y Ensayos de Análisis
 
-- [[Analisis_Etica_y_RSE|Análisis Integral de Ética Profesional y Responsabilidad Social Empresarial (RSE)]]
+- [Análisis Integral de Ética Profesional y Responsabilidad Social Empresarial (RSE)](./01_Teoria/Analisis_Etica_y_RSE.md)
+
+
+## Secciones del Directorio
+
+- [01_Teoria](./01_Teoria)
