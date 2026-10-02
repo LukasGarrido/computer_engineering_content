@@ -15,7 +15,7 @@ Cada asignatura sigue una convención estandarizada:
 
 ```text
 Asignatura/
-├── 00_Indice.md              # Map of Content (MOC) interactivo para Obsidian
+├── README.md                 # Índice principal y navegación de la asignatura (MOC)
 ├── 01_Teoria/                # Apuntes de clase y resúmenes conceptuales (.md)
 ├── 02_Laboratorios/          # Guías resueltas, entregables y código (.ipynb, .md)
 ├── 03_Proyectos/             # Documentos de análisis, código y entregas finales
@@ -30,12 +30,12 @@ Asignatura/
 
 | Asignatura | Índice (MOC) | Contenido Principal |
 | :--- | :--- | :--- |
-| **Ciencia de Datos** | [Índice](file:///./Ciencia%20de%20Datos/00_Indice.md) | Fundamentos de DS, regresión lineal/logística, SVM, KNN, ensembles (Bagging/Boosting), grafos y deployment. |
-| **Gestión de Proyectos** | [Índice](file:///./Gestion%20de%20proyectos/00_Indice.md) | Fundamentos de gestión de software, planificación, metodologías tradicionales y ágiles (Scrum). |
-| **Inteligencia de Negocio** | [Índice](file:///./Inteligencia%20de%20negocio/00_Indice.md) | Fundamentos de BI, modelado dimensional OLTP a OLAP, laboratorios y Proyecto SaludVital. |
-| **Redes de Computadores** | [Índice](file:///./Redes%20de%20computadores/00_Indice.md) | Capas de red (Aplicación, Transporte, Red, Enlace, Seguridad), preguntas de certámenes 1 y 2. |
-| **Responsabilidad Social y Ética Laboral** | [Índice](file:///./Responsabilidad%20social%20y%20Etica%20Laboral/00_Indice.md) | Análisis ético en ingeniería y responsabilidad social empresarial. |
-| **Taller de Administración de Sistemas** | [Índice](file:///./Taller%20de%20administracion%20de%20sistemas/00_Indice.md) | Máquinas virtuales, contenedores (Docker), gestión de usuarios y servicios esenciales de red en Linux. |
-| **Visualización** | [Índice](file:///./Visualizacion/00_Indice.md) | Laboratorios prácticos (Power BI, GeoPandas/Mapas, Alta dimensionalidad PCA/t-SNE) y material docente. |
+| **Ciencia de Datos** | [Índice](./Ciencia%20de%20Datos/README.md) | Fundamentos de DS, regresión lineal/logística, SVM, KNN, ensembles (Bagging/Boosting), grafos y deployment. |
+| **Gestión de Proyectos** | [Índice](./Gestion%20de%20proyectos/README.md) | Fundamentos de gestión de software, planificación, metodologías tradicionales y ágiles (Scrum). |
+| **Inteligencia de Negocio** | [Índice](./Inteligencia%20de%20negocio/README.md) | Fundamentos de BI, modelado dimensional OLTP a OLAP, laboratorios y Proyecto SaludVital. |
+| **Redes de Computadores** | [Índice](./Redes%20de%20computadores/README.md) | Capas de red (Aplicación, Transporte, Red, Enlace, Seguridad), preguntas de certámenes 1 y 2. |
+| **Responsabilidad Social y Ética Laboral** | [Índice](./Responsabilidad%20social%20y%20Etica%20Laboral/README.md) | Análisis ético en ingeniería y responsabilidad social empresarial. |
+| **Taller de Administración de Sistemas** | [Índice](./Taller%20de%20administracion%20de%20sistemas/README.md) | Máquinas virtuales, contenedores (Docker), gestión de usuarios y servicios esenciales de red en Linux. |
+| **Visualización** | [Índice](./Visualizacion/README.md) | Laboratorios prácticos (Power BI, GeoPandas/Mapas, Alta dimensionalidad PCA/t-SNE) y material docente. |
 
 ---
