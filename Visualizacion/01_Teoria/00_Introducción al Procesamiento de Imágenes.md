@@ -80,13 +80,16 @@ q(x, y) = p(x, y)^γ
 donde `p(x, y)` es la intensidad de entrada (normalizada al intervalo [0, 1]) y `q(x, y)` es la intensidad de salida. El parámetro **γ (gamma)** controla el efecto:
 
 - **γ = 1:** no hay cambio, la imagen permanece igual.
-- **γ < 1:** la imagen se **aclara** (se incrementa el brillo, especialmente en las zonas oscuras/sombras).
-- **γ > 1:** la imagen se **oscurece** (se reduce el brillo en las sombras).
+- **γ < 1:** la imagen se **aclara** (se incrementa el brillo, especialmente en las zonas oscuras/sombras). "Abre" o resalta las diferencias en el rango de valores bajos, haciendo visibles detalles en zonas oscuras que de otro modo parecerían un único bloque negro o azul oscuro..
+- **γ > 1:** la imagen se **oscurece** (se reduce el brillo en las sombras). Reduce la importancia de los valores bajos y resalta únicamente los picos extremos o valores altos.
 
+
+![[CorrecionGama.png]]
 ### 4.2 Consideraciones prácticas
 
 - Antes de aplicar la función, los valores de píxel (típicamente en el rango 0-255) deben normalizarse al intervalo [0, 1], ya que la función potencia se define correctamente en ese rango.
 - Como calcular `pow()` para cada píxel es computacionalmente costoso (especialmente en C++), en la práctica es más eficiente **precalcular una tabla de transformación** (lookup table, LUT) con los 256 valores posibles de entrada y sus correspondientes salidas, y luego simplemente consultar esa tabla para cada píxel en lugar de recalcular la potencia.
+- **Usa Corrección Gamma** si quieres ajustar el contraste de forma continua manteniendo el mismo rango mínimo/máximo sin alterar el orden relativo de los datos.
 
 ### 4.3 Aplicación: contraste
 

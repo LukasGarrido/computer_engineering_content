@@ -458,27 +458,6 @@ df["casos_100k"] = df["casos"] / df["poblacion"] * 100_000
 
 ---
 
-## 6. Ejercicios con respuestas
-
-**Ejercicio 1.** Un gráfico de barras muestra ventas de 2022 = 520 y 2023 = 540, con el eje Y comenzando en 500. La segunda barra parece 2 veces más alta que la primera. **¿Cuál es el Lie Factor aproximado?**
-*Respuesta:* cambio real = 20/520 ≈ 3,8 %. Alturas mostradas: 20 y 40 → +100 %. Lie Factor ≈ 100 / 3,8 ≈ **26**.
-
-**Ejercicio 2.** Una encuesta pregunta "¿qué herramientas usa?" con respuesta múltiple: Excel 80 %, Python 45 %, Tableau 30 %. Un compañero propone un pie. **¿Qué respondes?**
-*Respuesta:* los porcentajes suman 155 %; no son partes de un todo. Usa **barras horizontales ordenadas** y aclara "respuesta múltiple".
-
-**Ejercicio 3.** Un mapa de burbujas muestra Madrid (1 024 casos) y Murcia (256 casos). **¿Cómo debe ser la relación de radios?**
-*Respuesta:* valores en razón 4:1 → radios en razón √4 : 1 = **2:1**. Si Madrid tiene radio 4 veces mayor, su área es 16 veces mayor: error.
-
-**Ejercicio 4.** Tienes 12 líneas (un país por línea) en un solo gráfico y nadie distingue nada. **Da tres soluciones.**
-*Respuesta:* (1) resaltar 1–3 países y el resto en gris; (2) etiquetar directamente las líneas; (3) small multiples con ejes comunes.
-
-**Ejercicio 5.** Detecta **tres** errores posibles: "Gráfico 3D de barras, eje Y desde 90 a 110, colores rojo/verde, dos ejes Y."
-*Respuesta:* 3D (distorsión/oclusión), eje truncado (Lie Factor alto), rojo/verde (daltonismo) y doble eje (comparación engañosa).
-
-**Ejercicio 6 (aplicado).** Elige un gráfico de un diario o red social esta semana y complétalo: (a) pregunta que responde, (b) tipo de gráfico y si es adecuado, (c) errores según la lista de la sección 5, (d) versión corregida (boceto).
-
----
-
 ## 7. Glosario mínimo
 
 | Término | Definición |
@@ -507,12 +486,4 @@ df["casos_100k"] = df["casos"] / df["poblacion"] * 100_000
    - Área (no radio) para círculos.
    - Normaliza antes de comparar regiones.
    - Un gráfico = un mensaje.
-5. **Ética:** un gráfico engañoso no siempre es intencional, pero el efecto sobre el lector es el mismo. Verifica siempre antes de publicar.
-
-### Lecturas recomendadas
-- Stephen Few, *Show Me the Numbers* (2012).
-- Alberto Cairo, *How Charts Lie* (2019).
-- Edward Tufte, *The Visual Display of Quantitative Information* (1983).
-- Claus Wilke, *Fundamentals of Data Visualization* (2019, gratuito en línea).
-- Cole Nussbaumer Knaflic, *Storytelling with Data* (2015).
-- Recursos: ColorBrewer (colorbrewer2.org), *Data Viz Project*, *From Data to Viz*.
+1. **Ética:** un gráfico engañoso no siempre es intencional, pero el efecto sobre el lector es el mismo. Verifica siempre antes de publicar.
