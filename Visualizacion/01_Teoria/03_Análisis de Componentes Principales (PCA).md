@@ -391,6 +391,72 @@ El documento cierra remitiendo a la página oficial de Laurens van der Maaten (h
 
 ---
 
+## 8. UMAP (Uniform Manifold Approximation and Projection)
+
+> **Nota:** esta sección se agregó como contenido complementario y no forma parte del documento original. Se incluye aquí porque UMAP es, junto con PCA y t-SNE, una de las tres técnicas de reducción de dimensionalidad más usadas en visualización de datos de alta dimensión, y suele presentarse como la evolución práctica de t-SNE.
+
+### 8.1 Origen y propósito
+
+UMAP fue propuesto por **Leland McInnes, John Healy y James Melville en 2018** ("UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction"). Al igual que t-SNE, es una técnica **no lineal** pensada tanto para la **visualización** de datos de alta dimensión como, a diferencia de t-SNE, para la **reducción de dimensionalidad de propósito general** (puede usarse como paso previo a otros algoritmos de aprendizaje automático).
+
+### 8.2 Fundamento teórico
+
+A diferencia de t-SNE (que se basa en distribuciones de probabilidad y en minimizar la divergencia KL), UMAP se apoya en fundamentos de **topología algebraica** y **aprendizaje de variedades (manifold learning)**:
+
+- Asume que los datos de alta dimensión están distribuidos sobre una **variedad (manifold)** de menor dimensión, posiblemente no lineal, embebida en el espacio original.
+- Construye una representación de la estructura de los datos mediante **conjuntos simpliciales difusos (fuzzy simplicial sets)**, un objeto matemático que captura la conectividad local entre puntos, considerando qué tan cerca está cada punto de sus vecinos.
+- Optimiza un embedding de baja dimensión de modo que su propia estructura topológica difusa se parezca lo más posible a la del espacio original, minimizando una **entropía cruzada difusa (fuzzy cross-entropy)** en lugar de la divergencia KL que usa t-SNE.
+
+**Idea intuitiva:** en vez de pensar en "probabilidades de vecindad" como t-SNE, UMAP piensa en una **red de conexiones (un grafo) con pesos**, donde cada punto está conectado con más fuerza a sus vecinos más cercanos; luego intenta dibujar ese mismo grafo en un espacio de menor dimensión preservando su forma lo mejor posible.
+
+### 8.3 Hiperparámetros principales
+
+- **n_neighbors:** equivalente conceptual a la _perplexity_ de t-SNE. Controla el balance entre estructura local y global: define cuántos vecinos cercanos se consideran al construir el grafo de conectividad.
+    - **Valores bajos (ej. 2-10):** el algoritmo se enfoca en relaciones muy locales, puede fragmentar los datos en muchos grupos pequeños.
+    - **Valores altos (ej. 50-200):** captura más estructura global, a costa de perder detalle fino local.
+- **min_dist:** controla qué tan juntos pueden quedar los puntos en el espacio reducido.
+    - **Valores bajos (cercanos a 0):** permite que los puntos se agrupen muy compactamente, útil para resaltar la estructura de clústeres.
+    - **Valores altos (cercanos a 1):** fuerza a los puntos a mantenerse más separados, favoreciendo una visión más general de la forma de los datos.
+- **n_components:** dimensionalidad de salida (típicamente 2 o 3 para visualización, pero puede ser mayor, a diferencia de t-SNE).
+- **metric:** la métrica de distancia usada para medir similitud en el espacio original (euclidiana, coseno, Manhattan, etc.), lo que da flexibilidad para distintos tipos de datos (texto, genómica, imágenes).
+
+### 8.4 Comparación con PCA y t-SNE
+
+|Aspecto|PCA|t-SNE|UMAP|
+|---|---|---|---|
+|Tipo de transformación|Lineal|No lineal|No lineal|
+|Qué preserva|Varianza global|Vecindad local|Vecindad local **y** parte de la estructura global|
+|Determinismo|Determinista|No determinista|No determinista (pero más estable que t-SNE entre ejecuciones)|
+|Velocidad|Muy rápido|Lento en datasets grandes|Generalmente más rápido que t-SNE, escala mejor|
+|¿Aplicable a datos nuevos?|Sí (vía matriz A)|No, de forma directa|Sí, soporta `transform()` sobre nuevos puntos una vez entrenado|
+|Uso típico|Compresión, features para modelos|Solo visualización exploratoria|Visualización **y** reducción de dimensionalidad para modelado|
+|Dimensión de salida|Cualquier k|Principalmente 2D-3D|Cualquier n_components|
+
+**Punto clave:** UMAP suele describirse como un punto intermedio que combina lo mejor de ambos mundos — produce visualizaciones de clústeres tan nítidas como t-SNE (o incluso más), pero conserva mejor las distancias relativas entre clústeres (estructura global) y es mucho más eficiente computacionalmente en datasets grandes, lo que le permite además usarse como preprocesamiento para modelos de clasificación o clustering, algo que t-SNE no permite de forma práctica.
+
+### 8.5 Ventajas de UMAP
+
+- **Más rápido que t-SNE**, especialmente en datasets grandes (cientos de miles o millones de puntos), gracias a optimizaciones basadas en búsqueda aproximada de vecinos cercanos.
+- **Preserva mejor la estructura global**, por lo que las distancias entre clústeres en el embedding resultante tienden a ser más interpretables que en t-SNE.
+- **Soporta transformación de nuevos datos** una vez ajustado el modelo, de forma similar a como PCA permite proyectar nuevas observaciones.
+- **No está limitado a 2D o 3D** como salida, por lo que también puede usarse como técnica general de reducción de dimensionalidad antes de aplicar otros algoritmos (clustering, clasificación).
+- **Soporta distintas métricas de distancia**, lo que lo hace flexible para datos no estrictamente numéricos o euclidianos.
+
+### 8.6 Desventajas y limitaciones de UMAP
+
+- **Sigue sin ser determinista**: distintas ejecuciones (o distintas semillas aleatorias) pueden producir embeddings algo distintos, aunque en general más consistentes que t-SNE.
+- **Requiere ajustar hiperparámetros** (`n_neighbors`, `min_dist`), y al igual que con la perplexity de t-SNE, valores distintos pueden producir visualizaciones con estructuras aparentemente distintas — se recomienda explorar varios valores antes de sacar conclusiones.
+- **Las distancias absolutas entre clústeres, aunque más fieles que en t-SNE, siguen sin tener un significado cuantitativo estrictamente riguroso** (no se debe interpretar la distancia entre dos clústeres como una medida exacta de diferencia).
+- **Fundamento matemático más complejo** (topología algebraica, teoría de categorías) que PCA o incluso que la formulación probabilística de t-SNE, lo que dificulta su justificación teórica para quienes recién se inician en el tema.
+
+### 8.7 Casos de uso típicos
+
+- **Genómica de célula única (single-cell genomics):** es, junto con t-SNE, el estándar de facto para visualizar poblaciones de células según su perfil de expresión génica, debido a su velocidad en datasets con cientos de miles de células.
+- **Visualización de embeddings** de modelos de lenguaje o de recomendación (por ejemplo, proyectar embeddings de palabras o de usuarios en 2D para inspeccionar agrupaciones).
+- **Preprocesamiento antes de clustering**, dado que, a diferencia de t-SNE, sus componentes pueden alimentar razonablemente algoritmos posteriores como k-means o HDBSCAN.
+
+---
+
 ## Resumen general del documento
 
 Esta presentación desarrolla, de manera progresiva y con fuerte enfoque matemático y visual, dos de las técnicas más importantes de reducción de dimensionalidad en ciencia de datos:
@@ -405,3 +471,19 @@ Esta presentación desarrolla, de manera progresiva y con fuerte enfoque matemá
     
 
 En conjunto, el documento ofrece una introducción completa —tanto teórica como práctica— a las dos técnicas de reducción de dimensionalidad más utilizadas en visualización y análisis exploratorio de datos, destacando cuándo conviene usar cada una según el objetivo (compresión y modelado con PCA, versus exploración visual con t-SNE).
+
+---
+
+## Apéndice: resumen comparativo PCA / t-SNE / UMAP (contenido agregado)
+
+> Igual que la Sección 8, este apéndice es contenido añadido y no pertenece al documento original.
+
+||**PCA**|**t-SNE**|**UMAP**|
+|---|---|---|---|
+|Año / autores|Clásico (Pearson 1901 / Hotelling 1933)|2008, van der Maaten & Hinton|2018, McInnes, Healy & Melville|
+|Naturaleza|Lineal, determinista|No lineal, estocástica|No lineal, basada en topología|
+|Qué prioriza|Varianza global|Vecindad local|Vecindad local + algo de estructura global|
+|Velocidad|Muy alta|Baja en datasets grandes|Alta, escala mejor que t-SNE|
+|¿Sirve para alimentar modelos de ML?|Sí|No (principalmente visualización)|Sí, también como preprocesamiento|
+|¿Proyecta datos nuevos?|Sí|No de forma directa|Sí|
+|Hiperparámetro clave|N° de componentes (k)|Perplexity (5-50)|n_neighbors y min_dist|

@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "d60eb4f0e031eaa4",
+        "id": "6ee9f8ca78942744",
         "type": "tabs",
         "children": [
           {
-            "id": "268e9ca166f1f4cd",
+            "id": "e45392cf7da3135a",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,35 +20,8 @@
               "icon": "lucide-file",
               "title": "03_Análisis de Componentes Principales (PCA)"
             }
-          },
-          {
-            "id": "3b8248286dc4dcf0",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Visualizacion/_material_docente/Errores Comunes y Distracciones en Visualizaciones de Datos.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "Errores Comunes y Distracciones en Visualizaciones de Datos"
-            }
-          },
-          {
-            "id": "54ad56ba4a52c359",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Visualizacion/01_Teoria/02_Errores Comunes y Distracciones en Visualizaciones de Datos.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "02_Errores Comunes y Distracciones en Visualizaciones de Datos"
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -215,11 +188,11 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "54ad56ba4a52c359",
+  "active": "e45392cf7da3135a",
   "lastOpenFiles": [
     "Visualizacion/_material_docente/Errores Comunes y Distracciones en Visualizaciones de Datos.pdf",
-    "Visualizacion/01_Teoria/03_Análisis de Componentes Principales (PCA).md",
     "Visualizacion/01_Teoria/02_Errores Comunes y Distracciones en Visualizaciones de Datos.md",
+    "Visualizacion/01_Teoria/03_Análisis de Componentes Principales (PCA).md",
     "Visualizacion/01_Teoria/01_Introducción al procesamiento del lenguaje natural.md",
     "Visualizacion/05_Certamen/01/Resumen_General_EIN092B.md",
     "Visualizacion/01_Teoria/00_Introducción al Procesamiento de Imágenes.md",
