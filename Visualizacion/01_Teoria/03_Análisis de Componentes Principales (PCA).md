@@ -468,20 +468,3 @@ Esta presentación desarrolla, de manera progresiva y con fuerte enfoque matemá
 4. **Ejemplos aplicados:** se cierra el documento con ejemplos reales de proyecciones t-SNE sobre datasets públicos (Olivetti y Netflix), mostrando el uso práctico de estas técnicas para la exploración visual de datos complejos de alta dimensión.
     
 
-En conjunto, el documento ofrece una introducción completa —tanto teórica como práctica— a las dos técnicas de reducción de dimensionalidad más utilizadas en visualización y análisis exploratorio de datos, destacando cuándo conviene usar cada una según el objetivo (compresión y modelado con PCA, versus exploración visual con t-SNE).
-
----
-
-## Apéndice: resumen comparativo PCA / t-SNE / UMAP (contenido agregado)
-
-> Igual que la Sección 8, este apéndice es contenido añadido y no pertenece al documento original.
-
-||**PCA**|**t-SNE**|**UMAP**|
-|---|---|---|---|
-|Año / autores|Clásico (Pearson 1901 / Hotelling 1933)|2008, van der Maaten & Hinton|2018, McInnes, Healy & Melville|
-|Naturaleza|Lineal, determinista|No lineal, estocástica|No lineal, basada en topología|
-|Qué prioriza|Varianza global|Vecindad local|Vecindad local + algo de estructura global|
-|Velocidad|Muy alta|Baja en datasets grandes|Alta, escala mejor que t-SNE|
-|¿Sirve para alimentar modelos de ML?|Sí|No (principalmente visualización)|Sí, también como preprocesamiento|
-|¿Proyecta datos nuevos?|Sí|No de forma directa|Sí|
-|Hiperparámetro clave|N° de componentes (k)|Perplexity (5-50)|n_neighbors y min_dist|
