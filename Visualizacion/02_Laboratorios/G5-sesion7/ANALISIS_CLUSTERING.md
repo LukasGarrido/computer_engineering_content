@@ -1,4 +1,4 @@
-﻿# Laboratorio 7 — Análisis Completo de Técnicas de Agrupación de Datos
+# Laboratorio 7 — Análisis Completo de Técnicas de Agrupación de Datos
 ## K-Means, DBSCAN y GMM sobre Fashion-MNIST
 
 ---
