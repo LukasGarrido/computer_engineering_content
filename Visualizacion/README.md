@@ -8,7 +8,7 @@ Este índice centraliza los apuntes, laboratorios prácticos y presentaciones de
 - [01_Teoria](./01_Teoria) – Contenidos teóricos.
 - [02_Laboratorios](./02_Laboratorios) – Laboratorios prácticos.
 - [03_Proyecto](./03_Proyecto) – Proyecto semestral.
-- [04_Cuestionarios](./04_Cuestionarios) – Cuestionarios y ejercicios.
+- [04_Certamen](./04_Certamen) – Certamenes 
 - [_material_docente](./_material_docente) – Materiales de apoyo.
 
 ---
