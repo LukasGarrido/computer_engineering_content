@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4c273ae26b24703d",
+        "id": "9580cab99c2738f1",
         "type": "tabs",
         "children": [
           {
-            "id": "6275e816964c580c",
+            "id": "9fe8a791a1cd69e4",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -79,7 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 242.31723022460938
+    "width": 200
   },
   "right": {
     "id": "9e7bf7891c800dbb",
@@ -184,8 +184,10 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "6275e816964c580c",
+  "active": "9fe8a791a1cd69e4",
   "lastOpenFiles": [
+    "AGENTS.md",
+    "README.md",
     "log.md",
     "index.md",
     "wiki/_conceptos/Etica Profesional.md",
@@ -210,8 +212,6 @@
     "wiki/_conceptos/Clustering.md",
     "wiki/_conceptos/Regresion Lineal.md",
     "wiki/_conceptos/Machine Learning.md",
-    "wiki/Visualizacion/_MOC.md",
-    "wiki/Taller de Administracion de Sistemas/_MOC.md",
     "raw/Inteligencia de Negocio/laboratorios/Lab_03/Scripts/TableVentasTech.sql",
     "raw/Inteligencia de Negocio/laboratorios/Lab_03/Scripts/TableVentasDW.sql",
     "raw/Visualizacion/laboratorios/G5-sesion8/requirements.txt",
