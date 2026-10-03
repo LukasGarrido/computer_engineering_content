@@ -2,40 +2,57 @@
 
 Este repositorio contiene apuntes, laboratorios, proyectos y resúmenes de asignaturas de la carrera de **Ingeniería Informática** en la **Universidad Técnica Federico Santa María (USM)**.
 
-Está estructurado como una base de conocimiento para ser explorado tanto en **GitHub** como en **Obsidian** (compatible con wikilinks y Map of Contents).
+Está estructurado bajo el patrón **LLM-Wiki**, diseñado para ser gestionado y evolucionado por agentes de IA en colaboración con humanos, optimizado para ser explorado en **Obsidian** y **GitHub**.
 
 > [!NOTE]
 > Todos los materiales docentes, enunciados y diapositivas incluidos en este repositorio pertenecen y han sido provistos por la **Universidad Técnica Federico Santa María (USM)**.
 
 ---
 
-## Estructura Modular por Asignatura
+## Arquitectura del Repositorio (3 Capas)
 
-Cada asignatura sigue una convención estandarizada:
+El repositorio sigue una arquitectura estricta de 3 capas, definida en detalle en [`AGENTS.md`](./AGENTS.md):
 
 ```text
-Asignatura/
-├── README.md                 # Índice principal y navegación de la asignatura (MOC)
-├── 01_Teoria/                # Apuntes de clase y resúmenes conceptuales (.md)
-├── 02_Laboratorios/          # Guías resueltas, entregables y código (.ipynb, .md)
-├── 03_Proyectos/             # Documentos de análisis, código y entregas finales
-├── 04_Certamenes/            # Baterías de preguntas, quizes y resúmenes de certamen
-├── _material_docente/        # Diapositivas oficiales provistas por los profesores (.pdf)
-└── _adjuntos/                # Imágenes y recursos multimedia vinculados
+/
+├── AGENTS.md          ← Schema, reglas y flujos de trabajo del LLM-Wiki
+├── index.md           ← Índice global navegable
+├── log.md             ← Registro cronológico de cambios de agentes
+├── llm-wiki.md        ← Referencia teórica del patrón
+│
+├── wiki/              ← Notas procesadas y enriquecidas (Markdown)
+│   ├── <Asignatura>/  ← Carpeta por asignatura (contiene su _MOC.md)
+│   └── _conceptos/    ← Páginas-hub de conceptos transversales
+│
+├── raw/               ← Fuentes inmutables de solo lectura (PDFs, scripts, etc.)
+│   ├── <Asignatura>/  
+│   └── assets/        
+│
+└── .obsidian/         ← Configuración del vault de Obsidian
 ```
 
 ---
 
 ## Asignaturas Disponibles
 
-| Asignatura | Índice (MOC) | Contenido Principal |
+El catálogo principal y la navegación se encuentran en [`index.md`](./index.md).
+
+Las asignaturas documentadas actualmente incluyen:
+
+| Asignatura | Carpeta Wiki | Contenido Principal |
 | :--- | :--- | :--- |
-| **Ciencia de Datos** | [Índice](./Ciencia%20de%20Datos/README.md) | Fundamentos de DS, regresión lineal/logística, SVM, KNN, ensembles (Bagging/Boosting), grafos y deployment. |
-| **Gestión de Proyectos** | [Índice](./Gestion%20de%20proyectos/README.md) | Fundamentos de gestión de software, planificación, metodologías tradicionales y ágiles (Scrum). |
-| **Inteligencia de Negocio** | [Índice](./Inteligencia%20de%20negocio/README.md) | Fundamentos de BI, modelado dimensional OLTP a OLAP, laboratorios y Proyecto SaludVital. |
-| **Redes de Computadores** | [Índice](./Redes%20de%20computadores/README.md) | Capas de red (Aplicación, Transporte, Red, Enlace, Seguridad), preguntas de certámenes 1 y 2. |
-| **Responsabilidad Social y Ética Laboral** | [Índice](./Responsabilidad%20social%20y%20Etica%20Laboral/README.md) | Análisis ético en ingeniería y responsabilidad social empresarial. |
-| **Taller de Administración de Sistemas** | [Índice](./Taller%20de%20administracion%20de%20sistemas/README.md) | Máquinas virtuales, contenedores (Docker), gestión de usuarios y servicios esenciales de red en Linux. |
-| **Visualización** | [Índice](./Visualizacion/README.md) | Laboratorios prácticos (Power BI, GeoPandas/Mapas, Alta dimensionalidad PCA/t-SNE) y material docente. |
+| **Ciencia de Datos** | [`wiki/Ciencia de Datos/`](./wiki/Ciencia%20de%20Datos) | Fundamentos de DS, ML, regresión, SVM, ensembles, grafos y deployment. |
+| **Gestión de Proyectos** | [`wiki/Gestion de Proyectos/`](./wiki/Gestion%20de%20Proyectos) | Fundamentos de gestión, planificación, metodologías ágiles y Scrum. |
+| **Inteligencia de Negocio** | [`wiki/Inteligencia de Negocio/`](./wiki/Inteligencia%20de%20Negocio) | BI, Data Warehouse, modelado dimensional (OLTP a OLAP) y Proyecto SaludVital. |
+| **Redes de Computadores** | [`wiki/Redes de Computadores/`](./wiki/Redes%20de%20Computadores) | Capas TCP/IP, seguridad en redes y certámenes. |
+| **Responsabilidad Social y Ética Laboral** | [`wiki/Responsabilidad Social y Etica/`](./wiki/Responsabilidad%20Social%20y%20Etica) | Análisis ético en ingeniería y RSE. |
+| **Taller de Administración de Sistemas** | [`wiki/Taller de Administracion de Sistemas/`](./wiki/Taller%20de%20Administracion%20de%20Sistemas) | Linux, contenedores (Docker), servicios de red (DNS, firewall). |
+| **Visualización** | [`wiki/Visualizacion/`](./wiki/Visualizacion) | Power BI, mapas, alta dimensionalidad (PCA/t-SNE) y NLP. |
 
 ---
+
+## Navegación y Uso
+
+Se recomienda abrir este repositorio completo como un "Vault" en **Obsidian** para aprovechar la navegación mediante grafos, las consultas dinámicas (Dataview) y los *wikilinks* entre conceptos transversales de distintas asignaturas.
+
+Para ver el estado actual de los apuntes y todas las conexiones, visita el **[Índice Global](./index.md)**.
