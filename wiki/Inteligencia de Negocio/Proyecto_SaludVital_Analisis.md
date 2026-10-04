@@ -342,3 +342,22 @@ erDiagram
 | KPI6 — Ingreso promedio por atención | `Ingresos / Atenciones realizadas`                                                       | FACT_PRESTACIONES / FACT_RESERVAS |
 | KPI7 — Utilización de horas          | `1 - (Horas "No asistió" / Total de horas agendadas)` (RN06: solo "No asistió" penaliza) | FACT_RESERVAS                     |
 | Tasa de cancelación (complementario) | `CALCULATE(COUNTROWS(FACT_RESERVAS), EstadoReserva="Cancelada") / Total de reservas`     | FACT_RESERVAS                     |
+
+
+---
+
+## ETL
+*Documentar el proceso completo de ETL*
+
+### 1. Introducción y Propósito del ETL
+
+### 2. Arquitectura y Flujo de Procesamiento
+
+### 3. Matriz de Mapeo Origen a Destino (Source-to-Target Mapping)
+
+### 3.1. Tablas de Dimensiones
+
+### 3.2. Tablas de Hechos
+
+### 4. Estrategia de Calidad, Excepciones y Manejo de Errores
+
