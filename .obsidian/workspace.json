@@ -4,37 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "4e5e847f013067f9",
+        "id": "d753cdf3711fad92",
         "type": "tabs",
         "children": [
           {
-            "id": "c18f2fac16776547",
+            "id": "b012a651841a25b9",
             "type": "leaf",
             "state": {
-              "type": "pdf",
-              "state": {
-                "file": "raw/Inteligencia de Negocio/proyectos/Proyecto_SaludVital/Instrucciones_Proyecto_SaludVital.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "Instrucciones_Proyecto_SaludVital"
-            }
-          },
-          {
-            "id": "3625da856e872c00",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "wiki/Inteligencia de Negocio/Proyecto_SaludVital_Analisis.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Proyecto_SaludVital_Analisis"
+              "title": "Nueva pestaña"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -96,7 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 265.44329833984375
   },
   "right": {
     "id": "9e7bf7891c800dbb",
@@ -201,10 +184,10 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "3625da856e872c00",
+  "active": "597ae5d26f66b97e",
   "lastOpenFiles": [
-    "raw/Inteligencia de Negocio/proyectos/Proyecto_SaludVital/Instrucciones_Proyecto_SaludVital.pdf",
     "wiki/Inteligencia de Negocio/Proyecto_SaludVital_Analisis.md",
+    "raw/Inteligencia de Negocio/proyectos/Proyecto_SaludVital/Instrucciones_Proyecto_SaludVital.pdf",
     "wiki/Inteligencia de Negocio/02_Explicacion_Clase2_BI.md",
     "AGENTS.md",
     "README.md",
