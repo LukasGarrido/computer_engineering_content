@@ -6,3 +6,6 @@ __pycache__/
 # Datasets de esta sesión
 raw/Visualizacion/laboratorios/G5-sesion6/USArrests.csv
 raw/Visualizacion/laboratorios/G5-sesion9/heart.csv
+
+*.csv
+*.dat
