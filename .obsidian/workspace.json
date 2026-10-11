@@ -11,13 +11,30 @@
             "id": "b012a651841a25b9",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "pdf",
+              "state": {
+                "file": "raw/Inteligencia de Negocio/proyectos/Proyecto_SaludVital/Instrucciones_Proyecto_SaludVital.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "Instrucciones_Proyecto_SaludVital"
+            }
+          },
+          {
+            "id": "09797ffc41318afb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/Inteligencia de Negocio/Proyecto_SaludVital_Analisis.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nueva pestaña"
+              "title": "Proyecto_SaludVital_Analisis"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -79,7 +96,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 265.44329833984375
+    "width": 265.44329833984375,
+    "collapsed": true
   },
   "right": {
     "id": "9e7bf7891c800dbb",
@@ -184,10 +202,20 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "597ae5d26f66b97e",
+  "active": "09797ffc41318afb",
   "lastOpenFiles": [
-    "wiki/Inteligencia de Negocio/Proyecto_SaludVital_Analisis.md",
+    "raw/Visualizacion/laboratorios/G5-sesion6/requirements.txt",
+    "raw/Visualizacion/laboratorios/G5-sesion6/Lab_S6___Técnicas_de_visualización_y_agrupación_de_datos (1).pdf",
+    "raw/Visualizacion/laboratorios/G5-sesion6/Lab_S6.ipynb",
+    "raw/Visualizacion/laboratorios/G5-sesion6",
+    "raw/Visualizacion/laboratorios/G5-sesion4/C4 - Visualización_2D_3D_conceptos_básicos.ipynb",
+    "raw/Visualizacion/laboratorios/G5-sesion4/C4_PCA_tSNE.ipynb",
+    "raw/Visualizacion/laboratorios/G5-sesion4",
     "raw/Inteligencia de Negocio/proyectos/Proyecto_SaludVital/Instrucciones_Proyecto_SaludVital.pdf",
+    "wiki/Inteligencia de Negocio/Proyecto_SaludVital_Analisis.md",
+    "raw/Visualizacion/proyecto/P___Template___Reporte_final.pdf",
+    "raw/Visualizacion/proyecto/P___Indicaciones_para_selección_de_proyecto-2.pdf",
+    "raw/Visualizacion/proyecto",
     "wiki/Inteligencia de Negocio/02_Explicacion_Clase2_BI.md",
     "AGENTS.md",
     "README.md",
@@ -212,15 +240,6 @@
     "wiki/_conceptos/DNS.md",
     "wiki/_conceptos/Metricas de Evaluacion.md",
     "wiki/_conceptos/PCA.md",
-    "raw/Inteligencia de Negocio/laboratorios/Lab_03/Scripts/TableVentasTech.sql",
-    "raw/Inteligencia de Negocio/laboratorios/Lab_03/Scripts/TableVentasDW.sql",
-    "raw/Visualizacion/laboratorios/G5-sesion8/requirements.txt",
-    "raw/Visualizacion/laboratorios/G5-sesion8/Lab_S8____Exploraciýn_y_anýlisis_de_textos.pdf",
-    "raw/Visualizacion/laboratorios/G5-sesion8/Lab08_Exploracion_Analisis_Texto.ipynb",
-    "raw/Visualizacion/laboratorios/G5-sesion7/requirements.txt",
-    "raw/Visualizacion/laboratorios/G5-sesion7/Lab_S7___Týcnicas_de_visualizaciýn_y_agrupaciýn_de_datos.pdf",
-    "raw/Visualizacion/laboratorios/G5-sesion7/lab7_clustering.ipynb",
-    "raw/Visualizacion/laboratorios/G5-sesion6/USArrests.csv",
     "raw/assets/Pasted image 20260613223746.png",
     "raw/assets/dw.png",
     "raw/assets/CorrecionGama.png",

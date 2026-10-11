@@ -346,18 +346,27 @@ erDiagram
 
 ---
 
-## ETL
-*Documentar el proceso completo de ETL*
+# 7. ETL
+*Documentación del proceso completo de Extracción, Transformación y Carga*(ETL)
 
-### 1. Introducción y Propósito del ETL
+## 7.1. Introducción y propósito
 
-### 2. Arquitectura y Flujo de Procesamiento
+El proceso ETL es el encargado de convertir la información dispersa de SaludVital (planillas Excel con 7 tablas y 142 filas en total) en un **Data Mart dimensional**, que alimente el modelo semántico y el dashboard en Power BI. Su diseño se deriva directamente de los hallazgos de la sección 5 y de las reglas de negocio de la sección 3.
 
-### 3. Matriz de Mapeo Origen a Destino (Source-to-Target Mapping)
+### 7.1.1 Objetivos del ETL
 
-### 3.1. Tablas de Dimensiones
+1. Consolidar en un solo destino las fuentes distribuidas (Problema 1).
+2. Corregir o aislar los problemas de calidad detectados: especialidades inconsistentes, pacientes duplicados o incompletos, columnas residuales (Problemas 2 y 3).
+3. Cargar únicamente atenciones efectivas en el hecho de prestaciones, y todas las reservas, con su estado, en el hecho de reservas (Problema 4, RN04–RN07).
+4. Dejar trazabilidad de cada registro rechazado o corregido, de modo que los reportes dejen de depender de preparación manual (Problema 5).
 
-### 3.2. Tablas de Hechos
+**Decisiones de diseño**
 
-### 4. Estrategia de Calidad, Excepciones y Manejo de Errores
-
+| Decisión            | Definición                                                                                   | Justificación                                                                                                       |
+| ------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Estrategia de carga | _Full refresh_ (truncar y recargar) en esta etapa                                            | Volumen mínimo (142 filas), simplifica la idempotencia. Queda preparado para carga incremental por fecha de reserva |
+| Capas               | Origen (Excel) → Staging (`STG_*`) → Data Mart (`DIM_*`, `FACT_*`)                           | Separa la copia fiel del origen de los datos ya depurados                                                           |
+| Claves              | Claves sustitutas (_surrogate keys_) enteras en cada dimensión, `-1` = miembro "Desconocido" | Evita perder hechos ante relaciones inválidas y desacopla el DW de los IDs del origen                               |
+| Orden de carga      | Dimensiones primero, luego hechos                                                            | Los hechos requieren las claves sustitutas ya generadas                                                             |
+| Manejo de errores   | Cuarentena + registro de errores; nunca se elimina un registro sin dejar evidencia           | Cumple el requisito de explicar toda diferencia entre origen y destino                                              |
+| Herramienta         | Por definir por el equipo (Python/pandas + base relacional, SSIS o Power Query)              | La lógica documentada es independiente de la herramienta                                                            |
