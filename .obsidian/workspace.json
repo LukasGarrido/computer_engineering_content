@@ -26,7 +26,7 @@
               "type": "markdown",
               "state": {
                 "file": "wiki/Inteligencia de Negocio/Proyecto_SaludVital_Analisis.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -204,6 +204,8 @@
   },
   "active": "09797ffc41318afb",
   "lastOpenFiles": [
+    "raw/Inteligencia de Negocio/proyectos/Proyecto_SaludVital/Instrucciones_Proyecto_SaludVital.pdf",
+    "wiki/Inteligencia de Negocio/Proyecto_SaludVital_Analisis.md",
     "raw/Visualizacion/laboratorios/G5-sesion6/requirements.txt",
     "raw/Visualizacion/laboratorios/G5-sesion6/Lab_S6___Técnicas_de_visualización_y_agrupación_de_datos (1).pdf",
     "raw/Visualizacion/laboratorios/G5-sesion6/Lab_S6.ipynb",
@@ -211,11 +213,8 @@
     "raw/Visualizacion/laboratorios/G5-sesion4/C4 - Visualización_2D_3D_conceptos_básicos.ipynb",
     "raw/Visualizacion/laboratorios/G5-sesion4/C4_PCA_tSNE.ipynb",
     "raw/Visualizacion/laboratorios/G5-sesion4",
-    "raw/Inteligencia de Negocio/proyectos/Proyecto_SaludVital/Instrucciones_Proyecto_SaludVital.pdf",
-    "wiki/Inteligencia de Negocio/Proyecto_SaludVital_Analisis.md",
     "raw/Visualizacion/proyecto/P___Template___Reporte_final.pdf",
     "raw/Visualizacion/proyecto/P___Indicaciones_para_selección_de_proyecto-2.pdf",
-    "raw/Visualizacion/proyecto",
     "wiki/Inteligencia de Negocio/02_Explicacion_Clase2_BI.md",
     "AGENTS.md",
     "README.md",
