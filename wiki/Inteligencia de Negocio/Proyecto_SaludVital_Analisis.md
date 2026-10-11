@@ -370,3 +370,37 @@ El proceso ETL es el encargado de convertir la información dispersa de SaludVit
 | Orden de carga      | Dimensiones primero, luego hechos                                                            | Los hechos requieren las claves sustitutas ya generadas                                                             |
 | Manejo de errores   | Cuarentena + registro de errores; nunca se elimina un registro sin dejar evidencia           | Cumple el requisito de explicar toda diferencia entre origen y destino                                              |
 | Herramienta         | Por definir por el equipo (Python/pandas + base relacional, SSIS o Power Query)              | La lógica documentada es independiente de la herramienta                                                            |
+
+---
+## 7.2. Arquitectura y flujo de procesamiento
+
+```mermaid
+flowchart LR
+    A["ORIGEN<br/>Excel · 7 hojas"] --> B["EXTRACCIÓN<br/>Staging STG_*"]
+    B --> C["LIMPIEZA<br/>Normalización y validación"]
+    C --> D["TRANSFORMACIÓN<br/>Derivación de campos y dimensiones"]
+    D --> E["INTEGRACIÓN<br/>Claves sustitutas y joins"]
+    E --> F["CARGA<br/>Data Mart DIM_* / FACT_*"]
+    C -.-> Q[("Cuarentena y<br/>ETL_ERROR_LOG")]
+    E -.-> Q
+    F -.-> L[("ETL_LOG_EJECUCION")]
+```
+
+| Etapa                 | Qué ocurre                                                                                                                                                                                                                                                                   | Reglas y hallazgos que aplica           | Salida                                                                                                       |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **1. Origen**         | Se utiliza el libro `SaludVital_BaseDatos.xlsx` con las hojas `01_PACIENTES`, `02_MEDICOS`, `03_ESPECIALIDADES`, `04_PRESTACIONES`, `05_RESERVAS`, `06_ATENCIONES` y `07_DETALLE_ATENCION`                                                                                   | Alcance definido en 5.1                 | Archivo fuente de solo lectura                                                                               |
+| **2. Extracción**     | Lectura de cada hoja hacia una tabla de staging idéntica al origen, agregando columnas de auditoría (`FechaCarga`, `ArchivoOrigen`, `NroFila`). Se excluye la columna `Unnamed: 1` de `01_PACIENTES`. `03_ESPECIALIDADES` se lee pero **no se usa** para poblar el Data Mart | Hallazgo 5.3 (columna vacía), RN01      | `STG_PACIENTES`, `STG_MEDICOS`, `STG_PRESTACIONES`, `STG_RESERVAS`, `STG_ATENCIONES`, `STG_DETALLE_ATENCION` |
+| **3. Limpieza**       | Eliminación de espacios sobrantes, estandarización de mayúsculas/tildes, validación de llaves primarias y de catálogos, cuarentena de registros incompletos (P031–P033), consolidación de pacientes duplicados                                                               | RN02, RN03, controles DQ01–DQ12 (7.4.1) | Datos depurados + registros en cuarentena                                                                    |
+| **4. Transformación** | Derivación de campos (`EsAtendida`, `EsInasistencia`, `IngresoLinea`, `Edad`, `FechaKey`), construcción de `DIM_ESPECIALIDAD` desde `04_PRESTACIONES`, generación del calendario `DIM_TIEMPO` y del catálogo fijo `DIM_ESTADO_RESERVA`                                       | RN01, RN04–RN07                         | Datos listos para modelar                                                                                    |
+| **5. Integración**    | Asignación de claves sustitutas, uniones `Reservas ⟶ Atenciones ⟶ Detalle ⟶ Prestaciones`, resolución de claves foráneas con miembro `-1` ante relaciones inválidas, uso de dimensiones conformadas por ambos hechos                                                         | RN08, integridad referencial 5.4        | `DIM_*` y `FACT_*` en memoria o en tablas temporales                                                         |
+| **6. Carga**          | Carga ordenada de dimensiones y hechos, validaciones de conciliación y registro de la ejecución                                                                                                                                                                              | 7.4.4                                   | Data Mart poblado + `ETL_LOG_EJECUCION`                                                                      |
+
+**Orden de ejecución de la carga**
+
+1. `DIM_TIEMPO`, `DIM_ESTADO_RESERVA`, `DIM_ESPECIALIDAD`
+2. `DIM_PACIENTE`, `DIM_MEDICO`, `DIM_PRESTACION` (las dos últimas dependen de `DIM_ESPECIALIDAD`)
+3. `FACT_RESERVAS`
+4. `FACT_PRESTACIONES`
+5. Validaciones post-carga y cierre del log
+
+---
