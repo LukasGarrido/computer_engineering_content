@@ -416,28 +416,28 @@ flowchart LR
 
 **`DIM_PACIENTE`** — origen: `01_PACIENTES`
 
-|Campo destino|Origen|Transformación|Regla|
-|---|---|---|---|
-|PacienteKey|—|Clave sustituta autoincremental; `-1` = "Paciente desconocido"|—|
-|PacienteID|`PacienteID`|Trim y mayúsculas; corresponde al ID del registro sobreviviente tras la deduplicación|RN03|
-|Nombre|`Nombre`|Trim, espacios múltiples colapsados, formato _Title Case_ conservando tildes (el origen trae nombre y apellido en un solo campo)|RN03|
-|Comuna|`Comuna`|Trim y _Title Case_; nulo → "Sin informar"|—|
-|FechaNacimiento|`FechaNacimiento`|Se conserva como fecha|—|
-|Edad|`FechaNacimiento`|Campo calculado: años cumplidos a la fecha de ejecución del ETL|—|
-|Previsión|`Prevision`|Estandarizar a "Fonasa" / "Isapre" (el origen trae `FONASA` e `Isapre`)|—|
-|Sexo|`Sexo`|`F`/`M` → "Femenino"/"Masculino"|—|
+| Campo destino   | Origen            | Transformación                                                                                                             | Regla |
+| --------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------- | ----- |
+| PacienteKey     | —                 | Clave sustituta autoincremental, `-1` = "Paciente desconocido"                                                             | —     |
+| PacienteID      | `PacienteID`      | Mayúsculas, corresponde al ID del registro sobreviviente tras la deduplicación                                             | RN03  |
+| Nombre          | `Nombre`          | Espacios múltiples colapsados, formato _Title Case_ conservando tildes (el origen trae nombre y apellido en un solo campo) | RN03  |
+| Comuna          | `Comuna`          | _Title Case_, nulo → "Sin informar"                                                                                        | —     |
+| FechaNacimiento | `FechaNacimiento` | Se conserva como fecha                                                                                                     | —     |
+| Edad            | `FechaNacimiento` | Campo calculado: años cumplidos a la fecha de ejecución del ETL                                                            | —     |
+| Previsión       | `Prevision`       | Estandarizar a "Fonasa" / "Isapre" (el origen trae `FONASA` e `Isapre`)                                                    | —     |
+| Sexo            | `Sexo`            | `F`/`M` → "Femenino"/"Masculino"                                                                                           | —     |
 
 _Filtros:_ se excluye la columna `Unnamed: 1` (100% nula) y se envían a cuarentena P031–P033 (todos los campos nulos salvo el ID). Ninguno de esos tres pacientes tiene reservas, por lo que no generan claves `-1` en los hechos.
 
 **`DIM_MEDICO`** — origen: `02_MEDICOS`
 
-|Campo destino|Origen|Transformación|Regla|
-|---|---|---|---|
-|MedicoKey|—|Clave sustituta autoincremental; `-1` = "Médico desconocido"|—|
-|MedicoID|`MedicoID`|Trim y mayúsculas|—|
-|Nombre|`Medico`|Trim; se conserva el tratamiento (Dr./Dra.)|—|
-|EspecialidadID|`EspecialidadID`|Trim y mayúsculas (atributo de referencia)|—|
-|EspecialidadKey|—|Búsqueda en `DIM_ESPECIALIDAD` por `EspecialidadID`|RN01|
+| Campo destino   | Origen           | Transformación                                               | Regla |
+| --------------- | ---------------- | ------------------------------------------------------------ | ----- |
+| MedicoKey       | —                | Clave sustituta autoincremental, `-1` = "Médico desconocido" | —     |
+| MedicoID        | `MedicoID`       | Mayúsculas                                                   | —     |
+| Nombre          | `Medico`         | Se conserva el tratamiento (Dr./Dra.)                        | —     |
+| EspecialidadID  | `EspecialidadID` | Mayúsculas (atributo de referencia)                          | —     |
+| EspecialidadKey | —                | Búsqueda en `DIM_ESPECIALIDAD` por `EspecialidadID`          | RN01  |
 
 **`DIM_ESPECIALIDAD`** — origen: `04_PRESTACIONES` (**no** `03_ESPECIALIDADES`)
 
@@ -447,7 +447,7 @@ _Filtros:_ se excluye la columna `Unnamed: 1` (100% nula) y se envían a cuarent
 |EspecialidadID|`04_PRESTACIONES.EspecialidadID`|`DISTINCT` tras normalizar (esperados 10 valores: E01–E10)|RN01|
 |NombreEspecialidad|Tabla auxiliar `MAP_ESPECIALIDAD`|Se asigna el nombre maestro por `EspecialidadID`; cualquier variante de escritura se resuelve con `MAP_ALIAS_ESPECIALIDAD`|RN02|
 
-Ninguna tabla del origen contiene el nombre de la especialidad: `02_MEDICOS` solo trae el código y `03_ESPECIALIDADES` es una copia de médicos. Por eso el ETL usa dos tablas auxiliares (_seed_). Los nombres maestros se dedujeron de `04_PRESTACIONES.Prestacion` (por ejemplo, `PR003 Consulta Traumatología` pertenece a `E03`) y de los cuatro servicios históricos del centro; deben ser validados con SaludVital.
+Ninguna tabla del origen contiene el nombre de la especialidad: `02_MEDICOS` solo trae el código y `03_ESPECIALIDADES` es una copia de médicos. Por eso el ETL usa dos tablas auxiliares (_seed_). Los nombres maestros se dedujeron de `04_PRESTACIONES.Prestacion` (por ejemplo, `PR003 Consulta Traumatología` pertenece a `E03`) y de los cuatro servicios históricos del centro.
 
 |EspecialidadID|NombreMaestro|Evidencia en `04_PRESTACIONES`|
 |---|---|---|
@@ -462,22 +462,22 @@ Ninguna tabla del origen contiene el nombre de la especialidad: `02_MEDICOS` sol
 |E09|Endocrinología|PR009 Consulta Endocrinología|
 |E10|Kinesiología|PR010 Sesión Kinesiología, PR015 Evaluación Kinesiológica|
 
-|Alias detectado (ejemplos del negocio)|Se estandariza a|
-|---|---|
-|`Trauma`, `Traumatologia`, `TRAUMATOLOGIA`|Traumatología|
-|_(agregar otras variantes que aparezcan)_|_(nombre maestro)_|
+| Alias detectado (ejemplos del negocio)     | Se estandariza a   |
+| ------------------------------------------ | ------------------ |
+| `Trauma`, `Traumatologia`, `TRAUMATOLOGIA` | Traumatología      |
+
 
 Si aparece un `EspecialidadID` sin nombre en `MAP_ESPECIALIDAD`, la carga se detiene (severidad crítica) para no publicar una especialidad sin nombre.
 
 **`DIM_PRESTACION`** — origen: `04_PRESTACIONES`
 
-|Campo destino|Origen|Transformación|Regla|
-|---|---|---|---|
-|PrestacionKey|—|Clave sustituta autoincremental|—|
-|PrestacionID|`PrestacionID`|Trim y mayúsculas|—|
-|NombrePrestacion|`Prestacion`|Trim|—|
-|EspecialidadID|`EspecialidadID`|Normalizado; además se resuelve `EspecialidadKey`|RN01|
-|ValorListado|`Valor`|Convertir a numérico; validar `Valor ≥ 0`|RN07|
+| Campo destino    | Origen           | Transformación                                    | Regla |
+| ---------------- | ---------------- | ------------------------------------------------- | ----- |
+| PrestacionKey    | —                | Clave sustituta autoincremental                   | —     |
+| PrestacionID     | `PrestacionID`   | Mayúsculas                                        | —     |
+| NombrePrestacion | `Prestacion`     | —                                                 | —     |
+| EspecialidadID   | `EspecialidadID` | Normalizado, además se resuelve `EspecialidadKey` | RN01  |
+| ValorListado     | `Valor`          | Convertir a numérico, validar `Valor ≥ 0`         | RN07  |
 
 **`DIM_ESTADO_RESERVA`** — origen: catálogo fijo (el valor de `05_RESERVAS.EstadoReserva` se valida contra él)
 
@@ -505,64 +505,54 @@ _Rango:_ desde el 1 de enero del año de la primera reserva hasta el 31 de dicie
 
 **`FACT_RESERVAS`** — grano: una fila por reserva · origen: `05_RESERVAS`
 
-|Campo destino|Origen|Transformación / lookup|Regla|
-|---|---|---|---|
-|ReservaID|`ReservaID`|Trim y mayúsculas (PK degenerada)|—|
-|PacienteKey|`PacienteID`|Búsqueda en tabla puente `MAP_PACIENTE` (ID origen → clave del sobreviviente). Sin coincidencia → `-1` y registro en `ETL_ERROR_LOG`|RN03|
-|MedicoKey|`MedicoID`|Búsqueda en `DIM_MEDICO`. Sin coincidencia → `-1` y registro en log|—|
-|EstadoKey|`EstadoReserva`|Normalizar y buscar en `DIM_ESTADO_RESERVA`. Fuera de catálogo → cuarentena|RN04–RN06|
-|FechaKey|`FechaReserva`|Convertir a `AAAAMMDD`|—|
-|HoraReserva|`HoraReserva`|Convertir a formato `HH:MM` (el origen trae hora de Excel)|—|
-|EsAtendida|`EstadoReserva`|`1` si es "Atendida"; `0` en otro caso|RN04|
-|EsInasistencia|`EstadoReserva`|`1` si es "No asistió"; `0` en otro caso|RN06|
+| Campo destino  | Origen          | Transformación / lookup                                                                                                              | Regla     |
+| -------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------- |
+| ReservaID      | `ReservaID`     | Mayúsculas (PK degenerada)                                                                                                           | —         |
+| PacienteKey    | `PacienteID`    | Búsqueda en tabla puente `MAP_PACIENTE` (ID origen → clave del sobreviviente). Sin coincidencia → `-1` y registro en `ETL_ERROR_LOG` | RN03      |
+| MedicoKey      | `MedicoID`      | Búsqueda en `DIM_MEDICO`. Sin coincidencia → `-1` y registro en log                                                                  | —         |
+| EstadoKey      | `EstadoReserva` | Normalizar y buscar en `DIM_ESTADO_RESERVA`. Fuera de catálogo → cuarentena                                                          | RN04–RN06 |
+| FechaKey       | `FechaReserva`  | Convertir a `AAAAMMDD`                                                                                                               | —         |
+| HoraReserva    | `HoraReserva`   | Convertir a formato `HH:MM` (el origen trae hora de Excel)                                                                           | —         |
+| EsAtendida     | `EstadoReserva` | `1` si es "Atendida", `0` en otro caso                                                                                               | RN04      |
+| EsInasistencia | `EstadoReserva` | `1` si es "No asistió", `0` en otro caso                                                                                             | RN06      |
 
 **`FACT_PRESTACIONES`** — grano: una fila por prestación realizada · origen: `07_DETALLE_ATENCION` integrado con las demás tablas
 
-sql
-
-```sql
-FROM   STG_DETALLE_ATENCION d
-JOIN   STG_ATENCIONES       a ON a.AtencionID  = d.AtencionID
-JOIN   STG_RESERVAS         r ON r.ReservaID   = a.ReservaID
-                             AND r.EstadoReserva = 'Atendida'      -- RN04 / RN07
-JOIN   STG_PRESTACIONES     p ON p.PrestacionID = d.PrestacionID
-```
-
 `06_ATENCIONES.Diagnostico` y `Observacion` no se cargan: son datos clínicos que ninguna pregunta de negocio (RQ01–RQ24) requiere.
 
-|Campo destino|Origen|Transformación / lookup|Regla|
-|---|---|---|---|
-|DetalleID|`d.DetalleID`|Trim y mayúsculas (PK degenerada)|—|
-|AtencionID / ReservaID|`d.AtencionID`, `a.ReservaID`|Se conservan como atributos degenerados para trazabilidad|RN08|
-|PacienteKey|`r.PacienteID`|Búsqueda en `MAP_PACIENTE`; sin coincidencia → `-1`|RN03|
-|MedicoKey|`r.MedicoID`|Búsqueda en `DIM_MEDICO`|—|
-|EspecialidadKey|`p.EspecialidadID`|Búsqueda en `DIM_ESPECIALIDAD`. La especialidad se toma de la **prestación facturada**, no del médico (ver DQ13)|RN01|
-|PrestacionKey|`d.PrestacionID`|Búsqueda en `DIM_PRESTACION`|—|
-|FechaKey|`a.FechaAtencion`|Convertir a `AAAAMMDD` (coincide con `FechaReserva` en las 22 atenciones)|—|
-|Cantidad|`d.Cantidad`|Entero; validar `Cantidad > 0`|—|
-|ValorUnitario|`d.ValorUnitario`|Numérico; se usa el valor efectivamente cobrado y se compara con `p.Valor` como control|RN07|
-|IngresoLinea|`Cantidad × ValorUnitario`|Campo calculado|RN07|
+| Campo destino          | Origen                        | Transformación / lookup                                                                                          | Regla |
+| ---------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------- | ----- |
+| DetalleID              | `d.DetalleID`                 | Trim y mayúsculas (PK degenerada)                                                                                | —     |
+| AtencionID / ReservaID | `d.AtencionID`, `a.ReservaID` | Se conservan como atributos degenerados para trazabilidad                                                        | RN08  |
+| PacienteKey            | `r.PacienteID`                | Búsqueda en `MAP_PACIENTE`, sin coincidencia → `-1`                                                              | RN03  |
+| MedicoKey              | `r.MedicoID`                  | Búsqueda en `DIM_MEDICO`                                                                                         | —     |
+| EspecialidadKey        | `p.EspecialidadID`            | Búsqueda en `DIM_ESPECIALIDAD`. La especialidad se toma de la **prestación facturada**, no del médico (ver DQ13) | RN01  |
+| PrestacionKey          | `d.PrestacionID`              | Búsqueda en `DIM_PRESTACION`                                                                                     | —     |
+| FechaKey               | `a.FechaAtencion`             | Convertir a `AAAAMMDD` (coincide con `FechaReserva` en las 22 atenciones)                                        | —     |
+| Cantidad               | `d.Cantidad`                  | Entero, validar `Cantidad > 0`                                                                                   | —     |
+| ValorUnitario          | `d.ValorUnitario`             | Numérico, se usa el valor efectivamente cobrado y se compara con `p.Valor` como control                          | RN07  |
+| IngresoLinea           | `Cantidad × ValorUnitario`    | Campo calculado                                                                                                  | RN07  |
 
 ---
 ## 7.4. Estrategia de calidad, excepciones y manejo de errores
 
 ### 7.4.1. Reglas de calidad aplicadas
 
-|ID|Control|Tabla / campo|Severidad|Acción|Origen del control|
-|---|---|---|---|---|---|
-|DQ01|La tabla es copia de `02_MEDICOS`|`03_ESPECIALIDADES`|Informativa|Descartar la tabla y construir `DIM_ESPECIALIDAD` desde `04_PRESTACIONES`|RN01, 5.3|
-|DQ02|Columna 100% nula|`01_PACIENTES.Unnamed: 1`|Informativa|Excluir en la extracción|5.3|
-|DQ03|Registro con todos los campos nulos salvo el ID|`01_PACIENTES` (P031–P033)|Error|Enviar a cuarentena y no cargar en `DIM_PACIENTE`|5.3|
-|DQ04|Estado fuera del catálogo de 4 valores|`05_RESERVAS.EstadoReserva`|Error|Enviar la reserva a cuarentena y alertar|RN04–RN06|
-|DQ05|Variantes de escritura de especialidad|Fuentes anexas|Corrección|Normalizar con `MAP_ALIAS_ESPECIALIDAD`; alias desconocido → cuarentena|RN02|
-|DQ06|Paciente duplicado por diferencias de escritura|`01_PACIENTES`|Corrección|Consolidar bajo un único `PacienteID` (7.4.2)|RN03|
-|DQ07|Llave primaria duplicada|Todas las tablas|Crítica|Detener la carga y reportar|5.2|
-|DQ08|Clave foránea sin correspondencia|`RESERVAS`, `ATENCIONES`, `DETALLE_ATENCION`|Error|Asignar `-1` en el hecho y registrar en el log|5.4|
-|DQ09|Reserva "Atendida" sin atención, o atención cuya reserva no está "Atendida"|`05_RESERVAS` / `06_ATENCIONES`|Error|Excluir de `FACT_PRESTACIONES` y registrar|RN04|
-|DQ10|`ValorUnitario` distinto de `Valor` maestro|`07_DETALLE_ATENCION` / `04_PRESTACIONES`|Advertencia|Cargar con `ValorUnitario` y registrar la diferencia|RN07|
-|DQ11|`Cantidad ≤ 0` o valor negativo|`07_DETALLE_ATENCION`, `04_PRESTACIONES`|Error|Cuarentena del detalle|RN07|
-|DQ12|Fecha u hora inválida o nula|`05_RESERVAS`, `06_ATENCIONES`|Error|Cuarentena del registro|—|
-|DQ13|Especialidad de la prestación distinta de la del médico|`07_DETALLE_ATENCION` / `04_PRESTACIONES` / `02_MEDICOS`|Advertencia|Cargar con la especialidad de la prestación y registrar (5 casos)|Hallazgo nuevo|
+| ID   | Control                                                                     | Tabla / campo                                            | Severidad   | Acción                                                                    | Origen del control |
+| ---- | --------------------------------------------------------------------------- | -------------------------------------------------------- | ----------- | ------------------------------------------------------------------------- | ------------------ |
+| DQ01 | La tabla es copia de `02_MEDICOS`                                           | `03_ESPECIALIDADES`                                      | Informativa | Descartar la tabla y construir `DIM_ESPECIALIDAD` desde `04_PRESTACIONES` | RN01, 5.3          |
+| DQ02 | Columna 100% nula                                                           | `01_PACIENTES.Unnamed: 1`                                | Informativa | Excluir en la extracción                                                  | 5.3                |
+| DQ03 | Registro con todos los campos nulos salvo el ID                             | `01_PACIENTES` (P031–P033)                               | Error       | Enviar a cuarentena y no cargar en `DIM_PACIENTE`                         | 5.3                |
+| DQ04 | Estado fuera del catálogo de 4 valores                                      | `05_RESERVAS.EstadoReserva`                              | Error       | Enviar la reserva a cuarentena y alertar                                  | RN04–RN06          |
+| DQ05 | Variantes de escritura de especialidad                                      | Fuentes anexas                                           | Corrección  | Normalizar con `MAP_ALIAS_ESPECIALIDAD`; alias desconocido → cuarentena   | RN02               |
+| DQ06 | Paciente duplicado por diferencias de escritura                             | `01_PACIENTES`                                           | Corrección  | Consolidar bajo un único `PacienteID` (7.4.2)                             | RN03               |
+| DQ07 | Llave primaria duplicada                                                    | Todas las tablas                                         | Crítica     | Detener la carga y reportar                                               | 5.2                |
+| DQ08 | Clave foránea sin correspondencia                                           | `RESERVAS`, `ATENCIONES`, `DETALLE_ATENCION`             | Error       | Asignar `-1` en el hecho y registrar en el log                            | 5.4                |
+| DQ09 | Reserva "Atendida" sin atención, o atención cuya reserva no está "Atendida" | `05_RESERVAS` / `06_ATENCIONES`                          | Error       | Excluir de `FACT_PRESTACIONES` y registrar                                | RN04               |
+| DQ10 | `ValorUnitario` distinto de `Valor` maestro                                 | `07_DETALLE_ATENCION` / `04_PRESTACIONES`                | Advertencia | Cargar con `ValorUnitario` y registrar la diferencia                      | RN07               |
+| DQ11 | `Cantidad ≤ 0` o valor negativo                                             | `07_DETALLE_ATENCION`, `04_PRESTACIONES`                 | Error       | Cuarentena del detalle                                                    | RN07               |
+| DQ12 | Fecha u hora inválida o nula                                                | `05_RESERVAS`, `06_ATENCIONES`                           | Error       | Cuarentena del registro                                                   | —                  |
+| DQ13 | Especialidad de la prestación distinta de la del médico                     | `07_DETALLE_ATENCION` / `04_PRESTACIONES` / `02_MEDICOS` | Advertencia | Cargar con la especialidad de la prestación y registrar (5 casos)         | Hallazgo nuevo     |
 
 **DQ13 — Detalle del hallazgo.** En 5 de las 22 prestaciones realizadas la especialidad de la prestación no coincide con la del médico que atendió:
 
@@ -572,7 +562,7 @@ JOIN   STG_PRESTACIONES     p ON p.PrestacionID = d.PrestacionID
 |DA007, DA014|M010 Dra. Valentina Pérez (E10 Kinesiología)|PR009 Consulta Endocrinología (E09)|
 |DA022|M010 Dra. Valentina Pérez (E10 Kinesiología)|PR011 Control Médico (E01)|
 
-El ETL **no corrige** estos registros porque no hay evidencia de cuál campo es el erróneo; los carga con la especialidad de la prestación (lo cobrado) y los deja registrados como advertencia. Consecuencia para el análisis: los ingresos por especialidad (`FACT_PRESTACIONES`) y las reservas por especialidad vía médico (`FACT_RESERVAS`) no sumarán lo mismo en esas especialidades.
+El ETL **no corrige** estos registros porque no hay evidencia de cuál campo es el erróneo, los carga con la especialidad de la prestación (lo cobrado) y los deja registrados como advertencia. Consecuencia para el análisis: los ingresos por especialidad (`FACT_PRESTACIONES`) y las reservas por especialidad vía médico (`FACT_RESERVAS`) no sumarán lo mismo en esas especialidades.
 
 ### 7.4.2. Consolidación de pacientes duplicados (RN03)
 
@@ -592,20 +582,20 @@ La función de normalización y la clave de comparación están en el script de 
 
 **Niveles de severidad**
 
-|Nivel|Comportamiento|Ejemplos|
-|---|---|---|
-|Crítica|Detiene la ejecución y no se carga nada|Hoja faltante, PK duplicada (DQ07)|
-|Error|El registro va a cuarentena; la carga continúa|DQ03, DQ04, DQ09, DQ11, DQ12|
-|Corrección|El dato se corrige y se registra el valor original|DQ05, DQ06|
-|Advertencia|Se carga el registro y se deja el aviso|DQ10, DQ13|
+| Nivel       | Comportamiento                                     | Ejemplos                           |
+| ----------- | -------------------------------------------------- | ---------------------------------- |
+| Crítica     | Detiene la ejecución y no se carga nada            | Hoja faltante, PK duplicada (DQ07) |
+| Error       | El registro va a cuarentena; la carga continúa     | DQ03, DQ04, DQ09, DQ11, DQ12       |
+| Corrección  | El dato se corrige y se registra el valor original | DQ05, DQ06                         |
+| Advertencia | Se carga el registro y se deja el aviso            | DQ10, DQ13                         |
 
 **Tablas de control**
 
-|Tabla|Campos principales|Uso|
-|---|---|---|
-|`ETL_LOG_EJECUCION`|EjecucionID, FechaInicio, FechaFin, Estado, FilasLeidas, FilasCargadas, FilasRechazadas|Una fila por ejecución del proceso|
-|`ETL_ERROR_LOG`|EjecucionID, Tabla, Campo, ValorOriginal, CodigoDQ, Severidad, Accion, Fecha|Detalle de cada incidencia|
-|`QUARANTINE_*`|Copia del registro rechazado + CodigoDQ|Permite revisarlo y reprocesarlo una vez corregido en el sistema origen|
+| Tabla               | Campos principales                                                                      | Uso                                                                     |
+| ------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `ETL_LOG_EJECUCION` | EjecucionID, FechaInicio, FechaFin, Estado, FilasLeidas, FilasCargadas, FilasRechazadas | Una fila por ejecución del proceso                                      |
+| `ETL_ERROR_LOG`     | EjecucionID, Tabla, Campo, ValorOriginal, CodigoDQ, Severidad, Accion, Fecha            | Detalle de cada incidencia                                              |
+| `QUARANTINE_*`      | Copia del registro rechazado + CodigoDQ                                                 | Permite revisarlo y reprocesarlo una vez corregido en el sistema origen |
 
 **Reprocesamiento:** como la carga es _full refresh_, volver a ejecutar el ETL con la fuente corregida produce el mismo resultado sin duplicar datos (proceso idempotente).
 
@@ -626,4 +616,3 @@ La función de normalización y la clave de comparación están en el script de 
 
 Si alguna validación falla, la ejecución se marca como "Con errores" en `ETL_LOG_EJECUCION` y no se publica el Data Mart hasta revisar la diferencia.
 
----
