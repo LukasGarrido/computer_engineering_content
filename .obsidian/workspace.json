@@ -4,19 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "2058898ed736c737",
+        "id": "a3720c8a4bbaee33",
         "type": "tabs",
         "children": [
           {
-            "id": "72ea77a7682ef354",
+            "id": "f028a3c4a1f0a07c",
             "type": "leaf",
             "state": {
-              "type": "pdf",
-              "state": {
-                "file": "raw/Visualizacion/material_docente/Introducción_a_procesamiento_de_imágenes.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "Introducción_a_procesamiento_de_imágenes"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Nueva pestaña"
             }
           }
         ]
@@ -186,21 +184,21 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "72ea77a7682ef354",
+  "active": "597ae5d26f66b97e",
   "lastOpenFiles": [
-    "raw/Visualizacion/material_docente/Introducción_a_procesamiento_de_imágenes (1).pdf",
-    "raw/Visualizacion/material_docente/Introducción_a_procesamiento_de_imágenes.pdf",
-    "raw/Visualizacion/material_docente/Principal_components_analysis_PCA.pdf",
-    "raw/Visualizacion/material_docente/C9___Visualización_para_clasificación_y_regresión.pdf",
+    "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_14.pdf",
+    "raw/Gestion de Proyectos/material_docente/Sin confirmar 800501.crdownload",
+    "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_13.pdf",
+    "raw/Gestion de Proyectos/material_docente/Sin confirmar 709707.crdownload",
+    "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_12.pdf",
+    "raw/Gestion de Proyectos/material_docente/Sin confirmar 394358.crdownload",
+    "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_11.pdf",
+    "raw/Gestion de Proyectos/material_docente/Sin confirmar 792809.crdownload",
+    "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_10.pdf",
+    "raw/Gestion de Proyectos/material_docente/Sin confirmar 878532.crdownload",
+    "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_09.pdf",
     "wiki/Responsabilidad Social y Etica/Analisis_Etica_y_RSE.md",
-    "raw/Visualizacion/material_docente/Sin confirmar 416116.crdownload",
-    "raw/Visualizacion/material_docente/Sin confirmar 212567.crdownload",
     "wiki/Inteligencia de Negocio/Proyecto_SaludVital_Analisis.md",
-    "raw/Inteligencia de Negocio/proyectos/Proyecto_SaludVital/Instrucciones_Proyecto_SaludVital.pdf",
-    "raw/Visualizacion/laboratorios/G5-sesion6/requirements.txt",
-    "raw/Visualizacion/laboratorios/G5-sesion6/Lab_S6___Técnicas_de_visualización_y_agrupación_de_datos (1).pdf",
-    "raw/Visualizacion/laboratorios/G5-sesion6/Lab_S6.ipynb",
-    "raw/Visualizacion/laboratorios/G5-sesion6",
     "wiki/Inteligencia de Negocio/02_Explicacion_Clase2_BI.md",
     "AGENTS.md",
     "README.md",
