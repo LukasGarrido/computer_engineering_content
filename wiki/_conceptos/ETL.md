@@ -17,6 +17,7 @@ created: 2026-10-03
 ### Inteligencia de Negocio
 - [[03_Explicacion_OLTP_a_OLAP|De OLTP a OLAP]] — ETL como parte del proceso de transformación dimensional
 - [[02_Explicacion_Clase2_BI|Data Warehouses]] — ETL en la arquitectura de BI
+- [[Proyecto_SaludVital_Analisis|Proyecto SaludVital]] — arquitectura ETL completa, validaciones de calidad (DQ), cuarentena y conciliación post-carga
 
 ## Notas
 - ETL es el puente entre [[OLTP vs OLAP|sistemas OLTP y OLAP]].

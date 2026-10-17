@@ -1,8 +1,24 @@
+---
+tags:
+  - inteligencia-de-negocio
+  - proyecto
+  - saludvital
+  - etl
+  - data-warehouse
+aliases:
+  - "SaludVital"
+  - "Proyecto SaludVital"
+  - "SaludVital BI"
+asignatura: "Inteligencia de Negocio"
+tipo: proyecto
+created: 2026-10-08
+---
+
 # SaludVital
 - Inteligencia de negocio 
 - Octavio Valencia - Lukas Garrido
 - Paralelo 701
-- *Entrega 1 - 2 - 3 - 4 - 5*
+- *Entrega 1 - 2 - 3 - 4 - 5 - 6 (ETL)*
 - GitHub : [https://github.com/LukasGarrido/computer_engineering_content/blob/master/Inteligencia%20de%20negocio/PROYECTO_SaludVital/PROYECTO%20SALUDVITAL%20-%20An%C3%A1lisis%20del%20negocio.md](https://github.com/LukasGarrido/computer_engineering_content/blob/master/wiki/Inteligencia%20de%20Negocio/Proyecto_SaludVital_Analisis.md)
 ---
 ## Índice
@@ -615,4 +631,17 @@ La función de normalización y la clave de comparación están en el script de 
 |Incidencias en `ETL_ERROR_LOG`|3 errores DQ03 (P031–P033) y 5 advertencias DQ13|
 
 Si alguna validación falla, la ejecución se marca como "Con errores" en `ETL_LOG_EJECUCION` y no se publica el Data Mart hasta revisar la diferencia.
+
+---
+
+## Véase también
+- [[_MOC|MOC Inteligencia de Negocio]]
+- [[01_Explicacion_Business_Intelligence|Fundamentos de Business Intelligence]]
+- [[02_Explicacion_Clase2_BI|Data Warehouses y Bodegas de Datos]]
+- [[03_Explicacion_OLTP_a_OLAP|De Sistemas OLTP a OLAP — Modelado Dimensional]]
+- [[Lab03_VentasDW|Lab 03 — VentasDW]]
+- [[Data Warehouse]]
+- [[OLTP vs OLAP]]
+- [[ETL]]
+
 

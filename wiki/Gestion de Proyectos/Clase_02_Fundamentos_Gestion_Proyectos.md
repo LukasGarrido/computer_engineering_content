@@ -1,3 +1,15 @@
+---
+tags:
+  - gestion-de-proyectos
+  - clase-02
+  - teoria
+asylas:
+  - "Fundamentos de Gestión"
+asignatura: "Gestión de Proyectos"
+tipo: teoria
+created: 2026-10-17
+---
+
 # Clase 02 — Fundamentos de la Gestión de Proyectos
 
 **Universidad Técnica Federico Santa María**

@@ -1,7 +1,16 @@
 ---
-title: LiciFlow — Documentación consolidada del proyecto
-tags: [liciflow, documentacion, gestion-de-proyectos, riesgos]
-aliases: [LiciFlow, Documentación LiciFlow]
+tags:
+  - gestion-de-proyectos
+  - proyecto
+  - liciflow
+  - riesgos
+aliases:
+  - "LiciFlow"
+  - "Documentación LiciFlow"
+  - "Proyecto Semestral LiciFlow"
+asignatura: "Gestión de Proyectos"
+tipo: proyecto
+created: 2026-10-05
 ---
 
 # LiciFlow — Documentación consolidada del proyecto
@@ -752,3 +761,17 @@ Puntos detectados al consolidar los archivos, para revisar antes de cerrar la pl
 - **Riesgos sin evaluar**: el Excel de riesgos no tiene riesgos cargados ni probabilidades/impactos asignados (secciones 7.5 a 7.8).
 - **Patrocinador genérico**: el sponsor figura como «Empresas», sin una entidad o persona concreta.
 - **Dependencia externa pendiente**: toda la sección 6 está por confirmar contra la documentación oficial de la API.
+
+---
+
+## Véase también
+- [[_MOC|MOC Gestión de Proyectos]]
+- [[Clase_07_Estandar_PMBOK_8|Estándar PMBOK 8]]
+- [[Clase_08_PMBOK_Procesos_de_Inicio|Procesos de Inicio PMBOK 8]]
+- [[Clase_09_PMBOK_Planificacion_Alcance_EDT|Planificación del Alcance y EDT]]
+- [[Clase_10_PMBOK_Interesados_Comunicaciones_Recursos|Interesados, Comunicaciones y Recursos]]
+- [[Clase_11_PMBOK_Gestion_de_Riesgos_Identificacion_y_Analisis|Gestión de Riesgos]]
+- [[Clase_12_PMBOK_Respuesta_a_Riesgos_y_Reservas|Respuesta a Riesgos y Reservas]]
+- [[Clase_13_PMBOK_Gestion_del_Cronograma|Gestión del Cronograma]]
+- [[Clase_14_PMBOK_Gestion_Financiera_y_Calidad|Gestión Financiera y Calidad]]
+- [[Metodologias Agiles]]

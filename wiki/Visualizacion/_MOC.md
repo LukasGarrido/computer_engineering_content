@@ -18,6 +18,7 @@ asignatura: "Visualización"
 - [[01_Introducción al procesamiento del lenguaje natural|Introducción al Procesamiento del Lenguaje Natural]]
 - [[02_Errores Comunes y Distracciones en Visualizaciones de Datos|Errores Comunes en Visualizaciones]]
 - [[03_Análisis de Componentes Principales (PCA)|Análisis de Componentes Principales (PCA)]]
+- [[04_Evaluacion_Modelos_Clasificacion_Regresion|Evaluación de Modelos de Clasificación, Curvas ROC y SHAP]]
 
 ## Laboratorios
 
@@ -30,6 +31,7 @@ asignatura: "Visualización"
 - [[Analisis_Lab_S6_PCA_tSNE_UMAP|Lab S6 — PCA, t-SNE y UMAP]]
 - [[ANALISIS_CLUSTERING|Análisis de Clustering]]
 - [[Metodos_de_Clustering|Métodos de Clustering]]
+- [[Analisis_Lab_S9_Evaluacion_Interpretacion_Modelos|Lab S9 — Evaluación, Diagnóstico e Interpretación con SHAP]]
 
 ## Certámenes
 
@@ -45,3 +47,4 @@ asignatura: "Visualización"
 - [[Power BI]]
 - [[Procesamiento de Imagenes]]
 - [[NLP]]
+- [[Metricas de Evaluacion]]

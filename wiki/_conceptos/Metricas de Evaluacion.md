@@ -21,6 +21,10 @@ created: 2026-10-03
 - [[05_Metricas_de_Evaluacion|Métricas de Evaluación]] — teoría completa de métricas de clasificación y regresión
 - [[08_Introduccion_Machine_Learning|Fundamentos de ML]] — contexto de evaluación dentro del pipeline de ML
 
+### Visualización
+- [[04_Evaluacion_Modelos_Clasificacion_Regresion|Evaluación de Modelos, Curvas ROC y SHAP]] — teoría de evaluación, matrices de confusión, curvas ROC paso a paso, explicabilidad SHAP y K-Fold
+- [[Analisis_Lab_S9_Evaluacion_Interpretacion_Modelos|Lab S9 — Evaluación e Interpretación]] — aplicación práctica sobre Heart Disease (KNN, Regresión Logística, Ridge, PCA y SHAP)
+
 ## Notas
 - La elección de métrica depende del tipo de problema: clasificación vs. [[Regresion Lineal|regresión]].
 - Para [[Clustering]], se usan métricas específicas como silhouette score e inercia.

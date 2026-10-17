@@ -8,7 +8,7 @@ tipo: indice
 # Índice Global del Wiki
 
 > Catálogo completo de todas las páginas del wiki de Ingeniería Informática — USM.
-> Última actualización: 2026-10-03
+> Última actualización: 2026-10-17
 
 ---
 
@@ -17,12 +17,12 @@ tipo: indice
 | Asignatura | MOC | Notas | Descripción |
 |:---|:---|:---:|:---|
 | **Ciencia de Datos** | [[_MOC\|MOC Ciencia de Datos]] | 14 | DS, ML, regresión, SVM, ensembles, grafos, deployment |
-| **Gestión de Proyectos** | [[_MOC\|MOC Gestión de Proyectos]] | 4 | Fundamentos, planificación, metodologías, Scrum |
-| **Inteligencia de Negocio** | [[_MOC\|MOC Inteligencia de Negocio]] | 8 | BI, Data Warehouse, OLTP→OLAP, proyecto SaludVital |
-| **Redes de Computadores** | [[_MOC\|MOC Redes de Computadores]] | 10 | Capas TCP/IP, seguridad, certámenes |
-| **Responsabilidad Social** | [[_MOC\|MOC Responsabilidad Social]] | 1 | Ética profesional y RSE |
-| **Taller de Admin. Sistemas** | [[_MOC\|MOC TAS]] | 6 | Linux, Docker, DNS, firewall, Nginx |
-| **Visualización** | [[_MOC\|MOC Visualización]] | 13 | Power BI, PCA, t-SNE, clustering, NLP |
+| **Gestión de Proyectos** | [[_MOC\|MOC Gestión de Proyectos]] | 13 | Fundamentos, metodologías, Scrum, PMBOK 8 (Inicio, Alcance, EDT, Interesados, Riesgos, Cronograma, Finanzas, Calidad), proyecto LiciFlow |
+| **Inteligencia de Negocio** | [[_MOC\|MOC Inteligencia de Negocio]] | 8 | BI, Data Warehouse, OLTP→OLAP, proyecto SaludVital (análisis y arquitectura ETL) |
+| **Redes de Computadores** | [[_MOC\|MOC Redes de Computadores]] | 10 | Capas TCP/IP, plano de datos/control, seguridad, certámenes |
+| **Responsabilidad Social** | [[_MOC\|MOC Responsabilidad Social]] | 2 | Ética profesional, RSE, norma ISO 26000, programa de RSE y mapeo de stakeholders |
+| **Taller de Admin. Sistemas** | [[_MOC\|MOC TAS]] | 6 | Linux, Docker, DNS, firewall, Nginx, almacenamiento |
+| **Visualización** | [[_MOC\|MOC Visualización]] | 17 | Power BI, PCA, t-SNE, UMAP, clustering, NLP, evaluación C9, curvas ROC, SHAP (Lab S9) |
 
 ---
 
@@ -35,7 +35,7 @@ Páginas-hub que conectan conocimiento entre asignaturas:
 - [[Regresion Lineal]] — modelos lineales y logísticos
 - [[Clustering]] — K-Means, DBSCAN, jerárquico
 - [[PCA]] — reducción de dimensionalidad
-- [[Metricas de Evaluacion]] — accuracy, precision, recall, F1, MSE
+- [[Metricas de Evaluacion]] — accuracy, precision, recall, F1, MSE, curvas ROC/AUC, validación cruzada y SHAP
 - [[Series de Tiempo]] — análisis temporal y forecasting
 - [[Redes Neuronales]] — deep learning, CNN
 
@@ -46,7 +46,7 @@ Páginas-hub que conectan conocimiento entre asignaturas:
 ### Business Intelligence
 - [[Data Warehouse]] — bodegas de datos y modelado dimensional
 - [[OLTP vs OLAP]] — sistemas transaccionales vs analíticos
-- [[ETL]] — Extract, Transform, Load
+- [[ETL]] — Extract, Transform, Load (arquitectura y auditoría en SaludVital)
 - [[Power BI]] — herramienta de visualización y BI
 
 ### Redes & Sistemas
@@ -62,7 +62,8 @@ Páginas-hub que conectan conocimiento entre asignaturas:
 - [[NLP]] — procesamiento de lenguaje natural
 
 ### Transversales
-- [[Etica Profesional]] — ética y responsabilidad social en ingeniería
+- [[Etica Profesional]] — ética y responsabilidad social en ingeniería e ISO 26000
+- [[Gestion de Interesados]] — identificación, matriz poder/interés y participación de stakeholders en GP, RSE y BI
 
 ---
 

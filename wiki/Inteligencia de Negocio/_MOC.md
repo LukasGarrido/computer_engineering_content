@@ -27,7 +27,7 @@ asignatura: "Inteligencia de Negocio"
 
 ## Proyecto
 
-- [[Proyecto_SaludVital_Analisis|Proyecto SaludVital — Análisis del Negocio]]
+- [[Proyecto_SaludVital_Analisis|Proyecto SaludVital — Análisis del Negocio y Arquitectura ETL]]
 
 ---
 
@@ -36,3 +36,4 @@ asignatura: "Inteligencia de Negocio"
 - [[Data Warehouse]]
 - [[OLTP vs OLAP]]
 - [[ETL]]
+- [[Gestion de Interesados]]
