@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "a3720c8a4bbaee33",
+        "id": "5f5452fb031c2dcc",
         "type": "tabs",
         "children": [
           {
-            "id": "f028a3c4a1f0a07c",
+            "id": "e947b2b267ccf838",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "wiki/Responsabilidad Social y Etica/Analisis_Sesiones_IV_V_VI_RSE.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nueva pestaña"
+              "title": "Analisis_Sesiones_IV_V_VI_RSE"
             }
           }
         ]
@@ -79,7 +83,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 265.44329833984375
+    "width": 265.44329833984375,
+    "collapsed": true
   },
   "right": {
     "id": "9e7bf7891c800dbb",
@@ -184,8 +189,9 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "597ae5d26f66b97e",
+  "active": "e947b2b267ccf838",
   "lastOpenFiles": [
+    "wiki/Responsabilidad Social y Etica/Analisis_Sesiones_IV_V_VI_RSE.md",
     "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_14.pdf",
     "raw/Gestion de Proyectos/material_docente/Sin confirmar 800501.crdownload",
     "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_13.pdf",
@@ -196,7 +202,6 @@
     "raw/Gestion de Proyectos/material_docente/Sin confirmar 792809.crdownload",
     "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_10.pdf",
     "raw/Gestion de Proyectos/material_docente/Sin confirmar 878532.crdownload",
-    "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_09.pdf",
     "wiki/Responsabilidad Social y Etica/Analisis_Etica_y_RSE.md",
     "wiki/Inteligencia de Negocio/Proyecto_SaludVital_Analisis.md",
     "wiki/Inteligencia de Negocio/02_Explicacion_Clase2_BI.md",
