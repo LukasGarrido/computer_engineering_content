@@ -362,7 +362,7 @@ Este bloque pasa de "qué" a "cómo". El diagrama inicial muestra un **ciclo** c
 
 ---
 
-# SESIÓN V: Elaboración de un Programa de RSE (Universidad Técnica Federico Santa María)
+# SESIÓN V: Elaboración de un Programa de RSE 
 
 Si la Sesión IV explicó *qué* se espera de una organización, esta sesión explica *cómo organizarlo*: cómo pasar de buenas intenciones a un programa estructurado.
 
@@ -490,9 +490,7 @@ La diapositiva general del programa también incluye: **grado de involucramiento
 
 ---
 
-# SESIÓN VI: Mapeo de los grupos de interés (Prof. Jaime Pérez P., II Sem. 2026)
-
-Esta sesión profundiza en el **Paso 2** del programa de la Sesión V. Es la más práctica y metodológica de las tres.
+# SESIÓN VI: Mapeo de los grupos de interés 
 
 ## 1. Por qué mapear
 

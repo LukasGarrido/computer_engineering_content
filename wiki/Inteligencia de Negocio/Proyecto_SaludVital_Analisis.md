@@ -390,7 +390,7 @@ El proceso ETL es el encargado de convertir la información dispersa de SaludVit
 | Capas               | Origen (Excel) → Staging (`STG_*`) → Data Mart (`DIM_*`, `FACT_*`)                           | Separa la copia fiel del origen de los datos ya depurados                                                           |
 | Claves              | Claves sustitutas (_surrogate keys_) enteras en cada dimensión, `-1` = miembro "Desconocido" | Evita perder hechos ante relaciones inválidas y desacopla el DW de los IDs del origen                               |
 | Orden de carga      | Dimensiones primero, luego hechos                                                            | Los hechos requieren las claves sustitutas ya generadas                                                             |
-| Manejo de errores   | Cuarentena + registro de errores; nunca se elimina un registro sin dejar evidencia           | Cumple el requisito de explicar toda diferencia entre origen y destino                                              |
+| Manejo de errores   | Cuarentena + registro de errores, nunca se elimina un registro sin dejar evidencia           | Cumple el requisito de explicar toda diferencia entre origen y destino                                              |
 | Herramienta         | Por definir por el equipo (Python/pandas + base relacional, SSIS o Power Query)              | La lógica documentada es independiente de la herramienta                                                            |
 
 ---
@@ -457,11 +457,11 @@ _Filtros:_ se excluye la columna `Unnamed: 1` (100% nula) y se envían a cuarent
 
 **`DIM_ESPECIALIDAD`** — origen: `04_PRESTACIONES` (**no** `03_ESPECIALIDADES`)
 
-|Campo destino|Origen|Transformación|Regla|
-|---|---|---|---|
-|EspecialidadKey|—|Clave sustituta autoincremental|—|
-|EspecialidadID|`04_PRESTACIONES.EspecialidadID`|`DISTINCT` tras normalizar (esperados 10 valores: E01–E10)|RN01|
-|NombreEspecialidad|Tabla auxiliar `MAP_ESPECIALIDAD`|Se asigna el nombre maestro por `EspecialidadID`; cualquier variante de escritura se resuelve con `MAP_ALIAS_ESPECIALIDAD`|RN02|
+| Campo destino      | Origen                            | Transformación                                                                                                             | Regla |
+| ------------------ | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ----- |
+| EspecialidadKey    | —                                 | Clave sustituta autoincremental                                                                                            | —     |
+| EspecialidadID     | `04_PRESTACIONES.EspecialidadID`  | `DISTINCT` tras normalizar (esperados 10 valores: E01–E10)                                                                 | RN01  |
+| NombreEspecialidad | Tabla auxiliar `MAP_ESPECIALIDAD` | Se asigna el nombre maestro por `EspecialidadID`, cualquier variante de escritura se resuelve con `MAP_ALIAS_ESPECIALIDAD` | RN02  |
 
 Ninguna tabla del origen contiene el nombre de la especialidad: `02_MEDICOS` solo trae el código y `03_ESPECIALIDADES` es una copia de médicos. Por eso el ETL usa dos tablas auxiliares (_seed_). Los nombres maestros se dedujeron de `04_PRESTACIONES.Prestacion` (por ejemplo, `PR003 Consulta Traumatología` pertenece a `E03`) y de los cuatro servicios históricos del centro.
 
