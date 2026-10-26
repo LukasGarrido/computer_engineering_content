@@ -13,15 +13,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
-                "mode": "source",
+                "file": "wiki/Responsabilidad Social y Etica/Analisis_Sesiones_IV_V_VI_RSE.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Analisis_Sesiones_IV_V_VI_RSE"
+            }
+          },
+          {
+            "id": "46ad106769aef633",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "raw/Responsabilidad Social y Etica/Resumen-Etica2.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "Resumen-Etica2"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -83,7 +96,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 265.44329833984375
+    "width": 265.44329833984375,
+    "collapsed": true
   },
   "right": {
     "id": "9e7bf7891c800dbb",
@@ -188,15 +202,16 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "cc4b9b86ff577094",
+  "active": "46ad106769aef633",
   "lastOpenFiles": [
-    "wiki/Inteligencia de Negocio/Proyecto_SaludVital_Analisis.md",
     "wiki/Responsabilidad Social y Etica/Analisis_Sesiones_IV_V_VI_RSE.md",
+    "raw/Responsabilidad Social y Etica/Resumen-Etica2.pdf",
+    "README.md",
+    "wiki/Inteligencia de Negocio/Proyecto_SaludVital_Analisis.md",
     "wiki/Responsabilidad Social y Etica/Analisis_Etica_y_RSE.md",
     "wiki/Taller de Administracion de Sistemas/lab-diagnostico-red-firewall.md",
     "wiki/Taller de Administracion de Sistemas/lab-almacenamiento-permisos.md",
     "wiki/Taller de Administracion de Sistemas/Certamen_1_TAS.md",
-    "raw/Responsabilidad Social y Etica/Resumen-Etica2.pdf",
     "wiki/_conceptos/Etica Profesional.md",
     "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_14.pdf",
     "raw/Gestion de Proyectos/material_docente/Sin confirmar 800501.crdownload",
@@ -209,7 +224,6 @@
     "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_10.pdf",
     "wiki/Inteligencia de Negocio/02_Explicacion_Clase2_BI.md",
     "AGENTS.md",
-    "README.md",
     "log.md",
     "index.md",
     "wiki/_conceptos/NLP.md",
@@ -225,7 +239,6 @@
     "wiki/_conceptos/Metodologias Agiles.md",
     "wiki/_conceptos/Redes Neuronales.md",
     "wiki/_conceptos/Series de Tiempo.md",
-    "wiki/_conceptos/Docker.md",
     "raw/assets/Pasted image 20260613223746.png",
     "raw/assets/dw.png",
     "raw/assets/CorrecionGama.png",

@@ -204,8 +204,6 @@ La idea central: se responde por lo que uno decide, pero se debe estar atento a 
 
 El diagrama de la diapositiva 21 muestra a la **Organización** al centro, con la **Gobernanza** como anillo que la rodea, y alrededor las otras seis materias como círculos. Todo está dentro de un círculo exterior con dos palabras clave: **enfoque holístico** e **interdependencia**. El mensaje: las siete materias no son independientes; hay que mirarlas en conjunto porque se afectan entre sí.
 
-> Observación: la numeración de las diapositivas no coincide del todo con la de la norma. Por ejemplo, "Prácticas laborales" aparece como 6.3, "Medio ambiente" como 6.5 y "Participación activa" como 6.7. En la ISO 26000 original, la secuencia es 6.2 Gobernanza, 6.3 Derechos humanos, 6.4 Prácticas laborales, 6.5 Medio ambiente, 6.6 Prácticas justas, 6.7 Consumidores y 6.8 Comunidad. Conviene tenerlo presente al estudiar.
-
 ### 6.1 Gobernanza de la organización
 
 Es el sistema de toma e implementación de decisiones. Es la materia "base", porque permite **poner en práctica y supervisar** los demás principios (rendición de cuentas, transparencia, etc.). Las decisiones están sujetas a leyes y, a veces, a costumbres culturales.
