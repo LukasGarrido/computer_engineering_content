@@ -1,777 +1,515 @@
----
-tags:
-  - gestion-de-proyectos
-  - proyecto
-  - liciflow
-  - riesgos
-aliases:
-  - "LiciFlow"
-  - "Documentación LiciFlow"
-  - "Proyecto Semestral LiciFlow"
-asignatura: "Gestión de Proyectos"
-tipo: proyecto
-created: 2026-10-05
----
-
-# LiciFlow — Documentación consolidada del proyecto
-
-> Plataforma web SaaS que funciona como un CRM especializado en licitaciones, conectada a la API de Mercado Público (ChileCompra).
-
-| Ítem | Detalle |
-|---|---|
-| **Equipo** | Lukas Garrido (líder), Octavio Valencia |
-| **Inicio estimado** | 10-09-2026 |
-| **Duración estimada** | 8 meses |
-| **Estado** | Etapa de planificación |
-
----
-
-## Índice
-
-1. [Acta de Constitución del Proyecto (Entregable 1)](#1-acta-de-constitución-del-proyecto-entregable-1)
-   - [1.1 Identificación del proyecto](#11-identificación-del-proyecto)
-   - [1.2 Problema o necesidad](#12-problema-o-necesidad)
-   - [1.3 Justificación](#13-justificación)
-   - [1.4 Objetivo general](#14-objetivo-general)
-   - [1.5 Descripción inicial de la solución](#15-descripción-inicial-de-la-solución)
-   - [1.6 Beneficios esperados](#16-beneficios-esperados)
-   - [1.7 Alcance inicial](#17-alcance-inicial)
-   - [1.8 Restricciones iniciales](#18-restricciones-iniciales)
-   - [1.9 Criterios iniciales de éxito](#19-criterios-iniciales-de-éxito)
-   - [1.10 Autorización inicial](#110-autorización-inicial)
-2. [Definición del Proyecto](#2-definición-del-proyecto)
-   - [2.1 Problema o necesidad](#21-problema-o-necesidad)
-   - [2.2 Objetivo del proyecto](#22-objetivo-del-proyecto)
-   - [2.3 Personas o grupos afectados](#23-personas-o-grupos-afectados)
-   - [2.4 Usuarios o beneficiarios](#24-usuarios-o-beneficiarios)
-   - [2.5 Solución propuesta](#25-solución-propuesta)
-   - [2.6 Interesados](#26-interesados)
-   - [2.7 Alcance (MVP)](#27-alcance-mvp)
-   - [2.8 Supuestos](#28-supuestos)
-   - [2.9 Riesgos identificados](#29-riesgos-identificados)
-   - [2.10 Métricas de éxito (KPIs)](#210-métricas-de-éxito-kpis)
-3. [Registro de Interesados (Entregable 2)](#3-registro-de-interesados-entregable-2)
-   - [3.1 Preguntas de identificación](#31-preguntas-de-identificación)
-   - [3.2 Registro inicial](#32-registro-inicial)
-   - [3.3 Matriz Poder/Interés](#33-matriz-poderinterés)
-   - [3.4 Interesado crítico](#34-interesado-crítico)
-4. [Requerimientos](#4-requerimientos)
-   - [4.1 Requerimientos funcionales (RF)](#41-requerimientos-funcionales-rf)
-   - [4.2 Requerimientos no funcionales (RNF)](#42-requerimientos-no-funcionales-rnf)
-   - [4.3 Trazabilidad](#43-trazabilidad)
-5. [Arquitectura del Sistema](#5-arquitectura-del-sistema)
-   - [5.1 Estilo de arquitectura](#51-estilo-de-arquitectura)
-   - [5.2 Componentes lógicos](#52-componentes-lógicos)
-   - [5.3 Diagrama de componentes](#53-diagrama-de-componentes)
-   - [5.4 Flujos principales](#54-flujos-principales)
-   - [5.5 Elección de stack (pendiente)](#55-elección-de-stack-pendiente)
-   - [5.6 Decisiones aún no tomadas](#56-decisiones-aún-no-tomadas)
-6. [Integración con la API de Mercado Público](#6-integración-con-la-api-de-mercado-público)
-   - [6.1 Propósito](#61-propósito)
-   - [6.2 Datos generales](#62-datos-generales)
-   - [6.3 Información por levantar](#63-información-por-levantar)
-   - [6.4 Consideraciones de diseño del conector](#64-consideraciones-de-diseño-del-conector)
-   - [6.5 Riesgos específicos de la integración](#65-riesgos-específicos-de-la-integración)
-   - [6.6 Referencias](#66-referencias)
-   - [6.7 Próximos pasos](#67-próximos-pasos)
-7. [Gestión de Riesgos](#7-gestión-de-riesgos)
-   - [7.1 Ruta de trabajo](#71-ruta-de-trabajo)
-   - [7.2 Categorías de riesgo](#72-categorías-de-riesgo)
-   - [7.3 Riesgos ya identificados en la documentación](#73-riesgos-ya-identificados-en-la-documentación)
-   - [7.4 Los 5 pasos para evaluar riesgos](#74-los-5-pasos-para-evaluar-riesgos)
-   - [7.5 Registro inicial de riesgos](#75-registro-inicial-de-riesgos)
-   - [7.6 Evaluación de riesgos (Proceso 3)](#76-evaluación-de-riesgos-proceso-3)
-   - [7.7 Matriz de evaluación de riesgos (RAM)](#77-matriz-de-evaluación-de-riesgos-ram)
-   - [7.8 Matriz de riesgos priorizada](#78-matriz-de-riesgos-priorizada)
-8. [Observaciones sobre la documentación](#8-observaciones-sobre-la-documentación)
-
----
-
-## 1. Acta de Constitución del Proyecto (Entregable 1)
-
-### 1.1 Identificación del proyecto
-
-| Ítem | Información |
-|---|---|
-| **Nombre del proyecto** | LiciFlow |
-| **Equipo de proyecto** | Octavio Valencia - Lukas Garrido |
-| **Líder / responsable del proyecto** | Lukas Garrido |
-| **Sponsor / Patrocinador** | Empresas |
-| **Fecha de inicio estimada** | 10-09-2026 |
-| **Duración estimada** | 8 meses |
-| **Presupuesto inicial estimado** | 1.000.000 aprox |
+![Encabezado](raw/assets/logo_encabezado.png)
 
-### 1.2 Problema o necesidad
+PLAN DE GESTIÓN DEL PROYECTO
 
-**¿Qué situación, problema o necesidad da origen al proyecto?**
+Plantilla para integrar los entregables de planificación · Entregable n.º 3
 
-Pérdida de tiempo de trabajo productivo por búsqueda y seguimiento de licitaciones.
+| **Identificación** | **Completar por el equipo** |
+| --- | --- |
+| Nombre del proyecto | LiciFlow |
+| Código | G8 |
+| Versión | 2.0 |
+| Equipo de proyecto | Lukas Garrido y Octavio Valencia |
+| Líder / responsable | Lukas Garrido |
+| Sponsor / Patrocinador | Empresas / Mercado publico |
+| Duración estimada | 8 meses (10-09-2026 a 10-05-2027) |
+| Presupuesto | 10.674.000 CLP (tope del Acta: 12.000.000 CLP) |
+| Estado (pendiente / aprobado / rechazado) | Pendiente |
+| Paralelo y fecha | 702 - 22/10/2026 |
 
-Problemas: desorganización documental, olvido de fechas críticas de cierre o rondas de preguntas.
+**Orientaciones generales**
 
-### 1.3 Justificación
+- Para los documentos elaborados en **Excel y GanttProject**, correspondientes al alcance, la EDT, los diccionarios, el cronograma y el presupuesto, incorporen en el informe de Word las tablas resumidas, los diagramas o las capturas legibles que permitan comprender los resultados de la planificación.
 
-**¿Por qué es necesario desarrollar este proyecto? ¿Qué ocurriría o qué oportunidad se perdería si no se realiza?**
+- **Conserven como anexos los archivos originales editables:** Entregable n.º 4 (Alcance, EDT y Diccionarios), Entregable n.º 8 (Cronograma) y Entregable n.º 9 (Presupuesto), incluyendo el archivo de GanttProject cuando corresponda.
 
-El proyecto es necesario ya que ayuda a centralizar y automatizar el proceso de descubrimiento, evaluación y seguimiento de licitaciones públicas y privadas entre empresas.
+- **Verifiquen la coherencia entre los documentos.** Los nombres de los entregables, códigos de la EDT, actividades, responsables, recursos, duraciones, fechas, costos, riesgos y criterios de calidad deben ser consistentes en todo el Plan de Gestión del Proyecto.
 
-Si el proyecto no llega a ver la luz, las empresas seguirán perdiendo tiempo valioso de trabajo y haciendo el proceso de licitaciones engorroso y descentralizado.
+- Los textos entre corchetes **[ ]** corresponden a campos que cada equipo deberá completar con información de su propio proyecto. Eliminen las indicaciones y los textos de ejemplo antes de realizar la entrega.
 
-### 1.4 Objetivo general
+- El proyecto **Sistema de Reserva de Laboratorios USM** se utiliza únicamente como referencia didáctica. Cada equipo deberá desarrollar la plantilla utilizando la información de su propio proyecto.
 
-**¿Qué resultado concreto se espera alcanzar mediante el proyecto?**
+- Los elementos identificados como *propuestos*, *pendientes* o *por confirmar* deberán revisarse y actualizarse según corresponda. No deben presentarse como decisiones aprobadas si aún no cuentan con la validación correspondiente.
 
-Centralizar y automatizar el proceso de descubrimiento, evaluación y seguimiento de licitaciones públicas y privadas.
+**ÍNDICE DE CONTENIDO**
 
-- Disminuir la carga operativa del equipo comercial.
-- Mitigar los errores administrativos que causan descalificación.
-- Aumentar las probabilidades de adjudicación de las empresas usuarias.
+- [1. Descripción](#1-descripción)
+  - [1.1 Descripción y justificación](#11-descripción-y-justificación)
+  - [1.2 Objetivo del proyecto](#12-objetivo-del-proyecto)
+  - [1.4 Entregables y criterios de éxito](#14-entregables-y-criterios-de-éxito)
+- [2. Planes por dominio](#2-planes-por-dominio)
+- [3. Planes de gestión](#3-planes-de-gestión)
+  - [3.1 Plan de Gobernanza](#31-plan-de-gobernanza)
+  - [3.2 Plan de Gestión del Alcance](#32-plan-de-gestión-del-alcance)
+  - [3.3 Plan de Gestión del Cronograma](#33-plan-de-gestión-del-cronograma)
+  - [3.4 Plan de Gestión de Recursos](#34-plan-de-gestión-de-recursos)
+  - [3.5 Plan de Gestión Financiera](#35-plan-de-gestión-financiera)
+  - [3.6 Plan de Gestión de Riesgos](#36-plan-de-gestión-de-riesgos)
+  - [3.7 Plan de Gestión de Interesados](#37-plan-de-gestión-de-interesados)
+  - [3.8 Plan de Gestión de Comunicaciones](#38-plan-de-gestión-de-comunicaciones)
+  - [3.9 Planificación de la Calidad](#39-planificación-de-la-calidad)
+- [4. Integración, seguimiento y aprobación](#4-integración-seguimiento-y-aprobación)
+  - [4.1 Verificación de coherencia entre planes](#41-verificación-de-coherencia-entre-planes)
+  - [4.2 Seguimiento y control](#42-seguimiento-y-control)
+  - [4.3 Aprobación del plan](#43-aprobación-del-plan)
+- [5. Anexos y archivos de respaldo](#5-anexos-y-archivos-de-respaldo)
+- [Lista de comprobación antes de entregar](#lista-de-comprobación-antes-de-entregar)
+- [Ejemplo de verificación cruzada](#ejemplo-de-verificación-cruzada)
 
-### 1.5 Descripción inicial de la solución
+# 1. Descripción
 
-**¿Qué se propone desarrollar o implementar para responder al problema identificado?**
+## 1.1 Descripción y justificación
 
-Plataforma web tipo SaaS que funciona como un CRM especializado en licitaciones. El sistema se conectará a la API de Mercado Público para buscar y filtrar licitaciones según el perfil comercial de cada empresa usuaria.
+*Fuente: 1. Acta de constitución. Criterio de integración: Resuman qué problema aborda el proyecto, quiénes se beneficiarán y cuál es su solución propuesta.*
 
-### 1.6 Beneficios esperados
+| **Elemento a registrar** | **Información del proyecto** |
+| --- | --- |
+| Problema / necesidad | Pérdida de tiempo productivo por búsqueda y seguimiento de licitaciones. |
+| Solución propuesta | Plataforma web tipo SaaS que funciona como un CRM especializado en licitaciones. El sistema se conectará a la API de Mercado Público para buscar y filtrar licitaciones según el perfil comercial de cada empresa usuaria. |
+| Justificación y beneficios | Ayuda a centralizar y automatizar el proceso de descubrimiento, evaluación y seguimiento de licitaciones públicas y privadas entre empresas. |
 
-| N.º | Beneficio esperado |
-|---|---|
-| 1 | Reducción del tiempo dedicado a la búsqueda manual de licitaciones |
-| 2 | Mayor visibilidad y control sobre el estado de todas las postulaciones en curso |
-| 3 | Mayor claridad de requisitos de licitaciones para postulaciones |
+## 1.2 Objetivo del proyecto
 
-### 1.7 Alcance inicial
+*Fuente: Acta de constitución (entregable 1). Describan el objetivo general y los beneficios esperados.*
 
-**Incluye inicialmente:**
+| **Elemento a registrar** | **Información del proyecto** |
+| --- | --- |
+| Objetivo general | Centralizar y automatizar el proceso de descubrimiento, evaluación y seguimiento de licitaciones públicas y privadas. |
+| Resultados esperados | Disminuir la carga operativa del equipo comercial, Mitigar los errores administrativos que causan descalificación, Aumentar la probabilidades de adjudicación de las empresas usuarias. |
 
-Sincronización automática con la API de Mercado Público, filtros de búsqueda por palabras clave, rubro, región y monto, tablero Kanban para gestionar el estado de cada postulación, etc.
+## 1.3 Límites y restricciones
 
-**No incluye inicialmente:**
+*Fuente: 1. Acta de constitución y 4. Alcance–EDT–Diccionarios (Excel). Criterio de integración: Incluyan limitaciones de plazo, presupuesto, tecnología y exclusiones, indiquen los supuestos relevantes.*
 
-- Licitaciones privadas o de portales distintos a Mercado Público.
-- Gestión de contratos posteriores a la adjudicación.
-- Procesos de facturación o cobros dentro de la plataforma.
-- Integración con otros portales de compras públicas regionales o internacionales.
+| **Tipo** | **Descripción** |
+| --- | --- |
+| Alcance general | Sincronización  automática con la API de Mercado Público, filtros de búsqueda por palabras clave, rubro, región y monto, tablero Kanban para gestionar el estado de cada postulación, etc. |
+| Restricción | Tiempo: 8 meses. Presupuesto: tope de 12.000.000 CLP. Recursos: 2 desarrolladores. Tecnología: los datos dependen de la disponibilidad y las condiciones de uso de la API pública de Mercado Público (ChileCompra). |
+| Supuesto | La API de Mercado Público se mantiene pública, gratuita y con una estructura de datos razonablemente estable. Las empresas usuarias tienen internet estable en su jornada laboral. Los usuarios finales saben navegar en la web (no requieren capacitación técnica avanzada). |
+| Exclusión | Licitaciones privadas o de portales distintos a Mercado Público, gestión de contratos posteriores a la adjudicación, facturación o cobros dentro de la plataforma, integración con otros portales de compras públicas regionales o internacionales. |
 
-> [!note]
-> En esta etapa el alcance es preliminar. Será definido y desarrollado con mayor profundidad durante la Planificación.
+## 1.4 Entregables y criterios de éxito
 
-### 1.8 Restricciones iniciales
+* *Fuente: Acta de constitución (1) y alcance (4). Enumeren productos verificables y criterios de éxito, distingan los entregables del proyecto de los documentos académicos.*
 
-| Tipo | Restricción |
-|---|---|
-| **Tiempo** | 8 meses |
-| **Presupuesto** | 12.000.000 |
-| **Recursos** | Personas (2 desarrolladores) |
-| **Tecnología / infraestructura** | La obtención de datos depende de la disponibilidad y condiciones de uso de la API pública de Mercado Público (ChileCompra) |
-| **Otra** | — |
+| **Entregable** | **Criterio de aceptación / éxito** |
+| --- | --- |
+| Documentación técnica (objetivos, requerimientos, tecnologías y funcionalidades) | Requerimientos y alcance definidos y aprobados antes del hito H1 (29-09-2026). |
+| Prototipo inicial del sistema | Prototipo de las vistas principales validado con el cliente (hito H2, 05-11-2026). |
+| Arquitectura del sistema y modelo ER | Modelo de datos y arquitectura aprobados, con la conexión a la API de Mercado Público probada (hito H3, 09-11-2026). |
+| Plataforma LiciFlow (MVP) en producción | Sincroniza licitaciones cada día y permite filtrarlas, el usuario gestiona una postulación de principio a fin en el Kanban, envía correctamente las alertas de plazos críticos. Lanzamiento el 10-05-2027 (H6). |
 
-### 1.9 Criterios iniciales de éxito
+**Nota:** Los entregables del proyecto son los productos que se comprometen a desarrollar para solucionar el problema identificado. No deben confundirse con los entregables académicos solicitados en la asignatura, como el acta de constitución, las plantillas Excel, la matriz RAM o el informe de planificación.
 
-**¿Cómo podremos reconocer al finalizar el proyecto que este fue exitoso?**
+# 2. Planes por dominio
 
-| N.º | Criterio de éxito |
-|---|---|
-| 1 | El sistema logra sincronizar diariamente licitaciones desde la API de Mercado Público y filtrarlas según los criterios configurados por el usuario. |
-| 2 | Los usuarios pueden gestionar de principio a fin una postulación dentro del tablero Kanban. |
-| 3 | El sistema envía correctamente las alertas de plazos críticos. |
+*Indicaciones: Completen la siguiente síntesis de los siete dominios. No repitan aquí todas las tablas, el detalle va en la sección 3.*
 
-### 1.10 Autorización inicial
+| **Dominio** | **Decisión o resultado principal** | **Fuente principal** | **Sección del informe** |
+| --- | --- | --- | --- |
+| Gobernanza | El sponsor (Empresas) autoriza el proyecto y Lukas Garrido lo lidera y aprueba los entregables. Los cambios se manejan con solicitud escrita y las decisiones de calidad se definen en 3.9. | 1, 3 y 5 | 3.1 y 3.9 |
+| Alcance | MVP definido por los requerimientos RF01–RF16 y RNF, 6 paquetes de trabajo (1 a 6), exclusiones del Acta (privadas, contratos, facturación y otros portales). | 4 (Excel) | 3.2 |
+| Cronograma | Inicio 10-09-2026 y lanzamiento 10-05-2027 (H6), 6 fases, 45 actividades y 6 hitos, reserva de cronograma de 2 días hábiles. | 8 (Excel) | 3.3 |
+| Finanzas | Estimación de costos 8.434.000 CLP, línea base 9.530.000 CLP, presupuesto total 10.674.000 CLP (bajo el tope de 12.000.000 CLP). | 9 (Excel) | 3.5 |
+| Interesados | 6 interesados prioritarios, el más crítico es el proveedor de datos (ChileCompra / Mercado Público). Comunicaciones: matriz y protocolos propuestos en 3.8. | 2 y 7 | 3.7 y 3.8 |
+| Recursos | 2 integrantes (Lukas Garrido y Octavio Valencia, 3 h/día cada uno), infraestructura en la nube y asesoría legal externa. Matriz RAM y organigrama propuestos en 3.4. | 5 | 3.4 |
+| Riesgos | 9 riesgos identificados, mayor exposición: atraso por carga académica, cambios en la API y fuga de documentos, contingencia de 1.096.000 CLP. | 6 | 3.6 |
+| Calidad | Se incorpora como componente transversal de la planificación. | 10 | 3.9 |
 
-- **Sponsor / Patrocinador:** Empresas
-- **Responsable del proyecto:** Lukas Garrido
-- **Fecha:** 10-09-2026
+# 3. Planes de gestión
 
----
+Desarrollen los siguientes apartados usando las plantillas ya trabajadas. Cada plan debe indicar sus decisiones principales, responsables y relación con los demás planes.
 
-## 2. Definición del Proyecto
+## 3.1 Plan de Gobernanza
 
-### 2.1 Problema o necesidad
+*Indicaciones: Fuente: Acta (1), RR. HH. (5) y calidad (10). Explicar cómo se organiza la gobernanza del proyecto, quién toma y aprueba las decisiones y cómo se gestionan los cambios y problemas.*
 
-Las empresas proveedoras pierden valiosas horas de trabajo productivo buscando manualmente oportunidades diarias en portales como Mercado Público. Además, existe una alta tasa de descalificación («fuera de bases») y oportunidades perdidas debido a:
+| **Decisión / instancia** | **Responsable** | **Procedimiento / evidencia** |
+| --- | --- | --- |
+| Estructura de gobernanza | Sponsor (Empresas) y Lukas Garrido | El sponsor autorizó el proyecto en el Acta (10-09-2026). Lukas lidera y coordina al equipo, Octavio ejecuta. Reunión semanal del equipo (propuesto). |
+| Roles y autoridad de aprobación | Lukas Garrido (líder) y sponsor | Lukas aprueba los entregables técnicos y los criterios de calidad (3.9). El sponsor aprueba el plan y los cambios que afecten la fecha de lanzamiento o el presupuesto total (propuesto). |
+| Procedimiento de cambios y decisiones | Lukas Garrido | Solicitud de cambio escrita con su efecto en alcance, cronograma y costo, la decisión se registra con fecha. La reserva de gestión solo se usa con autorización del sponsor (propuesto). |
 
-- Desorganización documental.
-- Seguimiento ineficiente de las postulaciones en curso.
-- Olvido de fechas críticas de cierre o rondas de preguntas.
+## 3.2 Plan de Gestión del Alcance
 
-### 2.2 Objetivo del proyecto
+*Fuente: Excel Alcance–EDT–Diccionarios (4). Presentar los requisitos, el alcance, las exclusiones y los principales paquetes de trabajo del proyecto, incluyendo sus criterios de aceptación. Incorporar la EDT como imagen y mantener el diccionario detallado en el anexo Excel.*
 
-Centralizar y automatizar el proceso de descubrimiento, evaluación y seguimiento de licitaciones públicas y privadas, con el fin de:
+- **Resumen del alcance**
 
-- Disminuir la carga operativa del equipo comercial.
-- Mitigar los errores administrativos que causan descalificación.
-- Aumentar las probabilidades de adjudicación de las empresas usuarias.
+| **Elemento a registrar** | **Información del proyecto** |
+| --- | --- |
+| Alcance aprobado | Plataforma web que sincroniza cada día las licitaciones de Mercado Público, las filtra (palabra clave, rubro, región y monto), las gestiona en un tablero Kanban con checklists y archivos adjuntos, avisa los plazos críticos (alertas 48 h antes) y ofrece calendario y panel de métricas, con registro de usuarios y organizaciones (RF01–RF16). |
+| Exclusiones | Licitaciones privadas o de otros portales, gestión de contratos posteriores a la adjudicación, facturación o cobros, e integración con otros portales de compras públicas. |
+| EDT / paquetes de trabajo | 6 paquetes de trabajo (1 Documentación técnica, 2 Prototipo inicial, 3 Arquitectura, 4 Desarrollo del MVP, 5 Pruebas y calidad, 6 Despliegue y cierre), el presupuesto agrega infraestructura y gestión. Detalle en el anexo A. |
 
-### 2.3 Personas o grupos afectados
+*Figura 1. EDT del proyecto (niveles 1 a 3), según los paquetes de trabajo del cronograma.*
 
-Equipos de ventas, gerentes comerciales y personal administrativo de pequeñas, medianas y grandes empresas (B2B) que venden productos o servicios al Estado o a grandes corporaciones.
+![Figura 1. EDT del proyecto](raw/assets/figura1_edt.png)
 
-### 2.4 Usuarios o beneficiarios
+- **Entregables y criterios de aceptación**
 
-- Encargados de licitaciones (Bid Managers).
-- Ejecutivos comerciales.
-- Asistentes administrativos.
-- Gerentes comerciales o dueños de empresa (como tomadores de decisión, no necesariamente como operadores diarios).
+| **Código EDT** | **Entregable / paquete de trabajo** | **Criterio de aceptación** |
+| --- | --- | --- |
+| 1 | Documentación técnica | Requerimientos y alcance aprobados (H1). |
+| 2 | Prototipo inicial | Prototipo validado con el cliente (H2). |
+| 3 | Arquitectura del sistema | Modelo ER y arquitectura aprobados, API probada (H3). |
+| 4 | Desarrollo del MVP | Funcionalidades RF01–RF16 operativas (H4). |
+| 5 | Pruebas y calidad | Los 5 criterios de calidad se cumplen y el piloto se realizó (H5). |
+| 6 | Despliegue y cierre | Sistema en producción con HTTPS y respaldos, lanzamiento (H6). |
 
-### 2.5 Solución propuesta
+- **Referencia financiera de los paquetes de trabajo**
 
-Plataforma web tipo SaaS (Software as a Service) que funciona como un CRM especializado en licitaciones. Se conecta a la API de Mercado Público para buscar y filtrar oportunidades automáticamente según el perfil comercial del usuario, e integra:
+| **Paquete de trabajo** | **Costo estimado** |
+| --- | --- |
+| 1 / PT1 Documentación técnica | 528.000 CLP |
+| 2 / PT2 Prototipo inicial | 624.000 CLP |
+| 3 / PT3 Arquitectura del sistema | 672.000 CLP |
+| 4 / PT4 Desarrollo del MVP | 3.600.000 CLP |
+| 5 / PT5 Pruebas y calidad | 1.128.000 CLP |
+| 6 / PT6 Despliegue y cierre | 600.000 CLP |
+| PT7 Infraestructura y servicios | 562.000 CLP |
+| PT8 Gestión del proyecto | 720.000 CLP |
+| **Total estimado** | 8.434.000 CLP |
 
-- Tablero visual (Kanban) para gestionar el flujo de cada postulación.
-- Alertas automatizadas de fechas límite.
-- Repositorio centralizado para estandarizar los documentos clave requeridos en las propuestas.
+Esta tabla sirve para verificar la correspondencia entre alcance y presupuesto. El detalle de los costos debe mantenerse en el Plan de Gestión Financiera, evitando duplicarlo innecesariamente en este apartado.
 
-### 2.6 Interesados
+## 3.3 Plan de Gestión del Cronograma
 
-**Internos**
+*Fuentes: 8. Cronograma (Excel), 4. Alcance–EDT–Diccionarios (Excel)*
 
-| Interesado | Rol en el proyecto |
-|---|---|
-| Equipo de desarrollo | Construye la plataforma técnica (programación, diseño de interfaz, arquitectura) |
-| Jefe de proyecto / Product Owner | Prioriza tareas, asegura cumplimiento de objetivos, mantiene la visión comercial |
-| Patrocinadores / inversionistas | Avalan, financian o evalúan el proyecto |
-| Equipo de soporte y mantenimiento | Resuelve problemas técnicos y da asistencia en producción |
+*Criterio de integración: Presenten la duración total del proyecto, las fechas previstas de inicio y término, los hitos principales y las dependencias entre actividades. Identifiquen los responsables y los códigos de la EDT correspondientes. Incluyan el diagrama de Gantt actualizado y legible, indicando las actividades críticas cuando estén identificadas. Adjunten el cronograma completo en su formato editable.*
 
-**Externos**
+**A. Información general del cronograma**
 
-| Interesado | Rol en el proyecto |
-|---|---|
-| Usuarios finales (operativos) | Encargados de licitaciones, ejecutivos comerciales, asistentes que usan el sistema a diario |
-| Clientes (tomadores de decisión) | Gerentes comerciales o dueños de empresa que adquieren la suscripción |
-| Proveedor de datos (ChileCompra / Mercado Público) | Entidad estatal que suministra la API abierta; cambios en su disponibilidad o estructura afectan directamente al proyecto |
+| **Elemento a registrar** | **Información del proyecto** |
+| --- | --- |
+| Duración y fechas | 8 meses: inicio 10-09-2026 y lanzamiento 10-05-2027 (173 días hábiles), el cierre termina el 12-05-2027. Días hábiles de lunes a viernes, sin feriados. |
+| Estructura | 6 fases (códigos EDT 1 a 6), 45 actividades y 6 hitos. Duraciones por estimación de tres puntos (PERT) y secuencia con dependencias Fin–Inicio y algunas Inicio–Inicio. |
+| Ruta crítica | Requerimientos (1.1) → arquitectura (3.1 a 3.3) → desarrollo backend del MVP (4.1 a 4.8) → pruebas (5.2, 5.4, 5.5) → documentación final (6.3) → reserva y despliegue (6.4, 6.5) → H6. Dura 171 días de actividades (σ ≈ 4,8 días) y la reserva de cronograma es de solo 2 días hábiles. |
+| Archivos | LiciFlow_Cronograma.xlsx (plantilla con PERT, recursos y Gantt) y LiciFlow.gan (GanttProject), en el anexo B. |
 
-### 2.7 Alcance (MVP)
+**B.Hitos y actividades principales**
 
-**Incluido:**
+| **Hito / actividad** | **Fecha** | **Responsable** | **Código EDT relacionado** |
+| --- | --- | --- | --- |
+| H1 Documentación aprobada | 29-09-2026 | Lukas Garrido | 1 |
+| H2 Prototipo aprobado | 05-11-2026 | Octavio Valencia | 2 |
+| H3 Arquitectura aprobada | 09-11-2026 | Lukas Garrido | 3 |
+| H4 MVP funcional completo | 17-03-2027 | Lukas Garrido y Octavio Valencia | 4 |
+| H5 Pruebas finalizadas | 23-04-2027 | Octavio Valencia y Lukas Garrido | 5 |
+| H6 Lanzamiento / puesta en marcha | 10-05-2027 | Lukas Garrido y Octavio Valencia | 6 |
 
-- Búsqueda y filtrado automático de licitaciones publicadas en Mercado Público.
-- Gestión del flujo de postulación mediante tablero Kanban.
-- Repositorio documental por licitación.
-- Alertas de plazos críticos.
-- Panel de métricas básico.
+**C. Diagrama de Gantt / Recursos**
 
-**Fuera de alcance por ahora:**
+![Figura 2. Diagrama de Gantt](raw/assets/figura2_gantt.png)
 
-- Licitaciones privadas fuera de Mercado Público.
-- Gestión de contratos posteriores a la adjudicación.
-- Facturación o cobros dentro de la plataforma.
-- Integraciones con otros portales de compras (regionales, internacionales).
+*Figura 2. Diagrama de Gantt resumido por fase y grupo de actividades, con los 6 hitos (◆). El detalle de las 45 actividades está en los anexos B (Excel y .gan).*
 
-### 2.8 Supuestos
+![Figura 3. Carga mensual por integrante](raw/assets/figura3_carga_mensual.png)
 
-- La API de Mercado Público se mantiene pública, gratuita y con una estructura de datos razonablemente estable.
-- Las empresas usuarias cuentan con conexión a internet estable durante su jornada laboral.
-- Los usuarios finales tienen conocimientos básicos de navegación web (no se requiere capacitación técnica avanzada).
+*Figura 3. Carga mensual por integrante, en días hábiles con tarea asignada (dedicación de 3 h por día).*
 
-### 2.9 Riesgos identificados
+El diagrama debe permitir visualizar la secuencia de actividades, sus duraciones, dependencias, responsables e hitos principales. Cuando el software lo permita, deberán señalarse las actividades de la ruta crítica.
 
-| Riesgo | Impacto | Mitigación propuesta |
-|---|---|---|
-| Cambios en la estructura o disponibilidad de la API de ChileCompra | Alto — puede interrumpir el motor de descubrimiento | Aislar la integración en un módulo propio; monitoreo de la API; plan de contingencia manual |
-| Baja adopción por parte de usuarios acostumbrados al proceso manual | Medio | Diseño simple, onboarding guiado, foco en RNF01 (usabilidad) |
-| Fuga o pérdida de documentos sensibles de licitación | Alto | Cifrado en tránsito y reposo, control de acceso por organización, respaldos periódicos |
-| Cumplimiento de la Ley 19.628 (Protección de Datos Personales) | Medio | Revisión legal de política de privacidad antes del lanzamiento |
+El cronograma completo se conservará como anexo editable.
 
-> Ver también el análisis completo en [7. Gestión de Riesgos](#7-gestión-de-riesgos).
+## 3.4 Plan de Gestión de Recursos
 
-### 2.10 Métricas de éxito (KPIs)
+*Fuente: RR. HH.: rol–RAM–EDT (5), estimación de recursos y cronograma (8). Criterios de integración: Describan la estructura organizacional del proyecto, los roles, responsabilidades, niveles de autoridad y competencias requeridas. Presenten una síntesis de la matriz RAM y la estimación de los recursos humanos, tecnológicos y materiales necesarios. Verifiquen que las asignaciones sean coherentes con la EDT, el cronograma y el presupuesto.*
 
-- Reducción del tiempo promedio dedicado a la búsqueda manual de licitaciones (objetivo referencial: -50%).
-- Reducción de postulaciones descalificadas por errores administrativos o de plazo.
-- Porcentaje de licitaciones guardadas que efectivamente llegan a la etapa «Postulada».
-- Tasa de adopción: usuarios activos semanales sobre usuarios registrados por organización.
+**A. Organización y asignación de responsabilidades**
 
----
+| **Elemento a registrar** | **Información del proyecto:** |
+| --- | --- |
+| Estructura del equipo | Equipo de 2 integrantes: Lukas Garrido (líder y backend) y Octavio Valencia (frontend y pruebas). Sponsor: Empresas. |
+| Responsabilidades | Lukas: gestión, arquitectura, conector, módulos de servidor y pruebas no funcionales. Octavio: prototipo, interfaces, pruebas funcionales, piloto y documentación final. |
+| Autoridad | Lukas decide prioridades y aprueba entregables técnicos, los cambios de fecha de lanzamiento o de presupuesto total se consultan al sponsor (propuesto). |
+| Disponibilidad y competencias | 3 h por día hábil por persona (≈ 15 h a la semana). Competencias requeridas: desarrollo backend y de APIs, frontend y diseño de interfaces, bases de datos y pruebas. |
 
-## 3. Registro de Interesados (Entregable 2)
+**B. Estimación y asignación de recursos**
 
-### 3.1 Preguntas de identificación
+| **Rol / recurso** | **Responsabilidad** | **Cantidad / disponibilidad** | **Actividad o paquete** |
+| --- | --- | --- | --- |
+| Lukas Garrido | Líder y desarrollo backend: gestión, arquitectura, conector, módulos de servidor y pruebas no funcionales | 1 persona, 3 h/día (157 días-persona) | PT1 (1.2), PT3, PT4 (backend), 5.3, 6.1–6.2, 6.5–6.6 y PT8 |
+| Octavio Valencia | Prototipo, frontend, pruebas funcionales, piloto y documentación final | 1 persona, 3 h/día (141 días-persona) | PT2, PT4 (interfaces), 5.1, 5.2, 5.5 y 6.3 |
+| Infraestructura en la nube | Servidor de staging y producción, base de datos y almacenamiento, correo para alertas y dominio .cl | Servidor, base de datos y correo: 6 meses, dominio: 1 año | PT7, tareas 4.1 y 6.1 |
+| Asesoría legal externa | Revisión de la política de privacidad (Ley 19.628) | 1 servicio antes del lanzamiento | PT7, tarea 6.2 |
 
-Antes de completar el registro, el equipo debe preguntarse:
+**C. Matriz RAM — Asignación de responsabilidades**
 
-**¿Quién autoriza? · ¿Quién decide? · ¿Quién participa? · ¿Quién utiliza el resultado? · ¿Quién se beneficia? · ¿Quién puede verse afectado? · ¿Quién puede influir en el proyecto?**
+Matriz elaborada a partir de las asignaciones del cronograma (LiciFlow.gan) y de la sección 3.4 B, por contrastar con el Entregable n.º 5.
 
-### 3.2 Registro inicial
+| **Código EDT** | **Paquete / actividad** | **Lukas Garrido** | **Octavio Valencia** | **Sponsor (Empresas)** | **Clientes / usuarios** |
+| --- | --- | --- | --- | --- | --- |
+| 1.1 | Definición de requerimientos | P | P | I | C |
+| 1.2 | Definición de tecnologías | P | C | I | — |
+| 2.1–2.2 | Prototipo: vistas de registro y vistas principales | S | P | I | — |
+| 2.3 | Validación del prototipo con el cliente (H2) | S | P | I | C |
+| 3.1–3.2 | Modelo de datos y arquitectura de componentes | P | C | I | — |
+| 3.3 | Integración con la API de Mercado Público | P | I | I | — |
+| 4.1 | Configuración del entorno (Git y ambientes) | P | P | I | — |
+| 4.2–4.7 | Módulos del MVP: identidad, conector, licitaciones, Kanban, documentos, alertas y métricas (backend: Lukas, frontend: Octavio) | P | P | I | — |
+| 4.8 | Continuidad y respaldos | P | I | I | — |
+| 5.1–5.2 | Plan de pruebas y pruebas funcionales | S | P | I | — |
+| 5.3 | Pruebas no funcionales | P | C | I | — |
+| 5.4 | Corrección de defectos | P | P | I | — |
+| 5.5 | Piloto con usuarios (H5) | S | P | I | C |
+| 6.1–6.2 | Infraestructura de producción y revisión de privacidad | P | I | I | — |
+| 6.3 | Documentación final y manual de usuario | S | P | I | — |
+| 6.4–6.6 | Reserva, despliegue, lanzamiento (H6) y cierre | P | P | I | I |
 
-| N.º | Interesado | Rol / relación con el proyecto | Necesidad o expectativa principal | Interés | Poder / Influencia |
-|---|---|---|---|---|---|
-| 1 | Patrocinadores / inversionistas | Financian o evalúan el proyecto | Cumplimiento de los objetivos definidos y viabilidad del proyecto | Alto | Alto |
-| 2 | Jefe de proyecto / Product Owner | Prioriza tareas, dirige al equipo y mantiene la visión comercial del producto | Cumplimiento de alcance, plazos y calidad del producto | Alto | Alto |
-| 3 | Clientes / gerentes comerciales (tomadores de decisión) | Adquieren la licencia o suscripción del software para su empresa | Reducción real del tiempo operativo y de los errores de postulación (retorno de la inversión) | Alto | Alto |
-| 4 | Equipo de desarrollo | Construye la plataforma considerando interfaz e infraestructura | Requerimientos claros y alcance realista para poder ejecutar el proyecto | Alto | Bajo |
-| 5 | Encargados de licitaciones / Bid Managers | Usuario final que opera el sistema a diario para buscar y postular | Facilidad de uso y ahorro real de tiempo en la búsqueda de oportunidades | Alto | Bajo |
-| 6 | Ejecutivos comerciales | Usuario final que gestiona el avance de cada postulación en el tablero (revisan postulaciones) | Alertas confiables y visibilidad clara del estado de cada licitación | Alto | Bajo |
-| 7 |  |  |  |  |  |
-| 8 |  |  |  |  |  |
-| 9 |  |  |  |  |  |
+Para mantener coherencia con la matriz de asignación de recursos generada anteriormente, puede utilizarse la siguiente leyenda:
 
-### 3.3 Matriz Poder/Interés
+| **Código** | **Significado** | **Significado** |
+| --- | --- | --- |
+| P | Principal | Responsable de ejecutar la actividad. |
+| S | Secundaria | Autoridad que aprueba o responde por el resultado. |
+| C | Consulta | Consultado durante el desarrollo. |
+| I | Informado | Informado sobre el avance o resultado. |
 
-Los interesados identificados se ubican en el cuadrante correspondiente:
+**D. Organigrama del proyecto**
 
-| | **Interés bajo** | **Interés alto** |
-|---|---|---|
-| **Poder / influencia alta** | **Mantener satisfecho**<br>Proveedor de datos (ChileCompra / Mercado Público) | **Gestionar de cerca**<br>Patrocinadores/inversionistas; Jefe de proyecto/PO; Clientes/gerentes comerciales |
-| **Poder / influencia baja** | **Monitorear**<br>Equipo de soporte y mantenimiento | **Mantener informado**<br>Equipo de desarrollo; Bid Managers; Ejecutivos comerciales; Asistentes administrativos |
+![Figura 4. Organigrama del proyecto LiciFlow](raw/assets/figura4_organigrama.png)
 
-### 3.4 Interesado crítico
+*Figura 4. Organigrama del proyecto LiciFlow: relaciones de autoridad y coordinación (propuesto a partir del cronograma, por contrastar con el Entregable n.º 5).*
 
-**¿Cuál consideran que es el interesado más crítico para el éxito del proyecto?**
+El organigrama debe representar las relaciones de autoridad, coordinación y responsabilidad entre los integrantes del proyecto.
 
-El proveedor de datos, ChileCompra / Mercado Público.
+## 3.5 Plan de Gestión Financiera
 
-**¿Por qué?**
+*Indicaciones: Fuente: Excel Presupuesto (9), alcance (4) y cronograma (8). Incluyan costo estimado por paquete, reserva de contingencia, línea base, reserva de gestión y presupuesto total, expliquen criterios de estimación y control.*
 
-Aunque tiene bajo interés directo en el éxito de LiciFlow, es el interesado del cual depende técnicamente todo el valor central del sistema: sin acceso estable a su API pública, el motor de descubrimiento automatizado —el pilar más diferenciador del proyecto— simplemente no puede funcionar. A diferencia de los demás interesados, su influencia no se gestiona con comunicación o negociación, sino con monitoreo técnico constante, ya que un cambio en la estructura de su API o en sus condiciones de acceso puede afectar el proyecto sin previo aviso, tal como se identificó en los riesgos del proyecto.
+| **Componente** | **Monto (moneda del proyecto)** |
+| --- | --- |
+| Estimación de costos | 8.434.000 CLP |
+| Reserva de contingencia | 1.096.000 CLP |
+| Línea base de costos (estimación + contingencia) | 9.530.000 CLP |
+| Reserva de gestión | 1.144.000 CLP |
+| Presupuesto total (línea base + gestión) | 10.674.000 CLP |
 
----
+Criterios de estimación: ascendente, desde las actividades del cronograma (894 horas a 8.000 CLP por hora, más infraestructura, asesoría legal y gestión). La contingencia es la suma de probabilidad × impacto de 9 riesgos, la reserva de gestión es el 12 % de la línea base. El presupuesto total queda 1.326.000 CLP bajo el tope de 12.000.000 CLP del Acta. La tarifa y los precios de infraestructura son valores referenciales por confirmar. Control: cada mes se compara el gasto y las horas reales con la línea base (ver 4.2).
 
-## 4. Requerimientos
+## 3.6 Plan de Gestión de Riesgos
 
-Este apartado detalla los requerimientos funcionales (RF) y no funcionales (RNF) del sistema. Ver [2. Definición del Proyecto](#2-definición-del-proyecto) para el contexto y objetivos.
+*Indicaciones: Fuente: Gestión de riesgos (6). Presenten una síntesis de la estructura de desglose de riesgos (RBS), identifiquen los riesgos prioritarios y registren su probabilidad, impacto y nivel de exposición. Definan la estrategia de respuesta, las acciones preventivas, los responsables y las medidas de contingencia. Expliquen cómo las respuestas afectan el cronograma, los recursos y el presupuesto.*
 
-### 4.1 Requerimientos funcionales (RF)
+**A. Identificación y evaluación de riesgos**
 
-#### Gestión de usuarios y organizaciones
+| **Riesgo / código** | **P × I / prioridad** | **Respuesta y responsable** | **Efecto en otros planes** |
+| --- | --- | --- | --- |
+| R7 Atraso por carga académica | P 40 % × I 480.000 = 192.000 CLP (1.º) | Mitigar: seguimiento semanal del avance y priorizar las funciones del MVP. Responsable: Lukas Garrido | Cronograma: reserva de 2 días (6.4). Costos: contingencia. |
+| R1 Cambios en la API de ChileCompra | P 30 % × I 500.000 = 150.000 CLP (2.º) | Mitigar: conector aislado y validación del esquema de datos. Responsable: Lukas Garrido | Cronograma: tareas 4.3 y 5.2. Costos: ≈ 60 h de retrabajo. |
+| R5 Fuga o pérdida de documentos sensibles | P 10 % × I 1.500.000 = 150.000 CLP (2.º) | Mitigar: acceso por organización, HTTPS, contraseñas encriptadas y respaldos. Responsable: Lukas Garrido | Calidad: criterio de seguridad. Costos: respaldos y asesoría legal (PT7). |
+| R9 Indisponibilidad de un integrante | P 10 % × I 1.200.000 = 120.000 CLP (4.º, empata con R2, R4 y R6) | Mitigar: código y documentos en Git y tareas compartidas. Responsables: Lukas Garrido y Octavio Valencia | Recursos: tareas críticas en una sola persona. Cronograma: posible atraso. |
 
-- **RF01**: El sistema debe permitir a los usuarios registrarse, iniciar sesión y recuperar su contraseña mediante correo electrónico.
-- **RF02**: El sistema debe permitir crear perfiles corporativos para agrupar a múltiples usuarios bajo una misma organización.
-- **RF02.1**: El sistema debe permitir definir roles por usuario dentro de una organización (ej: administrador, operativo), restringiendo acciones según el rol.
-- **RF02.2**: El sistema debe garantizar el aislamiento de datos entre organizaciones distintas (una empresa no puede ver información de otra).
+**B. Plan de respuesta y contingencia**
 
-#### Descubrimiento de licitaciones
+| **Riesgo** | **Acción de respuesta** | **Plan de contingencia** | **Recursos / reserva** |
+| --- | --- | --- | --- |
+| R7 | Revisión semanal del avance en GanttProject, recortar funciones de menor prioridad si hay atraso. | Usar la reserva de cronograma (2 días) y, si no alcanza, pedir al sponsor ajustar fecha o alcance. | Contingencia: 192.000 CLP |
+| R1 | Aislar el conector (4.3) y validar el esquema de los datos recibidos. | Adaptar el conector (≈ 60 h) y trabajar con los datos ya sincronizados mientras tanto. | Contingencia: 150.000 CLP |
+| R5 | Control de acceso por organización, HTTPS, contraseñas encriptadas y respaldos diarios. | Restaurar el respaldo, avisar a las empresas afectadas y corregir la falla. | Contingencia: 150.000 CLP |
+| R9 | Código y documentación compartidos en el repositorio Git. | La otra persona asume las tareas críticas y se renegocian alcance y fechas. | Contingencia: 120.000 CLP |
 
-- **RF03**: El sistema debe sincronizarse diariamente con la API de Mercado Público para extraer las nuevas licitaciones publicadas. Si la sincronización falla, debe reintentarse y notificar al equipo de soporte.
-- **RF04**: El sistema debe permitir a los usuarios configurar filtros de búsqueda automática basados en palabras clave, región, rubro y montos.
-- **RF05**: El sistema debe generar un listado dinámico de las licitaciones que coincidan con los filtros configurados por el usuario.
-- **RF06**: El sistema debe mostrar el detalle completo de cada licitación, incluyendo fechas clave, institución compradora y enlace directo a las bases.
+**C. Estructura de desglose de riesgos (RBS)**
 
-#### Gestión del flujo de postulación
+![Figura 5. Estructura de desglose de riesgos (RBS)](raw/assets/figura5_rbs.png)
 
-- **RF07**: El sistema debe incorporar un tablero visual (tipo Kanban) donde los usuarios puedan guardar las licitaciones de su interés.
-- **RF08**: El sistema debe permitir trasladar las licitaciones guardadas entre diferentes columnas de estado (ej: Por evaluar, Armando propuesta, Enviada, Adjudicada).
-- **RF09**: El sistema debe permitir la asignación de un usuario específico del equipo como responsable de una licitación dentro del tablero.
-- **RF10**: El sistema debe permitir ingresar y almacenar comentarios o notas de texto dentro de la ficha de cada licitación gestionada.
+*Figura 5. Estructura de desglose de riesgos (RBS) con los 9 riesgos del registro (R1 a R9).*
 
-#### Gestión documental
+La RBS debe permitir visualizar las categorías y fuentes de riesgos identificadas. Su contenido debe corresponder con el registro de riesgos del proyecto.
 
-- **RF11**: El sistema debe habilitar la creación de listas de verificación (checklists) de tareas o documentos requeridos para cada postulación.
-- **RF12**: El sistema debe permitir subir, descargar y eliminar archivos adjuntos (certificados, documentos PDF, planillas) asociados a una licitación.
+**D. Relación con el presupuesto**
 
-#### Alertas y visualización
+El presupuesto del proyecto contempla una reserva de contingencia total de $1.096.000 CLP (suma de probabilidad × impacto de los 9 riesgos identificados), incluida en la línea base de costos.
 
-- **RF13**: El sistema debe enviar una notificación cuando falten 48 horas para el cierre del periodo de preguntas de una licitación guardada.
-- **RF14**: El sistema debe enviar una notificación cuando falten 48 horas para el cierre de postulación de una licitación activa.
-- **RF13.1 / RF14.1**: Las notificaciones deben poder enviarse al menos por correo electrónico, y de forma visible dentro de la plataforma (in-app).
-- **RF15**: El sistema debe incluir un calendario interactivo que consolide y visualice las fechas críticas de todas las licitaciones gestionadas por el equipo.
-- **RF16**: El sistema debe generar un panel de control con métricas sobre el estado de las postulaciones (ganadas, perdidas, en proceso) del mes en curso.
+Esta reserva no debe distribuirse arbitrariamente entre los riesgos. Cada asignación deberá justificarse según el costo estimado de la respuesta o contingencia y el procedimiento de autorización establecido.
 
-### 4.2 Requerimientos no funcionales (RNF)
+## 3.7 Plan de Gestión de Interesados
 
-| Código | Categoría | Descripción |
-|---|---|---|
-| RNF01 | Usabilidad | La interfaz debe tener diseño responsivo, asegurando correcta visualización y operatividad en computadores de escritorio y dispositivos móviles. |
-| RNF02 | Rendimiento | El tiempo de respuesta frente a una búsqueda o carga del tablero no debe superar los 3 segundos en condiciones normales de red. |
-| RNF03 | Seguridad | Las contraseñas deben almacenarse mediante algoritmos de encriptación unidireccional (ej. bcrypt). |
-| RNF04 | Seguridad | Todo el tráfico entre cliente y servidor debe estar cifrado mediante HTTPS. |
-| RNF05 | Disponibilidad | La infraestructura debe garantizar un uptime objetivo de 99.5% anual. |
-| RNF06 | Interoperabilidad | La extracción de datos desde Mercado Público debe realizarse exclusivamente mediante sus servicios web RESTful en formato JSON. |
-| RNF07 | Capacidad | El sistema debe proveer almacenamiento inicial de al menos 2 GB por empresa registrada; al superar el límite, el usuario debe ser notificado antes de que se bloquee la carga de nuevos archivos. |
-| RNF08 | Mantenibilidad | El código fuente debe gestionarse mediante un sistema de control de versiones basado en Git. |
-| RNF09 | Continuidad | El sistema debe contar con respaldos periódicos de la base de datos y documentos, con un objetivo de punto de recuperación (RPO) no mayor a 24 horas. |
-| RNF10 | Cumplimiento normativo | El tratamiento de datos personales almacenados debe ajustarse a la Ley 19.628 sobre Protección de la Vida Privada. |
-| RNF11 | Escalabilidad | La arquitectura debe permitir el crecimiento en número de organizaciones y usuarios sin requerir rediseño estructural. |
+*Fuente: 2. Registro de interesados, 7. Comunicación e interesados (2)*
 
-### 4.3 Trazabilidad
+*Criterio de integración: Identifiquen los interesados relevantes del proyecto, su nivel de poder e interés, sus necesidades y expectativas y las estrategias para gestionar su participación. La información debe ser coherente con el registro de interesados y el plan de comunicaciones.*
 
-| Objetivo | Requerimientos asociados |
-|---|---|
-| Reducir tiempo de búsqueda manual | RF03, RF04, RF05, RF06 |
-| Mitigar descalificación por errores administrativos | RF11, RF12, RF13, RF14, RF15 |
-| Aumentar control sobre el proceso comercial | RF07, RF08, RF09, RF10, RF16 |
-| Proteger la operación y los datos del cliente | RNF03, RNF04, RNF09, RNF10 |
+**A. Identificación y estrategias de participación**
 
----
+| **Interesado** | **Poder / interés** | **Necesidad** | **Estrategia de participación** |
+| --- | --- | --- | --- |
+| Patrocinadores / inversionistas | Poder alto / interés alto | Cumplimiento de los objetivos y viabilidad del proyecto | Gestionar de cerca: informarles en cada hito y consultarles los cambios mayores. |
+| Jefe de proyecto / Product Owner | Poder alto / interés alto | Cumplimiento de alcance, plazos y calidad | Gestionar de cerca: prioriza tareas y aprueba entregables. |
+| Clientes / gerentes comerciales | Poder alto / interés alto | Reducir el tiempo operativo y los errores de postulación | Gestionar de cerca: validan el prototipo (tarea 2.3) y participan en el piloto. |
+| Proveedor de datos (ChileCompra / Mercado Público) | Poder alto / interés bajo | Acceso estable a su API pública (interesado crítico) | Mantener satisfecho: respetar sus condiciones de uso y vigilar cambios en la API (R1). |
+| Bid Managers (encargados de licitaciones) | Poder bajo / interés alto | Facilidad de uso y ahorro real de tiempo | Mantener informados: participan en las pruebas de usabilidad del piloto (5.5). |
+| Ejecutivos comerciales | Poder bajo / interés alto | Alertas confiables y visibilidad del estado de cada licitación | Mantener informados: prueban las alertas y el tablero en el piloto (5.5). |
 
-## 5. Arquitectura del Sistema
+**B. Resumen de la gestión de interesados**
 
-> Descripción a nivel lógico y de componentes (nivel conceptual). No define tecnologías, lenguajes ni proveedores específicos: esa decisión se documentará por separado una vez cerrada la etapa de planificación.
+| **Elemento a registrar** | **Información del Proyecto** |
+| --- | --- |
+| Interesados clave | Patrocinadores, jefe de proyecto / Product Owner, clientes / gerentes comerciales, proveedor de datos (ChileCompra), Bid Managers y ejecutivos comerciales. |
+| Interesados de mayor prioridad | El proveedor de datos (interesado más crítico) y los de poder e interés altos: patrocinadores, jefe de proyecto y clientes. |
+| Participación en decisiones | El sponsor autoriza el proyecto (Acta) y el jefe de proyecto / Product Owner prioriza las tareas. |
+| Participación en validación | El cliente valida el prototipo (tarea 2.3, hito H2), Bid Managers y ejecutivos comerciales validan el sistema en el piloto (tarea 5.5, antes de H5). |
+| Seguimiento del involucramiento | Cada semana el líder revisa en la reunión del equipo la participación de los interesados y registra en actas la validación del prototipo (tarea 2.3, H2) y del piloto (tarea 5.5, antes de H5). El proveedor de datos se vigila cada mes junto con el riesgo R1, si un interesado de poder alto no responde, se escala al sponsor (propuesto). |
 
-### 5.1 Estilo de arquitectura
+## 3.8 Plan de Gestión de Comunicaciones
 
-- **Aplicación web multi-tenant**: una sola instancia del sistema sirve a múltiples organizaciones (empresas clientes), con aislamiento lógico de datos entre ellas (ver RF02.2).
-- **Cliente-servidor**: separación entre una capa de interfaz (cliente web) y una capa de lógica de negocio (servidor/API).
-- **Integración por servicios web**: la obtención de licitaciones se realiza consumiendo una API externa (Mercado Público), no mediante scraping.
-- **Procesos programados (jobs) independientes de las solicitudes del usuario**: la sincronización diaria y el envío de alertas no dependen de que un usuario esté navegando la plataforma en ese momento.
+*Fuente: Entregable n.º 7 (Comunicación e Interesados) y Entregable n.º 2 (Registro de Interesados).*
 
-### 5.2 Componentes lógicos
+*Indicaciones para la plantilla: Definan qué información se comunicará, a quién, mediante qué canal, con qué frecuencia y quién será responsable. Incluyan los mecanismos para registrar acuerdos, comunicar cambios y mantener la trazabilidad de las decisiones.*
 
-#### Cliente web (Frontend)
+**A. Matriz de comunicaciones resumida**
 
-Responsable de la interacción con el usuario. Consume la API del backend y no se comunica directamente con la API de Mercado Público.
+| **Destinatario** | **Información** | **Canal** | **Frecuencia** | **Responsable** |
+| --- | --- | --- | --- | --- |
+| Patrocinador (Empresas) | Avance por hito, cambios de alcance, plazo o presupuesto y solicitudes de aprobación | Correo electrónico e informe de hito | En cada hito (H1 a H6) y ante cambios mayores | Lukas Garrido |
+| Equipo de proyecto | Avance de tareas, riesgos y defectos | Reunión semanal por videollamada y repositorio Git | Semanal | Lukas Garrido |
+| Clientes / gerentes comerciales | Prototipo para validación y resultados del piloto | Reunión de validación y correo electrónico | Tarea 2.3 (antes de H2) y piloto 5.5 | Octavio Valencia |
+| Proveedor de datos (ChileCompra / Mercado Público) | Solicitud del ticket de acceso a la API y consultas sobre condiciones de uso | Portal oficial y correo de soporte | Al solicitar el ticket (3.3.1) y ante cambios en la API (R1) | Lukas Garrido |
+| Bid Managers y ejecutivos comerciales | Instrucciones y comentarios del piloto, manual de usuario | Correo electrónico y sesión de piloto | Durante el piloto (5.5) y en el lanzamiento (H6) | Octavio Valencia |
 
-Módulos principales:
+**B. Protocolos de comunicación**
 
-- Autenticación y gestión de sesión.
-- Panel de configuración de filtros de búsqueda.
-- Tablero Kanban.
-- Ficha de licitación (detalle, comentarios, checklist, documentos).
-- Calendario de fechas críticas.
-- Panel de métricas.
+| **Elemento** | **Procedimiento propuesto** |
+| --- | --- |
+| Canal official | Correo electrónico para el sponsor, los clientes y el proveedor, reunión semanal por videollamada para el equipo (propuesto). |
+| Registro de acuerdos | Acta breve tras cada reunión (fecha, participantes, acuerdos, responsables y plazos), guardada en el repositorio Git. |
+| Almacenamiento de información | Repositorio Git del proyecto: documentos, Excel, archivo .gan y actas, con número de versión y fecha. |
+| Comunicación de cambios | Solicitud de cambio escrita con su efecto en alcance, cronograma y costo, la decisión se registra con fecha. El sponsor aprueba si afecta el lanzamiento o el presupuesto total. |
+| Confidencialidad | Los documentos y datos de licitaciones son solo del equipo y de las organizaciones usuarias, las credenciales y el ticket de la API no se comparten fuera del equipo (Ley 19.628, revisión en 6.2). |
 
-#### Servidor de aplicación (Backend / API)
+## 3.9 Planificación de la Calidad
 
-Contiene la lógica de negocio y expone endpoints consumidos por el frontend. Se organiza en módulos según dominio funcional:
+*Fuente: 10. Calidad*
 
-- **Módulo de identidad**: registro, login, recuperación de contraseña, organizaciones, roles.
-- **Módulo de licitaciones**: almacenamiento y consulta de licitaciones extraídas, filtros configurados por usuario.
-- **Módulo de flujo (Kanban)**: estados, transiciones, asignación de responsables.
-- **Módulo documental**: carga, almacenamiento y control de acceso a archivos adjuntos.
-- **Módulo de notificaciones**: generación y envío de alertas (48h antes de cierres).
-- **Módulo de métricas**: agregación de datos para el panel de control.
+*Criterio de integración: Definan los requisitos de calidad asociados a los entregables del proyecto, estableciendo indicadores medibles, criterios de aceptación, métodos de verificación, responsables y momentos de revisión. Los criterios deben ser coherentes con el alcance, el cronograma y las pruebas.*
 
-#### Integración externa — Conector Mercado Público
+**A. Matriz de planificación de la calidad**
 
-Componente aislado responsable exclusivamente de comunicarse con la API de ChileCompra. Ver detalle en [6. Integración con la API de Mercado Público](#6-integración-con-la-api-de-mercado-público).
+| **Requisito** | **Indicador / criterio** | **Verificación** | **Responsable** | **Momento** |
+| --- | --- | --- | --- | --- |
+| Sincronización confiable de licitaciones (RF03) | 0 licitaciones duplicadas tras sincronizar, cada sincronización queda registrada con sus errores | Prueba funcional con dos sincronizaciones seguidas | Octavio | Tras 4.3 y pruebas 5.2 (18-03 a 31-03-2027) |
+| Alertas de plazos críticos (RF13, RF14) | 100 % de las alertas enviadas 48 h antes del cierre de preguntas o de postulación | Prueba funcional con licitaciones de prueba | Octavio | Pruebas 5.2 (18-03 a 31-03-2027) |
+| Seguridad de acceso y datos (RNF03, RNF04) | Solo usuarios autorizados de su organización acceden a sus datos, contraseñas encriptadas, todo en HTTPS | Prueba de autenticación y roles, revisión de HTTPS | Lukas | Pruebas 5.3 (18-03 a 26-03-2027) |
+| Rendimiento y continuidad (RNF02, RNF05, RNF09) | Búsqueda y tablero en ≤ 3 s, disponibilidad ≥ 99,5 %, respaldo con pérdida máxima de 24 h | Prueba de carga, monitoreo y restauración del respaldo | Lukas | Pruebas 5.3 y despliegue 6.1 (abr-2027) |
+| Usabilidad (RNF01) | Un usuario nuevo guarda una licitación y la mueve en el Kanban en ≤ 5 min sin ayuda, vista correcta en escritorio y móvil | Pruebas de usabilidad con usuarios en el piloto | Octavio | Piloto 5.5 (13-04 a 22-04-2027) |
 
-Se aísla deliberadamente del resto del backend para que, si la API externa cambia su estructura o disponibilidad (riesgo identificado en la definición del proyecto), el impacto quede contenido en este componente.
+**B. Seguimiento y control de Calidad**
 
-#### Procesos programados (Jobs)
+Se harán tres revisiones: de requisitos (hitos H1 y H2, a cargo de Lukas), pruebas del sistema (tareas 5.1 a 5.4, del 02-03 al 12-04-2027, Octavio las funcionales y Lukas las no funcionales) y piloto con usuarios (tarea 5.5). Los resultados se guardan en el plan y casos de prueba, y los defectos en la lista de incidencias del repositorio Git. Si un criterio no se cumple, se corrige en la tarea 5.4 y se repite la misma prueba, si no alcanza el tiempo, Lukas decide si se ajusta el alcance o se usa la reserva.
 
-- **Job de sincronización diaria**: ejecuta la extracción de licitaciones nuevas desde el conector externo y las incorpora al sistema.
-- **Job de alertas**: revisa periódicamente las fechas críticas de las licitaciones activas y dispara notificaciones cuando corresponde (RF13, RF14).
+# 4. Integración, seguimiento y aprobación
 
-#### Almacenamiento
+## 4.1 Verificación de coherencia entre planes
 
-Se distinguen dos tipos de datos con necesidades distintas:
+*Indicaciones: Fuente: Todos los entregables. Comprueben la coherencia entre los planes desarrollados, verificando que las actividades, códigos EDT, responsables, recursos, fechas, costos, riesgos, criterios de calidad y comunicaciones sean consistentes. Identifiquen las diferencias o contradicciones encontradas, indiquen las correcciones necesarias o realizadas y registren al responsable y el estado de cada revisión.*
 
-- **Datos estructurados**: usuarios, organizaciones, licitaciones, estados del Kanban, comentarios, checklists, métricas.
-- **Datos no estructurados**: archivos adjuntos (documentos, certificados, planillas).
+| **Cruce entre planes** | **Resultado de revisión / hallazgo** | **Corrección necesaria o realizada** | **Responsable / estado** |
+| --- | --- | --- | --- |
+| EDT ↔ Cronograma | Los códigos 1 a 3 del cronograma siguen el diccionario WBS. El Entregable 4 define solo 3 entregables, tiene fechas desde 01-09-2026 (antes del inicio oficial del 10-09-2026) y tareas sin completar, el cronograma agrega las fases 4, 5 y 6. | Actualizar el Excel del Entregable 4 (EDT y diccionario) con las fases 4 a 6 y las fechas del cronograma. | Equipo / pendiente |
+| Cronograma ↔ Recursos/RAM | Cada actividad tiene responsable (Lukas u Octavio) y nadie tiene dos tareas a la vez. La matriz RAM del Entregable 5 no estaba disponible para compararla. | Contrastar el cronograma con la RAM cuando esté lista. | Equipo / pendiente |
+| Recursos/EDT ↔ Presupuesto | Coherente: las 894 h del presupuesto equivalen a 298 días-persona del cronograma × 3 h/día, PT1 a PT6 corresponden a las fases 1 a 6. Diferencia: el Acta indica un presupuesto inicial de 1.000.000 CLP y una restricción de 12.000.000 CLP. | Corregir en el Acta la cifra de 1.000.000 CLP, el presupuesto total es 10.674.000 CLP. | Lukas / en revisión |
+| Riesgos ↔ Cronograma/Costos | La reserva de cronograma (2 días) es corta frente al riesgo R7, la contingencia (1.096.000 CLP) equivale a la suma de P × I de R1 a R9. La matriz del Entregable 6 estaba sin completar. | Completar el Entregable 6 y contrastar sus niveles con estas exposiciones. | Equipo / pendiente |
+| Calidad ↔ Alcance/Pruebas | Coherente, sin observaciones, los 5 criterios se vinculan con los RF y RNF y se verifican en las tareas 5.1 a 5.5 (PT5 del presupuesto). | No requiere corrección. | Octavio / revisado |
+| Interesados ↔ Comunicaciones | No se pudo verificar: falta el Entregable n.º 7 (comunicación e interesados). | Completar el plan de comunicaciones y contrastarlo con el registro de interesados. | Equipo / pendiente |
 
-Esta distinción es relevante para RNF07 (capacidad) y RNF09 (respaldo), aunque la tecnología concreta de almacenamiento aún no está definida.
+**Importante**: Los estudiantes no deben inventar inconsistencias para completar la tabla. Cuando no encuentren diferencias, pueden registrar «Coherente, sin observaciones», indicando brevemente qué verificaron.
 
-### 5.3 Diagrama de componentes
+## 4.2 Seguimiento y control
 
-```mermaid
-flowchart TB
-    subgraph Cliente
-        FE[Cliente Web]
-    end
+*Fuente: Cronograma (8), riesgos (6), presupuesto (9), calidad (10). Describan cómo realizarán el seguimiento del avance del proyecto, verificando el cumplimiento de las actividades, los plazos, los costos, la disponibilidad de recursos, las respuestas a los riesgos y los criterios de calidad. Definan indicadores o evidencias, frecuencia de revisión y responsables. Expliquen cómo se identificarán las desviaciones y cómo se documentarán las acciones correctivas y los cambios aprobados.*
 
-    subgraph Servidor de Aplicacion
-        AUTH[Modulo Identidad]
-        LIC[Modulo Licitaciones]
-        KANBAN[Modulo Flujo Kanban]
-        DOC[Modulo Documental]
-        NOTIF[Modulo Notificaciones]
-        METRICS[Modulo Metricas]
-        CONN[Conector Mercado Publico]
-    end
+**A. Matriz de seguimiento y control**
 
-    subgraph Procesos Programados
-        JOBSYNC[Job Sincronizacion Diaria]
-        JOBALERT[Job Alertas de Plazos]
-    end
+Cada semana el equipo compara lo realizado con lo planificado, cada mes revisa además costos y riesgos. Los resultados de las revisiones actualizan el plan.
 
-    subgraph Almacenamiento
-        DB[(Datos Estructurados)]
-        FILES[(Archivos Adjuntos)]
-    end
+| **Qué se controlará** | **Indicador / evidencia** | **Frecuencia** | **Responsable** |
+| --- | --- | --- | --- |
+| Avance del cronograma | Porcentaje de avance por actividad en GanttProject, comparado con las fechas del cronograma | Semanal | Lukas Garrido |
+| Cumplimiento de entregables | Entregables aprobados en los hitos H1 a H6 con su criterio de aceptación cumplido | En cada hito | Lukas Garrido |
+| Costos y presupuesto | Horas reales frente a las 894 h presupuestadas y gasto frente a la línea base (9.530.000 CLP) | Mensual | Lukas Garrido |
+| Disponibilidad de recursos | Horas trabajadas por persona (3 h/día) y uso del servidor y la base de datos | Semanal | Lukas y Octavio |
+| Gestión de riesgos | Revisión de R1 a R9: probabilidad, impacto y exposición | Mensual | Lukas Garrido |
+| Cumplimiento de Calidad | Resultados de las pruebas 5.1 a 5.5 frente a los criterios de la matriz de calidad | En las pruebas, antes de H5 | Octavio Valencia |
+| Solicitudes de cambio | Registro de cada solicitud de cambio con su efecto en alcance, cronograma y costo | Cuando se solicite | Lukas Garrido (el sponsor, si afecta fecha o presupuesto) |
 
-    EXT[API Mercado Publico / ChileCompra]
+**B. Procedimiento de seguimiento y actualización**
 
-    FE <--> AUTH
-    FE <--> LIC
-    FE <--> KANBAN
-    FE <--> DOC
-    FE <--> METRICS
+El equipo controla el proyecto comparando el avance, las horas y el gasto reales con el cronograma y la línea base, y documenta las desviaciones y los cambios aprobados.
 
-    LIC --> DB
-    KANBAN --> DB
-    AUTH --> DB
-    METRICS --> DB
-    DOC --> FILES
-    DOC --> DB
+| **Elemento a registrar** | **Información del proyecto** |
+| --- | --- |
+| Frecuencia de revisión | Semanal para avance, recursos y calidad, mensual para costos y riesgos. |
+| Identificación de desviaciones | Una actividad con más de 2 días hábiles de atraso (igual a la reserva de cronograma), horas o gasto sobre lo planificado, o un criterio de calidad incumplido (propuesto). |
+| Acciones correctivas | Reasignar tareas entre Lukas y Octavio, recortar funciones de menor prioridad o usar la reserva, cada acción se registra con fecha y responsable. |
+| Responsable de actualización | Lukas Garrido (líder), con apoyo de Octavio Valencia. |
+| Registro de cambios / versiones | Solicitud de cambio escrita y número de versión del plan con su fecha (partiendo de la versión 2.0), los archivos se guardan con versión en el repositorio Git. |
+| Actualización de documentos | Tras cada cambio aprobado se actualizan juntos el cronograma (Excel y .gan), el presupuesto y la matriz de calidad para mantener la coherencia. |
 
-    JOBSYNC --> CONN
-    CONN <--> EXT
-    JOBSYNC --> DB
+## 4.3 Aprobación del plan
 
-    JOBALERT --> DB
-    JOBALERT --> NOTIF
-    NOTIF -->|correo / in-app| FE
-```
+*Indicaciones: Fuente: Acta (1) y gobernanza. Definan quién revisa y aprueba el plan, no indiquen aprobado si no existe aprobación real.*
 
-### 5.4 Flujos principales
+| **Rol / autoridad** | **Nombre** | **Estado / fecha** |
+| --- | --- | --- |
+| Responsable del proyecto | Lukas Garrido | Pendiente de revisión |
+| Patrocinador / autoridad | Empresas (sponsor) | Pendiente de aprobación |
 
-#### Descubrimiento de licitaciones
+# 5. Anexos y archivos de respaldo
 
-1. El job de sincronización diaria se activa según lo programado.
-2. El conector de Mercado Público solicita las licitaciones nuevas o actualizadas a la API externa.
-3. Los datos se normalizan y almacenan en el módulo de licitaciones.
-4. Cada usuario visualiza únicamente las licitaciones que coinciden con los filtros configurados para su organización.
+*Indicaciones: Adjuntar los Excel originales editables. Otros Word o evidencias se incorporan como respaldo cuando se necesiten. Verifiquen que el informe cite correctamente cada anexo.*
 
-#### Gestión de una postulación
+| **Anexo** | **Documento de respaldo** | **Nombre del archivo / versión** |
+| --- | --- | --- |
+| A | Alcance–EDT–Diccionarios (Excel, entregable 4) | 4- IC-Project-Scope.xlsx (declaración de alcance y diccionario WBS, versión parcial) |
+| B | Cronograma (Excel, entregable 8) | LiciFlow_Cronograma.xlsx y LiciFlow.gan (GanttProject) |
+| C | Presupuesto (Excel, entregable 9) | 8_presupuesto_LiciFlow.xlsx |
+| D | Otros documentos y evidencias, si corresponde | Acta de constitución (E1), registro de interesados (1_2__Stakeholders) y 9_Calidad_LiciFlow.docx |
 
-1. El usuario guarda una licitación de interés desde el listado filtrado.
-2. La licitación aparece en el tablero Kanban en la columna inicial.
-3. El usuario asigna un responsable, agrega checklist y sube documentos.
-4. El usuario mueve la licitación entre columnas a medida que avanza el proceso.
+## Lista de comprobación antes de entregar
 
-#### Alertas de plazos
+**Antes de enviar el Plan de Gestión del Proyecto, verifiquen lo siguiente:**
 
-1. El job de alertas revisa periódicamente las licitaciones guardadas por todas las organizaciones.
-2. Si una licitación está a 48 horas del cierre de preguntas o de postulación, se genera una notificación.
-3. El módulo de notificaciones entrega la alerta por el canal configurado (correo, in-app).
+- Se completaron todas las secciones del informe, utilizando la información del proyecto desarrollado por el equipo.
 
-### 5.5 Elección de stack (pendiente)
+- Se integró la información de los nueve entregables anteriores en las secciones correspondientes.
 
-Preguntas que deberán resolverse al definir la tecnología, en base a esta arquitectura:
+- Los códigos, actividades y paquetes de trabajo son coherentes entre la EDT, el cronograma, la matriz RAM y el presupuesto.
 
-- ¿El frontend será una SPA o requiere renderizado en servidor?
-- ¿El backend se implementará como monolito modular o como servicios separados desde el inicio?
-- ¿Qué motor de base de datos se ajusta mejor a los datos estructurados (relacional vs. documental)?
-- ¿Dónde se almacenarán los archivos adjuntos (almacenamiento de objetos vs. sistema de archivos del servidor)?
-- ¿Qué mecanismo se usará para los jobs programados (cron del sistema, servicio de colas, scheduler del proveedor cloud)?
-- ¿Qué proveedor de envío de correo se usará para las notificaciones?
+- Los responsables asignados coinciden con los roles definidos en el organigrama y la matriz RAM.
 
-### 5.6 Decisiones aún no tomadas
+- Los riesgos incluyen estrategias de respuesta, responsables y su relación con los planes afectados.
 
-- Lenguajes y frameworks de frontend y backend.
-- Motor de base de datos.
-- Proveedor de hosting / nube.
-- Estrategia de despliegue y CI/CD.
+- Los requisitos de calidad cuentan con indicadores medibles, criterios de aceptación, métodos de verificación y responsables.
 
-Estas decisiones se documentarán en un archivo separado (`05-decision-stack.md`, a crear) una vez cerrada la etapa de planificación.
+- El presupuesto total, la línea base de costos y las reservas coinciden con la información del archivo Excel.
+
+- Se adjuntaron los tres archivos Excel originales y editables como anexos.
+
+- Las tablas, diagramas e imágenes incorporadas son legibles y corresponden a la versión actualizada del proyecto.
+
+- Se revisaron la redacción, ortografía, nombres de archivos, formato y versión final del informe.
+
+# Ejemplo de verificación cruzada
+
+Requisito: impedir dos reservas simultáneas del mismo laboratorio y horario. 
+
+- Alcance: función de validación de conflictos. 
+
+- EDT: diseño, programación y pruebas. 
+
+- Cronograma: reservar tiempo para desarrollo y pruebas. 
+
+- Recursos: analista, desarrollador y QA. 
+
+- Presupuesto: sus actividades deben figurar en la estimación. 
+
+- Riesgo: fallas de concurrencia. 
+
+- Calidad: cero reservas duplicadas en escenarios de prueba. 
+
+- Interesados: coordinación de laboratorios valida el comportamiento esperado.
 
 ---
 
-## 6. Integración con la API de Mercado Público
-
-> Documento vivo de investigación. Se irá completando a medida que se revise la documentación oficial de ChileCompra y se hagan pruebas de consumo de la API. Las secciones marcadas como «por confirmar» requieren revisión directa de la documentación oficial antes de iniciar el desarrollo.
-
-### 6.1 Propósito
-
-Registrar todo lo que el equipo necesita saber sobre la API de Mercado Público antes de construir el conector descrito en [5. Arquitectura del Sistema](#5-arquitectura-del-sistema), de modo que la integración se diseñe con información verificada y no con supuestos.
-
-### 6.2 Datos generales
-
-*(Por confirmar contra la documentación oficial.)*
-
-- **Proveedor**: ChileCompra (Dirección de Compras y Contratación Pública).
-- **Tipo de acceso**: API pública, requiere ticket/clave de acceso gratuita.
-- **Formato de datos**: JSON (según RNF06).
-- **Protocolo**: HTTP/HTTPS, servicios RESTful.
-
-### 6.3 Información por levantar
-
-- [ ] Proceso exacto para solicitar el ticket/API key de acceso.
-- [ ] Endpoints disponibles (búsqueda de licitaciones, detalle por código, listado por fecha/estado).
-- [ ] Límites de uso (rate limiting): cantidad de solicitudes permitidas por minuto/día.
-- [ ] Estructura completa de la respuesta JSON (campos disponibles por licitación).
-- [ ] Campos que identifican de forma única una licitación (código o ID).
-- [ ] Campos de fecha relevantes: publicación, cierre de preguntas, cierre de postulación, fecha de adjudicación.
-- [ ] Estados posibles de una licitación según la API (publicada, cerrada, adjudicada, desierta, revocada, etc.).
-- [ ] Disponibilidad de un enlace directo a las bases o documentos de la licitación.
-- [ ] Política de actualización de datos (¿cada cuánto se actualizan los registros en el origen?).
-- [ ] Existencia de un ambiente de pruebas (sandbox) separado del ambiente productivo.
-- [ ] Condiciones de uso y términos legales para consumo automatizado de la API.
-
-### 6.4 Consideraciones de diseño del conector
-
-- El conector debe ser el único punto del sistema que conoce la estructura específica de la API externa. El resto del backend debe trabajar con un modelo de datos propio y normalizado.
-- Debe contemplar manejo de errores y reintentos ante caídas o respuestas inesperadas de la API externa (relacionado con RF03).
-- Debe registrar (log) cada sincronización: cantidad de licitaciones nuevas, actualizadas, y errores, para poder auditar fallos.
-- Debe evitar duplicar licitaciones ya existentes en el sistema al volver a sincronizar (idempotencia).
-
-### 6.5 Riesgos específicos de la integración
-
-| Riesgo | Descripción | Mitigación propuesta |
-|---|---|---|
-| Cambio de estructura de la API | ChileCompra podría modificar campos o endpoints sin aviso previo | Validación de esquema antes de guardar datos; alertas internas si la validación falla |
-| Límite de solicitudes (rate limit) | Podría restringir la frecuencia de sincronización | Diseñar la sincronización para operar dentro de los límites informados; usar backoff progresivo |
-| Caída temporal del servicio externo | Afecta el RF03 y la actualidad de los datos mostrados | El sistema debe seguir funcionando con la última data sincronizada exitosamente, mostrando fecha de última actualización al usuario |
-| Cambios en política de acceso (tickets, costos) | Podría requerir renovación o generar costos no previstos | Revisar periódicamente los términos de uso publicados por ChileCompra |
-
-### 6.6 Referencias
-
-- [Documentación oficial de la API de Mercado Público](https://www.chilecompra.cl/api/)
-
-### 6.7 Próximos pasos
-
-1. Solicitar el ticket de acceso a la API.
-2. Realizar una prueba de consumo manual (ej. con Postman o curl) para validar la estructura real de la respuesta.
-3. Documentar en este apartado los hallazgos reales, reemplazando los supuestos.
-4. Actualizar el modelo de datos normalizado en función de los campos confirmados.
-
----
-
-## 7. Gestión de Riesgos
-
-> Contenido de la plantilla Excel *«Plantilla de actividades — Gestión de riesgos»* (`6__Matriz_de_Riesgos.xlsx`) y del archivo `Riesgos.md`. Las tablas de las secciones 7.5 a 7.8 corresponden a las hojas del Excel, que **estaban vacías** (solo estructura, sin riesgos cargados ni valoraciones).
-
-### 7.1 Ruta de trabajo
-
-**Proceso 2 → Registro inicial → Proceso 3 → Matriz de riesgos priorizada → Proceso 4**
-
-| N.º | Etapa | Qué incluye | Estado |
-|---|---|---|---|
-| 1 | **Identificar** | Brainstorming + Delphi + Entrevistas + Causa raíz + DAFO | Hoy |
-| 2 | **Registrar** | Riesgo + Causa + Consecuencia + Categoría | Hoy |
-| 3 | **Analizar** | Probabilidad + Impacto → RAM | Hoy |
-| 4 | **Priorizar** | Nivel de riesgo y orden de atención | Hoy |
-| 5 | **Responder** | Planificar respuestas a los riesgos | Siguiente etapa (clase) |
-
-**Cómo usar la plantilla:**
-
-1. Completar el Registro inicial con los riesgos del propio proyecto.
-2. Evaluar probabilidad e impacto en la hoja del Proceso 3.
-3. Usar la RAM para obtener el nivel.
-4. Revisar la matriz priorizada antes de planificar las respuestas.
-
-### 7.2 Categorías de riesgo
-
-- Técnicos
-- Gestión
-- Externos
-
-### 7.3 Riesgos ya identificados en la documentación
-
-Riesgos que ya aparecen mencionados en las secciones [2.9](#29-riesgos-identificados) y [6.5](#65-riesgos-específicos-de-la-integración), consolidados como insumo para el registro inicial. La **categoría es una sugerencia** y la probabilidad aún no está evaluada.
-
-| Ref. | Riesgo | Fuente | Categoría (sugerida) | Impacto indicado en origen | Mitigación propuesta |
-|---|---|---|---|---|---|
-| R-a | Cambios en la estructura de la API de ChileCompra | 2.9 y 6.5 | Externo | Alto | Aislar integración en módulo propio; validación de esquema; alertas internas; plan de contingencia manual |
-| R-b | Caída temporal o indisponibilidad de la API | 2.9 y 6.5 | Externo | Alto | Operar con la última data sincronizada; mostrar fecha de última actualización |
-| R-c | Límite de solicitudes (rate limit) | 6.5 | Externo | — | Sincronización dentro de los límites; backoff progresivo |
-| R-d | Cambios en política de acceso (tickets, costos) | 6.5 | Externo | — | Revisión periódica de los términos de uso |
-| R-e | Baja adopción por usuarios acostumbrados al proceso manual | 2.9 | Gestión | Medio | Diseño simple, onboarding guiado, foco en RNF01 |
-| R-f | Fuga o pérdida de documentos sensibles de licitación | 2.9 | Técnico | Alto | Cifrado en tránsito y reposo, control de acceso por organización, respaldos periódicos |
-| R-g | Incumplimiento de la Ley 19.628 (datos personales) | 2.9 | Externo | Medio | Revisión legal de la política de privacidad antes del lanzamiento |
-
-### 7.4 Los 5 pasos para evaluar riesgos
-
-| Paso | Acción | Descripción |
-|---|---|---|
-| 1 | Seleccionar el riesgo | Tomar un riesgo del registro inicial |
-| 2 | Asignar probabilidad | Estimar qué tan probable es que ocurra |
-| 3 | Asignar impacto | Determinar qué tan grave sería su efecto |
-| 4 | Ubicarlo en la RAM | Cruzar probabilidad e impacto en la matriz |
-| 5 | Determinar nivel | Obtener el nivel de riesgo y priorizar |
-
-**Resultado:** matriz de riesgos priorizada → insumo para el Proceso 4: Planificar las respuestas a los riesgos.
-
-### 7.5 Registro inicial de riesgos
-
-*(Hoja «1 Registro inicial» del Excel.)*
-
-| ID | Riesgo | Causa | Consecuencia | Categoría | Fuente / técnica | Responsable | Observaciones |
-|---|---|---|---|---|---|---|---|
-| 1 |  |  |  |  |  |  |  |
-| 2 |  |  |  |  |  |  |  |
-| 3 |  |  |  |  |  |  |  |
-| 4 |  |  |  |  |  |  |  |
-| 5 |  |  |  |  |  |  |  |
-| 6 |  |  |  |  |  |  |  |
-| 7 |  |  |  |  |  |  |  |
-| 8 |  |  |  |  |  |  |  |
-| 9 |  |  |  |  |  |  |  |
-| 10 |  |  |  |  |  |  |  |
-| 11 |  |  |  |  |  |  |  |
-| 12 |  |  |  |  |  |  |  |
-| 13 |  |  |  |  |  |  |  |
-| 14 |  |  |  |  |  |  |  |
-| 15 |  |  |  |  |  |  |  |
-
-### 7.6 Evaluación de riesgos (Proceso 3)
-
-*(Hoja «2 Proceso 3» del Excel.)* Nivel = Probabilidad × Impacto, con escalas de 1 a 5.
-
-| ID | Riesgo | Probabilidad (1–5) | Impacto (1–5) | Nivel = P × I | Clasificación | Ubicación RAM | Notas |
-|---|---|---|---|---|---|---|---|
-| 1 |  |  |  |  |  |  |  |
-| 2 |  |  |  |  |  |  |  |
-| 3 |  |  |  |  |  |  |  |
-| 4 |  |  |  |  |  |  |  |
-| 5 |  |  |  |  |  |  |  |
-| 6 |  |  |  |  |  |  |  |
-| 7 |  |  |  |  |  |  |  |
-| 8 |  |  |  |  |  |  |  |
-| 9 |  |  |  |  |  |  |  |
-| 10 |  |  |  |  |  |  |  |
-| 11 |  |  |  |  |  |  |  |
-| 12 |  |  |  |  |  |  |  |
-| 13 |  |  |  |  |  |  |  |
-| 14 |  |  |  |  |  |  |  |
-| 15 |  |  |  |  |  |  |  |
-
-### 7.7 Matriz de evaluación de riesgos (RAM)
-
-*(Hoja «3 RAM» del Excel.)* Cada celda es el producto Probabilidad × Impacto.
-
-| Probabilidad ↓ / Impacto → | 1 | 2 | 3 | 4 | 5 |
-|---|---|---|---|---|---|
-| **5** | 5 | 10 | 15 | 20 | 25 |
-| **4** | 4 | 8 | 12 | 16 | 20 |
-| **3** | 3 | 6 | 9 | 12 | 15 |
-| **2** | 2 | 4 | 6 | 8 | 10 |
-| **1** | 1 | 2 | 3 | 4 | 5 |
-
-**Referencia de clasificación:**
-
-| Nivel | Clasificación |
-|---|---|
-| 1–4 | Bajo |
-| 5–9 | Medio |
-| 10–25 | Alto |
-
-### 7.8 Matriz de riesgos priorizada
-
-*(Hoja «4 Matriz priorizada» del Excel.)* Se completa a partir de las secciones 7.5 y 7.6, ordenando por nivel de mayor a menor.
-
-| ID | Riesgo | Causa | Consecuencia | Probabilidad | Impacto | Nivel | Prioridad / acción |
-|---|---|---|---|---|---|---|---|
-| 1 |  |  |  |  |  |  |  |
-| 2 |  |  |  |  |  |  |  |
-| 3 |  |  |  |  |  |  |  |
-| 4 |  |  |  |  |  |  |  |
-| 5 |  |  |  |  |  |  |  |
-| 6 |  |  |  |  |  |  |  |
-| 7 |  |  |  |  |  |  |  |
-| 8 |  |  |  |  |  |  |  |
-| 9 |  |  |  |  |  |  |  |
-| 10 |  |  |  |  |  |  |  |
-| 11 |  |  |  |  |  |  |  |
-| 12 |  |  |  |  |  |  |  |
-| 13 |  |  |  |  |  |  |  |
-| 14 |  |  |  |  |  |  |  |
-| 15 |  |  |  |  |  |  |  |
-
----
-
-## 8. Observaciones sobre la documentación
-
-Puntos detectados al consolidar los archivos, para revisar antes de cerrar la planificación:
-
-- **Presupuesto inconsistente**: el Acta indica «1.000.000 aprox» en la identificación (1.1) y «12.000.000» en las restricciones (1.8).
-- **Alcance público vs. privado**: el objetivo y la justificación hablan de licitaciones «públicas y privadas» (1.3, 1.4, 2.2), pero el alcance excluye las privadas fuera de Mercado Público (1.7, 2.7).
-- **Registro de interesados incompleto**: las filas 7 a 9 de la tabla 3.2 están vacías, y la matriz 3.3 menciona interesados que no figuran en la tabla (Proveedor de datos, Equipo de soporte, Asistentes administrativos).
-- **Interesado crítico**: se describe al proveedor de datos con «bajo interés», pero está ubicado en «Poder alto / Interés bajo»; conviene reflejarlo también en la tabla 3.2.
-- **Riesgos sin evaluar**: el Excel de riesgos no tiene riesgos cargados ni probabilidades/impactos asignados (secciones 7.5 a 7.8).
-- **Patrocinador genérico**: el sponsor figura como «Empresas», sin una entidad o persona concreta.
-- **Dependencia externa pendiente**: toda la sección 6 está por confirmar contra la documentación oficial de la API.
-
----
-
-## Véase también
-- [[_MOC|MOC Gestión de Proyectos]]
-- [[Clase_07_Estandar_PMBOK_8|Estándar PMBOK 8]]
-- [[Clase_08_PMBOK_Procesos_de_Inicio|Procesos de Inicio PMBOK 8]]
-- [[Clase_09_PMBOK_Planificacion_Alcance_EDT|Planificación del Alcance y EDT]]
-- [[Clase_10_PMBOK_Interesados_Comunicaciones_Recursos|Interesados, Comunicaciones y Recursos]]
-- [[Clase_11_PMBOK_Gestion_de_Riesgos_Identificacion_y_Analisis|Gestión de Riesgos]]
-- [[Clase_12_PMBOK_Respuesta_a_Riesgos_y_Reservas|Respuesta a Riesgos y Reservas]]
-- [[Clase_13_PMBOK_Gestion_del_Cronograma|Gestión del Cronograma]]
-- [[Clase_14_PMBOK_Gestion_Financiera_y_Calidad|Gestión Financiera y Calidad]]
-- [[Metodologias Agiles]]
+Project Management Institute · PMBOK® 8 ·
