@@ -1,4 +1,4 @@
-# Material de Ingeniería Informática — USM
+# Material de Ingeniería Informática
 
 Este repositorio contiene apuntes, laboratorios, proyectos y resúmenes de asignaturas de la carrera de **Ingeniería Informática** en la **Universidad Técnica Federico Santa María (USM)**.
 
@@ -11,7 +11,7 @@ Está estructurado bajo el patrón **LLM-Wiki**, diseñado para ser gestionado y
 
 ## Arquitectura del Repositorio (3 Capas)
 
-El repositorio sigue una arquitectura estricta de 3 capas, definida en detalle en [`AGENTS.md`](./AGENTS.md):
+El repositorio sigue una arquitectura de 3 capas, definida en detalle en [`AGENTS.md`](./AGENTS.md):
 
 ```text
 /
@@ -37,7 +37,7 @@ El repositorio sigue una arquitectura estricta de 3 capas, definida en detalle e
 
 El catálogo principal y la navegación se encuentran en [`index.md`](./index.md).
 
-Las asignaturas documentadas actualmente incluyen:
+Las asignaturas documentadas incluyen:
 
 | Asignatura | Carpeta Wiki | Contenido Principal |
 | :--- | :--- | :--- |
