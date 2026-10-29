@@ -5,6 +5,8 @@ tags:
   - saludvital
   - etl
   - data-warehouse
+  - python
+  - power-bi
 aliases:
   - "SaludVital"
   - "Proyecto SaludVital"
@@ -54,6 +56,19 @@ created: 2026-10-08
   - [7.2. Arquitectura y flujo de procesamiento](#72-arquitectura-y-flujo-de-procesamiento)
   - [7.3. Matriz de mapeo origen a destino](#73-matriz-de-mapeo-origen-a-destino)
     - [7.3.1. Tablas de dimensiones](#731-tablas-de-dimensiones)
+    - [7.3.2. Tablas de hechos](#732-tablas-de-hechos)
+  - [7.4. Estrategia de calidad, excepciones y manejo de errores](#74-estrategia-de-calidad-excepciones-y-manejo-de-errores)
+    - [7.4.1. Reglas de calidad aplicadas](#741-reglas-de-calidad-aplicadas)
+    - [7.4.2. Consolidación de pacientes duplicados (RN03)](#742-consolidación-de-pacientes-duplicados-rn03)
+    - [7.4.3. Manejo de excepciones y trazabilidad](#743-manejo-de-excepciones-y-trazabilidad)
+    - [7.4.4. Validaciones post-carga (conciliación)](#744-validaciones-post-carga-conciliación)
+  - [7.5. Implementación y ejecución](#75-implementación-y-ejecución)
+    - [7.5.1. Herramientas](#751-herramientas)
+    - [7.5.2. Estructura del proyecto](#752-estructura-del-proyecto)
+    - [7.5.3. Ejecución](#753-ejecución)
+    - [7.5.4. Consumo desde Power BI](#754-consumo-desde-power-bi)
+  - [7.6. Script de referencia](#76-script-de-referencia)
+  - [7.7. Limitaciones y trabajo futuro](#77-limitaciones-y-trabajo-futuro)
 
 ---
 
@@ -158,7 +173,7 @@ Externos:
 
 *Un catalogo de reglas de negocio es una lista ordenada y documentada que recopila las condiciones, restricciones, políticas y normas bajo las cuales opera una organización*
 
-*Al analizar `SALUDVITAL_2BaseDatos.xlsx`, se detectó que la tabla `03_ESPECIALIDADES`esta errónea (es una copia exacta de `02_MEDICOS` ), por lo que RN01 para deducir las 10 especialidades a partir de las prestaciones, garantizando la integridad del modelo dimensional.*
+*Al analizar `SaludVital_BaseDatos.xlsx`, se detectó que la tabla `03_ESPECIALIDADES`esta errónea (es una copia exacta de `02_MEDICOS` ), por lo que RN01 para deducir las 10 especialidades a partir de las prestaciones, garantizando la integridad del modelo dimensional.*
 
 ### 3.1.1. Reglas sobre Limpieza y Estructura de Datos (ETL)
 
@@ -228,7 +243,7 @@ Externos:
 
 ## 5.1. Alcance y fuente
 
-El perfilamiento se realizó sobre el archivo `SALUDVITAL_2BaseDatos.xlsx`, que contiene 7 tablas: 
+El perfilamiento se realizó sobre el archivo `SaludVital_BaseDatos.xlsx`, que contiene 7 tablas: 
 - `01_PACIENTES`
 - `02_MEDICOS`
 - `03_ESPECIALIDADES`
@@ -304,7 +319,7 @@ Para responder también a las preguntas de demanda y efectividad (RQ01–RQ08), 
 | MedicoKey (FK)            | Entero       | → `DIM_MEDICO`                                       |
 | EstadoKey (FK)            | Entero       | → `DIM_ESTADO_RESERVA`                               |
 | FechaKey (FK)             | Entero       | → `DIM_TIEMPO` (fecha de la reserva)                 |
-| HoraReserva               | Hora         | Hora agendada                                        |
+| HoraReservaHHMM           | Texto (HH:MM) | Hora agendada                                        |
 | EsAtendida                | Booleano/0-1 | Bandera derivada (1 si EstadoReserva = "Atendida")   |
 | EsInasistencia            | Booleano/0-1 | Bandera derivada (1 si EstadoReserva = "No asistió") |
 
@@ -328,11 +343,11 @@ Para responder también a las preguntas de demanda y efectividad (RQ01–RQ08), 
 | Dimensión | Llave | Atributos principales | Origen |
 |---|---|---|---|
 | `DIM_PACIENTE` | PacienteKey | PacienteID, Nombre, Comuna, FechaNacimiento, Edad, Previsión, Sexo | `01_PACIENTES` (excluyendo columna vacía y registros incompletos) |
-| `DIM_MEDICO` | MedicoKey | MedicoID, Nombre, EspecialidadID (atributo de referencia) | `02_MEDICOS` |
+| `DIM_MEDICO` | MedicoKey | MedicoID, Nombre, EspecialidadID (atributo de referencia), EspecialidadKey | `02_MEDICOS` |
 | `DIM_ESPECIALIDAD` | EspecialidadKey | EspecialidadID, NombreEspecialidad (estandarizado) | Deducida de `04_PRESTACIONES` (RN01) + normalización (RN02) |
-| `DIM_PRESTACION` | PrestacionKey | PrestacionID, NombrePrestación, EspecialidadID, ValorListado | `04_PRESTACIONES` |
+| `DIM_PRESTACION` | PrestacionKey | PrestacionID, NombrePrestacion, EspecialidadID, EspecialidadKey, ValorListado | `04_PRESTACIONES` |
 | `DIM_ESTADO_RESERVA` | EstadoKey | Atendida / Cancelada / No asistió / Pendiente | `05_RESERVAS` (catálogo fijo de 4 estados) |
-| `DIM_TIEMPO` | FechaKey | Fecha, Día, Mes, Nombre Mes, Trimestre, Año, Día de semana, Es fin de semana | Calendario generado |
+| `DIM_TIEMPO` | FechaKey | Fecha, Día, Mes, NombreMes, Trimestre, Año, DiaSemana, EsFinDeSemana | Calendario generado |
 
 ## 6.4. Esquema y relaciones
 
@@ -375,7 +390,7 @@ erDiagram
 
 El proceso ETL es el encargado de convertir la información dispersa de SaludVital (planillas Excel con 7 tablas y 142 filas en total) en un **Data Mart dimensional**, que alimente el modelo semántico y el dashboard en Power BI. Su diseño se deriva directamente de los hallazgos de la sección 5 y de las reglas de negocio de la sección 3.
 
-### 7.1.1 Objetivos del ETL
+### 7.1.1. Objetivos del ETL
 
 1. Consolidar en un solo destino las fuentes distribuidas (Problema 1).
 2. Corregir o aislar los problemas de calidad detectados: especialidades inconsistentes, pacientes duplicados o incompletos, columnas residuales (Problemas 2 y 3).
@@ -386,12 +401,12 @@ El proceso ETL es el encargado de convertir la información dispersa de SaludVit
 
 | Decisión            | Definición                                                                                   | Justificación                                                                                                       |
 | ------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Estrategia de carga | _Full refresh_ (truncar y recargar) en esta etapa                                            | Volumen mínimo (142 filas), simplifica la idempotencia. Queda preparado para carga incremental por fecha de reserva |
-| Capas               | Origen (Excel) → Staging (`STG_*`) → Data Mart (`DIM_*`, `FACT_*`)                           | Separa la copia fiel del origen de los datos ya depurados                                                           |
+| Estrategia de carga | _Full refresh_ (truncar y recargar) en esta etapa: el script sobrescribe todos los CSV en cada ejecución | Volumen mínimo (142 filas), simplifica la idempotencia. Queda preparado para carga incremental por fecha de reserva |
+| Capas               | Origen (Excel) → Staging (`STG_*`, CSV en `staging/`) → Data Mart (`DIM_*`, `FACT_*`, CSV en `datamart/`) | Separa la copia fiel del origen de los datos ya depurados |
 | Claves              | Claves sustitutas (_surrogate keys_) enteras en cada dimensión, `-1` = miembro "Desconocido" | Evita perder hechos ante relaciones inválidas y desacopla el DW de los IDs del origen                               |
 | Orden de carga      | Dimensiones primero, luego hechos                                                            | Los hechos requieren las claves sustitutas ya generadas                                                             |
 | Manejo de errores   | Cuarentena + registro de errores, nunca se elimina un registro sin dejar evidencia           | Cumple el requisito de explicar toda diferencia entre origen y destino                                              |
-| Herramienta         | Por definir por el equipo (Python/pandas + base relacional, SSIS o Power Query)              | La lógica documentada es independiente de la herramienta                                                            |
+| Herramienta         | Python 3.13 + pandas (openpyxl para leer el Excel). El Data Mart se exporta como CSV y se consume desde Power BI | Volumen pequeño, sin necesidad de motor de base de datos. La lógica documentada sigue siendo independiente de la herramienta |
 
 ---
 ## 7.2. Arquitectura y flujo de procesamiento
@@ -411,11 +426,11 @@ flowchart LR
 | Etapa                 | Qué ocurre                                                                                                                                                                                                                                                                   | Reglas y hallazgos que aplica           | Salida                                                                                                       |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | **1. Origen**         | Se utiliza el libro `SaludVital_BaseDatos.xlsx` con las hojas `01_PACIENTES`, `02_MEDICOS`, `03_ESPECIALIDADES`, `04_PRESTACIONES`, `05_RESERVAS`, `06_ATENCIONES` y `07_DETALLE_ATENCION`                                                                                   | Alcance definido en 5.1                 | Archivo fuente de solo lectura                                                                               |
-| **2. Extracción**     | Lectura de cada hoja hacia una tabla de staging idéntica al origen, agregando columnas de auditoría (`FechaCarga`, `ArchivoOrigen`, `NroFila`). Se excluye la columna `Unnamed: 1` de `01_PACIENTES`. `03_ESPECIALIDADES` se lee pero **no se usa** para poblar el Data Mart | Hallazgo 5.3 (columna vacía), RN01      | `STG_PACIENTES`, `STG_MEDICOS`, `STG_PRESTACIONES`, `STG_RESERVAS`, `STG_ATENCIONES`, `STG_DETALLE_ATENCION` |
+| **2. Extracción**     | Lectura de cada hoja hacia una tabla de staging idéntica al origen, agregando columnas de auditoría (`FechaCarga`, `ArchivoOrigen`, `NroFila`). Se excluye la columna `Unnamed: 1` de `01_PACIENTES`. `03_ESPECIALIDADES` se lee pero **no se usa** para poblar el Data Mart | Hallazgo 5.3 (columna vacía), RN01      | `STG_PACIENTES`, `STG_MEDICOS`, `STG_ESPECIALIDADES` (solo trazabilidad), `STG_PRESTACIONES`, `STG_RESERVAS`, `STG_ATENCIONES`, `STG_DETALLE_ATENCION` |
 | **3. Limpieza**       | Eliminación de espacios sobrantes, estandarización de mayúsculas/tildes, validación de llaves primarias y de catálogos, cuarentena de registros incompletos (P031–P033), consolidación de pacientes duplicados                                                               | RN02, RN03, controles DQ01–DQ12 (7.4.1) | Datos depurados + registros en cuarentena                                                                    |
 | **4. Transformación** | Derivación de campos (`EsAtendida`, `EsInasistencia`, `IngresoLinea`, `Edad`, `FechaKey`), construcción de `DIM_ESPECIALIDAD` desde `04_PRESTACIONES`, generación del calendario `DIM_TIEMPO` y del catálogo fijo `DIM_ESTADO_RESERVA`                                       | RN01, RN04–RN07                         | Datos listos para modelar                                                                                    |
-| **5. Integración**    | Asignación de claves sustitutas, uniones `Reservas ⟶ Atenciones ⟶ Detalle ⟶ Prestaciones`, resolución de claves foráneas con miembro `-1` ante relaciones inválidas, uso de dimensiones conformadas por ambos hechos                                                         | RN08, integridad referencial 5.4        | `DIM_*` y `FACT_*` en memoria o en tablas temporales                                                         |
-| **6. Carga**          | Carga ordenada de dimensiones y hechos, validaciones de conciliación y registro de la ejecución                                                                                                                                                                              | 7.4.4                                   | Data Mart poblado + `ETL_LOG_EJECUCION`                                                                      |
+| **5. Integración**    | Asignación de claves sustitutas, uniones `Reservas ⟶ Atenciones ⟶ Detalle ⟶ Prestaciones`, resolución de claves foráneas con miembro `-1` ante relaciones inválidas, uso de dimensiones conformadas por ambos hechos                                                         | RN08, integridad referencial 5.4        | `DIM_*` y `FACT_*` en memoria (DataFrames de pandas)                                                         |
+| **6. Carga**          | Carga ordenada de dimensiones y hechos, validaciones de conciliación y registro de la ejecución                                                                                                                                                                              | 7.4.4                                   | Data Mart en CSV (`datamart/`) + logs y cuarentena en `control/`                                                                      |
 
 **Orden de ejecución de la carga**
 
@@ -512,8 +527,8 @@ La comparación se hace sobre el texto normalizado (minúsculas, sin tildes, sin
 |---|---|---|
 |FechaKey|Fecha|Entero `AAAAMMDD`|
 |Fecha, Día, Mes, Trimestre, Año|Fecha|Descomposición de la fecha|
-|Nombre Mes, Día de semana|Fecha|Nombres en español (Enero…, Lunes…)|
-|Es fin de semana|Día de semana|1 si es sábado o domingo|
+|NombreMes, DiaSemana|Fecha|Nombres en español (Enero…, Lunes…)|
+|EsFinDeSemana|Día de semana|1 si es sábado o domingo|
 
 _Rango:_ desde el 1 de enero del año de la primera reserva hasta el 31 de diciembre del año de la última. Con los datos actuales las reservas van del 05-01-2026 al 03-02-2026, por lo que el calendario cubre todo 2026.
 
@@ -528,7 +543,7 @@ _Rango:_ desde el 1 de enero del año de la primera reserva hasta el 31 de dicie
 | MedicoKey      | `MedicoID`      | Búsqueda en `DIM_MEDICO`. Sin coincidencia → `-1` y registro en log                                                                  | —         |
 | EstadoKey      | `EstadoReserva` | Normalizar y buscar en `DIM_ESTADO_RESERVA`. Fuera de catálogo → cuarentena                                                          | RN04–RN06 |
 | FechaKey       | `FechaReserva`  | Convertir a `AAAAMMDD`                                                                                                               | —         |
-| HoraReserva    | `HoraReserva`   | Convertir a formato `HH:MM` (el origen trae hora de Excel)                                                                           | —         |
+| HoraReservaHHMM | `HoraReserva`   | Convertir a formato `HH:MM` (el origen trae hora de Excel)                                                                           | —         |
 | EsAtendida     | `EstadoReserva` | `1` si es "Atendida", `0` en otro caso                                                                                               | RN04      |
 | EsInasistencia | `EstadoReserva` | `1` si es "No asistió", `0` en otro caso                                                                                             | RN06      |
 
@@ -588,11 +603,13 @@ En la base actual no hay duplicados (los 30 pacientes completos tienen nombre no
 2. **Generar la clave de comparación** con el nombre normalizado. Para no fusionar homónimos (en el perfilamiento "Pérez" aparece 5 veces entre personas distintas) se compara siempre el nombre completo y, cuando existan, se refuerza con sexo y edad o fecha de nacimiento.
 3. **Elegir el sobreviviente:** el registro más completo y, en empate, el de menor `PacienteID`.
 4. **Registrar la equivalencia** en la tabla puente `MAP_PACIENTE (PacienteID_origen → PacienteKey)`, de modo que las reservas de los IDs duplicados apunten al paciente consolidado.
-5. Los pares con coincidencia parcial (similitud difusa sin coincidencia exacta) no se fusionan automáticamente: pasan a revisión manual.
+5. Los pares con coincidencia parcial (similitud difusa sin coincidencia exacta) no se fusionan automáticamente: pasan a revisión manual. En la implementación actual, el caso que va a revisión manual es el de nombre normalizado idéntico con sexo o fecha de nacimiento contradictorios; la similitud difusa (p. ej. distancia de Levenshtein) no está implementada (ver 7.7).
 
 La función de normalización y la clave de comparación están en el script de referencia (7.6): `normalizar()` y `clave_paciente()`.
 
 `normalizar()` se reutiliza para especialidades (RN02) y para el estado de la reserva.
+
+**Verificación del control.** Como la fuente actual no trae duplicados, se probó `dim_paciente()` con registros sintéticos: *Juan Pérez* (P001), *Juan A. Pérez* (P002) y *JUAN PEREZ* (P003) se consolidaron en P001. `MAP_PACIENTE` apunta los tres IDs a la misma clave y el log registra dos correcciones DQ06. Dos registros *Ana Soto* con sexo distinto (posibles homónimos) no se fusionaron y quedaron como advertencia DQ06 para revisión manual.
 
 ### 7.4.3. Manejo de excepciones y trazabilidad
 
@@ -609,9 +626,11 @@ La función de normalización y la clave de comparación están en el script de 
 
 | Tabla               | Campos principales                                                                      | Uso                                                                     |
 | ------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `ETL_LOG_EJECUCION` | EjecucionID, FechaInicio, FechaFin, Estado, FilasLeidas, FilasCargadas, FilasRechazadas | Una fila por ejecución del proceso                                      |
-| `ETL_ERROR_LOG`     | EjecucionID, Tabla, Campo, ValorOriginal, CodigoDQ, Severidad, Accion, Fecha            | Detalle de cada incidencia                                              |
-| `QUARANTINE_*`      | Copia del registro rechazado + CodigoDQ                                                 | Permite revisarlo y reprocesarlo una vez corregido en el sistema origen |
+| `ETL_LOG_EJECUCION` | FechaInicio, FechaFin, Estado, FilasLeidas, FilasCargadas, FilasRechazadas | Una fila con el resumen de la última ejecución (`control/ETL_LOG_EJECUCION.csv`) |
+| `ETL_ERROR_LOG`     | Tabla, Campo, ValorOriginal, CodigoDQ, Severidad, Accion, Fecha | Detalle de cada incidencia de la última ejecución (`control/ETL_ERROR_LOG.csv`) |
+| `QUARANTINE_*`      | Copia del registro rechazado + CodigoDQ | Archivos como `QUARANTINE_PACIENTES.csv`, solo se crean si hay registros rechazados. Permite revisarlo y reprocesarlo una vez corregido en el sistema origen |
+
+Los tres tipos de archivo se regeneran en cada ejecución (consistente con _full refresh_), por lo que reflejan solo la última corrida. `FilasLeidas` suma las filas de las 7 hojas (142), `FilasCargadas` las de ambas tablas de hechos y `FilasRechazadas` los registros en cuarentena. El `EjecucionID` previsto en el diseño original no está implementado (ver 7.7).
 
 **Reprocesamiento:** como la carga es _full refresh_, volver a ejecutar el ETL con la fuente corregida produce el mismo resultado sin duplicar datos (proceso idempotente).
 
@@ -628,9 +647,128 @@ La función de normalización y la clave de comparación están en el script de 
 |Filas en `FACT_PRESTACIONES`|22 = detalles de atenciones "Atendida"|
 |Suma de `IngresoLinea`|$805.000, igual a la suma de `Cantidad × ValorUnitario` del origen|
 |Filas de hecho con clave `-1`|0|
-|Incidencias en `ETL_ERROR_LOG`|3 errores DQ03 (P031–P033) y 5 advertencias DQ13|
+|Incidencias en `ETL_ERROR_LOG`|10 registros: 3 errores DQ03 (P031–P033), 5 advertencias DQ13 y 2 informativas (DQ01, DQ02)|
 
-Si alguna validación falla, la ejecución se marca como "Con errores" en `ETL_LOG_EJECUCION` y no se publica el Data Mart hasta revisar la diferencia.
+El script ejecuta automáticamente cuatro de estas validaciones (filas de ambas tablas de hechos contra el origen, suma de `IngresoLinea` contra la suma de `Cantidad × ValorUnitario` del origen y ausencia de claves `-1` en los hechos) e imprime `[OK]` o `[FALLA]` por consola. Los conteos de dimensiones se muestran en el bloque "FILAS POR TABLA". Los resultados de la tabla anterior fueron verificados ejecutando `etl_saludvital.py` sobre `SaludVital_BaseDatos.xlsx`.
+
+Si alguna validación falla, la ejecución se marca como "Con errores" en `ETL_LOG_EJECUCION` y el script avisa por consola. Los CSV igualmente se escriben, por lo que no debe cargarse el Data Mart en Power BI hasta revisar la diferencia.
+
+
+---
+## 7.5. Implementación y ejecución
+
+El ETL está implementado en un único script, `etl_saludvital.py`, que ejecuta las seis etapas de 7.2 en el orden de carga definido y exporta el resultado en CSV. No usa una base de datos intermedia: Power BI consume directamente los CSV del Data Mart.
+
+### 7.5.1. Herramientas
+
+| Componente | Versión | Uso |
+|---|---|---|
+| Python | 3.13 | Ejecución del script |
+| pandas | ≥ 2.2 | Limpieza, transformación y generación de dimensiones y hechos |
+| openpyxl | ≥ 3.1 | Lectura del libro `.xlsx` (dependencia de pandas) |
+| Power BI Desktop | — | Modelo semántico, medidas DAX y dashboard |
+
+### 7.5.2. Estructura del proyecto
+
+```text
+SaludVital/
+├── etl_saludvital.py
+├── requirements.txt
+├── SaludVital_BaseDatos.xlsx     # origen (solo lectura)
+├── .venv/                        # entorno virtual (no se versiona)
+├── staging/                      # STG_*.csv (7 archivos, con columnas de auditoría)
+├── datamart/                     # DIM_*.csv (6) y FACT_*.csv (2)
+└── control/                      # ETL_ERROR_LOG, ETL_LOG_EJECUCION, QUARANTINE_*
+```
+
+### 7.5.3. Ejecución
+
+El script usa rutas relativas, por lo que debe ejecutarse desde la carpeta que contiene el Excel. Contenido de `requirements.txt`:
+
+```text
+pandas>=2.2
+openpyxl>=3.1
+```
+
+Pasos en PowerShell:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python etl_saludvital.py
+```
+
+Al terminar, la consola muestra el bloque de conciliación (`[OK]` / `[FALLA]`), las filas por tabla y un resumen de incidencias por código DQ.
+
+### 7.5.4. Consumo desde Power BI
+
+Los ocho archivos de `datamart/` se importan con "Obtener datos → Texto/CSV" (codificación UTF-8). Relaciones del modelo (muchos → uno), según el esquema de 6.4:
+
+| Desde (muchos) | Hacia (uno) |
+|---|---|
+| `FACT_RESERVAS[PacienteKey]` | `DIM_PACIENTE[PacienteKey]` |
+| `FACT_RESERVAS[MedicoKey]` | `DIM_MEDICO[MedicoKey]` |
+| `FACT_RESERVAS[EstadoKey]` | `DIM_ESTADO_RESERVA[EstadoKey]` |
+| `FACT_RESERVAS[FechaKey]` | `DIM_TIEMPO[FechaKey]` |
+| `FACT_PRESTACIONES[PacienteKey]` | `DIM_PACIENTE[PacienteKey]` |
+| `FACT_PRESTACIONES[MedicoKey]` | `DIM_MEDICO[MedicoKey]` |
+| `FACT_PRESTACIONES[EspecialidadKey]` | `DIM_ESPECIALIDAD[EspecialidadKey]` |
+| `FACT_PRESTACIONES[PrestacionKey]` | `DIM_PRESTACION[PrestacionKey]` |
+| `FACT_PRESTACIONES[FechaKey]` | `DIM_TIEMPO[FechaKey]` |
+| `DIM_MEDICO[EspecialidadKey]` | `DIM_ESPECIALIDAD[EspecialidadKey]` |
+| `DIM_PRESTACION[EspecialidadKey]` | `DIM_ESPECIALIDAD[EspecialidadKey]` |
+
+`DIM_TIEMPO[Fecha]` debe marcarse como tabla de fechas. Las dos relaciones entre dimensiones (`DIM_MEDICO` y `DIM_PRESTACION` hacia `DIM_ESPECIALIDAD`) crean rutas alternativas hacia `FACT_PRESTACIONES`, por lo que Power BI puede dejar alguna inactiva: al modelar hay que verificar que las relaciones directas de los hechos queden activas.
+
+---
+## 7.6. Script de referencia
+
+El script completo se versiona junto al proyecto como `etl_saludvital.py`. Cada función corresponde a una etapa de 7.2:
+
+| Función | Etapa | Reglas / controles |
+|---|---|---|
+| `extraer()` | 1-2. Origen y extracción | DQ01, DQ02; columnas de auditoría; copia a `staging/` |
+| `pk_duplicada()` | 3. Limpieza | DQ07 (detiene la carga) |
+| `dim_especialidad()` | 4. Transformación | RN01, RN02; detiene la carga si falta el nombre maestro |
+| `dim_medico()`, `dim_prestacion()` | 4-5. Transformación e integración | DQ11 (valores negativos) |
+| `dim_estado()`, `dim_tiempo()` | 4. Transformación | Catálogo fijo de 4 estados; calendario generado |
+| `dim_paciente()` | 3-4. Limpieza y transformación | DQ03, DQ06, RN03; genera `MAP_PACIENTE` |
+| `fact_reservas()` | 5. Integración | DQ04, DQ08, DQ12; RN04-RN06 |
+| `fact_prestaciones()` | 5. Integración | DQ08-DQ13; RN07, RN08 |
+| `volcar_control()`, `main()` | 6. Carga | Conciliación 7.4.4; logs y cuarentena |
+
+Funciones de normalización usadas por RN02 y RN03 (referenciadas en 7.4.2):
+
+```python
+def normalizar(s):
+    """minúsculas, sin tildes, sin puntuación, espacios colapsados (RN02/RN03)."""
+    if pd.isna(s):
+        return ""
+    s = unicodedata.normalize("NFKD", str(s))
+    s = "".join(c for c in s if not unicodedata.combining(c)).lower()
+    s = re.sub(r"[^\w\s]", " ", s)
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def clave_paciente(nombre):
+    """Nombre normalizado sin iniciales sueltas: 'juan a perez' -> 'juan perez'."""
+    return " ".join(t for t in normalizar(nombre).split() if len(t) > 1)
+```
+
+Con ellas, `Juan Pérez`, `Juan A. Pérez` y `JUAN PEREZ` producen la misma clave de comparación: `juan perez`.
+
+---
+## 7.7. Limitaciones y trabajo futuro
+
+- **DQ05 / RN02 sin datos reales:** ninguna fuente actual trae nombres de especialidad, por lo que el control de alias solo existe como tabla semilla (`MAP_ALIAS_ESPECIALIDAD`) y no se ejercita con datos.
+- **RN03 verificado solo con datos sintéticos:** la base actual no tiene pacientes duplicados (ver 7.4.2). La implementación usa coincidencia exacta del nombre normalizado; no incluye similitud difusa.
+- **DQ13 pendiente de validación:** los 5 casos se cargan con la especialidad de la prestación. Falta confirmar con el centro cuál campo es el erróneo.
+- **`Edad` dinámica:** se calcula a la fecha de ejecución, por lo que cambia entre corridas.
+- **Logs sin historial:** `ETL_LOG_EJECUCION` y `ETL_ERROR_LOG` se sobrescriben en cada ejecución y no tienen `EjecucionID`. Llevar historial requiere agregar ese identificador y escribir en modo _append_.
+- **Data Mart en CSV:** no es una base relacional. Si se requiere, los CSV pueden cargarse en SQLite o PostgreSQL sin cambiar la lógica.
+- **Carga incremental no implementada:** solo _full refresh_.
+- **Errores críticos:** ante una hoja faltante, una PK duplicada o una especialidad sin nombre, el script se detiene y no sobrescribe `datamart/`. Pueden quedar los CSV de la ejecución anterior, por lo que conviene revisar `ETL_LOG_EJECUCION.Estado` antes de refrescar Power BI.
 
 ---
 

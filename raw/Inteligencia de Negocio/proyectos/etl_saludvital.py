@@ -365,6 +365,8 @@ def fact_prestaciones(stg, f_res, mapa_pac, d_med, d_prest, d_esp):
 # ------------------------------------------------------------------ 6. CARGA Y CONTROL
 def volcar_control(estado, leidas, cargadas, rechazadas):
     SALIDA_CTRL.mkdir(exist_ok=True)
+    for f in SALIDA_CTRL.glob("QUARANTINE_*.csv"):   # evita cuarentenas obsoletas de corridas anteriores
+        f.unlink()
     guardar(pd.DataFrame(ERROR_LOG, columns=["Tabla", "Campo", "ValorOriginal", "CodigoDQ",
                                              "Severidad", "Accion", "Fecha"]), SALIDA_CTRL, "ETL_ERROR_LOG")
     guardar(pd.DataFrame([{"FechaInicio": FECHA_EJEC.isoformat(timespec="seconds"),
