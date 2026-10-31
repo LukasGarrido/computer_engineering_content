@@ -1,0 +1,8 @@
+pandas
+numpy
+pillow
+matplotlib
+opencv-python
+kagglehub
+
+ipykernel

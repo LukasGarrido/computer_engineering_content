@@ -4,21 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "d299d1ce7494cbe3",
+        "id": "1649f60b54e3e42c",
         "type": "tabs",
         "children": [
           {
-            "id": "4e32fb7ecb750a6a",
+            "id": "c5f49980e1c4c73f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "wiki/Gestion de Proyectos/LiciFlow_Documentacion.md",
-                "mode": "source",
-                "source": false
+                "file": "raw/Visualizacion/material_docente/Introducción_a_procesamiento_de_imágenes.pdf"
               },
-              "icon": "lucide-file",
-              "title": "LiciFlow_Documentacion"
+              "icon": "lucide-file-text",
+              "title": "Introducción_a_procesamiento_de_imágenes"
             }
           }
         ]
@@ -83,7 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 265.44329833984375
+    "width": 211.27963256835938
   },
   "right": {
     "id": "9e7bf7891c800dbb",
@@ -188,8 +186,9 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "4e32fb7ecb750a6a",
+  "active": "c5f49980e1c4c73f",
   "lastOpenFiles": [
+    "wiki/Gestion de Proyectos/LiciFlow_Documentacion.md",
     "wiki/Gestion de Proyectos/Clase_12_PMBOK_Respuesta_a_Riesgos_y_Reservas.md",
     "raw/Responsabilidad Social y Etica/Resumen-Etica2.pdf",
     "wiki/Responsabilidad Social y Etica/Analisis_Sesiones_IV_V_VI_RSE.md",
@@ -225,7 +224,6 @@
     "wiki/_conceptos/CRISP-DM.md",
     "wiki/_conceptos/Metodologias Agiles.md",
     "wiki/_conceptos/Redes Neuronales.md",
-    "wiki/_conceptos/Series de Tiempo.md",
     "raw/assets/Pasted image 20260613223746.png",
     "raw/assets/dw.png",
     "raw/assets/CorrecionGama.png",
