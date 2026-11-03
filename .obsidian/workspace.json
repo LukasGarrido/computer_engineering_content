@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "1649f60b54e3e42c",
+        "id": "44cde0438d607106",
         "type": "tabs",
         "children": [
           {
-            "id": "c5f49980e1c4c73f",
+            "id": "231ad0de5c7afe16",
             "type": "leaf",
             "state": {
               "type": "pdf",
@@ -17,6 +17,32 @@
               },
               "icon": "lucide-file-text",
               "title": "Introducción_a_procesamiento_de_imágenes"
+            }
+          },
+          {
+            "id": "bb4df73434cb26b8",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "raw/Visualizacion/laboratorios/G5-sesion11/Lab_S11___Procesamiento_y_visualización__de_imágenes.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "Lab_S11___Procesamiento_y_visualización__de_imágenes"
+            }
+          },
+          {
+            "id": "c98c5d79cb2434d2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/Visualizacion/00_Introducción al Procesamiento de Imágenes.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "00_Introducción al Procesamiento de Imágenes"
             }
           }
         ]
@@ -81,7 +107,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 211.27963256835938
+    "width": 417.58843994140625
   },
   "right": {
     "id": "9e7bf7891c800dbb",
@@ -186,8 +212,13 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "c5f49980e1c4c73f",
+  "active": "231ad0de5c7afe16",
   "lastOpenFiles": [
+    "raw/Visualizacion/laboratorios/G5-sesion11/Lab_S11___Procesamiento_y_visualización__de_imágenes.pdf",
+    "wiki/Visualizacion/00_Introducción al Procesamiento de Imágenes.md",
+    "raw/Visualizacion/material_docente/Introducción_a_procesamiento_de_imágenes.pdf",
+    "raw/Visualizacion/material_docente/C9___Visualización_para_clasificación_y_regresión.pdf",
+    "wiki/Visualizacion/Laboratorio Power BI - Entregable.md",
     "wiki/Gestion de Proyectos/LiciFlow_Documentacion.md",
     "wiki/Gestion de Proyectos/Clase_12_PMBOK_Respuesta_a_Riesgos_y_Reservas.md",
     "raw/Responsabilidad Social y Etica/Resumen-Etica2.pdf",
@@ -205,9 +236,6 @@
     "raw/Gestion de Proyectos/material_docente/Sin confirmar 709707.crdownload",
     "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_12.pdf",
     "raw/Gestion de Proyectos/material_docente/Sin confirmar 394358.crdownload",
-    "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_11.pdf",
-    "raw/Gestion de Proyectos/material_docente/Sin confirmar 792809.crdownload",
-    "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_10.pdf",
     "wiki/Inteligencia de Negocio/02_Explicacion_Clase2_BI.md",
     "AGENTS.md",
     "log.md",
@@ -221,9 +249,6 @@
     "wiki/_conceptos/ETL.md",
     "wiki/_conceptos/OLTP vs OLAP.md",
     "wiki/_conceptos/Data Warehouse.md",
-    "wiki/_conceptos/CRISP-DM.md",
-    "wiki/_conceptos/Metodologias Agiles.md",
-    "wiki/_conceptos/Redes Neuronales.md",
     "raw/assets/Pasted image 20260613223746.png",
     "raw/assets/dw.png",
     "raw/assets/CorrecionGama.png",
