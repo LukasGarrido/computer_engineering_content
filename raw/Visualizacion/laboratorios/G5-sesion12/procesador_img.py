@@ -145,7 +145,7 @@ class ImageProcessorApp:
             processed_np = self.original_image_np
 
         elif filtro == 'Suavizado (Blur)':
-            kernel_blur = np.ones((7, 7), np.float32) / 49.0
+            kernel_blur = np.ones((5, 5), np.float32) / 25.0
             processed_np = cv2.filter2D(self.original_image_np, -1, kernel_blur)
 
         elif filtro == 'Bordes (Laplace)':

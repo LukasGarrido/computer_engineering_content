@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "c43deb08347bdaaf",
+        "id": "99c6d06d177e907b",
         "type": "tabs",
         "children": [
           {
-            "id": "50f83c8518bafdcd",
+            "id": "231491d70b7ae183",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "wiki/Taller de Administracion de Sistemas/Certamen02 - 2024.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Certamen02 - 2024"
+              "title": "Nueva pestaña"
             }
           }
         ]
@@ -83,8 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 302.57622146606445,
-    "collapsed": true
+    "width": 302.57622146606445
   },
   "right": {
     "id": "9e7bf7891c800dbb",
@@ -189,12 +184,20 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "50f83c8518bafdcd",
+  "active": "597ae5d26f66b97e",
   "lastOpenFiles": [
+    "wiki/Taller de Administracion de Sistemas/Certamen02 - 2024.md",
+    "raw/Visualizacion/laboratorios/G5-sesion12/public/06_pca_k_alto.png",
+    "raw/Visualizacion/laboratorios/G5-sesion12/public/05_pca_k_medio.png",
+    "raw/Visualizacion/laboratorios/G5-sesion12/public/04_pca_k_bajo.png",
+    "raw/Visualizacion/laboratorios/G5-sesion12/public/03_laplace_1.png",
+    "raw/Visualizacion/laboratorios/G5-sesion12/public/02_blur_1.png",
+    "raw/Visualizacion/laboratorios/G5-sesion12/public/01_original.png",
+    "raw/Visualizacion/laboratorios/G5-sesion12/public",
+    "Procesador de Imágenes con Tkinter y PCA.md",
     "raw/Visualizacion/laboratorios/G5-sesion11/Lab_S11___Procesamiento_y_visualización__de_imágenes.pdf",
     "wiki/Visualizacion/00_Introducción al Procesamiento de Imágenes.md",
     "raw/Visualizacion/material_docente/Introducción_a_procesamiento_de_imágenes.pdf",
-    "wiki/Taller de Administracion de Sistemas/Certamen02 - 2024.md",
     "raw/Visualizacion/material_docente/C9___Visualización_para_clasificación_y_regresión.pdf",
     "wiki/Visualizacion/Laboratorio Power BI - Entregable.md",
     "wiki/Gestion de Proyectos/LiciFlow_Documentacion.md",
@@ -213,7 +216,6 @@
     "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_13.pdf",
     "raw/Gestion de Proyectos/material_docente/Sin confirmar 709707.crdownload",
     "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_12.pdf",
-    "raw/Gestion de Proyectos/material_docente/Sin confirmar 394358.crdownload",
     "wiki/Inteligencia de Negocio/02_Explicacion_Clase2_BI.md",
     "AGENTS.md",
     "log.md",
@@ -225,12 +227,10 @@
     "wiki/_conceptos/TCP y UDP.md",
     "wiki/_conceptos/Modelo OSI y TCP-IP.md",
     "wiki/_conceptos/ETL.md",
-    "wiki/_conceptos/OLTP vs OLAP.md",
     "raw/assets/Pasted image 20260613223746.png",
     "raw/assets/dw.png",
     "raw/assets/CorrecionGama.png",
     "Visualizacion/01_Teoria/public/CorrecionGama.png",
-    "Visualizacion/Sin título.canvas",
-    "Pasted image 20260825113306.png"
+    "Visualizacion/Sin título.canvas"
   ]
 }
