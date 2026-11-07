@@ -4,35 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "44cde0438d607106",
+        "id": "c43deb08347bdaaf",
         "type": "tabs",
         "children": [
           {
-            "id": "231ad0de5c7afe16",
+            "id": "50f83c8518bafdcd",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "raw/Visualizacion/material_docente/Introducción_a_procesamiento_de_imágenes.pdf"
+                "file": "wiki/Taller de Administracion de Sistemas/Certamen02 - 2024.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "Introducción_a_procesamiento_de_imágenes"
-            }
-          },
-          {
-            "id": "da047c048c9f41c6",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "raw/Visualizacion/laboratorios/G5-sesion11/Lab_S11___Procesamiento_y_visualización__de_imágenes.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "Lab_S11___Procesamiento_y_visualización__de_imágenes"
+              "icon": "lucide-file",
+              "title": "Certamen02 - 2024"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -94,7 +83,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 417.58843994140625
+    "width": 302.57622146606445,
+    "collapsed": true
   },
   "right": {
     "id": "9e7bf7891c800dbb",
@@ -199,12 +189,12 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "da047c048c9f41c6",
+  "active": "50f83c8518bafdcd",
   "lastOpenFiles": [
-    "wiki/Taller de Administracion de Sistemas/Certamen02 - 2024.md",
-    "wiki/Visualizacion/00_Introducción al Procesamiento de Imágenes.md",
     "raw/Visualizacion/laboratorios/G5-sesion11/Lab_S11___Procesamiento_y_visualización__de_imágenes.pdf",
+    "wiki/Visualizacion/00_Introducción al Procesamiento de Imágenes.md",
     "raw/Visualizacion/material_docente/Introducción_a_procesamiento_de_imágenes.pdf",
+    "wiki/Taller de Administracion de Sistemas/Certamen02 - 2024.md",
     "raw/Visualizacion/material_docente/C9___Visualización_para_clasificación_y_regresión.pdf",
     "wiki/Visualizacion/Laboratorio Power BI - Entregable.md",
     "wiki/Gestion de Proyectos/LiciFlow_Documentacion.md",
