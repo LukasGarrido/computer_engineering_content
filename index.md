@@ -20,7 +20,6 @@ tipo: indice
 | **Gestión de Proyectos** | [[_MOC\|MOC Gestión de Proyectos]] | 13 | Fundamentos, metodologías, Scrum, PMBOK 8 (Inicio, Alcance, EDT, Interesados, Riesgos, Cronograma, Finanzas, Calidad), proyecto LiciFlow |
 | **Inteligencia de Negocio** | [[_MOC\|MOC Inteligencia de Negocio]] | 8 | BI, Data Warehouse, OLTP→OLAP, proyecto SaludVital (análisis y arquitectura ETL) |
 | **Redes de Computadores** | [[_MOC\|MOC Redes de Computadores]] | 10 | Capas TCP/IP, plano de datos/control, seguridad, certámenes |
-| **Responsabilidad Social** | [[_MOC\|MOC Responsabilidad Social]] | 2 | Ética profesional, RSE, norma ISO 26000, programa de RSE y mapeo de stakeholders |
 | **Taller de Admin. Sistemas** | [[_MOC\|MOC TAS]] | 6 | Linux, Docker, DNS, firewall, Nginx, almacenamiento |
 | **Visualización** | [[_MOC\|MOC Visualización]] | 17 | Power BI, PCA, t-SNE, UMAP, clustering, NLP, evaluación C9, curvas ROC, SHAP (Lab S9) |
 
@@ -62,7 +61,6 @@ Páginas-hub que conectan conocimiento entre asignaturas:
 - [[NLP]] — procesamiento de lenguaje natural
 
 ### Transversales
-- [[Etica Profesional]] — ética y responsabilidad social en ingeniería e ISO 26000
 - [[Gestion de Interesados]] — identificación, matriz poder/interés y participación de stakeholders en GP, RSE y BI
 
 ---

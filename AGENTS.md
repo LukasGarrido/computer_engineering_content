@@ -213,7 +213,6 @@ Periódicamente, verificar:
 | `gestion-de-proyectos` | Gestión de Proyectos | `wiki/Gestion de Proyectos/` | `raw/Gestion de Proyectos/` |
 | `inteligencia-de-negocio` | Inteligencia de Negocio | `wiki/Inteligencia de Negocio/` | `raw/Inteligencia de Negocio/` |
 | `redes-de-computadores` | Redes de Computadores | `wiki/Redes de Computadores/` | `raw/Redes de Computadores/` |
-| `responsabilidad-social` | Responsabilidad Social y Ética | `wiki/Responsabilidad Social y Etica/` | — |
 | `taller-admin-sistemas` | Taller de Admin. de Sistemas | `wiki/Taller de Administracion de Sistemas/` | — |
 | `visualizacion` | Visualización | `wiki/Visualizacion/` | `raw/Visualizacion/` |
 

@@ -45,7 +45,6 @@ Las asignaturas documentadas incluyen:
 | **Gestión de Proyectos** | [`wiki/Gestion de Proyectos/`](./wiki/Gestion%20de%20Proyectos) | Fundamentos de gestión, planificación, metodologías ágiles y Scrum. |
 | **Inteligencia de Negocio** | [`wiki/Inteligencia de Negocio/`](./wiki/Inteligencia%20de%20Negocio) | BI, Data Warehouse, modelado dimensional (OLTP a OLAP) y Proyecto SaludVital. |
 | **Redes de Computadores** | [`wiki/Redes de Computadores/`](./wiki/Redes%20de%20Computadores) | Capas TCP/IP, seguridad en redes y certámenes. |
-| **Responsabilidad Social y Ética Laboral** | [`wiki/Responsabilidad Social y Etica/`](./wiki/Responsabilidad%20Social%20y%20Etica) | Análisis ético en ingeniería y RSE. |
 | **Taller de Administración de Sistemas** | [`wiki/Taller de Administracion de Sistemas/`](./wiki/Taller%20de%20Administracion%20de%20Sistemas) | Linux, contenedores (Docker), servicios de red (DNS, firewall). |
 | **Visualización** | [`wiki/Visualizacion/`](./wiki/Visualizacion) | Power BI, mapas, alta dimensionalidad (PCA/t-SNE) y NLP. |
 
