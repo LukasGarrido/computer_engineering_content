@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "231491d70b7ae183",
+            "id": "50687ff20aa8cc67",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -79,7 +79,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 302.57622146606445
+    "width": 302.57622146606445,
+    "collapsed": true
   },
   "right": {
     "id": "9e7bf7891c800dbb",
@@ -184,9 +185,16 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "597ae5d26f66b97e",
+  "active": "50687ff20aa8cc67",
   "lastOpenFiles": [
+    "Certamen-2024.md",
+    "wiki/Taller de Administracion de Sistemas/Certamen-2024.md",
     "wiki/Taller de Administracion de Sistemas/Certamen02 - 2024.md",
+    "_adjuntos/Pasted image 20261111164135.png",
+    "_adjuntos",
+    "wiki/Taller de Administracion de Sistemas/Certamen_1_TAS.md",
+    "wiki/Taller de Administracion de Sistemas/taller_administracion_sistemas_contenidos.md",
+    "wiki/Taller de Administracion de Sistemas/lab-http-virtualhosts-nginx.md",
     "raw/Visualizacion/laboratorios/G5-sesion12/public/06_pca_k_alto.png",
     "raw/Visualizacion/laboratorios/G5-sesion12/public/05_pca_k_medio.png",
     "raw/Visualizacion/laboratorios/G5-sesion12/public/04_pca_k_bajo.png",
@@ -209,13 +217,11 @@
     "wiki/Responsabilidad Social y Etica/Analisis_Etica_y_RSE.md",
     "wiki/Taller de Administracion de Sistemas/lab-diagnostico-red-firewall.md",
     "wiki/Taller de Administracion de Sistemas/lab-almacenamiento-permisos.md",
-    "wiki/Taller de Administracion de Sistemas/Certamen_1_TAS.md",
     "wiki/_conceptos/Etica Profesional.md",
     "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_14.pdf",
     "raw/Gestion de Proyectos/material_docente/Sin confirmar 800501.crdownload",
     "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_13.pdf",
     "raw/Gestion de Proyectos/material_docente/Sin confirmar 709707.crdownload",
-    "raw/Gestion de Proyectos/material_docente/Diapositivas_Clase_12.pdf",
     "wiki/Inteligencia de Negocio/02_Explicacion_Clase2_BI.md",
     "AGENTS.md",
     "log.md",
@@ -224,13 +230,9 @@
     "wiki/_conceptos/Procesamiento de Imagenes.md",
     "wiki/_conceptos/Power BI.md",
     "wiki/_conceptos/Linux.md",
-    "wiki/_conceptos/TCP y UDP.md",
-    "wiki/_conceptos/Modelo OSI y TCP-IP.md",
-    "wiki/_conceptos/ETL.md",
     "raw/assets/Pasted image 20260613223746.png",
     "raw/assets/dw.png",
     "raw/assets/CorrecionGama.png",
-    "Visualizacion/01_Teoria/public/CorrecionGama.png",
     "Visualizacion/Sin título.canvas"
   ]
 }
